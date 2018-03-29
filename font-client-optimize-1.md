@@ -119,15 +119,57 @@ onmessage = function(message) {
 
 ## 多域名拆分
 
-实际项目中，我们会经常看到页面中引入的资源使用了不同的域名(这里说的不包含 CND 资源)，到底是为什么要这儿做呢？具体有两方面的原因。先看一下案例：
+实际项目中，我们会经常看到页面中引入的资源使用了不同的域名(这里说的不包含 CND 资源)，到底是为什么要这儿做呢？具体有两方面的原因。先看一下 cookie 的规则：
+
+*   document.cookie 只能获取当前域下的 cookie 内容，即便使用 document.doman 重置了域名也**不能**获取到超级域的 cookie
+
+*   document.doman 只允许在子域页面中设置为超级域，不能在超级域页面中设置为子域
+
+*   请求资源(这里不包含 ajax,多数时候指得是图片等静态资源)的时候，如果资源和页面属于同一个域，会把本域下的 cookie 自动发送给服务端，如果不属于同一个域，会自动把**资源所属域**下的 cookie 信息(如果有 cookie 的话)发送到服务端
+
+*   请求不同域资源的时候，如果资源所属域下有 cookie，这些 cookie 也会在开发者工具中显示出来，但不可以被 document.cookie 获取到
 
 `test.com/index.html`
 
 ```html
-<img src="./logo.png">
-<sciript>
-    document.cookie="name=zhangsan"  // 设置一个cookie
-</script>
+<!-- 假设本页面已有cookie: name=zhangsan -->
+<img src="http://a.test.com/logo.png">
 ```
 
-这里请求了一个图片文件,不管是不是同一个域名下的，默认的 `x-form-request` 请求默认会把当前页面的 cookie 加入到请求体中，无疑增大了请求体的大小，积少成多的话会是一笔很大的开销，如果对这个资源采了另一个域名，根据 cookie 只能由
+`a.test.com/index.html`
+
+```html
+<!-- 假设本页面已有cookie: age=12 -->
+<img src="http://test.com/logo.png">
+```
+
+在没有插入图片标签的时候，两个页面在开发者工具中显示的 `cookie` 信息如下
+
+| 页面       | cookie        | path       |
+| ---------- | ------------- | ---------- |
+| test.com   | name=zhangsan | test.com   |
+| a.test.com | age=12        | a.test.com |
+
+在 test.com 中插入引用了 `a.test.com` 服务器中的图片后，开发者工具中显示的 `cookie` 信息如下：
+
+| 页面       | cookie        | path       |
+| ---------- | ------------- | ---------- |
+| test.com   | name=zhangsan | test.com   |
+| test.com   | age =12       | a.test.com |
+| a.test.com | age=12        | a.test.com |
+
+相对应的，在 `a.test.com` 中插入引用了 `test.com` 服务器中的图片后，开发者工具中显示的 `cookie` 信息如下：
+
+| 页面       | cookie        | path       |
+| ---------- | ------------- | ---------- |
+| a.test.com | name=zhangsan | test.com   |
+| a.test.com | age =12       | a.test.com |
+| test.com   | name=zhangsan | test.com   |
+
+在 `test.com/index.html` 页面中获取一下 `document.cookie`，信息如下
+
+```
+name=zhangsan
+```
+
+可以发现 `document.cookie` 并**没有获取到** `a.test.com` 域下的 `cookie` 信息，只能在请求资源的时候，把 `cookie` 传递给服务器

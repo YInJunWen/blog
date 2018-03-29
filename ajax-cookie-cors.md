@@ -2,7 +2,7 @@
 
 a.com/index.html:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
@@ -49,7 +49,7 @@ a.com/index.html:
 
 b.com/index.php
 
-```
+```php
 <?php
  $http_origin = $_SERVER['HTTP_ORIGIN'];
  header("Access-Control-Allow-Origin: $http_origin"); // 允许跨域访问
@@ -60,7 +60,7 @@ b.com/index.php
 
 b.com/index2.php
 
-```
+```php
 <?php
  echo json_encode($_COOKIE);
 ?>
