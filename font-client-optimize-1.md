@@ -119,57 +119,12 @@ onmessage = function(message) {
 
 ## 多域名拆分
 
-实际项目中，我们会经常看到页面中引入的资源使用了不同的域名(这里说的不包含 CND 资源)，到底是为什么要这儿做呢？具体有两方面的原因。先看一下 cookie 的规则：
+实际项目中，我们会经常看到页面中引入的资源使用了不同的域名(这里说的不包含 CND 资源)，由于请求资源的时候，浏览器会自动把资源所属域下的 cookie 信息传递给服务器，会造成大量的性能浪费。所以在实际项目中，可以把常用的静态资源(图片，样式，脚本)，通过其他域名的方式引入浏览器页面
 
-*   document.cookie 只能获取当前域下的 cookie 内容，即便使用 document.doman 重置了域名也**不能**获取到超级域的 cookie
-
-*   document.doman 只允许在子域页面中设置为超级域，不能在超级域页面中设置为子域
-
-*   请求资源(这里不包含 ajax,多数时候指得是图片等静态资源)的时候，如果资源和页面属于同一个域，会把本域下的 cookie 自动发送给服务端，如果不属于同一个域，会自动把**资源所属域**下的 cookie 信息(如果有 cookie 的话)发送到服务端
-
-*   请求不同域资源的时候，如果资源所属域下有 cookie，这些 cookie 也会在开发者工具中显示出来，但不可以被 document.cookie 获取到
-
-`test.com/index.html`
+`test.com`
 
 ```html
-<!-- 假设本页面已有cookie: name=zhangsan -->
-<img src="http://a.test.com/logo.png">
+<img src="http://a.test.com/logo.png" >
+<link href="http://a.test.com/main.css" rel="stylesheet">
+<script src="http://a.test.com/main.js" type="javascript/text">
 ```
-
-`a.test.com/index.html`
-
-```html
-<!-- 假设本页面已有cookie: age=12 -->
-<img src="http://test.com/logo.png">
-```
-
-在没有插入图片标签的时候，两个页面在开发者工具中显示的 `cookie` 信息如下
-
-| 页面       | cookie        | path       |
-| ---------- | ------------- | ---------- |
-| test.com   | name=zhangsan | test.com   |
-| a.test.com | age=12        | a.test.com |
-
-在 test.com 中插入引用了 `a.test.com` 服务器中的图片后，开发者工具中显示的 `cookie` 信息如下：
-
-| 页面       | cookie        | path       |
-| ---------- | ------------- | ---------- |
-| test.com   | name=zhangsan | test.com   |
-| test.com   | age =12       | a.test.com |
-| a.test.com | age=12        | a.test.com |
-
-相对应的，在 `a.test.com` 中插入引用了 `test.com` 服务器中的图片后，开发者工具中显示的 `cookie` 信息如下：
-
-| 页面       | cookie        | path       |
-| ---------- | ------------- | ---------- |
-| a.test.com | name=zhangsan | test.com   |
-| a.test.com | age =12       | a.test.com |
-| test.com   | name=zhangsan | test.com   |
-
-在 `test.com/index.html` 页面中获取一下 `document.cookie`，信息如下
-
-```
-name=zhangsan
-```
-
-可以发现 `document.cookie` 并**没有获取到** `a.test.com` 域下的 `cookie` 信息，只能在请求资源的时候，把 `cookie` 传递给服务器
