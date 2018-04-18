@@ -40,7 +40,7 @@ files.forEach((element, index) => {
     if (title) {
       title = title[0].replace("# ", "");
       console.log(title);
-      let wsData = `[${title}](./doc/${element})${os.EOL}`;
+      let wsData = `[${title}](./doc/${element})${os.EOL}${os.EOL}`;
       ws.write(wsData, (err, data) => {
         console.log(wsData);
       });
