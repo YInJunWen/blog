@@ -1,3 +1,5 @@
+# ajax 中 cookie 的跨域问题
+
 > 一般情况下，浏览器对于 ajax 跨域请求，默认不会发送身份凭证信息(cookie 和 http 认证相关数据)。如果需要发送这些信息，必须要设置一个特殊的属性：withCredientials，我们以 xmlHttpRequest 为例：
 
 a.com/index.html:
