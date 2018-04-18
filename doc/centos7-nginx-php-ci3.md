@@ -1,8 +1,8 @@
-# 在 centos7 中布置 nginx+php 环境
+# centOS7+nginx+php+ci3
 
 ## 更改 centOS 防火墙设置
 
-我是用虚拟机新安装的 CentOS7 版本，并且清除了所有的默认防火墙规则，重新打开需要使用的 22，80，8888 端口， **这一步可以跳过**
+我是用虚拟机新安装的 CentOS7 版本，并且清除了所有的默认防火墙规则，重新打开需要使用的 22，80，8888 端口
 
 新建 bash 文件/opt/bash/firewall.sh
 
@@ -49,18 +49,11 @@ yum install nginx
 
 ## 安装 php7
 
-添加 yum 源，不同 centos 版本，在 yum 安装前，增加 yum 仓库信息
+添加 yum 源
 
 ```
-Centos 5.X
-   rpm -Uvh http://mirror.webtatic.com/yum/el5/latest.rpm
-
-CentOs 6.x
-    rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
-
-CentOs 7.X
-    rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
-    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 
 这一步有的同学可能会在安装第二个包的时候出现无反应的情况，我在安装的时候第二个 rpm 包不不能使用 https 访问，网址改成 http 即可安装完成后，yum 的仓库文件夹内会多出一个`/etc/yum.repo.d/webstatic.repo`文件，这个文件里面默认用的也是 https 的地址，打开文件把里面的`https`全部改成`http`即可

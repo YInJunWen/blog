@@ -28,23 +28,22 @@ let ws = fs.createWriteStream(menuFile, {
   mode: 0o666,
   autoClose: true
 });
+ws.write(`# 目录${os.EOL}${os.EOL}`);
 files.forEach((element, index) => {
-  console.log(element);
   let realPath = path.resolve(docPath, "./" + element);
-  console.log(realPath);
   fs.readFile(realPath, "utf8", (err, data) => {
     let title = data.match(/^#\ (.*)/g);
     if (!title) {
       console.log(`${realPath}文件中未找到标题`);
+    } else {
+      if (title) {
+        title = title[0].replace("# ", "");
+        // console.log(title);
+        let wsData = `[${title}]("./doc/${element}")${os.EOL}${os.EOL}`;
+        ws.write(wsData, (err, data) => {});
+      }
     }
-    if (title) {
-      title = title[0].replace("# ", "");
-      console.log(title);
-      let wsData = `[${title}](./doc/${element})${os.EOL}${os.EOL}`;
-      ws.write(wsData, (err, data) => {
-        console.log(wsData);
-      });
-    }
+
     if (index == files.length - 1) {
       ws.end();
     }
