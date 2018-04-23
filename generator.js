@@ -28,9 +28,17 @@ let ws = fs.createWriteStream(menuFile, {
   mode: 0o666,
   autoClose: true
 });
-ws.write(`# 目录${os.EOL}${os.EOL}`);
-files.forEach((element, index) => {
-  let realPath = path.resolve(docPath, "./" + element);
+ws.write(`# 目录${os.EOL}${os.EOL}`, () => {
+  generator(files);
+});
+
+function generator(fileList, index = 0) {
+  if (!fileList[index]) {
+    ws.end();
+    console.log("all success");
+    return false;
+  }
+  let realPath = path.resolve(docPath, "./" + fileList[index]);
   fs.readFile(realPath, "utf8", (err, data) => {
     let title = data.match(/^#\ (.*)/g);
     if (!title) {
@@ -39,13 +47,16 @@ files.forEach((element, index) => {
       if (title) {
         title = title[0].replace("# ", "");
         // console.log(title);
-        let wsData = `[${title}]("./doc/${element}")${os.EOL}${os.EOL}`;
-        ws.write(wsData, (err, data) => {});
+        let wsData = `[${title}]("./doc/${fileList[index]}")${os.EOL}${os.EOL}`;
+        ws.write(wsData, (err, data) => {
+          if (err) {
+            throw new Error(`write function failed at ${file[index]}`);
+            return false;
+          }
+          // console.log(`${fileList[index]} generator success`);
+          generator(fileList, ++index);
+        });
       }
     }
-
-    if (index == files.length - 1) {
-      ws.end();
-    }
   });
-});
+}
