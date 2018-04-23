@@ -47,7 +47,7 @@ function generator(fileList, index = 0) {
       if (title) {
         title = title[0].replace("# ", "");
         // console.log(title);
-        let wsData = `[${title}]("./doc/${fileList[index]}")${os.EOL}${os.EOL}`;
+        let wsData = `[${title}](./doc/${fileList[index]})${os.EOL}${os.EOL}`;
         ws.write(wsData, (err, data) => {
           if (err) {
             throw new Error(`write function failed at ${file[index]}`);
