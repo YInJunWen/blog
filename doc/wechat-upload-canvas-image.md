@@ -61,3 +61,9 @@ Page({
     }
 ?>
 ```
+
+要注意以下几点:
+
+* 由于官方推荐使用 wx.createCanvasContext()方法，需要指定对应的 canvas-id，因此 wxml 中必须显式插入一个 canvas 元素
+* wxml 中的 canvas 必须是可见的，也就是说不能设置为 `display：none`
+* 如果想让 canvas 不可见，可以通过暗度陈仓的方式，比如设置为 `position:fixed;top:-100%;left: 0;`

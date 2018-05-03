@@ -50,9 +50,15 @@
 
 [angularJS 中的文件上传](./doc/angularjs1-upload-file.md)
 
+[antd 框架中的 Form 组件](./doc/antd-form-doc.md)
+
+[antd 中的 treeSelect 多个联动效果](./doc/antd-treeselect-mutiple.md)
+
 [axios 主动取消请求](./doc/axios-cancel-request.md)
 
 [如何处理在 SPA 中路由切换后的请求终止问题](./doc/axios-vue-nav-guards.md)
+
+[浏览器原理](./doc/browser-principle.md)
 
 [brwoser-sync 插件常见错误](./doc/browsersync-errors.md)
 
