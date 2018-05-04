@@ -44,7 +44,7 @@ function DOG(name) {
 对这个构造函数使用 new，就会生成一个狗对象的实例。
 
 ```js
-var dogA = new DOG("大毛");
+var dogA = new DOG('大毛');
 alert(dogA.name); // 大毛
 ```
 
@@ -59,21 +59,21 @@ alert(dogA.name); // 大毛
 ```js
 function DOG(name) {
   this.name = name;
-  this.species = "犬科";
+  this.species = '犬科';
 }
 ```
 
 然后，生成两个实例对象：
 
 ```js
-var dogA = new DOG("大毛");
-var dogB = new DOG("二毛");
+var dogA = new DOG('大毛');
+var dogB = new DOG('二毛');
 ```
 
 这两个对象的 species 属性是独立的，修改其中一个，不会影响到另一个。
 
 ```js
-dogA.species = "猫科";
+dogA.species = '猫科';
 alert(dogB.species); // 显示"犬科"，不受dogA的影响
 ```
 
@@ -91,10 +91,10 @@ alert(dogB.species); // 显示"犬科"，不受dogA的影响
 function DOG(name) {
   this.name = name;
 }
-DOG.prototype = { species: "犬科" };
+DOG.prototype = { species: '犬科' };
 
-var dogA = new DOG("大毛");
-var dogB = new DOG("二毛");
+var dogA = new DOG('大毛');
+var dogB = new DOG('二毛');
 
 alert(dogA.species); // 犬科
 alert(dogB.species); // 犬科
@@ -103,13 +103,17 @@ alert(dogB.species); // 犬科
 现在，species 属性放在 prototype 对象里，是两个实例对象共享的。只要修改了 prototype 对象，就会同时影响到两个实例对象。
 
 ```js
-DOG.prototype.species = "猫科";
+DOG.prototype.species = '猫科';
 
 alert(dogA.species); // 猫科
 alert(dogB.species); // 猫科
 ```
 
 ## 五、总结
+
+* 构造函数本身的属性相当于私有属性，生成的对象实例之间互不影响
+
+* 而构造函数的 prototype 属性上定义的属性，相当于公共属性，生成的对象实例之间互相影响，只要一个被修改，另一个也会被修改
 
 由于所有的实例对象共享同一个 prototype 对象，那么从外界看起来，prototype 对象就好像是实例对象的原型，而实例对象则好像"继承"了 prototype 对象一样。
 
