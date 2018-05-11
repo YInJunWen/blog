@@ -28,9 +28,12 @@ let ws = fs.createWriteStream(menuFile, {
   mode: 0o666,
   autoClose: true,
 });
-ws.write(`# 目录${os.EOL}${os.EOL}`, () => {
-  generator(files);
-});
+ws.write(
+  `# 目录${os.EOL}${os.EOL} |标题|详情|${os.EOL}|---|---|${os.EOL}`,
+  () => {
+    generator(files);
+  }
+);
 
 function generator(fileList, index = 0) {
   if (!fileList[index]) {
@@ -48,7 +51,7 @@ function generator(fileList, index = 0) {
       if (title) {
         title = title[0].replace('# ', '');
         // console.log(title);
-        let wsData = `[${title}](/docs/${fileList[index]}/index.md)${os.EOL}${
+        let wsData = `|${title}|[详情](/docs/${fileList[index]}/index.md)|${
           os.EOL
         }`;
         ws.write(wsData, (err, data) => {
