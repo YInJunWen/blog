@@ -6,6 +6,10 @@
 function Animal() {
   this.species = '动物';
 }
+Animal.prototype.age = 12;
+Animal.prototype.test = function() {
+  return 'test';
+};
 ```
 
 还有一个"猫"对象的构造函数。
@@ -19,9 +23,11 @@ function Cat(name, color) {
 
 怎样才能使"猫"继承"动物"呢？
 
-## 一、 构造函数绑定[代码](./demo1.js)
+## 一、 构造函数绑定
 
 第一种方法也是最简单的方法，使用 call 或 apply 方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：
+
+[代码](./demo1.js)
 
 ```js
 function Cat(name, color) {
@@ -30,15 +36,17 @@ function Cat(name, color) {
   this.color = color;
 }
 let a = new Cat('大毛', '黄色');
+```
 
+但是这种方法只能继承 Animal 的自有属性，无法继承 Animal 的 prototype 属性(或方法)
+
+```js
 a.species; // 动物
 a.name; // 大毛
 a.color; // 黄色
 a.age; // undefined
-a.test; // a.test is not function
+a.test(); // a.test is not function
 ```
-
-但是可以看到这种方法只能继承 Animal 的自有属性，无法继承 Animal 的 prototype 属性(或方法)
 
 ## 二、 prototype 模式
 
@@ -95,6 +103,18 @@ o.prototype = {};
 
 ```js
 o.prototype.constructor = o;
+```
+
+与第一种方法相比，这种方法已经既可以获取 Animal 的自有属性，也可以获取到 Animal 的 prototype 属性
+
+[代码](./demo2.js)
+
+```js
+a.species; // 动物
+a.name; // 大毛
+a.color; // 黄色
+a.age; // 12
+a.test(); // test
 ```
 
 ## 三、 直接继承 prototype
@@ -208,4 +228,40 @@ function extend2(Child, Parent) {
 extend2(Cat, Animal);
 var cat1 = new Cat('大毛', '黄色');
 alert(cat1.species); // 动物
+```
+
+但是，不管是第四种还是第五种都有一个要注意的地方，那就是如果 Animal 的 prototype 中有一个属性的值是一个对象，那么修改 Cat 生成的实例的相关属性的时候，同样会改变 Animal 原型链上的这个属性，这个影响同样作用于是数组的情况，引起这种影响的主要原因在于 JS 的深拷贝与浅拷贝原理
+
+[代码](./demo.js)
+
+```js
+function Animal() {
+  this.species = '动物';
+}
+Animal.prototype.age = 12;
+Animal.prototype.test = function() {
+  return 'test';
+};
+Animal.prototype.other = {
+  width: 10,
+  height: 20,
+};
+function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+function extend(Child, Parent) {
+  var F = function() {};
+  F.prototype = Parent.prototype;
+  Child.prototype = new F();
+  Child.prototype.constructor = Child;
+  Child.uber = Parent.prototype;
+}
+
+extend(Cat, Animal);
+var a = new Cat('大毛', '黄色');
+
+a.other.width = 30;
+console.log(Animal.prototype.other); // {width: 30, height: 20}
 ```
