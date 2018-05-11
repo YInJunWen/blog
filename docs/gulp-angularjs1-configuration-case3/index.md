@@ -146,7 +146,7 @@ gulp.task('index', function (cb) {
 gulp.task('html', function (cb) {
     gulp.src(htmlPath)
         .pipe($.rename({
-            dirname: '
+            dirname: ''
         }))
         .pipe($.replace(/{STATIC_PATH}/g, staticPath))
         .pipe($.replace(/{POST_PATH}/g, postPath))
