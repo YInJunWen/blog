@@ -1,4 +1,4 @@
-# js 获取 36 位 uuid
+# js 生成 36 位随机字符串
 
 ```js
 function uuid() {

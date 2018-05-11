@@ -1,14 +1,14 @@
-# 初探 angular2
+# angular2 初探
 
 > angular2+版本与第一个版本有了很大的的差别，所用到的语法以及各种指令的声明方式都和老版本完全不同，这里记述一下基本的用法
 
 ## 新建组件
 
 ```js
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 @Component({
-  selector: "app-root", //  要扩展的元素
-  template: "" //    html内容
+  selector: 'app-root', //  要扩展的元素
+  template: '', //    html内容
 })
 export class AppComponent {} // 组件的方法以及属性
 ```
@@ -71,7 +71,7 @@ import { FormsModule } from "@angular/core";
 ```
 
 ```js
-import { Component, Input } from "@anglar/core";
+import { Component, Input } from '@anglar/core';
 export class AppComonent {
   @Input() prop;
 }
@@ -86,7 +86,7 @@ export class AppComonent {
 ```
 
 ```js
-import { Component, Input } from "@anglar/core";
+import { Component, Input } from '@anglar/core';
 export class AppComonent {
   @Input() name;
 }
@@ -99,9 +99,9 @@ export class AppComonent {
 ```
 
 ```js
-import { Component, Input } from "@anglar/core";
+import { Component, Input } from '@anglar/core';
 export class AppComonent {
-  @Input("test-name") name;
+  @Input('test-name') name;
 }
 ```
 
@@ -129,7 +129,7 @@ for 循环指令:
 注册全局的服务需要用到 angular 中的`Injectable`类
 
 ```js
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TestService {

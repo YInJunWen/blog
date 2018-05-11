@@ -4,7 +4,7 @@
 
 ```js
 function Animal() {
-  this.species = "动物";
+  this.species = '动物';
 }
 ```
 
@@ -19,7 +19,7 @@ function Cat(name, color) {
 
 怎样才能使"猫"继承"动物"呢？
 
-## 一、 构造函数绑定
+## 一、 构造函数绑定[代码](./demo1.js)
 
 第一种方法也是最简单的方法，使用 call 或 apply 方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：
 
@@ -29,9 +29,16 @@ function Cat(name, color) {
   this.name = name;
   this.color = color;
 }
-var cat1 = new Cat("大毛", "黄色");
-alert(cat1.species); // 动物
+let a = new Cat('大毛', '黄色');
+
+a.species; // 动物
+a.name; // 大毛
+a.color; // 黄色
+a.age; // undefined
+a.test; // a.test is not function
 ```
+
+但是可以看到这种方法只能继承 Animal 的自有属性，无法继承 Animal 的 prototype 属性(或方法)
 
 ## 二、 prototype 模式
 
@@ -42,7 +49,7 @@ alert(cat1.species); // 动物
 ```js
 Cat.prototype = new Animal();
 Cat.prototype.constructor = Cat;
-var cat1 = new Cat("大毛", "黄色");
+var cat1 = new Cat('大毛', '黄色');
 alert(cat1.species); // 动物
 ```
 
@@ -98,7 +105,7 @@ o.prototype.constructor = o;
 
 ```js
 function Animal() {}
-Animal.prototype.species = "动物";
+Animal.prototype.species = '动物';
 ```
 
 然后，将 Cat 的 prototype 对象，然后指向 Animal 的 prototype 对象，这样就完成了继承。
@@ -106,7 +113,7 @@ Animal.prototype.species = "动物";
 ```js
 Cat.prototype = Animal.prototype;
 Cat.prototype.constructor = Cat;
-var cat1 = new Cat("大毛", "黄色");
+var cat1 = new Cat('大毛', '黄色');
 alert(cat1.species); // 动物
 ```
 
@@ -157,7 +164,7 @@ function extend(Child, Parent) {
 
 ```js
 extend(Cat, Animal);
-var cat1 = new Cat("大毛", "黄色");
+var cat1 = new Cat('大毛', '黄色');
 alert(cat1.species); // 动物
 ```
 
@@ -177,7 +184,7 @@ Child.uber = Parent.prototype;
 
 ```js
 function Animal() {}
-Animal.prototype.species = "动物";
+Animal.prototype.species = '动物';
 ```
 
 然后，再写一个函数，实现属性拷贝的目的。
@@ -199,6 +206,6 @@ function extend2(Child, Parent) {
 
 ```js
 extend2(Cat, Animal);
-var cat1 = new Cat("大毛", "黄色");
+var cat1 = new Cat('大毛', '黄色');
 alert(cat1.species); // 动物
 ```

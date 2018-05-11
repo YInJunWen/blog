@@ -22,6 +22,9 @@ safari 比较特别，有自己获取 scrollTop 的函数 ：`window.pageYOffset
 
 完美的获取 scrollTop 赋值短语 ：
 
-```
-var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+```js
+var scrollTop =
+  document.documentElement.scrollTop ||
+  window.pageYOffset ||
+  document.body.scrollTop;
 ```
