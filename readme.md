@@ -70,10 +70,7 @@
 |前端优化方案|[详情](./docs/font-client-optimize-1/index.md)|
 |gitignore 语法|[详情](./docs/git-ignore-syntax/index.md)|
 |git 常用命令|[详情](./docs/git-methods/index.md)|
-|guplFile 配置案例(angular1.x)|[详情](./docs/gulp-angularjs1-configuration-case1/index.md)|
-|五个 ng1 项目后的最新项目结构与 gulpFile 文件|[详情](./docs/gulp-angularjs1-configuration-case3/index.md)|
-|gulp 配置案例|[详情](./docs/gulp-configuration-case/index.md)|
-|gulp 模块化开发解决方案|[详情](./docs/gulp-configuration-case-2/index.md)|
+|gulp 开发 AngularJS 的配置案例|[详情](./docs/gulp-angularjs-configuration/index.md)|
 |gulp 常用插件|[详情](./docs/gulp-plugins/index.md)|
 |gulp-rename 插件|[详情](./docs/gulp-rename-plugin/index.md)|
 |H5一些小坑整理|[详情](./docs/h5-errors/index.md)|
