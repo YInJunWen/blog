@@ -1,6 +1,6 @@
 # 目录
 
-[基础算法——直接插入排序](./docs/algorithm-1/index.md)
+[基础算法——直接插入排序](/docs/algorithm-1/index.md)
 
 [基础算法之——折半插入排序](./docs/algorithm-2/index.md)
 
