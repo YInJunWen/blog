@@ -2,7 +2,7 @@
 
  |标题|详情|
 |---|---|
-|基础算法——直接插入排序|[详情](/docs/algorithm-1/index.md)|
+|基础算法——直接插入排序|[详情](./docs/algorithm-1/index.md)|
 |基础算法之——折半插入排序|[详情](/docs/algorithm-2/index.md)|
 |基础算法之 冒泡排序|[详情](/docs/algorithm-3/index.md)|
 |基础算法之 双向冒泡排序|[详情](/docs/algorithm-4/index.md)|
