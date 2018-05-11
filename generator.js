@@ -48,7 +48,7 @@ function generator(fileList, index = 0) {
       if (title) {
         title = title[0].replace('# ', '');
         // console.log(title);
-        let wsData = `[${title}](./docs/${fileList[index]}/index.md)${os.EOL}${
+        let wsData = `[${title}](/docs/${fileList[index]}/index.md)${os.EOL}${
           os.EOL
         }`;
         ws.write(wsData, (err, data) => {
