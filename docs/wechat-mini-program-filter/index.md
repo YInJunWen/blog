@@ -22,9 +22,9 @@ module.exports = {
 
 ```js
 module.exports = {
-    test: function(data) {
-        return "detail=" + JSON.stringify(data);
-    }
+  test: function(data) {
+    return 'detail=' + JSON.stringify(data);
+  },
 };
 ```
 
@@ -35,10 +35,3 @@ module.exports = {
 <view>{{ foo.test({name: 'zhangsan'})}}}</view>
 </wxs>
 ```
-
-## wxs 的那些坑
-
-在查看 wxs 文档的时候，看起来和常见的 Javascript 没啥区别，但实际上 wxs 只能算是 javascript 的子集，下面就是他的一些坑
-
-*   声明变量的时候，只可以使用关键字**var**，注意：千万不要把 let，const 也用到小程序里面，会报错的
-*   针对”对象“类型的变量，在 wxs 中是没办法遍历的，因为 wxs 并没有提供`for...in...`或者是`for...of...`等循环语句
