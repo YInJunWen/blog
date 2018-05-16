@@ -1,4 +1,4 @@
-# 初探 express
+# express 初探
 
 [参考中文文档](https://www.zybuluo.com/XiangZhou/note/208532#express-4x-api)
 
@@ -9,7 +9,7 @@
 ```
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 ```
 
@@ -33,8 +33,8 @@ app.use(express.static('public'));
 所有文件的路径都是相对于存放目录的，因此，存放静态文件的目录名不会出现在 URL 中。如果你的静态资源存放在多个目录下面，你可以多次调用 express.static 中间件：
 
 ```js
-app.use(express.static("public"));
-app.use(express.static("files"));
+app.use(express.static('public'));
+app.use(express.static('files'));
 ```
 
 访问静态资源文件时，express.static 中间件会根据目录添加的顺序查找所需的文件。

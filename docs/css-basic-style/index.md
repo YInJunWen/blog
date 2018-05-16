@@ -1,4 +1,4 @@
-# 常见 css 标签大全
+# css 常见标签大全
 
 ## 一、 CSS 文字属性：
 
@@ -45,9 +45,7 @@ text-align: center; /*文字居中对齐*/
 
 text-align: justify; /*文字分散对齐*/
 
-vertical-align属性
-
-vertical-align: top; /*垂直向上对齐*/
+vertical-align属性vertical-align: top; /*垂直向上对齐*/
 
 vertical-align: bottom; /*垂直向下对齐*/
 

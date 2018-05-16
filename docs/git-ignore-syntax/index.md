@@ -1,4 +1,4 @@
-# gitignore 语法
+# git 配置文件.gitignore
 
 ## 通配符的作用
 

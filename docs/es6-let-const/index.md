@@ -1,13 +1,13 @@
-# ES6 中新的变量申明方式 Let 与 Const
+# es6 中新的变量申明方式 Let 与 Const
 
 > ES5 中出现变量提升的案例
 
 ```js
 var a = [];
 for (var i = 0; i < 10; i++) {
-    a[i] = function() {
-        console.log(i);
-    };
+  a[i] = function() {
+    console.log(i);
+  };
 }
 a[1](); //  10
 ```
@@ -18,8 +18,8 @@ a[1](); //  10
 
 ```js
 for (let i = 0; i < 10; i++) {
-    let i = 100;
-    console.log(i);
+  let i = 100;
+  console.log(i);
 }
 ```
 
@@ -29,7 +29,7 @@ for (let i = 0; i < 10; i++) {
 
 ```js
 console.log(a);
-let a = "123";
+let a = '123';
 ```
 
 上面的句子中就会暴露`ReferenceError: a is not defined`的错误。这个错误会直接导致程序的停止运行，而不是我们常见的输出到控制台就继续下一步了。
@@ -49,12 +49,12 @@ test()
 
 ```js
 function add() {
-    let a = 1;
-    let a = 2;
+  let a = 1;
+  let a = 2;
 }
 // 或者
 function add(a) {
-    let a = 2;
+  let a = 2;
 }
 ```
 
@@ -63,12 +63,12 @@ function add(a) {
 > 内层变量覆盖外层变量的例子：
 
 ```js
-var tmp = "123";
+var tmp = '123';
 function add() {
-    console.log(tmp);
-    if (true) {
-        var tmp = "456";
-    }
+  console.log(tmp);
+  if (true) {
+    var tmp = '456';
+  }
 }
 add();
 ```
@@ -79,7 +79,7 @@ add();
 
 ```js
 for (var i = 0; i < 10; i++) {
-    console.log(i);
+  console.log(i);
 }
 console.log(i); // 9
 ```
@@ -90,14 +90,14 @@ console.log(i); // 9
 
 ```js
 {
-    let a = 1;
-    {
-        let a = 2;
-        let b = 3;
-        console.log(a); // 2
-    }
-    console.log(a); // 1
-    console.log(b); // ReferenceError b is not defined
+  let a = 1;
+  {
+    let a = 2;
+    let b = 3;
+    console.log(a); // 2
+  }
+  console.log(a); // 1
+  console.log(b); // ReferenceError b is not defined
 }
 ```
 
@@ -105,15 +105,15 @@ console.log(i); // 9
 
 ```js
 function add() {
-    console.log("outside");
+  console.log('outside');
 }
 function foo() {
-    if (true) {
-        function add() {
-            console.log("inside");
-        }
+  if (true) {
+    function add() {
+      console.log('inside');
     }
-    add();
+  }
+  add();
 }
 foo();
 ```
@@ -124,11 +124,11 @@ foo();
 
 ```js
 {
-    function add() {} // 不推荐
+  function add() {} // 不推荐
 }
 
 {
-    var add = function() {}; // 推荐的
+  var add = function() {}; // 推荐的
 }
 ```
 

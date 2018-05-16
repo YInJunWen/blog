@@ -1,4 +1,4 @@
-# ES6-修饰器 decorator
+# es6 修饰器 decorator
 
 ## 类的修饰器
 
@@ -70,8 +70,8 @@ class Foo {
 修饰器后面的参数是根据关键字后面跟着的方法获取的，上面的例子中 target 指向 Foo.prototype，name 指向 Foo 类中 get 方法， descriptor 指向 get 方法的描述对象，他的结果和
 
 ```js
-Object.defineProperty(Foo.prototype, "get", {
-  writable: false
+Object.defineProperty(Foo.prototype, 'get', {
+  writable: false,
 });
 ```
 

@@ -1,4 +1,4 @@
-# animate-timing-function
+# css animate-timing-function 属性
 
 不管是 w3xschool 还是 w3school 种关于 animate-timing-function 的说明都只有一下几种方式：
 

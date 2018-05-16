@@ -1,4 +1,4 @@
-# ES6-类 Class
+# es6 Class
 
 ## Class 中定义的方法和属性
 
@@ -81,7 +81,7 @@ let person = new class {
   getName() {
     console.log(this.name);
   }
-}("张三");
+}('张三');
 person.getName(); //Myclass
 ```
 
@@ -287,7 +287,7 @@ function foo(name) {
   if (new.target !== undefined) {
     this.name = name;
   } else {
-    throw new Error("必须使用new命令生成实例");
+    throw new Error('必须使用new命令生成实例');
   }
 }
 ```
@@ -300,7 +300,7 @@ class Foo {
     console.log(new.target);
     //class内部调用new.target的时候，返回当前类， 子类继承父类的时候，new.target返回子类
     try {
-      if (new.target === Foo) throw new Error("该类不能被直接使用");
+      if (new.target === Foo) throw new Error('该类不能被直接使用');
     } catch (e) {
       console.error(e);
     }

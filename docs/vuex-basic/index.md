@@ -1,4 +1,4 @@
-# 初探 vuex
+# vuex 初探
 
 > vuex 是一个专门为 vue 应用提供的“全局状态管理库”，所有组件中绑定了 vuex 的部分都可以跟着 vuex 中状态的改变而改变
 
@@ -11,21 +11,21 @@ npm install vuex --save
 ## 初始化 vuex
 
 ```js
-import Vuex from "vuex";
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    state: {
-        count: 0
-    }
+  state: {
+    count: 0,
+  },
 });
 
 new Vue({
-    el: "#app",
-    store,
-    components: { App },
-    template: "<App/>"
+  el: '#app',
+  store,
+  components: { App },
+  template: '<App/>',
 });
 ```
 
@@ -35,17 +35,17 @@ new Vue({
 
 ```js
 const store = new Vue.Store({
-    state: {
-        count: 0
+  state: {
+    count: 0,
+  },
+  mutations: {
+    increment(state) {
+      state.count++;
     },
-    mutations: {
-        increment(state) {
-            state.count++;
-        },
-        updateCount(state) {
-            state.count--;
-        }
-    }
+    updateCount(state) {
+      state.count--;
+    },
+  },
 });
 ```
 
@@ -135,68 +135,68 @@ this.increment({count: 1})  // 相当于执行了 this.$store.dispathc('incremen
 
 `state` 中保存了 SPA 页面加载时最原始的数据，下面是使用 `state` 数据的几种方式
 
-*   state 中的属性可以通过`this.$store`方法直接在组件中获取到, 也可以拿来和组件中的数据运算后重新赋值
+* state 中的属性可以通过`this.$store`方法直接在组件中获取到, 也可以拿来和组件中的数据运算后重新赋值
 
 ```js
 export default {
-    data() {
-        return {
-            plus: 10
-        };
+  data() {
+    return {
+      plus: 10,
+    };
+  },
+  computed: {
+    count() {
+      return this.$store.state.count;
     },
-    computed: {
-        count() {
-            return this.$store.state.count;
-        },
-        result() {
-            return this.$store.state.count + this.plus;
-        }
-    }
+    result() {
+      return this.$store.state.count + this.plus;
+    },
+  },
 };
 ```
 
-*   可以通过给 mapState 传递一个数组参数，把 state 的属性映射到组件的同名属性中
+* 可以通过给 mapState 传递一个数组参数，把 state 的属性映射到组件的同名属性中
 
 ```js
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-    computed: {
-        ...mapState(["count"]) //把state.count赋值给 this.count
-    }
+  computed: {
+    ...mapState(['count']), //把state.count赋值给 this.count
+  },
 };
 ```
 
-*   也可以通过给 mapState 传递一个对象参数，把 state 的属性映射到组件的不同命属性中
+* 也可以通过给 mapState 传递一个对象参数，把 state 的属性映射到组件的不同命属性中
 
 ```js
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-    computed: {
-        ...mapState({
-            localCount: state => {
-                // 这种方式允许自己定义映射到组件内的属性名
-                return state.count;
-            },
-            localCount: "count"
-        })
-    }
+  computed: {
+    ...mapState({
+      localCount: state => {
+        // 这种方式允许自己定义映射到组件内的属性名
+        return state.count;
+      },
+      localCount: 'count',
+    }),
+  },
 };
 ```
 
-*   也可以在 store 中直接调用数据:
+* 也可以在 store 中直接调用数据:
 
 ```js
 const store = new Vue.Store({
-    state: {
-        count: 0
+  state: {
+    count: 0,
+  },
+  getters: {
+    getterCount: state => {
+      return state.count;
     },
-    getters: {
-        getterCount: state => {
-            return state.count;
-        }
-    }
+  },
 });
 ```
 
@@ -208,31 +208,31 @@ getter 会默认前面四个参数分别是 state, getters, rootState, rootGette
 
 ```js
 const store = new Vue.Store({
-    state: {
-        persons: [
-            {
-                name: "zhangsan",
-                id: 1
-            },
-            {
-                name: "lisi",
-                id: 2
-            }
-        ]
+  state: {
+    persons: [
+      {
+        name: 'zhangsan',
+        id: 1,
+      },
+      {
+        name: 'lisi',
+        id: 2,
+      },
+    ],
+  },
+  getters: {
+    firstPerson: (state, getters) => {
+      return state.person.find(item => {
+        return item.id == 1;
+      });
     },
-    getters: {
-        firstPerson: (state, getters) => {
-            return state.person.find(item => {
-                return item.id == 1;
-            });
-        }
-    }
+  },
 });
 ```
 
 下面是使用 getter 的几种方法
 
-*   getter 可以在组件中直接通过`this.$store`使用
+* getter 可以在组件中直接通过`this.$store`使用
 
 ```html
 <template>
@@ -242,38 +242,38 @@ const store = new Vue.Store({
 
 ```js
 export default {
-    computed: {
-        firstPerson() {
-            // 这里的firstPerson可以设置为随意的字符串
-            return this.$store.getters.firstPerson;
-        }
-    }
+  computed: {
+    firstPerson() {
+      // 这里的firstPerson可以设置为随意的字符串
+      return this.$store.getters.firstPerson;
+    },
+  },
 };
 ```
 
-*   使用绑定函数直接把 getter 映射到组件内可以通过数组方式
+* 使用绑定函数直接把 getter 映射到组件内可以通过数组方式
 
 ```js
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-    computed: {
-        ...mapGetters(["firsrPerson"])
-    }
+  computed: {
+    ...mapGetters(['firsrPerson']),
+  },
 };
 ```
 
-*   如果你想给 getter 映射一个新的名字，可以通过对象的方式
+* 如果你想给 getter 映射一个新的名字，可以通过对象的方式
 
 ```js
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-    computed: {
-        ...mapGetters({
-            localPerson: "firstPerson"
-        })
-    }
+  computed: {
+    ...mapGetters({
+      localPerson: 'firstPerson',
+    }),
+  },
 };
 ```
 
@@ -281,25 +281,25 @@ getter 中也可以定义一个可以传递某个参数的方法， 然后把方
 
 ```js
 const store = new Vue.Store({
-    state: {
-        persons: [
-            {
-                name: "zhangsan",
-                id: 1
-            },
-            {
-                name: "lisi",
-                id: 2
-            }
-        ]
+  state: {
+    persons: [
+      {
+        name: 'zhangsan',
+        id: 1,
+      },
+      {
+        name: 'lisi',
+        id: 2,
+      },
+    ],
+  },
+  getters: {
+    getPerson: (state, getters) => id => {
+      return state.person.find(item => {
+        return item.id == id;
+      });
     },
-    getters: {
-        getPerson: (state, getters) => id => {
-            return state.person.find(item => {
-                return item.id == id;
-            });
-        }
-    }
+  },
 });
 ```
 
@@ -311,19 +311,19 @@ action 实际上不会直接操作 state，必须通过 mutation 来提交数据
 
 ```js
 const store = new Vue.Store({
-    state: {
-        count: 0
+  state: {
+    count: 0,
+  },
+  mutations: {
+    increment(state) {
+      state.count++;
     },
-    mutations: {
-        increment(state) {
-            state.count++;
-        }
+  },
+  actions: {
+    incrementCount({ commit, state }) {
+      commit('increment');
     },
-    actions: {
-        incrementCount({ commit, state }) {
-            commit("increment");
-        }
-    }
+  },
 });
 ```
 
@@ -331,16 +331,16 @@ const store = new Vue.Store({
 
 ```js
 const store = new Vue.Store({
-    actions: {
-        increnemtCount({ commit }, params) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    commit("increment", params);
-                    resolve();
-                }, 2000);
-            });
-        }
-    }
+  actions: {
+    increnemtCount({ commit }, params) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('increment', params);
+          resolve();
+        }, 2000);
+      });
+    },
+  },
 });
 ```
 
@@ -372,21 +372,21 @@ action 中的方法也可以在 store 中直接调用
 
 ```js
 const store = new Vue.Store({
-    actions: {
-        increnemtCount({ commit }, params) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    commit("increment", params);
-                    resolve();
-                }, 2000);
-            });
-        },
-        update({ dispatch }) {
-            dispatch("incrementCount")
-                .then(res => {})
-                .catch(err => {});
-        }
-    }
+  actions: {
+    increnemtCount({ commit }, params) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('increment', params);
+          resolve();
+        }, 2000);
+      });
+    },
+    update({ dispatch }) {
+      dispatch('incrementCount')
+        .then(res => {})
+        .catch(err => {});
+    },
+  },
 });
 ```
 

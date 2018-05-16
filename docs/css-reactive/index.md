@@ -1,4 +1,4 @@
-# 响应式 css 注意的地方
+# css 响应式布局注意的地方
 
 这段时间做了几个移动端项目，也算是初次完成大型的移动端项目，虽然只考虑了 mobile 端。 今天忽然想试一试项目在 ipad 上的显示效果，就发现了很多关于设置单位尺寸的问题，这里总计一下
 
@@ -9,7 +9,7 @@
 最初这个方法也是学习其他老师的方法，是用 JS 设置的, 方法如下：
 
 ```js
-document.getElementsByTagName("html")[0].style.fontSize =
+document.getElementsByTagName('html')[0].style.fontSize =
   window.screen.width / 100;
 ```
 
@@ -26,7 +26,7 @@ document.getElementsByTagName("html")[0].style.fontSize =
 按照第一种设置根元素字号的方法，会导致打开了开发者工具的时候，达不到自己想要的样式效果，因此正确写法应该是这样的
 
 ```js
-document.getElementsByTagName("html")[0].style.fontSize =
+document.getElementsByTagName('html')[0].style.fontSize =
   window.innerWidth / 100;
 ```
 

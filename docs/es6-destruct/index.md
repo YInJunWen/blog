@@ -1,4 +1,4 @@
-# ES6 中的对象解构
+# es6 中的对象解构
 
 > ES6 提供了一中新的语法，可以快速在声明变量的同时，从数组或者对象中提取内容进行赋值，这种方式被称作是解构。极大的提高了工作效率
 
@@ -73,7 +73,7 @@ let a = 1,
 let obj = {
   a,
   b,
-  c
+  c,
 };
 ```
 
@@ -100,21 +100,25 @@ g; // undefined
 ```js
 let obj = {
   name: {
-    age: 18
-  }
+    age: 18,
+  },
 };
 let { name: data } = obj;
 
 name; // name is not defined
 data; // {age: 18}
 
-let { name: { age } } = obj;
+let {
+  name: { age },
+} = obj;
 
 name; // name is not defined
 age; // 18
 data; // 18
 
-let { name: { age: data } } = obj;
+let {
+  name: { age: data },
+} = obj;
 
 name; // name is not defined
 age; // age is not defiend
@@ -126,7 +130,7 @@ data; // 18
 作为类数组的字符串，也可以完成解构赋值
 
 ```js
-let [a, b, c, d, e] = "zhang";
+let [a, b, c, d, e] = 'zhang';
 
 a; // z
 b; // h
@@ -138,7 +142,7 @@ e; // g
 类数组对象中有都有一个 length 属性，因此也可以完成对象赋值
 
 ```js
-let { length } = "zhang";
+let { length } = 'zhang';
 
 length; //  5
 ```
@@ -185,7 +189,7 @@ let a,b
 
 ```js
 let { toString: s } = 12;
-console.log(s.call("zhangsan")); //  'zhangsan'
+console.log(s.call('zhangsan')); //  'zhangsan'
 ```
 
 ## 在函数中使用解构赋值
@@ -194,7 +198,7 @@ console.log(s.call("zhangsan")); //  'zhangsan'
 
 ```js
 function add(a) {
-  let name = a || "zhanagsan";
+  let name = a || 'zhanagsan';
 }
 add();
 ```

@@ -1,4 +1,4 @@
-# ES5-函数继承-非构造函数的继承
+# es5 函数继承-非构造函数的继承
 
 ## 一、什么是"非构造函数"的继承？
 
@@ -6,7 +6,7 @@
 
 ```js
 var Chinese = {
-  nation: "中国"
+  nation: '中国',
 };
 ```
 
@@ -14,7 +14,7 @@ var Chinese = {
 
 ```js
 var Doctor = {
-  career: "医生"
+  career: '医生',
 };
 ```
 
@@ -45,7 +45,7 @@ var Doctor = object(Chinese);
 然后，再加上子对象本身的属性：
 
 ```js
-Doctor.career = "医生";
+Doctor.career = '医生';
 ```
 
 这时，子对象已经继承了父对象的属性了。
@@ -75,7 +75,7 @@ function extendCopy(p) {
 
 ```js
 var Doctor = extendCopy(Chinese);
-Doctor.career = "医生";
+Doctor.career = '医生';
 alert(Doctor.nation); // 中国
 ```
 
@@ -84,7 +84,7 @@ alert(Doctor.nation); // 中国
 请看，现在给 Chinese 添加一个"出生地"属性，它的值是一个数组。
 
 ```js
-Chinese.birthPlaces = ["北京", "上海", "香港"];
+Chinese.birthPlaces = ['北京', '上海', '香港'];
 ```
 
 通过 extendCopy()函数，Doctor 继承了 Chinese。
@@ -96,7 +96,7 @@ var Doctor = extendCopy(Chinese);
 然后，我们为 Doctor 的"出生地"添加一个城市：
 
 ```js
-Doctor.birthPlaces.push("厦门");
+Doctor.birthPlaces.push('厦门');
 ```
 
 发生了什么事？Chinese 的"出生地"也被改掉了！
@@ -116,7 +116,7 @@ alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门
 function deepCopy(p, c) {
   var c = c || {};
   for (var i in p) {
-    if (typeof p[i] === "object") {
+    if (typeof p[i] === 'object') {
       c[i] = p[i].constructor === Array ? [] : {};
       deepCopy(p[i], c[i]);
     } else {
@@ -136,8 +136,8 @@ var Doctor = deepCopy(Chinese);
 现在，给父对象加一个属性，值为数组。然后，在子对象上修改这个属性：
 
 ```js
-Chinese.birthPlaces = ["北京", "上海", "香港"];
-Doctor.birthPlaces.push("厦门");
+Chinese.birthPlaces = ['北京', '上海', '香港'];
+Doctor.birthPlaces.push('厦门');
 ```
 
 这时，父对象就不会受到影响了。
