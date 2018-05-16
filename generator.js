@@ -32,7 +32,7 @@ let ws = fs.createWriteStream(menuFile, {
 ws.write(
   `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|修改时间|详情|${
     os.EOL
-  }|---|---|${os.EOL}`,
+  }|---|---|---|${os.EOL}`,
   () => {
     generator(files);
   }
