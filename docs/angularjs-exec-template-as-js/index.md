@@ -1,4 +1,4 @@
-# angular 中如何执行 html 模版内部的 js 文件
+# angularJS 中如何执行 html 模版内部的 js 文件
 
 > 在写 angularJS 项目的时候，如果我们的 tpl 中有 javascript 脚本，angularJS 出于安全考虑，会把他们全部当做文本插入到 DOM 中，但是我们的目的是想执行其中的脚本，改如何处理？
 

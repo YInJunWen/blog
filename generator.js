@@ -37,8 +37,9 @@ ws.write(
 
 function generator(fileList, index = 0) {
   if (!fileList[index]) {
+    ws.write(`${os.EOL}${os.EOL}一共 ${index - 1} 篇文章`);
     ws.end();
-    console.log('all success');
+    console.log(`all success,一共 ${index - 1} 篇文章`);
     return false;
   }
   let realPath = path.resolve(docPath, './' + fileList[index] + '/index.md');

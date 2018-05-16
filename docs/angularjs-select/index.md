@@ -1,4 +1,4 @@
-# angular 中 select-option 的用法
+# angularJS 中 select-option 的用法
 
 目的： 在 angular 中实现 select+option 的循环与绑定初始值
 
@@ -7,7 +7,7 @@
 当数组中的项目为**字符串**的时候
 
 ```js
-$scope.list = ["zhangsan", "lisi", "wangwu", "zhaoliu"];
+$scope.list = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu'];
 $scope.selectValue = $scope.list[0];
 ```
 

@@ -1,4 +1,4 @@
-# angularJs 中的 http 方法
+# angularJS 中的 http 方法
 
 ## $http().success 方法报错
 

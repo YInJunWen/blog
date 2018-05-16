@@ -1,11 +1,11 @@
-# 动态创建自定义指令
+# angularJS 动态创建自定义指令
 
 > 所谓的动态创建自定义指令，就是在动态插入一段 htm 代码的时候，如果这段 html 代码中包含于 angular 的指令，利用 angularjs 的$compile 功能，先把包含的指令扩展成对应的模板，或者自动加载对应的方法，再插入到 DOM 中
 
 假设我们需要动态插入了以下菜单，并且每个 name 的值都有一个对应的 directive 模板页面
 
 ```js
-var data = [{ name: "home" }, { name: "news" }, { name: "member" }];
+var data = [{ name: 'home' }, { name: 'news' }, { name: 'member' }];
 ```
 
 html
@@ -19,7 +19,7 @@ js
 ```js
 angular.forEach(data, function(item, index) {
   var tmp = `<div ${item.name}></div>`;
-  angular.element(".container").append(tpl);
+  angular.element('.container').append(tpl);
 });
 ```
 

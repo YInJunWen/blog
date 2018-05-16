@@ -1,10 +1,10 @@
-# angular 自定义指令详解
+# angularJS 自定义指令详解
 
 ```js
 //angular指令的定义，myDirective ，使用驼峰命名法
 angular
-  .module("myApp", [])
-  .directive("myDirective", function($timeout, UserDefinedService) {
+  .module('myApp', [])
+  .directive('myDirective', function($timeout, UserDefinedService) {
     // 指令操作代码放在这里
   });
 ```

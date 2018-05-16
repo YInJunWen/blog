@@ -1,4 +1,4 @@
-# 如何把字符串内的 html 标签以 html 形式插入到文档内
+# angularJS 如何把字符串内的 html 标签以 html 形式插入到文档内
 
 angular js 的强大之处之一就是他的数据双向绑定这一牛 B 功能，我们会常常用到的两个东西就是 ng-bind 和针对 form 的 ng-model。但在我们的项目当中会遇到这样的情况，后台返回的数据中带有各种各样的 html 标签。如：
 
@@ -53,13 +53,13 @@ hello
 咱们还可以这样用，把它封装成一个过滤器就可以在模板上随时调用了
 
 ```js
-app.filter("to_trusted", [
-  "$sce",
+app.filter('to_trusted', [
+  '$sce',
   function($sce) {
     return function(text) {
       return $sce.trustAsHtml(text);
     };
-  }
+  },
 ]);
 ```
 

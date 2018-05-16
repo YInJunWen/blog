@@ -10,22 +10,22 @@
 |基础算法之 归并排序|[详情](./docs/algorithm-6/index.md)|
 |基础算法之 直接插入排序|[详情](./docs/algorithm-7/index.md)|
 |基础算法之 快速排序|[详情](./docs/algorithm-8/index.md)|
-|angular2 初探|[详情](./docs/angular2-basic/index.md)|
+|angular 初探|[详情](./docs/angular2-basic/index.md)|
 |angularJS 初探|[详情](./docs/angularjs-basic/index.md)|
-|动态创建自定义指令|[详情](./docs/angularjs-create-directive-activity/index.md)|
-|angular 自定义指令详解|[详情](./docs/angularjs-custom-directive/index.md)|
-|angular 自定义指令绑定策略|[详情](./docs/angularjs-custom-directive-bind/index.md)|
+|angularJS 动态创建自定义指令|[详情](./docs/angularjs-create-directive-activity/index.md)|
+|angularJS 自定义指令详解|[详情](./docs/angularjs-custom-directive/index.md)|
+|angularJS 自定义指令绑定策略|[详情](./docs/angularjs-custom-directive-bind/index.md)|
 |angularJS 错误提示集合|[详情](./docs/angularjs-error/index.md)|
-|angular 中如何执行 html 模版内部的 js 文件|[详情](./docs/angularjs-exec-template-as-js/index.md)|
-|获取光标在输入框中的位置|[详情](./docs/angularjs-get-cursor-position/index.md)|
-|angularJs 中的 http 方法|[详情](./docs/angularjs-http/index.md)|
-|如何把字符串内的 html 标签以 html 形式插入到文档内|[详情](./docs/angularjs-insert-html/index.md)|
-|angular 项目结构总结|[详情](./docs/angularjs-project-directory/index.md)|
-|angularjs-router 的使用案例|[详情](./docs/angularjs-router/index.md)|
-|angular 中 select-option 的用法|[详情](./docs/angularjs-select/index.md)|
-|angular 实时显示选择的图片文件|[详情](./docs/angularjs-show-file-sync/index.md)|
-|ngTouch触发多次绑定事件的解决方案|[详情](./docs/angularjs-touch-errors/index.md)|
-|angular 的 ui-router 详解|[详情](./docs/angularjs-ui-router/index.md)|
+|angularJS 中如何执行 html 模版内部的 js 文件|[详情](./docs/angularjs-exec-template-as-js/index.md)|
+|angularJS 获取光标在输入框中的位置|[详情](./docs/angularjs-get-cursor-position/index.md)|
+|angularJS 中的 http 方法|[详情](./docs/angularjs-http/index.md)|
+|angularJS 如何把字符串内的 html 标签以 html 形式插入到文档内|[详情](./docs/angularjs-insert-html/index.md)|
+|angularJS 项目结构总结|[详情](./docs/angularjs-project-directory/index.md)|
+|angularJS-router 的使用案例|[详情](./docs/angularjs-router/index.md)|
+|angularJS 中 select-option 的用法|[详情](./docs/angularjs-select/index.md)|
+|angularJS 实时显示选择的图片文件|[详情](./docs/angularjs-show-file-sync/index.md)|
+|angularJS ngTouch 触发多次绑定事件的解决方案|[详情](./docs/angularjs-touch-errors/index.md)|
+|angularJS 的 ui-router 详解|[详情](./docs/angularjs-ui-router/index.md)|
 |angularJS 中的文件上传|[详情](./docs/angularjs-upload-file/index.md)|
 |antd 中的多个 treeSelect 联动效果|[详情](./docs/antd-treeselect-mutiple/index.md)|
 |axios 主动取消请求|[详情](./docs/axios-cancel-request/index.md)|
@@ -163,3 +163,6 @@
 |微信小程序中如何把通过 canvas 生成的图片上传到服务器|[详情](./docs/wechat-mini-program-generator-canvas/index.md)|
 |微信小程序开发要注意的地方|[详情](./docs/wechat-mini-program-point/index.md)|
 |Zepto笔记|[详情](./docs/zepto-basic/index.md)|
+
+
+一共 160 篇文章

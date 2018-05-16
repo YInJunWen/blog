@@ -1,4 +1,4 @@
-# angular 实时显示选择的图片文件
+# angularJS 实时显示选择的图片文件
 
 ```html
 <input type="file" onchange="angular.element(this).scope().fileNameChanged()">
@@ -6,19 +6,19 @@
 
 ```js
 $socpe.fileNameChanged = function() {
-  var form = document.querySelector("form");
+  var form = document.querySelector('form');
   var url = window.URL.createObjectURL(form.coverImg.files[0]);
-  var coverImg = document.querySelector(".coverImg");
-  coverImg.style.backgroundImage = "url(" + url + ")";
+  var coverImg = document.querySelector('.coverImg');
+  coverImg.style.backgroundImage = 'url(' + url + ')';
 };
 // 或者直接选择input元素
 $socpe.fileNameChanged = function() {
   var url = window.URL.createObjectURL(
-    document.querySelector("input[type=file]").files[0]
+    document.querySelector('input[type=file]').files[0]
   );
-  var coverImg = document.querySelector(".coverImg");
-  coverImg.style.backgroundImage = "url(" + url + ")";
-  coverImg.style.backgroundSize = "auto 100%";
+  var coverImg = document.querySelector('.coverImg');
+  coverImg.style.backgroundImage = 'url(' + url + ')';
+  coverImg.style.backgroundSize = 'auto 100%';
 };
 ```
 

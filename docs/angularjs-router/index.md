@@ -1,4 +1,4 @@
-# angularjs-router 的使用案例
+# angularJS-router 的使用案例
 
 ## html 的设置
 
@@ -10,35 +10,35 @@
 
 ```js
 $stateProvider
-  .state("admin", {
-    url: "/admin",
-    templateUrl: "./static/view/admin.html",
-    controller: "adminCtrl"
+  .state('admin', {
+    url: '/admin',
+    templateUrl: './static/view/admin.html',
+    controller: 'adminCtrl',
   })
-  .state("admin.info", {
-    url: "/info",
-    templateUrl: "./static/view/admin_info.html",
-    controller: "adminInfoCtrl"
+  .state('admin.info', {
+    url: '/info',
+    templateUrl: './static/view/admin_info.html',
+    controller: 'adminInfoCtrl',
   })
-  .state("admin.article", {
-    url: "/article/:id",
-    templateUrl: "./static/view/admin_article.html",
-    controller: "adminArticleCtrl"
+  .state('admin.article', {
+    url: '/article/:id',
+    templateUrl: './static/view/admin_article.html',
+    controller: 'adminArticleCtrl',
   })
-  .state("home", {
-    url: "/home/",
-    templateUrl: "./static/view/home.html",
-    controller: "loginCtrl"
+  .state('home', {
+    url: '/home/',
+    templateUrl: './static/view/home.html',
+    controller: 'loginCtrl',
   })
-  .state("home.list", {
-    url: "/list",
-    templateUrl: "./static/view/home_list.html",
-    controller: "loginCtrl"
+  .state('home.list', {
+    url: '/list',
+    templateUrl: './static/view/home_list.html',
+    controller: 'loginCtrl',
   })
-  .state("home.article", {
-    url: "/article/:id",
-    templateUrl: "./static/view/home_article.html",
-    controller: "loginCtrl"
+  .state('home.article', {
+    url: '/article/:id',
+    templateUrl: './static/view/home_article.html',
+    controller: 'loginCtrl',
   });
 ```
 

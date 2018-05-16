@@ -1,4 +1,4 @@
-# angular 自定义指令绑定策略
+# angularJS 自定义指令绑定策略
 
 angularjs 支持三种绑定数据的方式
 
@@ -12,15 +12,15 @@ angularjs 支持三种绑定数据的方式
 
 ```js
 // parentCtrl:
-$scope.test = "lisi";
+$scope.test = 'lisi';
 
 // child-directive:
 return {
-  strict: "EA",
+  strict: 'EA',
   template: '<p ng-bind="test"></p>',
   scope: {
-    test: "@"
-  }
+    test: '@',
+  },
 };
 ```
 
@@ -36,15 +36,15 @@ return {
 
 ```js
 // parentCtrl:
-$scope.test = "lisi";
+$scope.test = 'lisi';
 
 // child-directive:
 return {
-  strict: "EA",
+  strict: 'EA',
   template: '<p ng-bind="test"></p>',
   scope: {
-    test: "="
-  }
+    test: '=',
+  },
 };
 ```
 
@@ -66,11 +66,11 @@ $scope.zhangsan = function() {
 
 // child-directive:
 return {
-  strict: "EA",
+  strict: 'EA',
   template: '<p ng-click="test"></p>',
   scope: {
-    test: "&"
-  }
+    test: '&',
+  },
 };
 ```
 

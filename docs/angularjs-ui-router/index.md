@@ -1,4 +1,4 @@
-# angular 的 ui-router 详解
+# angularJS 的 ui-router 详解
 
 ## Angularjs ui-router - 组件：
 
@@ -59,8 +59,8 @@ UI-Router 被认为是 AngularUI 为开发者提供的最实用的一个模块�
 开发者可以在每个视图下使用如下方式来设置模板 - template - HTML 字符串，或者是返回 HTML 字符串的函数 - templateUrl - HTML 模板的路径，或者是返回 HTML 模板路径的函数 - templateProvider - 返回 HTML 字符串的函数 例如：
 
 ```js
-$stateProvider.state("home", {
-  template: "<h1>Hello {{ name }}</h1>"
+$stateProvider.state('home', {
+  template: '<h1>Hello {{ name }}</h1>',
 });
 ```
 
@@ -77,37 +77,37 @@ $stateProvider.state("home", {
 如果传入的时字符串，angular-route 会试图匹配已经注册的服务。如果传入的是函数，该函数将会被注入，并且该函数返回的值便是控制器的依赖之一。如果该函数返回一个数据保证（promise），这个数据保证将在控制器被实例化前被预先载入并且数据会被注入到控制器中。
 
 ```js
-$stateProvider.state("home", {
+$stateProvider.state('home', {
   resolve: {
     //这个函数的值会被直接返回，因为它不是数据保证
     person: function() {
       return {
-        name: "Ari",
-        email: "ari@fullstack.io"
+        name: 'Ari',
+        email: 'ari@fullstack.io',
       };
     },
     //这个函数为数据保证, 因此它将在控制器被实例化之前载入。
     currentDetails: function($http) {
       return $http({
-        method: "JSONP",
-        url: "/current_details"
+        method: 'JSONP',
+        url: '/current_details',
       });
     },
     //前一个数据保证也可作为依赖注入到其他数据保证中！（这个非常实用）
     facebookId: function($http, currentDetails) {
       $http({
-        method: "GET",
-        url: "http://facebook.com/api/current_user",
+        method: 'GET',
+        url: 'http://facebook.com/api/current_user',
         params: {
-          email: currentDetails.data.emails[0]
-        }
+          email: currentDetails.data.emails[0],
+        },
       });
-    }
+    },
   },
   //定义控制器
   controller: function($scope, person, currentDetails, facebookId) {
     $scope.person = person;
-  }
+  },
 });
 ```
 
@@ -116,28 +116,28 @@ $stateProvider.state("home", {
 url 选项将会为该应用的状态指定一个 URL 基于用户浏览该应用所在的状态。这样当在浏览该应用的时候便能实现深度链接的效果。 该选项与 ngRoute 的 URL 相似，但可以被视为对 ngRoute 主要的升级，在接下来的文章里你便会认可这一点。开发者可以这样指定一个基本的路由。
 
 ```js
-$stateProvider.state("inbox", {
-  url: "/inbox",
-  template: "<h1>Welcome to your inbox</h1>"
+$stateProvider.state('inbox', {
+  url: '/inbox',
+  template: '<h1>Welcome to your inbox</h1>',
 });
 ```
 
 当用户浏览到/inbox 时，该应用将状态改为 inbox 同时向主 ui-view 元素中插入模板中的内容('Welcome to your inbox')。URL 参数有多个选项，因此它非常强大。开发者可以像设置 ngRoute 一样设置最基本的参数：
 
 ```js
-$stateProvider.state("inbox", {
-  url: "/inbox/:inboxId",
-  template: "<h1>Welcome to your inbox</h1>",
+$stateProvider.state('inbox', {
+  url: '/inbox/:inboxId',
+  template: '<h1>Welcome to your inbox</h1>',
   controller: function($scope, $stateParams) {
     $scope.inboxId = $stateParams.inboxId;
-  }
+  },
 });
 ```
 
 现在将:inboxId 最为 URL 的第二个部分，例如：访问/inbox/1,那么$stateParams.inboxId 就为 1（$stateParams 为{inboxId:1}）。同时也可使用不同的语法：
 
 ```js
-url: "/inbox/{inboxId}";
+url: '/inbox/{inboxId}';
 ```
 
 路径必须匹配 URL，与 ngRoute 不同的是，当用户访问到/inbox/时，上面的的路径会被激活，然而当访问到/inbox 时不会被激活。路径同时也使开发者可以使用正则表达式来匹配，例如：
@@ -156,27 +156,26 @@ url: "/inbox/{inboxId}";
 
 ```js
 // /inbox?sort=ascending 将会被匹配
-url: "/inbox?sort";
+url: '/inbox?sort';
 ```
 
 嵌套路由使用 url 参数可以实现嵌套的路由，有了嵌套路由便可在同一个模板同一个路由实现多层次的 ui-view，例如在/inbox 中嵌入更多路由：
 
 ```js
 $stateProvider
-  .state("inbox", {
-    url: "/inbox/:inboxId",
-    template:
-      '<div><h1>Welcome to your inbox</h1>\
+  .state('inbox', {
+    url: '/inbox/:inboxId',
+    template: '<div><h1>Welcome to your inbox</h1>\
                 <a ui-sref="inbox.priority">Show priority</a>\
                 <div ui-view></div>\
                 </div>',
     controller: function($scope, $stateParams) {
       $scope.inboxId = $stateParams.inboxId;
-    }
+    },
   })
-  .state("inbox.priority", {
-    url: "/priority",
-    template: "<h2>Your priority inbox</h2>"
+  .state('inbox.priority', {
+    url: '/priority',
+    template: '<h2>Your priority inbox</h2>',
   });
 ```
 
@@ -205,24 +204,24 @@ params 选项是一个包含路径中的参数和正则表达式匹配结果的�
 接下来就可以创建将被分别被插入到上述 ui-view 的有命名的视图了，每个子视图可以包含自己的模板、控制器和预载入数据。
 
 ```js
-$stateProvider.state("inbox", {
+$stateProvider.state('inbox', {
   views: {
     filters: {
-      template: "<h4>Filter inbox</h4>",
-      controller: function($scope) {}
+      template: '<h4>Filter inbox</h4>',
+      controller: function($scope) {},
     },
     mailbox: {
-      templateUrl: "partials/mailbox.html"
+      templateUrl: 'partials/mailbox.html',
     },
     priority: {
-      template: "<h4>Priority inbox</h4>",
+      template: '<h4>Priority inbox</h4>',
       resolve: {
         facebook: function() {
           return FB.messages();
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 });
 ```
 
@@ -232,18 +231,18 @@ $stateProvider.state("inbox", {
 
 ```js
 $stateProvider
-  .state("admin", {
+  .state('admin', {
     abstract: true,
-    url: "/admin",
-    template: "<div ui-view></div>"
+    url: '/admin',
+    template: '<div ui-view></div>',
   })
-  .state("admin.index", {
-    url: "/index",
-    template: "<h3>Admin index</h3>"
+  .state('admin.index', {
+    url: '/index',
+    template: '<h3>Admin index</h3>',
   })
-  .state("admin.users", {
-    url: "/users",
-    template: "<ul>...</ul>"
+  .state('admin.users', {
+    url: '/users',
+    template: '<ul>...</ul>',
   });
 ```
 
@@ -286,7 +285,7 @@ evt.preventDefault();
   当视图正在被载入且在 DOM 被渲染之前触发。
 
 ```js
-$scope.$on("$viewContentLoading", function(event, viewConfig) {
+$scope.$on('$viewContentLoading', function(event, viewConfig) {
   // 获取任何视图设置的参数，以及一个特殊的属性：viewConfig.targetView
 });
 ```
@@ -299,13 +298,13 @@ $scope.$on("$viewContentLoading", function(event, viewConfig) {
 在上面提及使用$stateparams 来提取在 url 中的不同参数。该服务的作用是处理 url 的不同部分。例如，当上述的 inbox 状态是这样时：
 
 ```js
-url: "/inbox/:inboxId/messages/{sorted}?from&to";
+url: '/inbox/:inboxId/messages/{sorted}?from&to';
 ```
 
 //当用户访问者链接时：
 
 ```js
-"/inbox/123/messages/ascending?from=10&to=20";
+'/inbox/123/messages/ascending?from=10&to=20';
 ```
 
 $stateParams 对象的值为：
@@ -353,7 +352,7 @@ $stateParams 对象的值为：
 ```js
 app.config(function($urlRouterProvider) {
   $urlRouterProvider.rule(function($injector, $location) {
-    return "/index";
+    return '/index';
   });
 });
 ```
