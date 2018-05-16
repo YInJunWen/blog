@@ -30,7 +30,7 @@ let ws = fs.createWriteStream(menuFile, {
 });
 
 ws.write(
-  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL} |标题|修改时间|详情|${
+  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|修改时间|详情|${
     os.EOL
   }|---|---|${os.EOL}`,
   () => {
@@ -56,9 +56,9 @@ function generator(fileList, index = 0) {
       if (title) {
         title = title[0].replace('# ', '');
         // console.log(title);
-        let wsData = `|${title}|${mtime}| [详情](./docs/${
+        let wsData = `|${title}|${mtime}|[详情](./docs/${
           fileList[index]
-        }/index.md) |${os.EOL}`;
+        }/index.md)|${os.EOL}`;
         ws.write(wsData, (err, data) => {
           if (err) {
             throw new Error(`write function failed at ${file[index]}`);
