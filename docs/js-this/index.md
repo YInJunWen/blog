@@ -1,4 +1,4 @@
-# this 指向总结
+# js this 指向总结
 
 ## 严格模式与非严格模式
 
@@ -10,7 +10,7 @@ function foo() {
 foo(); // false
 
 // 严格模式
-("use strict");
+('use strict');
 function add() {
   console.log(!this);
 }
@@ -23,11 +23,11 @@ add(); // true
 
 ```js
 // 编译前
-"use strict";
+'use strict';
 var foo = () => this;
 
 // 编译后
-("use strict");
+('use strict');
 var foo = function foo() {
   return undefined;
 };
@@ -35,12 +35,12 @@ var foo = function foo() {
 
 ```js
 // 编译前
-"use strict";
+'use strict';
 var foo = function() {
   return () => this;
 };
 // 编译后
-("use strict");
+('use strict');
 var foo = function() {
   var _this = this;
   return function() {

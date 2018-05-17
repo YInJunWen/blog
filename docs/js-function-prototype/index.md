@@ -1,10 +1,10 @@
-# 函数的 prototype 属性
+# js 函数的 prototype 属性
 
 每个函数都有一个 prototype 属性，属性值是一个对象。当通过 new 关键字生成一个对象实例的时候，实例会继承构造器函数的 prototype 属性中的方法以及属性,这些方法和属性是通过`构造器函数.prototype`来定义的，prototype 指向的实际上就是这个方法的`原型`,这个函数被称作是`构造函数`,通过`new`关键字生成的对象被称作是`实例对象`
 
 ```js
 function Person() {
-    this.a = 1;
+  this.a = 1;
 }
 Person.prototype.age = 2;
 console.log(new Person()); // {a: 1}
@@ -28,7 +28,7 @@ console.log(zhangsan)
 
 ```js
 function Person() {
-    this.name = 1;
+  this.name = 1;
 }
 new Person().__proto === Person.prototype; // true
 ```
@@ -47,7 +47,7 @@ Object.getPrototypeOf(new Person()) === Person.prototype; // true
 
 ```js
 function Person() {
-    this.name = 1;
+  this.name = 1;
 }
 Person === Person.prototype.constructor;
 ```
@@ -64,11 +64,11 @@ new Person().constructor === Person.ptototype.constructor; // true
 
 ```js
 function add() {
-    this.age = 10;
+  this.age = 10;
 }
-add.prototype.name = "zhangsan";
+add.prototype.name = 'zhangsan';
 add.prototype.getName = function() {
-    console.log(this.name);
+  console.log(this.name);
 };
 var a = new add();
 a.age; // 10
@@ -82,9 +82,9 @@ a.getName(); // zhangsan
 
 ```js
 function add() {
-    this.name = "zhangsan";
+  this.name = 'zhangsan';
 }
-add.prototype.name = "lisi";
+add.prototype.name = 'lisi';
 var a = new add();
 a.name; // zhangsan
 delete a.name;
@@ -95,14 +95,14 @@ a.name; // lisi
 
 ```js
 function Add() {
-    this.name = "zhangsan";
+  this.name = 'zhangsan';
 }
 Add.prototype.print = function() {
-    console.log(this.name);
+  console.log(this.name);
 };
 function Foo() {
-    Add.call(this);
-    this.age = 12;
+  Add.call(this);
+  this.age = 12;
 }
 new Foo(); // {name: 'zhangsan', age: 12}
 new Foo().print(); // print is not a function

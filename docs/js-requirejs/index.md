@@ -1,4 +1,4 @@
-# RequireJS 小结
+# requireJS 小结
 
 #### REquireJS 需要注意的事项
 
@@ -25,7 +25,7 @@
 
 ```js
 require.config({
-  baseUrl: "/"
+  baseUrl: '/',
 });
 ```
 
@@ -34,8 +34,8 @@ require.config({
 ```js
 require.config({
   paths: {
-    a: "a"
-  }
+    a: 'a',
+  },
 });
 ```
 
@@ -44,7 +44,7 @@ require.config({
 ```js
 require.config({
   paths: {
-    jquery: ["http://api.baidu.con/jqeury.1.11.0.js", "jquery-1.11.0"]
-  }
+    jquery: ['http://api.baidu.con/jqeury.1.11.0.js', 'jquery-1.11.0'],
+  },
 });
 ```

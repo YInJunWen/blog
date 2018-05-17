@@ -1,4 +1,4 @@
-# 获取浏览器滚动条高度 scrollTop
+# js 获取浏览器滚动条高度 scrollTop
 
 > 经常会遇到检测浏览器滚动条事件获取 scrollTop 的需求，由于 safari、IE、chrome 等浏览器在这方面的不统一，导致我们必须通过一个复杂的计算来获取。
 

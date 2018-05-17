@@ -1,4 +1,4 @@
-# 函数式编程
+# js 函数式编程
 
 > 忘记是在那里看到“函数式编程”这一词，这里记录一些我对“函数式编程”的理解
 
@@ -62,7 +62,7 @@ var calcultor = {
   },
   value: function() {
     return this.tmp;
-  }
+  },
 };
 calcultor
   .init(1)

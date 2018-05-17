@@ -1,4 +1,4 @@
-# 实时预览选择的图片文件
+# js 实时预览选择的图片文件
 
 最初的实时预览选择的图片文件，是使用 ajax 直接上传后，由服务器返回一个 uri 地址，再显示出来的，后来发现了一个由浏览器本身提供的一个接口`Url.createObjectUrl(file/bob)`;
 
@@ -24,12 +24,12 @@ function shwTHhumb(){
 
 ```js
 function shwTHhumb() {
-  var inputEle = document.querySelector("form");
+  var inputEle = document.querySelector('form');
   var url = URL.createObjectURL(inputEle.files[0]);
   var img = new Image();
   img.src = url;
   img.onload = function() {
-    document.querySelector("#thumb").style.backgroundImage = "url(" + url + ")";
+    document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
   };
 }
 ```
@@ -38,12 +38,12 @@ function shwTHhumb() {
 
 ```js
 function shwTHhumb() {
-  var inputEle = document.querySelector("form");
+  var inputEle = document.querySelector('form');
   var url = URL.createObjectURL(inputEle.files[0]);
   var img = new Image();
   img.src = url;
   img.onload = function() {
-    document.querySelector("#thumb").style.backgroundImage = "url(" + url + ")";
+    document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
   };
 }
 ```

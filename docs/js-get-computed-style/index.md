@@ -1,4 +1,4 @@
-# JS 获取元素计算后的样式
+# js 获取元素计算后的样式
 
 ## 一、碎碎念~前言
 
@@ -110,7 +110,7 @@ IE7 浏览器下的 styleFloat 属性 张鑫旭-鑫空间-鑫生活
 getPropertyValue 方法可以获取 CSS 样式申明对象上的属性值（直接属性名称），例如：
 
 ```js
-window.getComputedStyle(element, null).getPropertyValue("float");
+window.getComputedStyle(element, null).getPropertyValue('float');
 ```
 
 如果我们不使用 getPropertyValue 方法，直接使用键值访问，其实也是可以的。但是，比如这里的的 float，如果使用键值访问，则不能直接使用 getComputedStyle(element, null).float，而应该是 cssFloat 与 styleFloat，自然需要浏览器判断了，比较折腾！

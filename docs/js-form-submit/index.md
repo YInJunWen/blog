@@ -1,4 +1,4 @@
-# 表单提交的那些事儿
+# js 表单提交的那些事儿
 
 ## 获取表单元素
 
@@ -80,49 +80,49 @@ http://localhost:8080/index.php?color%5B%5D=zhangsan&color%5B%5D=lisi
 
 ```js
 function serialize(obj) {
-    var ua = Object.prototype.toString
-        .call(obj)
-        .toLowerCase()
-        .split(" ")[1];
-    if (!/object/.test(ua)) {
-        return obj;
-    }
-    var result = "";
-    for (i in obj) {
-        result += jie(obj[i], [i]);
-    }
-    return result;
+  var ua = Object.prototype.toString
+    .call(obj)
+    .toLowerCase()
+    .split(' ')[1];
+  if (!/object/.test(ua)) {
+    return obj;
+  }
+  var result = '';
+  for (i in obj) {
+    result += jie(obj[i], [i]);
+  }
+  return result;
 }
 function jie(obj, options) {
-    var sl = Array.prototype.slice;
-    var ua = Object.prototype.toString
-        .call(obj)
-        .toLowerCase()
-        .split(" ")[1];
-    var result = "";
-    if (/object/.test(ua)) {
-        // 处理对象
-        for (key in obj) {
-            var arg = options.concat([key]);
-            result += jie(obj[key], arg);
-        }
-    } else if (/array/.test(ua)) {
-        // 处理数组
-        for (key in obj) {
-            var arg = options.concat([key]);
-            result += jie(obj[key], arg);
-        }
-    } else {
-        options.forEach((item, index) => {
-            if (index == 0) {
-                result += `${item}`;
-            } else {
-                result += `[${item}]`;
-            }
-        });
-        result += `=${obj}&`;
+  var sl = Array.prototype.slice;
+  var ua = Object.prototype.toString
+    .call(obj)
+    .toLowerCase()
+    .split(' ')[1];
+  var result = '';
+  if (/object/.test(ua)) {
+    // 处理对象
+    for (key in obj) {
+      var arg = options.concat([key]);
+      result += jie(obj[key], arg);
     }
-    return result.slice(0, -1);
+  } else if (/array/.test(ua)) {
+    // 处理数组
+    for (key in obj) {
+      var arg = options.concat([key]);
+      result += jie(obj[key], arg);
+    }
+  } else {
+    options.forEach((item, index) => {
+      if (index == 0) {
+        result += `${item}`;
+      } else {
+        result += `[${item}]`;
+      }
+    });
+    result += `=${obj}&`;
+  }
+  return result.slice(0, -1);
 }
 ```
 
@@ -130,33 +130,33 @@ function jie(obj, options) {
 
 ```js
 var data = {
-    name: {
+  name: {
+    list: [
+      {
+        id: 1,
+        key: 12,
+      },
+      {
+        id: 2,
+        key: 13,
+      },
+      {
         list: [
-            {
-                id: 1,
-                key: 12
-            },
-            {
-                id: 2,
-                key: 13
-            },
-            {
-                list: [
-                    {
-                        name: "zhangsan",
-                        age: 10
-                    },
-                    {
-                        name: "lisi",
-                        age: 12
-                    }
-                ]
-            }
+          {
+            name: 'zhangsan',
+            age: 10,
+          },
+          {
+            name: 'lisi',
+            age: 12,
+          },
         ],
-        color: {
-            value: "red"
-        }
-    }
+      },
+    ],
+    color: {
+      value: 'red',
+    },
+  },
 };
 console.log(serialize(data));
 

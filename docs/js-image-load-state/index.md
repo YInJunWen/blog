@@ -1,4 +1,4 @@
-# 图片加载状态
+# js 图片加载状态
 
 ## 一、load 事件
 
@@ -105,8 +105,8 @@ function get(ts){
 <img id="pic1" src="..." />;
 
 // js
-document.getElementById("pic1").onload = function() {
-  alert("图片加载已完成");
+document.getElementById('pic1').onload = function() {
+  alert('图片加载已完成');
 };
 ```
 
@@ -122,7 +122,7 @@ document.getElementById("pic1").onload = function() {
 
 ```js
 $(function() {
-  $(".pic1").each(function() {
+  $('.pic1').each(function() {
     $(this).load(function() {
       $(this).fadeIn();
     });

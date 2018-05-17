@@ -1,10 +1,10 @@
-# cookie 的作用域
+# js cookie 的作用域
 
 `cookie`是保存在浏览器端的一小段数据，会在浏览器下一次向服务器发送请求的时候携带到服务器上，主要用以以下三个方面
 
-*   会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
-*   个性化设置（如用户自定义设置、主题等）
-*   浏览器行为跟踪（如跟踪分析用户行为等）
+* 会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
+* 个性化设置（如用户自定义设置、主题等）
+* 浏览器行为跟踪（如跟踪分析用户行为等）
 
 ## cookie 的属性
 
@@ -75,7 +75,7 @@ setCookie('name', 'zhangsan', time()+3600, '/', 'test.com', true, true)
 
 ```js
 document.cookie =
-    "name=zhangsan;path=/;doman='test.com';expires=Wed, 21 Oct 2020 07:28:00 GMT;httpOnly;secure";
+  "name=zhangsan;path=/;doman='test.com';expires=Wed, 21 Oct 2020 07:28:00 GMT;httpOnly;secure";
 ```
 
 ## 获取 cookie 的方法
@@ -87,7 +87,7 @@ document.cookie =
 假设我们有两个项目，A 页面：`a.test.com/index.html`和 B 页面`b.test.com/index.html`,如果我想在 A 页面中设置一个能够让 A 页面和 B 页面同时访问到的 cookie，应该怎么做呢？很简单，在定义 cookie 的时候，我们把 cookie 的 doman 属性改成这两个页面的超级域即可
 
 ```js
-document.cookie = "name=zhangsan;doman=.test.com";
+document.cookie = 'name=zhangsan;doman=.test.com';
 ```
 
 `test.com/index.html`

@@ -1,4 +1,4 @@
-# brwoser-sync 插件常见错误
+# npm brwoser-sync 插件常见错误
 
 ## mime.lookup is not a function
 

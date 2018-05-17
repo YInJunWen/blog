@@ -1,4 +1,4 @@
-# 输入框延迟指定事件执行方法
+# js 输入框延迟指定事件执行方法
 
 > 本博客中文章编辑器，使用了及时保存功能，这里记录一下实现过程
 
@@ -11,7 +11,7 @@
 ```js
 // 按下的时间需要和后面的时间作对比，所以不能放在函数体内，必须定义一个全局的变量，来存储用户改变内容的时间
 // 同样定义一个临时保存内容的变量
-var lastEditTime = ", lastContent = ";
+var lastEditTime = ', lastContent = ';
 function upperCase(ele) {
   lastEditTime = new Date().getTime();
   // 只有和之前内容不同的情况下才继续后面的判断,这是为了区别用户按下真实输入键和非真实输入键，比如上下左右等
@@ -21,7 +21,7 @@ function upperCase(ele) {
   lastContent = ele.value;
   setTimeout(function() {
     if (new Date().getTime() - lastEditTime > 3000) {
-      console.log("执行想要的操作");
+      console.log('执行想要的操作');
     }
   }, 3000);
 }
@@ -36,7 +36,7 @@ function upperCase(ele) {
 ```
 
 ```js
-$scope.$watch("content", function(newVaue, oldValue) {
+$scope.$watch('content', function(newVaue, oldValue) {
   // 执行代码
 });
 ```
@@ -54,8 +54,8 @@ export default {
   watch: {
     content() {
       // ..执行代码
-    }
-  }
+    },
+  },
 };
 ```
 

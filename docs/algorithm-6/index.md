@@ -1,4 +1,4 @@
-# 基础算法之 归并排序
+# algorithm 基础算法之归并排序
 
 今天记录一下数组排序的另一种方法： 归并排序
 
@@ -27,7 +27,6 @@ function merge(left, right) { //合并两个子数组
         var item = left[0] <= right[0] ? left.shift() : right.shift();//注意:判断的条件是小于或等于,如果只是小于,那么排序将不稳定.
         result.push(item);
     }
-
 ```
 
 ## 算法分析

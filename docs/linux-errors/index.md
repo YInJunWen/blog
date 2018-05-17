@@ -1,4 +1,4 @@
-# 使用 Linux 中遇到的问题
+# linux 使用中遇到的问题
 
 #### 首次使用 CentOS6.3 版本 32 位安装系统的时候，提示 “The hardware is not suppered...” ，（提示： 硬件不支持）
 

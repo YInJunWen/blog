@@ -1,4 +1,4 @@
-# 把 url 上的参数序列化为对象
+# js 把 url 上的参数序列化为对象
 
 ## 代码：
 
@@ -6,11 +6,11 @@
 function serializeUrlParams() {
   var obj = {};
   var href = location.href;
-  if (href.indexOf("?") > -1) {
-    var params = href.slice(href.indexOf("?") + 1);
-    params.split("&").forEach(function(item) {
-      item.split("=");
-      obj[item.split("=")[0]] = item.split("=")[1];
+  if (href.indexOf('?') > -1) {
+    var params = href.slice(href.indexOf('?') + 1);
+    params.split('&').forEach(function(item) {
+      item.split('=');
+      obj[item.split('=')[0]] = item.split('=')[1];
     });
   }
   return obj;
@@ -26,11 +26,11 @@ function serializeUrlParams() {
 function serializeUrlParams(url) {
   var obj = {},
     url = url || location.href;
-  if (url.indexOf("?") > -1) {
-    var params = url.slice(url.indexOf("?") + 1);
-    params.split("&").forEach(function(item) {
-      item.split("=");
-      var index = item.indexOf("=");
+  if (url.indexOf('?') > -1) {
+    var params = url.slice(url.indexOf('?') + 1);
+    params.split('&').forEach(function(item) {
+      item.split('=');
+      var index = item.indexOf('=');
       obj[item.slice(0, index)] = item.slice(index + 1);
     });
   }

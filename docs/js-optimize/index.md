@@ -1,4 +1,4 @@
-# 如何使 javascript 更高效
+# optimize 如何使 javascript 更高效
 
 ## ECMAScript
 
@@ -53,7 +53,7 @@ eval 不仅仅是低效，它几乎不用存在。多数使用它的情况都是
 ```js
 function getProperty(oString) {
   var oReference;
-  eval("oReference = test.prop." + oString);
+  eval('oReference = test.prop.' + oString);
   return oReference;
 }
 ```
@@ -76,8 +76,8 @@ function getProperty(oString) {
 function addMethod(oObject, oProperty, oFunctionCode) {
   oObject[oProperty] = new Function(oFunctionCode);
 }
-addMethod(myObject, "rotateBy90", "this.angle = (this.angle + 90) % 360");
-addMethod(myObject, "rotateBy60", "this.angle = (this.angle + 60) % 360");
+addMethod(myObject, 'rotateBy90', 'this.angle = (this.angle + 90) % 360');
+addMethod(myObject, 'rotateBy60', 'this.angle = (this.angle + 60) % 360');
 ```
 
 下面的代码实现了同样的功能，但没有用 Function 构造林。它通过匿名函数实现，匿名函数可以像其它对象一样被引用：
@@ -86,10 +86,10 @@ addMethod(myObject, "rotateBy60", "this.angle = (this.angle + 60) % 360");
 function addMethod(oObject, oProperty, oFunction) {
   oObject[oProperty] = oFunction;
 }
-addMethod(myObject, "rotateBy90", function() {
+addMethod(myObject, 'rotateBy90', function() {
   this.angle = (this.angle + 90) % 360;
 });
-addMethod(myObject, "rotateBy60", function() {
+addMethod(myObject, 'rotateBy60', function() {
   this.angle = (this.angle + 60) % 360;
 });
 ```
@@ -104,9 +104,9 @@ addMethod(myObject, "rotateBy60", function() {
 
 ```js
 with (test.information.settings.files) {
-  primary = "names";
-  secondary = "roles";
-  tertiary = "references";
+  primary = 'names';
+  secondary = 'roles';
+  tertiary = 'references';
 }
 ```
 
@@ -114,9 +114,9 @@ with (test.information.settings.files) {
 
 ```js
 var testObject = test.information.settings.files;
-testObject.primary = "names";
-testObject.secondary = "roles";
-testObject.tertiary = "references";
+testObject.primary = 'names';
+testObject.secondary = 'roles';
+testObject.tertiary = 'references';
 ```
 
 ## 不要在要求性能的函数中使用 try-catch-finally
@@ -210,7 +210,7 @@ testfunction();
 下面的示例的让脚本引擎创建 21 个新的字符串对象。每次访问 length 属性和每次调用 charAt 方法的时候都会创建对象：
 
 ```js
-var s = "0123456789";
+var s = '0123456789';
 for (var i = 0; i < s.length; i++) {
   s.charAt(i);
 }
@@ -263,8 +263,8 @@ a += 'x' + 'y';
 这段代码首先会在内存中创建一临时的字符串保存连接的结果 xy，然后将它连接到 a 的当前值，再将最终的连接结果赋值给 a。下面的代码使用了两条命令，但因为它每次都是直接赋值，所以不会使用临时字符串。当今许多浏览器中运行这段代码速度会快 20%，而且只需要更少的内存，因为它不需要暂存连接结果的临时字符串：
 
 ```js
-a += "x";
-a += "y";
+a += 'x';
+a += 'y';
 ```
 
 ## 基本运算比调用函数更
@@ -290,8 +290,8 @@ setTimeout() 和 setInterval() 方法与 eval 类似。如果传递给它们的�
 不过这些方法都会接收函数作为第一个参数，所以可以不用传入字符串。作为参数传入的函数会在一定延迟之后调用，但它们可以在编译期进行解释和优化，最终会带来性能提升。这里有个使用字符串作为参数的典型示例：
 
 ```js
-setInterval("updateResults()", 1000);
-setTimeout("x+=3; prepareResult(); if(!hasCancelled){ runmore() }", 500);
+setInterval('updateResults()', 1000);
+setTimeout('x+=3; prepareResult(); if(!hasCancelled){ runmore() }', 500);
 ```
 
 第一种情况可以直接引用函数。第二种情况可以使用匿函数来封装代码：
@@ -345,7 +345,7 @@ setTimeout(function() {
 var docFragm = document.crateDocumentFragment();
 var elem, contents;
 for (var i = 0; i < textlist.length; i++) {
-  elem = document.createElement("p");
+  elem = document.createElement('p');
   contents = document.createTextNode(textlist[i]);
   elem.appendChild(contents);
   docFragm.appendChild(elem);
@@ -356,12 +356,12 @@ document.body.appendChild(docFragm);
 修改文档树也可以通过克隆一个素实现，在修改完成之后将之替换掉文档树中的某个元素，这样只会导致一次重排。注意，如果元素中包含任何形式的控制，就不要使用这个方法，因为如果用户修改了它们的值不会反映在主要的 DOM 树上。如果你需要依赖附加在这个元素或其子元素上的事件处理函数，那么也不要使用这个方法，因为这些附着关系不会被克隆。
 
 ```js
-var original = document.getEementById("container");
+var original = document.getEementById('container');
 var cloned = original.cloneNode(true);
-cloned.setAttribute("width", "50%");
+cloned.setAttribute('width', '50%');
 var elem, contents;
 for (var i = 0; i < textlist.length; i++) {
-  elem = document.createElement("p");
+  elem = document.createElement('p');
   contents = document.createTextNode(textlist[i]);
   elem.appendChild(contents);
   cloned.appendChild(elem);
@@ -376,12 +376,12 @@ original.parentNode.replaceChild(cloned, original);
 不过这会造成两次额外的重排，一次是在隐藏元素的时候，另一次是它再次显示出来的时候，不过整体效果会快很多。这样做也可能意外导致滚动条跳跃。不过把这种方式应用于固定位置的元素就不会导致难看的效果。
 
 ```js
-var posElem = document.getElmentById("animation");
-posElem.style.display = "none";
+var posElem = document.getElmentById('animation');
+posElem.style.display = 'none';
 posElem.appendChild(newNodes);
-posElem.style.width = "10em";
+posElem.style.width = '10em';
 // Other changes…
-posElem.style.display = "block";
+posElem.style.display = 'block';
 ```
 
 ## 测量
@@ -391,11 +391,11 @@ posElem.style.display = "block";
 这种影响发生在使用像 offsetWidth 这样的属性，或者 getComputedStyle 这样的方法进行测量的时候。即使不使用这些数字，只要使用了它们，浏览器仍然会缓存改变，这足以触发隐藏的重排。如果这些测量需要重复进行，你就得考虑只测量一次，然后将结果保存起来以备后用。
 
 ```js
-var posElem = document.getElementById("aimation");
+var posElem = document.getElementById('aimation');
 var calcWidth = posElem.offsetWidth;
-posElem.style.fontSize = calcWidth / 10 + "px";
-posElem.firstChild.style.marginLeft = calcWidth / 20 + "px";
-posElem.style.left = -1 * calcWidth / 2 + "px";
+posElem.style.fontSize = calcWidth / 10 + 'px';
+posElem.firstChild.style.marginLeft = calcWidth / 20 + 'px';
+posElem.style.left = -1 * calcWidth / 2 + 'px';
 // Other changes…
 ```
 
@@ -404,10 +404,10 @@ posElem.style.left = -1 * calcWidth / 2 + "px";
 就像改变 DOM 树一样，也可以同时进行几项相关样式的改变，以尽可能减少重绘或重排次数。常见的方法是一次设置一个样式：
 
 ```js
-var toChange = document.gtElementById("mainelement");
-toChange.style.background = "#333";
-toChange.style.color = "#fff";
-toChange.style.border = "1px solid #00f";
+var toChange = document.gtElementById('mainelement');
+toChange.style.background = '#333';
+toChange.style.color = '#fff';
+toChange.style.border = '1px solid #00f';
 ```
 
 那种方式会造成多重排或重绘。主要有两种方法可以做得更好。如果元素本身需要应用的几个样式，而它们的值都是已知的，那就可以修改元素的 class，并在这个 class 中定义所有新样式：
@@ -428,21 +428,21 @@ document.getElementById('mainelement').className = 'highlight';
 第二种方法是对为元素义一个新的样式属性，而不是一个个地指定样式。多数情况下这适用于像动画这样的动态变化，新的样式预先并不知道。这通过 style 对象的 cssText 属性实现，或者通过 setAttribute 实现。Internet Explorer 不支持第二种方式，所以只能使用第一种。一些旧的浏览器，包括 Opera 8，要使用第二种方式，不能使用第一种。因此，简单的办法是检查是否支持第一种方式，如果支持，使用它，否则使用第二种。
 
 ```js
-var posElem = document.getElementById("animation");
+var posElem = document.getElementById('animation');
 var newStyle =
-  "background: " +
+  'background: ' +
   newBack +
-  ";" +
-  "color: " +
+  ';' +
+  'color: ' +
   newColor +
-  ";" +
-  "border: " +
+  ';' +
+  'border: ' +
   newBorder +
-  ";";
-if (typeof posElem.style.cssText != "undefined") {
+  ';';
+if (typeof posElem.style.cssText != 'undefined') {
   posElem.style.cssText = newStyle;
 } else {
-  posElem.setAttribute("style", newStyle);
+  posElem.setAttribute('style', newStyle);
 }
 ```
 
@@ -457,9 +457,9 @@ if (typeof posElem.style.cssText != "undefined") {
 在试图找到某个特定节点，或者某个节点的子集时，应该使用内置的方法和 DOM 集合来缩小搜索范围，使之在尽可能少的节点内进行搜索。比如，如果你想在文档中找到一个具有某个特定属性的未知的元素，可能这样做：
 
 ```js
-var allElements = document.getElementsByTagName("*");
+var allElements = document.getElementsByTagName('*');
 for (var i = 0; i < allElements.length; i++) {
-  if (allElements[i].hasAttribute("someattr")) {
+  if (allElements[i].hasAttribute('someattr')) {
     // …
   }
 }
@@ -468,9 +468,9 @@ for (var i = 0; i < allElements.length; i++) {
 即使我们忽略像 Xath 这样的高级技术，那个例子中仍然存在两个使之变慢的问题。首先，它搜索了每一个元素，根本没有尝试缩小范围。第二，它在找到了需要的元素之后并没有中止搜索。假如已经知道那个未知的元素在一个 id 为 inhere 的 div 中，下面的代码会好很多：
 
 ```js
-var allElements = documet.getElementById("inhere").getElementsByTagName("*");
+var allElements = documet.getElementById('inhere').getElementsByTagName('*');
 for (var i = 0; i < allElements.length; i++) {
-  if (allElements[i].hasAttribute("someattr")) {
+  if (allElements[i].hasAttribute('someattr')) {
     // …    break;
   }
 }
@@ -479,9 +479,9 @@ for (var i = 0; i < allElements.length; i++) {
 如果那个未知的元素那个 div 的直接子级，这种方法可能会更快，这取决于 div 的子孙元素的数量，将之与 childNodes 集合的 length 比较：
 
 ```js
-var allChildren = documet.getElementById("inhere").childNodes;
+var allChildren = documet.getElementById('inhere').childNodes;
 for (var i = 0; i < allChildren.length; i++) {
-  if (allChildren[i].nodeType == 1 && allChildren[i].hasAttribute("someattr")) {
+  if (allChildren[i].nodeType == 1 && allChildren[i].hasAttribute('someattr')) {
     // …    break;
   }
 }
@@ -494,7 +494,7 @@ for (var i = 0; i < allChildren.length; i++) {
 一个简单的示例是在 HTML 文档中使用 H2 - H4 创建一个目录，这些元素可以出现在不同的地方，没有任何适当的结构，所以不能用递归来获得正确的顺序。传统的 DOM 会采用这样的方法：
 
 ```js
-var allElements = document.getElementByTagName("*");
+var allElements = document.getElementByTagName('*');
 for (var i = 0; i < allElements.length; i++) {
   if (allElements[i].tagName.match(/^h[2-4]$/i)) {
     // …
@@ -506,7 +506,7 @@ for (var i = 0; i < allElements.length; i++) {
 
 ```js
 var headings = documet.evaluate(
-  "//h2|//h3|//h4",
+  '//h2|//h3|//h4',
   document,
   null,
   XPathResult.ORDERED_NODE_ITERATOR_TYPE,
@@ -523,7 +523,7 @@ while ((oneheading = headings.iterateNext())) {
 ```js
 if (document.evuate) {
   var headings = document.evaluate(
-    "//h2|//h3|//h4",
+    '//h2|//h3|//h4',
     document,
     null,
     XPathResult.ORDERED_NODE_ITERATOR_TYPE,
@@ -534,7 +534,7 @@ if (document.evuate) {
     // …
   }
 } else {
-  var allElements = document.getElementsByTagName("*");
+  var allElements = document.getElementsByTagName('*');
   for (var i = 0; i < allElements.length; i++) {
     if (allElements[i].tagName.match(/^h[2-4]$/i)) {
       // …
@@ -561,7 +561,7 @@ for(vr i = 0; i < allPara.length; i++) {
 在 Opera 中，下面等效的代码性能要好十倍，一些当的浏览器，比如 Internet Explorer 也是如此。它的工作原理是先建立一个静态元素列表用于修改，然后遍历这个静态列表来进行修改。以此避免对 getElementsByTagName 返回的列表进行修改。
 
 ```js
-var allPara = document.getElementsByagName("p");
+var allPara = document.getElementsByagName('p');
 var collectTemp = [];
 for (var i = 0; i < allPara.length; i++) {
   collectTemp[collectTemp.length] = allPara[i];
@@ -577,20 +577,20 @@ collectTemp = null;
 DOM 返回的某些值是不缓存的，它们会在再次调用的时候重新计算。getElementById 方法就是其中之一，下面的代码就比较浪费性能：
 
 ```js
-document.getElementById("test").property1 = "value1";
-document.getElementById("test").property2 = "value2";
-document.getElementById("test").property3 = "value3";
-document.getElementById("test").property4 = "value4";
+document.getElementById('test').property1 = 'value1';
+document.getElementById('test').property2 = 'value2';
+document.getElementById('test').property3 = 'value3';
+document.getElementById('test').property4 = 'value4';
 ```
 
 这段代码对同一个对象查找了四次。下面的代码只会查找一次并保下来。对于单独一个请求来说，这样的速度可能没有变化，或者会因此赋值变得稍慢一点。但在后续操作中使用缓存值之后，对当今的浏览器来说，命令运行的速度会快五到十倍。下面的命令与上面示例中的等效：
 
 ```js
-var sample = document.getElementById("test");
-sample.property1 = "value1";
-sample.property2 = "value2";
-sample.property3 = "value3";
-sample.property4 = "value4";
+var sample = document.getElementById('test');
+sample.property1 = 'value1';
+sample.property2 = 'value2';
+sample.property3 = 'value3';
+sample.property4 = 'value4';
 ```
 
 ## 03 文档加载
@@ -602,10 +602,10 @@ sample.property4 = "value4";
 原因在于，如果另一个文档已经销毁，比如原来显示在弹出窗中而现在这个窗口关闭了，当前文档中保存的引用通常仍然会使其 DOM 树或者脚本环境在 RAM 中存在，哪怕文档本身已经不在加载状态了。在框架页面，内联框架页面或 OBJECT 元素中同样存在这个问题。
 
 ```js
-var remoteDoc = parent.frames["sieframe"].document;
-var remoteContainer = remoteDoc.getElementById("content");
-var newPara = remoteDoc.createElement("p");
-newPara.appendChild(remoteDoc.createTextNode("new content"));
+var remoteDoc = parent.frames['sieframe'].document;
+var remoteContainer = remoteDoc.getElementById('content');
+var newPara = remoteDoc.createElement('p');
+newPara.appendChild(remoteDoc.createTextNode('new content'));
 remoteContainer.appendChild(newPara);
 // Remove references
 remoteDoc = null;
@@ -659,10 +659,10 @@ document.getElementById('nextlink').onclick = funtion() {  if(!window.XMLHttpReq
 
 ```js
 if (document.createElement && document.childNodes) {
-  document.write("</script>");
+  document.write('</script>');
 }
 if (window.XMLHttpRequest) {
-  document.write("</script>");
+  document.write('</script>');
 }
 ```
 

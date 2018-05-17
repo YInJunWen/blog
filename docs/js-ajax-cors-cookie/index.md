@@ -1,4 +1,4 @@
-# 获取 ajax 跨域请求传递的 cookie
+# js 跨域 ajax 请求获取传递的 cookie
 
 > 一般情况下，浏览器对于跨域请求，不会发送身份凭证信息(cookie 和 http 认证相关数据)。如果需要发送这些信息，必须要设置一个特殊的属性：withCredientials，我们以 xmlHttpRequest 为例：
 

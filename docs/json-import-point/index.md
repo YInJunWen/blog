@@ -1,4 +1,4 @@
-# Error: Unexpected token i in JSON
+# js Error: Unexpected token i in JSON
 
 报错内容： `Unexpected token i in JSON`
 这种错误出现在 get 方式获取 JSON 的时候，一定要注意 JSON 的标准格式：

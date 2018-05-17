@@ -1,4 +1,4 @@
-# 本博客下的 nginx 配置
+# nginx 本博客下的 nginx 配置
 
 > 这里记录一下本博客使用 vue 改版后的 nginx 服务器配置
 

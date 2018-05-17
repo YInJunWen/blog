@@ -1,4 +1,4 @@
-# 前端优化方案
+# optimize 前端优化方案
 
 > 前端的优化方案是在太多了，今天开始一个一个的记录下来，后期会不定时增加
 
@@ -28,9 +28,9 @@
 
 ```js
 let top = div.offsetTop;
-div.style.top = top + 10 + "px";
+div.style.top = top + 10 + 'px';
 let top = div.offsetLeft;
-div.style.left = top + 10 + "px";
+div.style.left = top + 10 + 'px';
 ```
 
 这段代码中，每获取 div 的位置都会强制浏览器渲染一次，才去获取 div 的样式属性值，改变 div 位置的时候，又导致了大量的重排和重绘，这样就导致浏览器需要进行至少 4 次渲染(render)，严重影响了浏览器的处理时间和速度。最好是把读取属性和改变属性的事件合并在起，像下面这样
@@ -38,8 +38,8 @@ div.style.left = top + 10 + "px";
 ```js
 let top = div.offsetTop;
 let top = div.offsetLeft;
-div.style.top = top + 10 + "px";
-div.style.left = top + 10 + "px";
+div.style.top = top + 10 + 'px';
+div.style.left = top + 10 + 'px';
 ```
 
 现在浏览器只需要 2 次渲染就可以达到相同的目标了。
@@ -49,23 +49,23 @@ div.style.left = top + 10 + "px";
 先看下面的例子
 
 ```js
-let div = document.querySelector("div");
-let form = document.createElement("form");
+let div = document.querySelector('div');
+let form = document.createElement('form');
 div.appendChild(form);
-let input = doucment.createElement("input");
+let input = doucment.createElement('input');
 form.appendChild(input);
-let button = doucment.createElement("button");
+let button = doucment.createElement('button');
 form.appendChild(button);
 ```
 
 这个案例其实也牵扯到了导致浏览器多次重排和重绘的问题，我们可以通过下面的方案来对他进行优化:
 
 ```js
-let div = document.querySelector("div");
-let form = document.createElement("form");
-let input = doucment.createElement("input");
+let div = document.querySelector('div');
+let form = document.createElement('form');
+let input = doucment.createElement('input');
 form.appendChild(input);
-let button = doucment.createElement("button");
+let button = doucment.createElement('button');
 form.appendChild(button);
 div.appendChild(form);
 ```
@@ -84,18 +84,18 @@ div.appendChild(form);
 
 ```js
 // 新建web-worker线程
-var worker = new Worker("./main.js");
+var worker = new Worker('./main.js');
 
 // 给worker发送参数
 worker.postMessage([1, 2]);
 
 // 监听worker的回传事件
 worker.onmessage = function(message) {
-    // 回传的数据也保存在 message.data中
-    console.log(message.data);
+  // 回传的数据也保存在 message.data中
+  console.log(message.data);
 
-    // 如果需要可以使用 terminate 方法，关闭worker线程
-    worker.terminate();
+  // 如果需要可以使用 terminate 方法，关闭worker线程
+  worker.terminate();
 };
 ```
 
@@ -104,16 +104,16 @@ worker.onmessage = function(message) {
 ```js
 // 监听主线程发送过来的数据
 onmessage = function(message) {
-    // 传递过来的数据存放在message.data内
-    let result = message.data.reduce((a, b) => {
-        return a + b;
-    }, 0);
+  // 传递过来的数据存放在message.data内
+  let result = message.data.reduce((a, b) => {
+    return a + b;
+  }, 0);
 
-    // 回传计算后的数据给主线程
-    postMessage(result);
+  // 回传计算后的数据给主线程
+  postMessage(result);
 
-    // 如果需要，可以直接使用 close 方法，关掉worker线程
-    close();
+  // 如果需要，可以直接使用 close 方法，关掉worker线程
+  close();
 };
 ```
 
