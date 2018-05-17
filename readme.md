@@ -49,7 +49,7 @@
 |es5 函数继承-构造函数的继承(3)|2018-04-03 10:25|[详情](./docs/es5-construct-function-inherit-3/index.md)|
 |es5 函数继承-非构造函数的继承|2018-04-03 10:25|[详情](./docs/es5-uncontructor-function-inherit/index.md)|
 |es6 中的 class|2018-03-03 14:48|[详情](./docs/es6-class1/index.md)|
-|es6 Class|2018-04-03 10:26|[详情](./docs/es6-class2/index.md)|
+|es6 class2|2018-04-03 11:20|[详情](./docs/es6-class2/index.md)|
 |es6 修饰器 decorator|2018-04-03 10:26|[详情](./docs/es6-decorator/index.md)|
 |es6 中的结构赋值|2018-02-04 20:52|[详情](./docs/es6-destorctor/index.md)|
 |es6 中的对象解构|2018-04-03 10:27|[详情](./docs/es6-destruct/index.md)|
@@ -150,15 +150,15 @@
 |vue 中如何在 v-html 指令中使用过滤器|2018-03-03 17:08|[详情](./docs/vue-use-fileter-in-html/index.md)|
 |vuex 初探|2018-04-03 10:48|[详情](./docs/vuex-basic/index.md)|
 |vuex 中 module 的使用|2018-02-04 20:52|[详情](./docs/vuex-module/index.md)|
-|CommonsChunkPlugin 插件|2018-03-03 17:08|[详情](./docs/webpack-commonschunk-plugin/index.md)|
+|webpack CommonsChunkPlugin 插件|2018-04-04 15:53|[详情](./docs/webpack-commonschunk-plugin/index.md)|
 |webpack 配置|2018-03-03 17:08|[详情](./docs/webpack-configuration/index.md)|
-|CSS 文件使用 require 或者 import 方法引入，返回值为空的对象|2018-03-03 14:49|[详情](./docs/webpack-css-laoder-errors/index.md)|
+|webpack 中 CSS 文件使用 require 或者 import 方法引入，返回值为空的对象|2018-04-04 15:53|[详情](./docs/webpack-css-laoder-errors/index.md)|
 |webpack 中的 css-loader|2018-04-03 09:55|[详情](./docs/webpack-css-loader/index.md)|
-|ExtracTextPlugin 插件解读|2018-03-03 17:08|[详情](./docs/webpack-extracttext-plugin/index.md)|
-|htmlWebpackPlugin|2018-03-03 17:08|[详情](./docs/webpack-html-plugin/index.md)|
+|webpack ExtracTextPlugin 插件解读|2018-04-04 15:53|[详情](./docs/webpack-extracttext-plugin/index.md)|
+|webpack htmlWebpackPlugin 插件|2018-04-04 15:54|[详情](./docs/webpack-html-plugin/index.md)|
 |webpack 优化|2018-03-03 17:08|[详情](./docs/webpack-optimize-methods/index.md)|
-|微信小程序在组件之间触发事件以及传参|2018-04-05 14:23|[详情](./docs/wechat-mini-program-component/index.md)|
-|微信小程序中如何创建类似于 Vue 和 Angular 中的过滤器|2018-04-05 14:26|[详情](./docs/wechat-mini-program-filter/index.md)|
-|微信小程序中如何把通过 canvas 生成的图片上传到服务器|2018-03-02 10:30|[详情](./docs/wechat-mini-program-generator-canvas/index.md)|
-|微信小程序开发要注意的地方|2018-04-05 14:32|[详情](./docs/wechat-mini-program-point/index.md)|
+|wechat 微信小程序在组件之间触发事件以及传参|2018-04-04 15:54|[详情](./docs/wechat-mini-program-component/index.md)|
+|wechat 微信小程序中如何创建类似于 Vue 和 Angular 中的过滤器|2018-04-04 15:54|[详情](./docs/wechat-mini-program-filter/index.md)|
+|wechat 微信小程序中如何把通过 canvas 生成的图片上传到服务器|2018-04-04 15:54|[详情](./docs/wechat-mini-program-generator-canvas/index.md)|
+|wechat 微信小程序开发要注意的地方|2018-04-04 15:54|[详情](./docs/wechat-mini-program-point/index.md)|
 |zepto 笔记|2018-04-03 10:48|[详情](./docs/zepto-basic/index.md)|

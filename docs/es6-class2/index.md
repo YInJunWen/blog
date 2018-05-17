@@ -1,4 +1,4 @@
-# es6 Class
+# es6 class2
 
 ## Class 中定义的方法和属性
 

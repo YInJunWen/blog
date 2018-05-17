@@ -1,4 +1,4 @@
-# ExtracTextPlugin 插件解读
+# webpack ExtracTextPlugin 插件解读
 
 ## 安装
 
@@ -9,7 +9,7 @@ npm i --save-dev extract-text-webpack-plugin@beta
 ## 引入
 
 ```js
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 ```
 
 ## 最简单的用法
@@ -20,11 +20,11 @@ module.exports = {
     rules: [
       {
         test: /.\.css$/,
-        use: ExtractTextPlugin.extract("css-loader")
-      }
-    ]
+        use: ExtractTextPlugin.extract('css-loader'),
+      },
+    ],
   },
-  plugins: [new ExtractTextPlugin("styles.css")]
+  plugins: [new ExtractTextPlugin('styles.css')],
 };
 ```
 
@@ -35,7 +35,7 @@ module.exports = {
 * 指定输出文件的完整路径
 
 ```js
-plugin: [new ExtractTextPlugin("src/style")];
+plugin: [new ExtractTextPlugin('src/style')];
 ```
 
 * | 一个对象作为参数，常用的参数：名称 | 描述                                                                                             |
@@ -55,8 +55,8 @@ module: {
   use: [
     {
       test: /\.css/,
-      use: extractTextPlugin.extract("css-loader")
-    }
+      use: extractTextPlugin.extract('css-loader'),
+    },
   ];
 }
 ```
@@ -68,8 +68,8 @@ module: {
   use: [
     {
       test: /\.css/,
-      use: extractTextPlugin.extract(["css-loader", "less-loader"])
-    }
+      use: extractTextPlugin.extract(['css-loader', 'less-loader']),
+    },
   ];
 }
 ```
@@ -82,9 +82,9 @@ module: {
     {
       test: /\.css/,
       use: extractTextPlugin.extract({
-        use: ["css-loader", "less-loader"]
-      })
-    }
+        use: ['css-loader', 'less-loader'],
+      }),
+    },
   ];
 }
 ```
@@ -116,25 +116,25 @@ module: {
 该插件允许同时使用多个打包规则，例子如下：
 
 ```js
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // 多个提取实例
-const extractCSS = new ExtractTextPlugin("stylesheets/[name].css");
-const extractLESS = new ExtractTextPlugin("stylesheets/[name].less");
+const extractCSS = new ExtractTextPlugin('stylesheets/[name].css');
+const extractLESS = new ExtractTextPlugin('stylesheets/[name].less');
 
 module.exports = {
   module: {
     use: [
       {
         test: /\.css$/,
-        use: extractCSS.extract(["css-loader", "postcss-loader"])
+        use: extractCSS.extract(['css-loader', 'postcss-loader']),
       },
       {
         test: /\.html$/i,
-        use: extractLESS.extract(["css-loader", "less-loader"])
-      }
-    ]
+        use: extractLESS.extract(['css-loader', 'less-loader']),
+      },
+    ],
   },
-  plugins: [extractCSS, extractLESS]
+  plugins: [extractCSS, extractLESS],
 };
 ```

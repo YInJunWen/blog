@@ -1,4 +1,4 @@
-# 微信小程序在组件之间触发事件以及传参
+# wechat 微信小程序在组件之间触发事件以及传参
 
 小程序开发中，自定义组件是必不可少的，那些复用率较大的一般都会封装成一个单一的组件，那么和 AngularJS、VueJS、ReactJS 一样，肯定也有触发上级事件以及传参的方法，具体如下(下面的代码中省略了暴露组件以及引入组件的方法，具体可以参考[微信小程序组件暴露以及使引入方法](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/))
 

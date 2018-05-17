@@ -1,4 +1,4 @@
-# 微信小程序中如何把通过 canvas 生成的图片上传到服务器
+# wechat 微信小程序中如何把通过 canvas 生成的图片上传到服务器
 
 在一个小程序项目中，需要前端使用 canvas 生成图片，并把图片上传到指定的服务器，实现代码如下
 
@@ -14,32 +14,32 @@
 ```js
 Page({
   generatorImage() {
-    let ctx = wx.createCanvasContext("canvas", this);
-    let bg = "/static/cards/card-bg-1.png"; // 这里是我的示例图片，保存在项目中
+    let ctx = wx.createCanvasContext('canvas', this);
+    let bg = '/static/cards/card-bg-1.png'; // 这里是我的示例图片，保存在项目中
     ctx.drawImage(bg, 0, 0, 190, 114);
     ctx.draw(true, () => {
       wx.canvasToTempFilePath(
         // 这里一定要记得放在draw()方法的毁掉函数中，否则上传的会是一个空白图片
         {
-          canvasId: "canvas",
+          canvasId: 'canvas',
           success(res) {
             wx.uploadFile({
-              url: "http://localhost/index.php",
+              url: 'http://localhost/index.php',
               filePath: res.tempFilePath,
-              name: "testFile", //  后端通过这个字段获取到对应得文件
+              name: 'testFile', //  后端通过这个字段获取到对应得文件
               formData: {
-                name: "zhangsan" // 这里的数据可以通过 $_POST 获取到，下面的php代码中有显示
+                name: 'zhangsan', // 这里的数据可以通过 $_POST 获取到，下面的php代码中有显示
               },
               success(res) {
                 console.log(res);
-              }
+              },
             });
-          }
+          },
         },
         this
       );
     });
-  }
+  },
 });
 ```
 
