@@ -1,4 +1,4 @@
-# optimize 如何使 javascript 更高效
+# js 如何使 javascript 更高效
 
 ## ECMAScript
 
