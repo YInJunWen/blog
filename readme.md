@@ -73,6 +73,7 @@
 |gulp 常用插件|2018-03-03 17:08|[详情](./docs/gulp-plugins/index.md)|
 |gulp-rename 插件|2018-03-03 17:08|[详情](./docs/gulp-rename-plugin/index.md)|
 |h5 一些小坑整理|2018-04-04 16:03|[详情](./docs/h5-errors/index.md)|
+|h5 如何在 PC 上展示移动端页面的效果|2018-04-04 16:08|[详情](./docs/h5-show-in-pc/index.md)|
 |js 跨域 ajax 请求获取传递的 cookie|2018-04-04 16:05|[详情](./docs/js-ajax-cors-cookie/index.md)|
 |js 柯里化编程|2018-04-04 16:05|[详情](./docs/js-carry-programming/index.md)|
 |JS 改变 select 元素的值|2018-03-04 10:30|[详情](./docs/js-change-select-value/index.md)|
@@ -92,13 +93,11 @@
 |js 与 java 同时使用的 md5 库|2018-03-03 17:08|[详情](./docs/js-library-md5/index.md)|
 |js 千分位加逗号的方法|2018-04-04 16:07|[详情](./docs/js-micrometer-split/index.md)|
 |js 获取元素相对于屏幕的位置|2018-04-04 16:07|[详情](./docs/js-offset-methods/index.md)|
-|optimize 如何使 javascript 更高效|2018-04-04 16:07|[详情](./docs/js-optimize/index.md)|
+|js 如何使 javascript 更高效|2018-04-04 16:14|[详情](./docs/js-optimize/index.md)|
 |js 把 url 上的参数序列化为对象|2018-04-04 16:08|[详情](./docs/js-parse-url-to-object/index.md)|
 |js prototype 那些事|2018-04-04 16:08|[详情](./docs/js-prototype/index.md)|
 |js 计算随机字符串|2018-04-04 16:08|[详情](./docs/js-random-string/index.md)|
-|requireJS 小结|2018-04-04 16:08|[详情](./docs/js-requirejs/index.md)|
 |js 获取浏览器滚动条高度 scrollTop|2018-04-04 16:08|[详情](./docs/js-scroll-top/index.md)|
-|h5 如何在 PC 上展示移动端页面的效果|2018-04-04 16:08|[详情](./docs/js-show-h5-in-pc/index.md)|
 |js 实时预览选择的图片文件|2018-04-04 16:08|[详情](./docs/js-show-image-file-sync/index.md)|
 |js 类数组转数组|2018-03-03 17:36|[详情](./docs/js-similar-array-to-array/index.md)|
 |js this 指向总结|2018-04-04 16:09|[详情](./docs/js-this/index.md)|
@@ -141,6 +140,7 @@
 |react-router4X 版本用法|2018-03-03 17:08|[详情](./docs/react-router4/index.md)|
 |react 注意的地方|2018-04-04 13:20|[详情](./docs/react-setstate-function/index.md)|
 |react 中定义样式的几种方式|2018-03-03 17:08|[详情](./docs/react-use-style/index.md)|
+|requireJS 小结|2018-04-04 16:08|[详情](./docs/requirejs/index.md)|
 |rpm 包管理基础|2018-04-03 10:45|[详情](./docs/rpm-basic/index.md)|
 |vue 中创建全局的弹窗组件|2018-03-03 17:08|[详情](./docs/vue-create-global-alert/index.md)|
 |vue-router2 中如何设置默认的路由|2018-03-03 17:08|[详情](./docs/vue-router2-default-path/index.md)|
