@@ -1,4 +1,4 @@
-# JS 改变 select 元素的值
+# js 改变 select 元素的值
 
 select 元素在没有设置属性 selected 的子元素时，默认使用第一个 option 的 value 值作为 select 的值
 
@@ -16,7 +16,7 @@ select 元素在没有设置属性 selected 的子元素时，默认使用第一
 
 ```js
 window.onload = function() {
-  document.querySelector("#test").value = "2";
+  document.querySelector('#test').value = '2';
 };
 ```
 
@@ -24,8 +24,8 @@ window.onload = function() {
 
 ```js
 window.onload = function() {
-  let ele = document.querySelectorAll("option")[2];
-  ele.setAttribute("selected", true);
+  let ele = document.querySelectorAll('option')[2];
+  ele.setAttribute('selected', true);
   //   或者
   ele.selected = true;
 };

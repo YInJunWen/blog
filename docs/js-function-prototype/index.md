@@ -60,7 +60,7 @@ new Person().constructor === Person.ptototype.constructor; // true
 
 ## 原型链
 
-实例对象，既可以访问构造函数中的属性和方法，又可以访问构造函数原型中的属性和方法。
+实例对象，既可以访问构造函数中的 **构造器属性/方法**，又可以访问构造函数原型中的 **原型链属性/方法**。
 
 ```js
 function add() {
