@@ -51,8 +51,7 @@ function generator(fileList, index = 0) {
     return false;
   }
   let realPath = path.resolve(docPath, './' + fileList[index] + '/index.md');
-  let state = fs.statSync(realPath);
-  const mtime = formatDate(state.mtime);
+
   // console.log(realPath);
   fs.readFile(realPath, 'utf8', (err, data) => {
     let title = data.match(/^#\ (.*)/g);
@@ -61,7 +60,13 @@ function generator(fileList, index = 0) {
     } else {
       if (title) {
         title = title[0].replace('# ', '');
+        console.log('');
         console.log(title);
+
+        let state = fs.statSync(realPath);
+        console.log(JSON.stringify(state.mtime));
+        const mtime = formatDate(state.mtime);
+
         let wsData = `|${title}|${mtime}|[详情](./docs/${
           fileList[index]
         }/index.md)|${os.EOL}`;
@@ -82,9 +87,11 @@ function formatDate(date) {
   return (
     date.getFullYear() +
     '-' +
-    (date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()) +
+    (date.getMonth() + 1 < 10
+      ? '0' + (date.getMonth() + 1)
+      : date.getMonth() + 1) +
     '-' +
-    (date.getDay() < 10 ? '0' + date.getDay() : date.getDay()) +
+    (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) +
     ' ' +
     (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) +
     ':' +
