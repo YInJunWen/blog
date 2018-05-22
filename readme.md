@@ -28,6 +28,7 @@
 |angularJS ngTouch 触发多次绑定事件的解决方案|2018-04-03 09:42|[详情](./docs/angularjs-touch-errors/index.md)|
 |angularJS 的 ui-router 详解|2018-04-03 09:42|[详情](./docs/angularjs-ui-router/index.md)|
 |angularJS 中的文件上传|2018-03-03 14:49|[详情](./docs/angularjs-upload-file/index.md)|
+|antd-mobile 通过其他组件触发 Picker 组件的弹窗|2018-04-02 12:07|[详情](./docs/antd-mobile-trigger-selector/index.md)|
 |antd 中的多个 treeSelect 联动效果|2018-04-04 16:51|[详情](./docs/antd-treeselect-mutiple/index.md)|
 |axios 主动取消请求|2018-02-04 20:52|[详情](./docs/axios-cancel-request/index.md)|
 |axios 如何处理在 SPA 应用中路由切换后的请求终止问题|2018-04-04 16:02|[详情](./docs/axios-vue-nav-guards/index.md)|
@@ -49,8 +50,7 @@
 |es5 函数继承-构造函数的继承(2)|2018-04-03 10:25|[详情](./docs/es5-construct-function-inherit-2/index.md)|
 |es5 函数继承-构造函数的继承(3)|2018-04-03 10:25|[详情](./docs/es5-construct-function-inherit-3/index.md)|
 |es5 函数继承-非构造函数的继承|2018-04-03 10:25|[详情](./docs/es5-uncontructor-function-inherit/index.md)|
-|es6 中的 class|2018-03-03 14:48|[详情](./docs/es6-class1/index.md)|
-|es6 class2|2018-04-03 11:20|[详情](./docs/es6-class2/index.md)|
+|es6 中的 class|2018-04-05 16:27|[详情](./docs/es6-class1/index.md)|
 |es6 修饰器 decorator|2018-04-03 10:26|[详情](./docs/es6-decorator/index.md)|
 |es6 中的结构赋值|2018-02-04 20:52|[详情](./docs/es6-destorctor/index.md)|
 |es6 中的对象解构|2018-04-03 10:27|[详情](./docs/es6-destruct/index.md)|
@@ -76,13 +76,13 @@
 |h5 如何在 PC 上展示移动端页面的效果|2018-04-04 16:08|[详情](./docs/h5-show-in-pc/index.md)|
 |js 跨域 ajax 请求获取传递的 cookie|2018-04-04 16:05|[详情](./docs/js-ajax-cors-cookie/index.md)|
 |js 柯里化编程|2018-04-04 16:05|[详情](./docs/js-carry-programming/index.md)|
-|JS 改变 select 元素的值|2018-03-04 10:30|[详情](./docs/js-change-select-value/index.md)|
+|js 改变 select 元素的值|2018-04-05 10:12|[详情](./docs/js-change-select-value/index.md)|
 |js cookie 的作用域|2018-04-04 16:05|[详情](./docs/js-cookie/index.md)|
 |js 中的深拷贝与浅拷贝|2018-04-04 16:06|[详情](./docs/js-deep-copy/index.md)|
 |js display:none 的 input 元素会默认添加到表单中提交吗|2018-04-04 16:06|[详情](./docs/js-display-none-input-form/index.md)|
 |js 输入框延迟指定事件执行方法|2018-04-04 16:06|[详情](./docs/js-exec-function-later/index.md)|
 |js 表单提交的那些事儿|2018-04-04 16:06|[详情](./docs/js-form-submit/index.md)|
-|js 函数的 prototype 属性|2018-04-04 16:06|[详情](./docs/js-function-prototype/index.md)|
+|js 函数的 prototype 属性|2018-04-05 13:26|[详情](./docs/js-function-prototype/index.md)|
 |js 函数式编程|2018-04-04 16:06|[详情](./docs/js-functional-programing/index.md)|
 |js 生成 36 位随机字符串|2018-04-05 15:02|[详情](./docs/js-generator-random-string/index.md)|
 |js 获取元素计算后的样式|2018-04-04 16:06|[详情](./docs/js-get-computed-style/index.md)|
@@ -95,7 +95,6 @@
 |js 获取元素相对于屏幕的位置|2018-04-04 16:07|[详情](./docs/js-offset-methods/index.md)|
 |js 如何使 javascript 更高效|2018-04-04 16:14|[详情](./docs/js-optimize/index.md)|
 |js 把 url 上的参数序列化为对象|2018-04-04 16:08|[详情](./docs/js-parse-url-to-object/index.md)|
-|js prototype 那些事|2018-04-04 16:08|[详情](./docs/js-prototype/index.md)|
 |js 计算随机字符串|2018-04-04 16:08|[详情](./docs/js-random-string/index.md)|
 |js 获取浏览器滚动条高度 scrollTop|2018-04-04 16:08|[详情](./docs/js-scroll-top/index.md)|
 |js 实时预览选择的图片文件|2018-04-04 16:08|[详情](./docs/js-show-image-file-sync/index.md)|
@@ -149,6 +148,7 @@
 |vue 中如何在 v-html 指令中使用过滤器|2018-03-03 17:08|[详情](./docs/vue-use-fileter-in-html/index.md)|
 |vuex 初探|2018-04-03 10:48|[详情](./docs/vuex-basic/index.md)|
 |vuex 中 module 的使用|2018-02-04 20:52|[详情](./docs/vuex-module/index.md)|
+|webpack 构建 react + antd-mobile 应用|2018-04-02 11:59|[详情](./docs/webpack-antd-mobile-configuration/index.md)|
 |webpack CommonsChunkPlugin 插件|2018-04-04 15:53|[详情](./docs/webpack-commonschunk-plugin/index.md)|
 |webpack 配置|2018-03-03 17:08|[详情](./docs/webpack-configuration/index.md)|
 |webpack 中 CSS 文件使用 require 或者 import 方法引入，返回值为空的对象|2018-04-04 15:53|[详情](./docs/webpack-css-laoder-errors/index.md)|

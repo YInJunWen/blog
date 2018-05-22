@@ -7,6 +7,9 @@ const baseConfig = require('./base');
 
 module.exports = {
   mode: 'development',
+  output: {
+    path: path.resolve(appPath, './dist'),
+  },
   ...baseConfig,
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin({
