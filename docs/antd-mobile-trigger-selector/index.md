@@ -4,7 +4,7 @@ antd-mobile 组件库，有一个 Picker 组件，在点击组件的时候，会
 
 `Picker` 组件里，正常情况下都会包含一个 `List.Item` 组件，通执行这个组件上的 onClick，达到触发 Picker 弹窗的目的
 
-[案例](./demo/)
+[源码](./demo/)
 
 ```js
 import React, { Component } from 'react';

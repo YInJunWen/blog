@@ -11,7 +11,7 @@ const docPath = path.resolve(__dirname, './docs');
 const menuFile = path.resolve(__dirname, './readme.md');
 let fiels;
 try {
-  files = fs.readdirSync(docPath);
+  allFiles = fs.readdirSync(docPath);
 } catch (err) {
   console.log(err);
 }
@@ -29,6 +29,11 @@ let ws = fs.createWriteStream(menuFile, {
   autoClose: true,
 });
 
+// 过滤掉以点开头的文件夹
+let files = allFiles.filter(item => {
+  return !/^\./.test(item);
+});
+
 ws.write(
   `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|修改时间|详情|${
     os.EOL
@@ -41,13 +46,14 @@ ws.write(
 function generator(fileList, index = 0) {
   if (!fileList[index]) {
     ws.end();
+    console.log(``);
     console.log(`all success,一共 ${index} 篇文章`);
     return false;
   }
   let realPath = path.resolve(docPath, './' + fileList[index] + '/index.md');
   let state = fs.statSync(realPath);
   const mtime = formatDate(state.mtime);
-  console.log(realPath);
+  // console.log(realPath);
   fs.readFile(realPath, 'utf8', (err, data) => {
     let title = data.match(/^#\ (.*)/g);
     if (!title) {
@@ -55,7 +61,7 @@ function generator(fileList, index = 0) {
     } else {
       if (title) {
         title = title[0].replace('# ', '');
-        // console.log(title);
+        console.log(title);
         let wsData = `|${title}|${mtime}|[详情](./docs/${
           fileList[index]
         }/index.md)|${os.EOL}`;

@@ -3,22 +3,21 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const appPath = path.resolve(__dirname, '../');
-const baseConfig = require('./base');
+const distPath = path.resolve(appPath, './dist');
 
 module.exports = {
-  mode: 'development',
-  output: {
-    path: path.resolve(appPath, './dist'),
+  mode: 'production',
+  entry: {
+    main: path.resolve(appPath, './src/app.jsx'),
   },
-  ...baseConfig,
+  output: {
+    path: path.resolve(distPath, './static'),
+  },
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   names: 'common',
-    // }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(appPath, './index.html'),
-      filename: path.resolve(appPath, './dist/index.html'),
+      filename: path.resolve(distPath, './index.html'),
     }),
   ],
 };

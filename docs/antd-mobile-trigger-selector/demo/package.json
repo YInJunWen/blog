@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ./build/dev.build.js",
-    "build": "node ./build/dist.build.js"
+    "build": "node ./build/pro.build.js"
   },
   "keywords": [],
   "author": "",

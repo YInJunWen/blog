@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const appPath = path.resolve(__dirname, '../');
-const catchePath = path.resolve(__dirname, '../catche');
+const catchePath = path.resolve(__dirname, '../cache');
 const version = require('../package.json').version;
 
 module.exports = {

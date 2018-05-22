@@ -77,3 +77,7 @@ import 'antd-mobile/lib/button/style/index.less';
   }],
 },
 ```
+
+## 报错 Unknown plugin 'import' specified in .babelrc
+
+通常是因为忘记安装`babel-plugin-import`组件导致的
