@@ -1,4 +1,4 @@
-# 目录 (一共 159 篇文章)
+# 目录 (一共 160 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
@@ -82,6 +82,7 @@
 |js display:none 的 input 元素会默认添加到表单中提交吗|2018-05-17 16:06|[详情](./docs/js-display-none-input-form/index.md)|
 |js 输入框延迟指定事件执行方法|2018-05-17 16:06|[详情](./docs/js-exec-function-later/index.md)|
 |js 表单提交的那些事儿|2018-05-17 16:06|[详情](./docs/js-form-submit/index.md)|
+|js 格式化获取到的日期对象 xxxx-xx-xx xx:xx|2018-05-22 18:07|[详情](./docs/js-format-date/index.md)|
 |js 函数的 prototype 属性|2018-05-18 13:26|[详情](./docs/js-function-prototype/index.md)|
 |js 函数式编程|2018-05-17 16:06|[详情](./docs/js-functional-programing/index.md)|
 |js 生成 36 位随机字符串|2018-05-11 15:02|[详情](./docs/js-generator-random-string/index.md)|
