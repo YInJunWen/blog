@@ -45,13 +45,11 @@ new CommonsChunkPlugin(option);
 
 name: string | names: [ ]
 
-> 指定公共的 chunk name， 可以传递一个字符串，也可以传入一个内含 chunk name 的数组，如果传入了一个数组，webpack 会根据数组内容和 entry 的组合，分别打包公共的模块，详见下面的 [案例 1]
-
-> 通常来说，当传入一个数组的时候，公共模块会被打包进传入的第一个入口文件中； `特殊chunk代码`的函数，会被大打包进最后一个指定的 common chunk 文件中， 当只指定了一个公共模块文件的时候，公共模块和`特殊chunk代码`函数会全部会被打包进这一个指定的文件中， 详见下面的[案例 2]()，
+指定公共的 chunk name， 可以传递一个字符串，也可以传入一个内含 chunk name 的数组，如果传入了一个数组，会与配置的入口文件信息分别对照后进行处理。
 
 filename: string
 
-> 指定公共模块被打包出来的文件模板名称，可以使用[name]关键字，**注意：如果 name 有对应的 entry 名称，这个[name]就是 entry 的名称，否则，指的是 name 中指定的名称** ， 详见下面的[案例 1]()
+> 指定公共模块被打包出来的文件 **模板名称**，可以使用[name]关键字，**注意：如果 name 有对应的 entry 名称，这个[name]就是 entry 的名称，否则，指的是 name 中指定的名称** ， 详见下面的[案例 1]()
 
 chunks： string | [ ]
 
@@ -98,10 +96,10 @@ var config = {
 
 * 所有文件中的 jquery 模块，会被打包进 jquery.common.js 文件
 * 所有文件中的 react 模块，会被打包进 react.common.js 文件
-* index1 和 index2 中其他的公共模块会被打包进 manifest.common.js 文件
-* index1 和 index2 中的其他模块会被继续留在 index1.bundle.js 和 index2.bundle.js 中
+* index1 和 index2 中包含的其他公共模块(代码)会被打包进 manifest.common.js 文件
+* index1 和 index2 中的其他非公共模块(代码)会被打包在 index1.bundle.js 和 index2.bundle.js 中
 
-## 案例 2： 特殊的 chunk 函数
+## 案例 2： 记录打包过程中的日志文件
 
 webpack 在打包的时候，会记录下一些特殊的内容，比如打包的时间以及打包的 map 信息等等，我们可以把这些信息单独放进一个文件中去
 
@@ -126,9 +124,11 @@ var config = {
 }
 ```
 
-以上配置，除了会打包与案例 1 中类似的 5 个文件之外，特殊的 chunk 信息会被打包进 load.common.js 文件中,需要特别注意的是：
+以上配置，除了会打包与案例 1 中类似的 5 个文件之外，打包过程的日志会被打包进 load.common.js 文件中,需要特别注意的是：
 
 ## 案例 3： 传递一个函数参数给 minChunks
+
+minChunks 属性，会设置需要被单独打包的条件
 
 ```js
 var config = {

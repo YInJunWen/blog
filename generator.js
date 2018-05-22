@@ -75,7 +75,6 @@ function generator(fileList, index = 0) {
             throw new Error(`write function failed at ${file[index]}`);
             return false;
           }
-          // console.log(`${fileList[index]} generator success`);
           generator(fileList, ++index);
         });
       }

@@ -149,7 +149,7 @@
 |vuex 初探|2018-05-16 10:48|[详情](./docs/vuex-basic/index.md)|
 |vuex 中 module 的使用|2018-03-29 20:52|[详情](./docs/vuex-module/index.md)|
 |webpack 构建 react + antd-mobile 应用|2018-05-22 14:26|[详情](./docs/webpack-antd-mobile-configuration/index.md)|
-|webpack CommonsChunkPlugin 插件|2018-05-17 15:53|[详情](./docs/webpack-commonschunk-plugin/index.md)|
+|webpack CommonsChunkPlugin 插件|2018-05-22 18:03|[详情](./docs/webpack-commonschunk-plugin/index.md)|
 |webpack 配置|2018-04-18 17:08|[详情](./docs/webpack-configuration/index.md)|
 |webpack 中 CSS 文件使用 require 或者 import 方法引入，返回值为空的对象|2018-05-17 15:53|[详情](./docs/webpack-css-laoder-errors/index.md)|
 |webpack 中的 css-loader|2018-05-16 09:55|[详情](./docs/webpack-css-loader/index.md)|
