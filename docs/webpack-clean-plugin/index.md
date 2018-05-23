@@ -3,7 +3,7 @@
 webpack 打包的过程中，如果你使用了文件的 hash 或者其他一些算法，导致最终保存的文件每次都不同，一般来说需要在每次打包前手动删除掉 dist 文件夹(这里值得是打包的输出文件目录)，CleanWebpackPlugin 存在的目的就是在每次打包之前自动删除掉你指定的目录，用法如下
 
 ```js
-const CleanWebpackPlugin = require('clean-webpack-plugin);
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     plugins: [
