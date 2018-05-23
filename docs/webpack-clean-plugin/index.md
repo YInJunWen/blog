@@ -30,17 +30,17 @@ exclude： 该参数指定的文件不会被清理，值为一个包含字符串
 ```js
 // dist
 //  |--static
-//  |    |--vendor.js
+//  |    |--vendor-2018515645864.js
 //  |test.txt
 
 // 错误的配置:
 new CleanWebpackPlugin(['dist/*'],{
-    exclude: ['test.txt']
+    exclude: ['test.txt', 'static']
 })
 
 // 正确的配置:
 new CleanWebpackPlugin(['dist'],{
-    exclude: ['test.txt']
+    exclude: ['test.txt', 'static']
 })
 ```
 

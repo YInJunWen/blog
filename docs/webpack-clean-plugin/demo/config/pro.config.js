@@ -17,7 +17,7 @@ module.exports = {
     filename: `[name]-${new Date().getTime()}.js`,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
+    new CleanWebpackPlugin(['dist/'], {
       root: appPath,
       exclude: ['static'],
       verbose: true,
