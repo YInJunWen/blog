@@ -1,4 +1,4 @@
-# webpack CommonsChunkPlugin 插件
+# webpack3 CommonsChunkPlugin 插件
 
 CommonsChunkPlugin 插件主要用于建立一个独立的打包文件，这个文件包含多个入口文件的公共模块。可以更有效的利用浏览器并发的特性，不至于把所有的加载压力都放在一个入口文件中，也可以更快速的加载页面
 

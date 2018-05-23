@@ -1,4 +1,4 @@
-# webpack 构建 react + antd-mobile 应用
+# webpack4 构建 react + antd-mobile 应用
 
 ## webpack-dev-server 配置文件在哪里添加
 

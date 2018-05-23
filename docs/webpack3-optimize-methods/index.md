@@ -1,4 +1,4 @@
-# webpack 优化
+# webpack3 优化方法
 
 ## css 压缩
 
@@ -23,8 +23,8 @@ new webpack.optimize.UglifyJsPlugin({
     // 内嵌定义了但是只用到一次的变量
     collapse_vars: true,
     // 提取出出现多次但是没有定义成变量去引用的静态值
-    reduce_vars: true
-  }
+    reduce_vars: true,
+  },
 });
 ```
 
@@ -41,18 +41,18 @@ npm i --save-dev extract-text-webpack-plugin@beta
 * 引入和使用
 
 ```js
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   module: {
     rules: [
       {
         test: /.\.css$/,
-        use: ExtractTextPlugin.extract("css-loader")
-      }
-    ]
+        use: ExtractTextPlugin.extract('css-loader'),
+      },
+    ],
   },
-  plugins: [new ExtractTextPlugin("styles.css")]
+  plugins: [new ExtractTextPlugin('styles.css')],
 };
 ```
 
@@ -90,8 +90,8 @@ resolve.modules 配置模块库（通常是指 node_modules）所在的位置，
 ```js
 module.exports = {
   resolve: {
-    modules: [path.resolve(__dirname, "node_modules")]
-  }
+    modules: [path.resolve(__dirname, 'node_modules')],
+  },
 };
 ```
 
@@ -103,11 +103,11 @@ module.exports = {
 module.exports = {
   resolve: {
     alias: {
-      moment: "moment/min/moment.min.js",
-      react: "react/dist/react.js",
-      "react-dom": "react-dom/dist/react-dom.js"
-    }
-  }
+      moment: 'moment/min/moment.min.js',
+      react: 'react/dist/react.js',
+      'react-dom': 'react-dom/dist/react-dom.js',
+    },
+  },
 };
 ```
 
@@ -134,8 +134,8 @@ babel 编译过程很耗时，好在 babel-loader 提供缓存编译结果选项
 loaders: [
   {
     test: /\.js$/,
-    loader: "babel-loader?cacheDirectory"
-  }
+    loader: 'babel-loader?cacheDirectory',
+  },
 ];
 ```
 
@@ -148,7 +148,7 @@ loaders: [
 ```js
 module.exports = {
   module: {
-    noParse: /node_modules\/(jquey|moment|chart\.js)/
-  }
+    noParse: /node_modules\/(jquey|moment|chart\.js)/,
+  },
 };
 ```

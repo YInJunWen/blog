@@ -14,23 +14,15 @@ module.exports = {
   },
   output: {
     path: path.resolve(distPath, './static'),
-    filename: '[name]-[hash].js',
+    filename: `[name]-${new Date().getTime()}.js`,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/*'], {
+    new CleanWebpackPlugin(['dist'], {
       root: appPath,
+      exclude: ['static'],
       verbose: true,
       dry: false,
     }),
-    // 最简单的配置
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'vendor',
-    //   filename: 'vendor-common.js',
-    // }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor'],
-    }),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(appPath, './index.html'),
       filename: path.resolve(distPath, './index.html'),

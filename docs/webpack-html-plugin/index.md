@@ -1,6 +1,6 @@
 # webpack htmlWebpackPlugin 插件
 
-在开发过程中，经常会遇到 webpack 中配置了带有 hash，或者 chunkhash 值得输出文件名，每次更改的时候，都需要去对应的 html 文件中修改，这无疑是很浪费时间的， htmlWebpackPlugin 插件就是为了解决这个麻烦产生的， 他会帮你自动生成一个 html 文件，并且把下面类型的文件自动引入到 html 中去：
+在开发过程中，经常会遇到 webpack 中配置了带有 hash，或者 chunkhash 值得输出文件名，每次更改的时候，都需要去对应的 html 文件中修改，这是很浪费时间的， htmlWebpackPlugin 插件就是为了解决这个麻烦产生的， 他会帮你自动生成一个 html 文件，并且把下面类型的文件自动引入到 html 中去：
 
 1.  ouput 中定义的 bundle 文件
 2.  ExtractTextPlugin 插件中分离出来的 css 文件

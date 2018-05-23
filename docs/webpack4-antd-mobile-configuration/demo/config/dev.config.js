@@ -3,21 +3,29 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const appPath = path.resolve(__dirname, '../');
-const distPath = path.resolve(appPath, './dist');
+const catchePath = path.resolve(__dirname, '../cache');
+const version = require('../package.json').version;
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     main: path.resolve(appPath, './src/app.jsx'),
   },
   output: {
-    path: path.resolve(distPath, './static'),
+    path: catchePath,
+    filename: '[name].js',
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: catchePath,
+    hot: true,
+    host: 'localhost',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(appPath, './index.html'),
-      filename: path.resolve(distPath, './index.html'),
+      filename: path.resolve(catchePath, './index.html'),
     }),
   ],
 };
