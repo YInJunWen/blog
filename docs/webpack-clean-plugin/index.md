@@ -38,10 +38,15 @@ new CleanWebpackPlugin(['dist/*'],{
     exclude: ['test.txt', 'static']
 })
 
+new CleanWebpackPlugin(['dist/*'],{
+    exclude: ['test.txt', 'static/*']   // 暂不支持glob语法
+})
+
 // 正确的配置:
 new CleanWebpackPlugin(['dist'],{
     exclude: ['test.txt', 'static']
 })
+
 ```
 
 
