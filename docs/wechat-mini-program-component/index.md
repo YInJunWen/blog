@@ -18,7 +18,7 @@
 | composed     | Boolean | 否       | false  | 如果允许事件冒泡，事件是否可以穿越组件边界 |
 | capturePhase | Boolean | 否       | false  | 事件是否拥有捕获阶段                       |
 
-## 先看看基础的组件生命及引入方法
+## 先看看基础的组件声明及引入方法
 
 `/component/card/card.wxml`
 
@@ -32,9 +32,9 @@
 Component({
   methods: {
     buttonTapEvent() {
-      this.triggerEvent('customevent', { name: 'zhangsan' });
-    },
-  },
+      this.triggerEvent("customevent", { name: "zhangsan" });
+    }
+  }
 });
 ```
 
@@ -62,7 +62,7 @@ Component({
 Page({
   customEvent(data) {
     console.log(data);
-  },
+  }
 });
 ```
 
@@ -73,6 +73,10 @@ Page({
 ```
 
 在上面的案例中，点击 button 的时候，就会触发组件内的 buttonTapEvent 事件，，并且通过 triggerEvent 触发在 index.wxml 绑定的 customevent 事件，最终在 customEvent 事件中输出包含了`{name: 'zhangsan'}`的参数
+
+**注意：**
+
+父组件上添加自定义监听方法的时候，方法名是 **不需要**使用`{{}}`的！！！
 
 ## 怎么获取传递过去的参数
 
@@ -117,7 +121,7 @@ Page({
 
 ```html
 // 组件 my-component.wxml
-<view bindcustomevent="myEventListener">
+<view bindcustomevent="myEventListener">  // 这里一定要注意，绑定的事件名称 <不需要> 大括号包围
   <slot />
 </view>
 ```
@@ -127,11 +131,11 @@ Page({
 Component({
   methods: {
     onTap: function() {
-      this.triggerEvent('customevent', {}); // 只会触发 pageEventListener2
-      this.triggerEvent('customevent', {}, { bubbles: true }); // 会依次触发 pageEventListener2 、 pageEventListener1
-      this.triggerEvent('customevent', {}, { bubbles: true, composed: true }); // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
-    },
-  },
+      this.triggerEvent("customevent", {}); // 只会触发 pageEventListener2
+      this.triggerEvent("customevent", {}, { bubbles: true }); // 会依次触发 pageEventListener2 、 pageEventListener1
+      this.triggerEvent("customevent", {}, { bubbles: true, composed: true }); // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
+    }
+  }
 });
 ```
 
