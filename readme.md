@@ -1,7 +1,8 @@
-# 目录 (一共 160 篇文章)
+# 目录 (一共 164 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
+|待整理内容|2018-05-29 16:35|[详情](./docs/a-unpack/index.md)|
 |ajax 与 php 跨域相关问题|2018-05-17 16:11|[详情](./docs/ajax-php-cors/index.md)|
 |algorithm 基础算法之直接插入排序|2018-05-17 16:02|[详情](./docs/algorithm-1/index.md)|
 |algorithm 基础算法之折半插入排序|2018-05-17 16:02|[详情](./docs/algorithm-2/index.md)|
@@ -149,7 +150,7 @@
 |vue 中如何在 v-html 指令中使用过滤器|2018-04-18 17:08|[详情](./docs/vue-use-fileter-in-html/index.md)|
 |vuex 初探|2018-05-16 10:48|[详情](./docs/vuex-basic/index.md)|
 |vuex 中 module 的使用|2018-03-29 20:52|[详情](./docs/vuex-module/index.md)|
-|webpack 中的 CleanWebpackPlugin|2018-05-23 15:50|[详情](./docs/webpack-clean-plugin/index.md)|
+|webpack 中的 CleanWebpackPlugin|2018-05-23 15:57|[详情](./docs/webpack-clean-plugin/index.md)|
 |webpack 配置|2018-04-18 17:08|[详情](./docs/webpack-configuration/index.md)|
 |webpack 中的 css-loader|2018-05-23 10:29|[详情](./docs/webpack-css-loader/index.md)|
 |webpack ExtracTextPlugin 插件解读|2018-05-17 15:53|[详情](./docs/webpack-extracttext-plugin/index.md)|
@@ -157,8 +158,11 @@
 |webpack3 CommonsChunkPlugin 插件|2018-05-23 10:24|[详情](./docs/webpack3-commonschunk-plugin/index.md)|
 |webpack3 优化方法|2018-05-23 10:25|[详情](./docs/webpack3-optimize-methods/index.md)|
 |webpack4 构建 react + antd-mobile 应用|2018-05-23 10:30|[详情](./docs/webpack4-antd-mobile-configuration/index.md)|
-|wechat 微信小程序在组件之间触发事件以及传参|2018-05-17 15:54|[详情](./docs/wechat-mini-program-component/index.md)|
+|webpack4 新增的 optimization 配置项|2018-05-23 16:14|[详情](./docs/webpack4-optimization-option/index.md)|
+|webpack4 中使用 SplitChunkPlugin 插件|2018-05-25 15:22|[详情](./docs/webpack4-split-chunk-plugin/index.md)|
+|wechat 微信小程序在组件之间触发事件以及传参|2018-05-25 10:41|[详情](./docs/wechat-mini-program-component/index.md)|
 |wechat 微信小程序中如何创建类似于 Vue 和 Angular 中的过滤器|2018-05-17 15:54|[详情](./docs/wechat-mini-program-filter/index.md)|
 |wechat 微信小程序中如何把通过 canvas 生成的图片上传到服务器|2018-05-17 15:54|[详情](./docs/wechat-mini-program-generator-canvas/index.md)|
 |wechat 微信小程序开发要注意的地方|2018-05-17 15:54|[详情](./docs/wechat-mini-program-point/index.md)|
+|wechat 微信小程序中如何处理 token 过期事件|2018-05-29 16:46|[详情](./docs/wechat-mini-token-fail/index.md)|
 |zepto 笔记|2018-05-16 10:48|[详情](./docs/zepto-basic/index.md)|
