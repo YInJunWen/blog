@@ -19,9 +19,9 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      minSize: 3000,
+      minSize: 1000,
       // chunks: 'async',
-      chunks: 'all',
+      // chunks: 'all',
       // chunks: 'initial',
     },
   },

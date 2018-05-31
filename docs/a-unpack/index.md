@@ -43,7 +43,7 @@ mysql 连接其他服务器的数据库:
 /usr/local/opt/mysql@5.6/bin/mysql -h 数据库IP -u 用户名 -p
 ```
 
-## 打开 apache 的 rewrite 模块
+## mac 中打开 apache 的 rewrite 模块
 
 第一步：开启 rewrite 模块
 
@@ -67,7 +67,7 @@ mysql 连接其他服务器的数据库:
 </IfModule>
 ```
 
-## apache 修改 php 版本后不能解读 php 文件
+## mac 中 apache 修改 php 版本后不能解读 php 文件
 
 在 httpd.conf 文件中添加一行
 
