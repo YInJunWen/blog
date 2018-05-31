@@ -59,7 +59,7 @@ UTF-8 的转换对照表：
 
 ```js
 let a = "汉";
-let b = a.charCodeAt(0); // 获取汉字的Unicode码: 6c49
+let b = a.charCodeAt(0); // 获取字的Unicode码: 6c49
 let c = b.toString(2); // 把上一步的16进制，转为二进制 ： 110110001001001
 
 //  由于6c49在 000800-00FFFF之间，所以要使用3个字节的模板，把模板中的 x 补全，不够的用0代替
@@ -89,3 +89,4 @@ let a = 27721;
 a.toString(2); // 110110001001001
 a.toString(16); // 6c49
 ```
+

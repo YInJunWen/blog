@@ -1,4 +1,4 @@
-# 待整理内容
+# mac 中的 apache+php(多版本)+mysql@5.6
 
 ## mac 中安装/使用 mysql
 

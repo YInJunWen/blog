@@ -1,5 +1,7 @@
 # webpack4 中使用 SplitChunkPlugin 插件
 
+(未完善，可能有错误)
+
 在 v4 中，webpack 使用了`splitChunkPlugin`插件来代替之前的`CommonsChunkPlugin`插件
 
 ## options:chunks
@@ -8,9 +10,6 @@ chunks 有三种值： al\async\initial。 默认值是 async
 
 ## options.chunks = async
 
-* async：动态引入的符合条件的模块不会被单独分割出来
-* all: 默认值，
-* initial：优化规则不对动态引入的模块生效
 
 案例 1
 

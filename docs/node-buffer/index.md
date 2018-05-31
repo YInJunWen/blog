@@ -51,7 +51,31 @@ var buf = new Buffer([119, 119]);
 3.通过字符串创建 buffer 实例
 
 ```js
-var buf = new Buffer("buffer", "utf-8");
+var buf = new Buffer('buffer', 'utf-8');
+```
+
+## new Buffer()的打印内容
+
+```js
+const a = new Buffer('汉');
+console.log(a); // <Buffer e6 b1 89>
+```
+
+输出的 e6 b1 89 都是些什么东西？ 下面来看一下他们的转换过程，Unicode相关信息可以[点击这里](../unicode-ascii/index.md)
+
+```js
+let b = '汉';
+let c = b.charCodeAt(0); // 返回在16进制的unicode码位： 27721
+console.log(c);
+let d = c.toString(2); // 把16进制码位转成二进制码：110110001001001
+console.log(d);
+// 1110xxxx 10xxxxxx 10xxxxxx  这个是UTF8格式的模板
+// 11100110 10110001 10001001  这个是套用模板后的二进制信息
+
+// 下面把三个字符的二进制码分别用16进制表示
+console.log(parseInt('11100110', 2).toString(16)); // e6
+console.log(parseInt('10110001', 2).toString(16)); // b1
+console.log(parseInt('10001001', 2).toString(16)); // 89
 ```
 
 utf-8 只是默认的编码方式，buffer 同样支持其他编码，比如：ascii ucs2 base64 hex 等
@@ -69,7 +93,7 @@ write 方法为 buffer 对象写入字符串，返回的是 Buffer 对象的长�
 
 ```js
 var buf = new Buffer(1);
-var len = buf.write("zhangsan");
+var len = buf.write('zhangsan');
 ```
 
     console.log(len)    // 1
@@ -87,10 +111,10 @@ var len = buf.write("zhangsan");
 这个方法用于合并 buffer 对象,第一个参数是要合并的 buffer 数组，第二个参数指定合并后的总长度
 
 ```js
-var buffer1 = new Buffer("菜鸟教程 ");
-var buffer2 = new Buffer("www.runoob.com");
+var buffer1 = new Buffer('菜鸟教程 ');
+var buffer2 = new Buffer('www.runoob.com');
 var buffer3 = Buffer.concat([buffer1, buffer2]);
-console.log("buffer3 内容: " + buffer3.toString());
+console.log('buffer3 内容: ' + buffer3.toString());
 ```
 
 ## new Buffer().compare(anotherBuffer)
@@ -98,16 +122,16 @@ console.log("buffer3 内容: " + buffer3.toString());
 这个方法用于比较另外一个 Buffer 对象,会返回一个数字，表示"前面的 buffer 对象在后一个 buffer 对象之前，之后，或相同"， 这句话是官方的翻译，在我看来可以这么理解，我们先看几个例子：
 
 ```js
-var buffer1 = new Buffer("ABC");
-var buffer2 = new Buffer("ABCD");
+var buffer1 = new Buffer('ABC');
+var buffer2 = new Buffer('ABCD');
 buffer1.compare(buffer2); // -1
 
-var buffer1 = new Buffer("BC");
-var buffer2 = new Buffer("ABCD");
+var buffer1 = new Buffer('BC');
+var buffer2 = new Buffer('ABCD');
 buffer1.compare(buffer2); // 1
 
-var buffer1 = new Buffer("ABCD");
-var buffer2 = new Buffer("ABCD");
+var buffer1 = new Buffer('ABCD');
+var buffer2 = new Buffer('ABCD');
 buffer1.compare(buffer2); // 0
 ```
 
