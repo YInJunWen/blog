@@ -1,8 +1,7 @@
-# 目录 (一共 166 篇文章)
+# 目录 (一共 167 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
-|待整理内容|2018-05-31 10:52|[详情](./docs/a-unpack/index.md)|
 |ajax 与 php 跨域相关问题|2018-05-17 16:11|[详情](./docs/ajax-php-cors/index.md)|
 |algorithm 基础算法之直接插入排序|2018-05-17 16:02|[详情](./docs/algorithm-1/index.md)|
 |algorithm 基础算法之折半插入排序|2018-05-17 16:02|[详情](./docs/algorithm-2/index.md)|
@@ -36,7 +35,7 @@
 |browser 浏览器基础知识|2018-05-17 16:03|[详情](./docs/browser-basic/index.md)|
 |canvas 基础|2018-04-18 14:49|[详情](./docs/canvas-basic/index.md)|
 |centOS 安装笔记|2018-05-16 10:21|[详情](./docs/centos-install/index.md)|
-|centOS7 中布置 nginx+php+ci3|2018-05-11 14:35|[详情](./docs/centos7-nginx-php-ci3/index.md)|
+|centOS7 中布置 nginx+php+ci3|2018-05-31 15:01|[详情](./docs/centos7-nginx-php-ci3/index.md)|
 |css 如何实现一个元素在父元素中上下左右居中|2018-05-16 09:53|[详情](./docs/css-align-center-all/index.md)|
 |css animate-timing-function 属性|2018-05-16 09:53|[详情](./docs/css-animate-timing-function/index.md)|
 |css 常见标签大全|2018-05-16 09:53|[详情](./docs/css-basic-style/index.md)|
@@ -53,13 +52,13 @@
 |es5 函数继承-非构造函数的继承|2018-05-16 10:25|[详情](./docs/es5-uncontructor-function-inherit/index.md)|
 |es6 中的 class|2018-05-18 16:27|[详情](./docs/es6-class1/index.md)|
 |es6 修饰器 decorator|2018-05-16 10:26|[详情](./docs/es6-decorator/index.md)|
-|es6 中的结构赋值|2018-03-29 20:52|[详情](./docs/es6-destorctor/index.md)|
-|es6 中的对象解构|2018-05-16 10:27|[详情](./docs/es6-destruct/index.md)|
+|es6 中的解构赋值|2018-05-31 15:08|[详情](./docs/es6-destorctor/index.md)|
 |es6 中的 Generator|2018-03-29 20:52|[详情](./docs/es6-generator/index.md)|
 |es6 中的 iterator|2018-03-29 20:52|[详情](./docs/es6-iterator/index.md)|
 |es6 中新的变量申明方式 Let 与 Const|2018-05-16 10:27|[详情](./docs/es6-let-const/index.md)|
 |es6 模块 module|2018-05-16 10:27|[详情](./docs/es6-module/index.md)|
 |es6 中更简洁的对象表示方法|2018-03-29 20:52|[详情](./docs/es6-new-object/index.md)|
+|es6 字符串的扩展|2018-06-07 10:43|[详情](./docs/es6-string/index.md)|
 |es6 中新的原始数据类型-Symbol|2018-05-16 10:27|[详情](./docs/es6-symbol/index.md)|
 |eslint 对 Promise 方法解析报错|2018-04-18 14:54|[详情](./docs/eslint-promise-errors/index.md)|
 |express 中的 app|2018-04-18 17:48|[详情](./docs/express-app/index.md)|
@@ -112,6 +111,7 @@
 |linux 下删除文件和文件夹常用命令如下|2018-05-17 16:09|[详情](./docs/linux-remove-file/index.md)|
 |linux 用户和用户组管理|2018-05-17 16:09|[详情](./docs/linux-user-group-control/index.md)|
 |lodash debounce(防抖函数)|2018-05-17 16:09|[详情](./docs/lodash-debounce/index.md)|
+|mac 中的 apache+php(多版本)+mysql@5.6|2018-05-31 14:59|[详情](./docs/mac-apache-php-mysql/index.md)|
 |mysql 数据库的导入|2018-04-18 17:08|[详情](./docs/myqsl-import-database/index.md)|
 |other 个人介绍|2018-05-17 16:10|[详情](./docs/myself/index.md)|
 |mysql 的备份与恢复|2018-04-18 17:08|[详情](./docs/mysql-backup-restore/index.md)|
@@ -120,7 +120,7 @@
 |mysql 常用命令|2018-04-18 17:08|[详情](./docs/mysql-methods/index.md)|
 |mysql 权限对照|2018-05-17 16:10|[详情](./docs/mysql-permissions/index.md)|
 |nginx 本博客下的 nginx 配置|2018-05-17 16:10|[详情](./docs/nginx-configuration-case/index.md)|
-|node node-buffer|2018-05-31 10:51|[详情](./docs/node-buffer/index.md)|
+|node node-buffer|2018-05-31 17:45|[详情](./docs/node-buffer/index.md)|
 |node node-filesystem|2018-05-17 16:10|[详情](./docs/node-filesystem/index.md)|
 |node node-globalvar|2018-05-17 16:10|[详情](./docs/node-globalvar/index.md)|
 |node node-multer|2018-05-17 16:10|[详情](./docs/node-multer/index.md)|
@@ -144,7 +144,7 @@
 |react 中定义样式的几种方式|2018-04-18 17:08|[详情](./docs/react-use-style/index.md)|
 |requireJS 小结|2018-05-17 16:08|[详情](./docs/requirejs/index.md)|
 |rpm 包管理基础|2018-05-16 10:45|[详情](./docs/rpm-basic/index.md)|
-|unicode 码与 ASCII 码|2018-05-31 10:51|[详情](./docs/unicode-ascii/index.md)|
+|unicode 码与 ASCII 码|2018-06-06 14:09|[详情](./docs/unicode-ascii/index.md)|
 |vue 中创建全局的弹窗组件|2018-04-18 17:08|[详情](./docs/vue-create-global-alert/index.md)|
 |vue-router2 中如何设置默认的路由|2018-04-18 17:08|[详情](./docs/vue-router2-default-path/index.md)|
 |vue-router2 的二次封装|2018-04-18 17:08|[详情](./docs/vue-router2-rewrite/index.md)|
@@ -161,7 +161,7 @@
 |webpack3 优化方法|2018-05-23 10:25|[详情](./docs/webpack3-optimize-methods/index.md)|
 |webpack4 构建 react + antd-mobile 应用|2018-05-23 10:30|[详情](./docs/webpack4-antd-mobile-configuration/index.md)|
 |webpack4 新增的 optimization 配置项|2018-05-23 16:14|[详情](./docs/webpack4-optimization-option/index.md)|
-|webpack4 中使用 SplitChunkPlugin 插件|2018-05-31 10:52|[详情](./docs/webpack4-split-chunk-plugin/index.md)|
+|webpack4 中使用 SplitChunkPlugin 插件|2018-05-31 15:06|[详情](./docs/webpack4-split-chunk-plugin/index.md)|
 |wechat 微信小程序在组件之间触发事件以及传参|2018-05-25 10:41|[详情](./docs/wechat-mini-program-component/index.md)|
 |wechat 微信小程序中如何创建类似于 Vue 和 Angular 中的过滤器|2018-05-17 15:54|[详情](./docs/wechat-mini-program-filter/index.md)|
 |wechat 微信小程序中如何把通过 canvas 生成的图片上传到服务器|2018-05-17 15:54|[详情](./docs/wechat-mini-program-generator-canvas/index.md)|
