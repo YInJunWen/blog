@@ -1,4 +1,4 @@
-# 目录 (一共 168 篇文章)
+# 目录 (一共 169 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
@@ -53,12 +53,13 @@
 |es6 中的 class|2018-05-19 10:30|[详情](./docs/es6-class1/index.md)|
 |es6 修饰器 decorator|2018-05-18 09:10|[详情](./docs/es6-decorator/index.md)|
 |es6 中的解构赋值|2018-05-31 19:00|[详情](./docs/es6-destorctor/index.md)|
+|es6 中的 function 扩展|2018-06-13 21:59|[详情](./docs/es6-function/index.md)|
 |es6 中的 Generator|2018-05-12 00:20|[详情](./docs/es6-generator/index.md)|
 |es6 中的 iterator|2018-05-12 00:20|[详情](./docs/es6-iterator/index.md)|
-|es6 中新的变量申明方式 Let 与 Const|2018-05-18 09:10|[详情](./docs/es6-let-const/index.md)|
+|es6 中新的变量申明方式 Let 与 Const|2018-06-13 21:59|[详情](./docs/es6-let-const/index.md)|
 |es6 模块 module|2018-05-18 09:10|[详情](./docs/es6-module/index.md)|
 |es6 中更简洁的对象表示方法|2018-05-12 00:20|[详情](./docs/es6-new-object/index.md)|
-|es6 Regexp 的扩展|2018-06-09 12:05|[详情](./docs/es6-regexp/index.md)|
+|es6 Regexp 的扩展|2018-06-09 12:14|[详情](./docs/es6-regexp/index.md)|
 |es6 string 的扩展|2018-06-07 20:44|[详情](./docs/es6-string/index.md)|
 |es6 中新的原始数据类型-Symbol|2018-05-18 09:10|[详情](./docs/es6-symbol/index.md)|
 |eslint 对 Promise 方法解析报错|2018-05-12 00:20|[详情](./docs/eslint-promise-errors/index.md)|
@@ -67,7 +68,6 @@
 |express 中的 req 属性|2018-05-12 00:20|[详情](./docs/express-req/index.md)|
 |express 中的 res|2018-05-12 00:20|[详情](./docs/express-res/index.md)|
 |express 中的 route|2018-05-12 00:20|[详情](./docs/express-router/index.md)|
-|optimize 前端优化方案|2018-05-18 09:10|[详情](./docs/font-client-optimize-1/index.md)|
 |git 配置文件.gitignore|2018-05-18 09:10|[详情](./docs/git-ignore-syntax/index.md)|
 |git 常用命令|2018-05-12 00:20|[详情](./docs/git-methods/index.md)|
 |git rebase 命令|2018-05-31 19:00|[详情](./docs/git-rebase/index.md)|
@@ -83,6 +83,8 @@
 |js 中的深拷贝与浅拷贝|2018-05-18 09:10|[详情](./docs/js-deep-copy/index.md)|
 |js display:none 的 input 元素会默认添加到表单中提交吗|2018-05-18 09:10|[详情](./docs/js-display-none-input-form/index.md)|
 |js 输入框延迟指定事件执行方法|2018-05-18 09:10|[详情](./docs/js-exec-function-later/index.md)|
+|optimize 前端优化方案|2018-06-13 21:59|[详情](./docs/js-font-client-optimize/index.md)|
+|js ES5 与 ES6 中的 for 循环|2018-06-13 21:59|[详情](./docs/js-for/index.md)|
 |js 表单提交的那些事儿|2018-05-18 09:10|[详情](./docs/js-form-submit/index.md)|
 |js 格式化获取到的日期对象 xxxx-xx-xx xx:xx|2018-05-24 21:51|[详情](./docs/js-format-date/index.md)|
 |js 函数的 prototype 属性|2018-05-19 10:30|[详情](./docs/js-function-prototype/index.md)|
@@ -96,7 +98,6 @@
 |js 与 java 同时使用的 md5 库|2018-05-12 00:20|[详情](./docs/js-library-md5/index.md)|
 |js 千分位加逗号的方法|2018-05-18 09:10|[详情](./docs/js-micrometer-split/index.md)|
 |js 获取元素相对于屏幕的位置|2018-05-18 09:10|[详情](./docs/js-offset-methods/index.md)|
-|js 如何使 javascript 更高效|2018-05-18 09:10|[详情](./docs/js-optimize/index.md)|
 |js 把 url 上的参数序列化为对象|2018-05-18 09:10|[详情](./docs/js-parse-url-to-object/index.md)|
 |js 计算随机字符串|2018-05-18 09:10|[详情](./docs/js-random-string/index.md)|
 |js 获取浏览器滚动条高度 scrollTop|2018-05-18 09:10|[详情](./docs/js-scroll-top/index.md)|
