@@ -32,7 +32,12 @@ console.log(eval(s2.valueOf())); // returns the number 4
 
 ## String.prototype.length
 
-返回字符串的长度
+返回字符串的长度，码点位于 BMP(基础字符平面)的字符，JS 会统一认为字符的长度为 1，但对于非 BMP 的字符，长度会被统计为 2，如果想把所有字符的长度都统一为 1，需要使用特殊的方法
+
+```js
+'𠮷'.length; // 2
+'𠮷'.match(/.*/).length; // 1
+```
 
 ## String.prototype.charCodeAt(index)
 
