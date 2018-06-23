@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ol>
+    <li>在子类的构造函数和原型链函数中，通过super调用函数，函数中的this指向子类的实例</li>
+    <li>构造器属性/方法会覆盖原型链上的同名属性/方法</li>
+  </ol>
+  <script>
+    class Add {
+      constructor(props) {
+        this.m = "m in Add";
+      }
+      a() {
+        console.log("")
+        console.log(`a in Add.prop and this.m = "${this.m}"`)
+        console.log(`a in Add.prop and this.n = "${this.n}"`)
+        console.log(`a in Add.prop and this.o = "${this.o}"`)
+      }
+    }
+    Add.prototype.m = "m in Add.proto"
+    Add.prototype.n = "n in Add.proto"
+
+    class Foo extends Add {
+      constructor(props) {
+        super(props);
+        this.m = "m in Foo.constructor";
+        this.c = () => {
+          super.a()
+        }
+      }
+      d() {
+        super.a()
+      }
+    }
+    Foo.prototype.m = "m in Foo.proto"
+    Foo.prototype.n = "n in Foo.proto"
+    Foo.prototype.o = "o in Foo.proto"
+    let a = new Add();
+    let b = new Foo();
+
+    a.a();
+    b.c();
+    b.d();
+  </script>
+</body>
+
+</html>

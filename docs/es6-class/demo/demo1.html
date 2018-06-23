@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ol>
+    <li>在子类的构造函数和原型链函数中，super的赋值运算改变的是子类本身的构造器属性/方法，取值运算(获取属性或执行方法)指向父类的原型链属性/方法</li>
+  </ol>
+  <script>
+    class Add {
+      constructor(props) {
+        this.a = () => {
+          console.log(" a in constructor")
+        }
+      }
+      a() {
+        console.log('a in prop')
+      }
+    }
+    class Foo extends Add {
+      constructor(props) {
+        super(props);
+        super.b = () => {
+          super.a = 1;
+          console.log("super.a", super.a)
+          console.log("this.a", this.a)
+        }
+      }
+      c() {
+        super.a = 2;
+        console.log("super.a", super.a)
+        console.log("this.a", this.a)
+      }
+    }
+    let a = new Add();
+    let b = new Foo();
+    b.b()
+    b.c()
+    a.a()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    但是如果在父类的静态方法和原型链方法上同时定义了两个相同名称的方法，当 super 在 **子类的静态方法**中使用的时候，super 执行的会是 **父类的静态方法**，而不是父类的原型链方法。也就是说 super 在静态方法中指向父类，在普通方法中指向父类的原型
+    <script>
+        class Add {
+            static a() {
+                console.log("a in static");
+            }
+            a() {
+                console.log("a in prototype");
+            }
+        }
+        class Foo extends Add {
+            constructor() {
+                super();
+            }
+            static b() {
+                super.a();
+            }
+            b() {
+                super.a();
+            }
+        }
+        Foo.b(); // a in static
+        let a = new Foo();
+        a.b(); // a </script>
+</body>
+
+</html>
