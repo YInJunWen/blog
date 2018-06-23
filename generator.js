@@ -74,9 +74,9 @@ function generator(fileList, index = 0) {
         // console.log(JSON.stringify(state.mtime));
         const mtime = formatDate(state.mtime);
 
-        let wsData = `|${title}|${mtime}|[详情](./docs/${
-          fileList[index]
-        }/index.md)|${os.EOL}`;
+        let wsData = `|${title}|${mtime}|[详情](./docs/${fileList[index]})|${
+          os.EOL
+        }`;
         ws.write(wsData, (err, data) => {
           if (err) {
             throw new Error(`write function failed at ${file[index]}`);
