@@ -1,0 +1,17 @@
+<script>
+    var add = {
+        name: "zhangsan",
+        parent: {
+            age: 13
+        }
+    };
+    var tmp = {};
+    Object.defineProperties(tmp, Object.getOwnPropertyDescriptors(add));
+
+    var foo = Object.create(tmp);
+    console.log(Object.getPrototypeOf(foo)); // {name: 'zhangsan'}
+
+    add.name = "lisi";
+    add.parent.age = 14
+    console.log(Object.getPrototypeOf(foo)); // {name: 'zhangsan'}
+</script>

@@ -1,0 +1,11 @@
+<script>
+
+    var sex = { male: 1 };
+    var add = {};
+    var foo = { sex };
+    Object.assign(add, foo);
+    console.log(add);
+    sex.male = 2;
+    console.log(add);
+
+</script>

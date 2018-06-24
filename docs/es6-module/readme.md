@@ -1,4 +1,4 @@
-# es6 模块 module
+# es6 - module 模块
 
 ## export 命令
 
@@ -18,14 +18,14 @@ export 可以出现在模块的任何位置，但是必须处于模块的顶层�
 允许在一个模块中同时存在多个 export 语句
 
 ```js
-export var name = '张三';
+export var name = "张三";
 export var age = 5;
 ```
 
 但是为了能在模块底部一眼看清输出了哪些变量，我们可以在底部统一把他们暴露出去
 
 ```js
-var name = 'John';
+var name = "John";
 var age = 3;
 export { name, age };
 ```
@@ -33,7 +33,7 @@ export { name, age };
 这些暴露出去的名字是可以更改的，需要使用 as 关键字
 
 ```js
-var name = 'John';
+var name = "John";
 var age = 3;
 export { name as Myname, age as Myage };
 ```
@@ -41,8 +41,8 @@ export { name as Myname, age as Myage };
 export 语句输出的值是动态绑定的，绑定在他所在的模块内
 
 ```js
-export var foo = 'foo';
-settimeout(() => (foo = 'baz'), 500);
+export var foo = "foo";
+settimeout(() => (foo = "baz"), 500);
 ```
 
 上面模块中的 foo 会在 500 毫秒之后变为'baz'。
@@ -52,13 +52,13 @@ settimeout(() => (foo = 'baz'), 500);
 import 命令用来加载其他使用 export 定义了模块对外接口的 JS 文件，用法:
 
 ```js
-import { name, age, sex } from 'person.js';
+import { name, age, sex } from "person.js";
 ```
 
 上面的命令就是加载 person.js 模块中的 name，age，sex 三个变量,大括号内的名称必须和 person.js 中暴露出来的变量名一致，如果想重命名可以使用 as 关键字
 
 ```js
-import { name as Myname, age as Myage, sex as Mysex } from 'person.js';
+import { name as Myname, age as Myage, sex as Mysex } from "person.js";
 ```
 
 如果 export 语句后面使用了 as 关键字，import 的时候，必须与 export as 后面的变量名一致
@@ -67,7 +67,7 @@ import 命令具有提升效果，他会提升到整个模块的最前面执行�
 
 ```js
 name();
-import { name } from 'person.js';
+import { name } from "person.js";
 ```
 
 如果模块内需要先加载再输出同一个模块，import 和 export 可以写在一起
@@ -188,7 +188,7 @@ npm i es6-module-transpiler -g
 加载后，返回一个 promise 对象，就可以继续使用了
 
 ```js
-System.import('example.js').then(function() {
+System.import("example.js").then(function() {
   //code...
 });
 ```

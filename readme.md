@@ -1,4 +1,4 @@
-# 目录 (一共 170 篇文章)
+# 目录 (一共 169 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
@@ -50,19 +50,19 @@
 |es5 函数继承-构造函数的继承(2)|2018-06-23 14:36|[详情](./docs/es5-construct-function-inherit-2)|
 |es5 函数继承-构造函数的继承(3)|2018-06-23 14:36|[详情](./docs/es5-construct-function-inherit-3)|
 |es5 函数继承-非构造函数的继承|2018-06-23 14:36|[详情](./docs/es5-uncontructor-function-inherit)|
-|es6 中 array 的扩展|2018-06-23 14:44|[详情](./docs/es6-array)|
-|es6 中的 class|2018-06-23 14:29|[详情](./docs/es6-class)|
+|es6 - array 数组的扩展|2018-06-25 09:09|[详情](./docs/es6-array)|
+|es6 - class|2018-06-25 09:09|[详情](./docs/es6-class)|
 |es6 修饰器 decorator|2018-06-23 14:36|[详情](./docs/es6-decorator)|
 |es6 中的解构赋值|2018-06-23 14:36|[详情](./docs/es6-destorctor)|
-|es6 中的 function 扩展|2018-06-23 14:36|[详情](./docs/es6-function)|
-|es6 中的 Generator|2018-06-23 14:36|[详情](./docs/es6-generator)|
-|es6 中的 iterator|2018-06-23 14:36|[详情](./docs/es6-iterator)|
-|es6 中新的变量申明方式 Let 与 Const|2018-06-23 14:36|[详情](./docs/es6-let-const)|
-|es6 模块 module|2018-06-23 14:36|[详情](./docs/es6-module)|
-|es6 中更简洁的对象表示方法|2018-06-23 14:36|[详情](./docs/es6-new-object)|
-|es6 Regexp 的扩展|2018-06-23 14:36|[详情](./docs/es6-regexp)|
-|es6 string 的扩展|2018-06-23 14:36|[详情](./docs/es6-string)|
-|es6 中新的原始数据类型-Symbol|2018-06-23 14:36|[详情](./docs/es6-symbol)|
+|es6 - function 函数的扩展|2018-06-25 09:09|[详情](./docs/es6-function)|
+|es6 - Generator 生成器|2018-06-25 09:10|[详情](./docs/es6-generator)|
+|es6 - iterator 遍历器|2018-06-25 09:10|[详情](./docs/es6-iterator)|
+|es6 - let -const 变量新的声明方式|2018-06-25 09:10|[详情](./docs/es6-let-const)|
+|es6 - module 模块|2018-06-25 09:10|[详情](./docs/es6-module)|
+|es6 - object 对象的扩展|2018-06-25 09:09|[详情](./docs/es6-object)|
+|es6 - regexp 正则表达式的扩展|2018-06-25 09:10|[详情](./docs/es6-regexp)|
+|es6 - string 字符串的扩展|2018-06-25 09:11|[详情](./docs/es6-string)|
+|es6 - symbol 新的原始数据类型 Symbol|2018-06-25 09:11|[详情](./docs/es6-symbol)|
 |eslint 对 Promise 方法解析报错|2018-06-23 14:36|[详情](./docs/eslint-promise-errors)|
 |express 中的 app|2018-06-23 14:36|[详情](./docs/express-app)|
 |express 初探|2018-06-23 14:36|[详情](./docs/express-basic)|

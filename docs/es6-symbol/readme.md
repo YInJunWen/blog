@@ -1,4 +1,4 @@
-# es6 中新的原始数据类型-Symbol
+# es6 - symbol 新的原始数据类型 Symbol
 
 > ES6 之前存在 6 种原始数据类型,分别是`String, Number, Boolean, Object, undefined, null`,ES6 中新增了一种新的原始数据类型`Symbol`;
 > Symbol 类型数据通过`Symbol`函数生成，由于他是原始数据类型，因此不能使用 New 关键字来声明
@@ -10,13 +10,13 @@ var a = Symbol();
 Symbol 数据可以显式转为字符串和布尔值，却不能转为数值
 
 ```js
-var a = Symbol('foo');
+var a = Symbol("foo");
 String(a); // "Symbol(foo)"
 a.toString(); // "Symbol(foo)"
 Boolean(a); //true
 
 a + 2; // Typeerror
-a + ' string'; // TypeError ： can't covert symbol to string
+a + " string"; // TypeError ： can't covert symbol to string
 ```
 
 Symbol 函数的参数仅仅是为了 symbol 实例的描述，即便是参数相同，生成的实例也是独一无二的
@@ -36,15 +36,15 @@ a === b; // false
 
 ```js
 // demo2.js
-global[Symbol.for('foo')] = 1;
-global[Symbol('bar')] = 1;
+global[Symbol.for("foo")] = 1;
+global[Symbol("bar")] = 1;
 
 // demo1.js
-global[Symbol.for('foo')]; //  1
-global[Symbol.for('foo')] = 2;
-global[Symbol.for('foo')]; //  2
+global[Symbol.for("foo")]; //  1
+global[Symbol.for("foo")] = 2;
+global[Symbol.for("foo")]; //  2
 
-global[Symbol('bar')]; // undefined
+global[Symbol("bar")]; // undefined
 ```
 
 上面例子中通过 foo 和 bar 生成的 Symbol 对象就是因为`Symbol()`方法生成的对象没有在全局注册，从而导致`demo1.js`中取不到他的值，
@@ -69,12 +69,12 @@ for( key in obj){
 要想获得对象的 Symbol 属性名，可以使用`Reflect.ownkeys()`和`getOwnPropertySymbols`方法。其中`Reflect.ownkeys()`会获取对象的所有属性名，包括常规属性名和 Symbol 属性名，而`getOwnPropertySymbols`则会获取所有的 Symbol 属性名
 
 ```js
-let a = Symbol.for('a');
-let b = Symbol.for('b');
+let a = Symbol.for("a");
+let b = Symbol.for("b");
 
 const obj = {
   [a]: 1,
-  [b]: 2,
+  [b]: 2
 };
 console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(a), Symbol(b) ]
 ```

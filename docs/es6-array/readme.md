@@ -1,4 +1,4 @@
-# es6 中 array 的扩展
+# es6 - array 数组的扩展
 
 ## 扩展运算符
 
@@ -241,28 +241,20 @@ console.log(b); // [ { name: 'lisi' }, 2, 3 ]
 
 ## entries()、keys()、values()
 
-ES6 对数组提供了这三个方法来扩展对数组元素的获取，三种方法都返回一个遍历器对象，可以通过`for...of...`或者`Iterator.next().value`获取其中的内容
+ES6 对数组提供了这三个方法来扩展对数组元素的获取，三种方法都返回一数组，可以通过`for...of...`或者`Iterator.next().value`获取其中的内容
 
 ```js
 var a = [1, 2, 3];
-for (let x of a.keys()) {
-  console.log(x); // 0,1,2
-}
-
-for (let x of a.entries()) {
-  console.log(x); // [0, 1], [1, 2], [2, 3]
-}
-
-for (let x of a.values()) {
-  console.log(x); //.values() is not a function
-}
+Object.keys(a); // [ '0', '1', '2' ]
+Object.values(a); // [ 1, 2, 3 ]
+Object.entries(a); // [ [ '0', 1 ], [ '1', 2 ], [ '2', 3 ] ]
 ```
 
 注意：
 
-> 按照官方文档，数组的 values 方法也可以返回一个遍历器对象，但是我在 Node 环境中执行的时候，提示`.values() is not a function`，也没有在网上查找到相应的解释，只能暂时把责任推到 node 环境还没有实现该方法上，知道问题的麻烦告诉我一声。entries 和 keys 可以正常使用
+> 我在 Node 环境中执行的时候，提示`.values() is not a function`，这是因为当前版本的 node 并没有部署这个方法，需要使用`babel-polyfill`才可以正常执行[完整案例看这里](./demo/src/demo7.js)
 
-另外需要注意，这里是数组的属性，要和`Object.keys(), Object.values(), Object.entries()`区分开
+> 另外需要注意，这里是数组的属性，要和`Object.keys(), Object.values(), Object.entries()`区分开
 
 ## includes(target, index)
 

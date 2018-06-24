@@ -1,4 +1,4 @@
-# es6 中新的变量申明方式 Let 与 Const
+# es6 - let -const 变量新的声明方式
 
 es6 中开始提供了新声明变量的方式：let 与 const，其中 let 声明一个变量，const 声明一个常量
 

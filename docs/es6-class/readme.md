@@ -1,4 +1,4 @@
-# es6 中的 class
+# es6 - class
 
 > ES5 本身没有“类”的概念，为了让有 C 、java 开发习惯的人群能快速学习 javascript，ES6 中添加了`class`的概念，来声明一个构造函数，在 ES6 里面 ，class 只是一个语法糖，而不是真正意义上的类。
 

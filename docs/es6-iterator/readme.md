@@ -1,4 +1,4 @@
-# es6 中的 iterator
+# es6 - iterator 遍历器
 
 > 表示“集合”的数据结构中，除了 array 和 object，ES6 中又新增了 Set 和 Map 两种数据结构，Iterrator 就是为各种不同的数据结构提供一种统一的访问机制，任何数据结构只要部署了 Iterator 接口，就可以完成遍历操作，即依次处理该数据结构的所有成员。
 
@@ -12,14 +12,14 @@ Iterator 主要作用：
 
 ```js
 function makeiterator(array) {
-    var index = 0;
-    return {
-        next: function() {
-            return index < array.length
-                ? { value: array[index], done: false }
-                : { value: undefined, done: true };
-        }
-    };
+  var index = 0;
+  return {
+    next: function() {
+      return index < array.length
+        ? { value: array[index], done: false }
+        : { value: undefined, done: true };
+    }
+  };
 }
 var it = makeiterator([1, 2, 3]);
 it.next(); //{value: 1, done: false}
@@ -32,13 +32,13 @@ it.next(); //{value: undefined, done: true}
 
 在 ES6 中默认的 Iterator 接口都部署在 Symbol.iterator 属性中，有些数据结构默认已经具备 Iterator 接口，也就是说他们不需要人为部署 Symbol.iterator 属性就可以使用 for...of...循环，默认具备 iterator 接口的数据结构如下：
 
-*   Array
-*   Map
-*   Set
-*   Nodelist
-*   String
-*   函数的 arguments 对象
-*   TypedArray (类数组对象)
+- Array
+- Map
+- Set
+- Nodelist
+- String
+- 函数的 arguments 对象
+- TypedArray (类数组对象)
 
 ## 对象
 
@@ -46,28 +46,28 @@ it.next(); //{value: undefined, done: true}
 
 ```js
 var obj = {
-    data: [1, 2, 3],
-    [Symbol.iterator]() {
-        let index = 0;
-        return {
-            next() {
-                if (index < this.data.length) {
-                    return {
-                        done: false,
-                        value: this.data[index++]
-                    };
-                } else {
-                    return {
-                        done: true,
-                        value: undefined
-                    };
-                }
-            }
-        };
-    }
+  data: [1, 2, 3],
+  [Symbol.iterator]() {
+    let index = 0;
+    return {
+      next() {
+        if (index < this.data.length) {
+          return {
+            done: false,
+            value: this.data[index++]
+          };
+        } else {
+          return {
+            done: true,
+            value: undefined
+          };
+        }
+      }
+    };
+  }
 };
 for (item in obj) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -91,14 +91,14 @@ Nodelist.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]
 
 ```js
 var obj = {
-    0: "zhangsan",
-    1: "lisi",
-    2: "wangwu",
-    length: 3
+  0: "zhangsan",
+  1: "lisi",
+  2: "wangwu",
+  length: 3
 };
 obj[Symbol.iterator] = Array.prototype[Symbol.iterator];
 for (item of obj) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -106,14 +106,14 @@ for (item of obj) {
 
 ```js
 var obj = {
-    name1: "zhangsan",
-    name2: "lisi",
-    name3: "wangwu",
-    length: 3
+  name1: "zhangsan",
+  name2: "lisi",
+  name3: "wangwu",
+  length: 3
 };
 obj[Symbol.iterator] = Array.prototype[Symbol.iterator];
 for (item of obj) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -141,12 +141,12 @@ generator 函数是最快捷部署遍历器对象的方法，直接在 generator
 ```js
 var obj = {};
 obj[Symbol.iterator] = function*() {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 };
 for (item of obj) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -185,7 +185,7 @@ z; // 3
 ```js
 var a = "yun";
 for (item of a) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -203,11 +203,11 @@ Set 对象和 Map 对象也默认部署了遍历器接口，Set 数据如下：
 
 ```js
 var a = new Set()
-    .add("zhangsan")
-    .add("lisi")
-    .add("wangwu");
+  .add("zhangsan")
+  .add("lisi")
+  .add("wangwu");
 for (item of a) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -227,7 +227,7 @@ a.set("name", "zhangsan");
 a.set("age", "13");
 a.set("height", "180");
 for (item of a) {
-    console.log(item);
+  console.log(item);
 }
 ```
 
@@ -241,7 +241,7 @@ for (item of a) {
 
 ```js
 for ([name, value] of a) {
-    console.log(value);
+  console.log(value);
 }
 ```
 
@@ -273,7 +273,7 @@ var d = Object.values();
 
 ```js
 [["0", "zhangsan"], ["1", "lisi"], ["2", "wangwu"]][("0", "1", "2")][
-    ("zhangsan", "lisi", "wangwu")
+  ("zhangsan", "lisi", "wangwu")
 ];
 ```
 
@@ -284,11 +284,11 @@ var d = Object.values();
 ```js
 var a = new String("yun");
 a[Symbol.iterator] = function*() {
-    yield "l";
-    yield "i";
+  yield "l";
+  yield "i";
 };
 for (item of a) {
-    console.log(item);
+  console.log(item);
 }
 ```
 

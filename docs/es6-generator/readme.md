@@ -1,4 +1,4 @@
-# es6 中的 Generator
+# es6 - Generator 生成器
 
 Generator 是 ES6 新提供的一种异步解决方案，generator 函数有两个明显的特征，1：函数名前面有`*`号，2：函数内部有`yeild`关键字,定义了不同的状态。
 
@@ -16,9 +16,9 @@ function *go(){
 
 ```js
 function* go() {
-    yield 1 + 2;
-    yield false || 3;
-    yield "hello" + " world";
+  yield 1 + 2;
+  yield false || 3;
+  yield "hello" + " world";
 }
 
 var foo = go();
@@ -59,8 +59,8 @@ foo.next()  // 2， 这一句执行之后才调用了console.log()方法
 
 ```js
 function* go() {
-    var a = yield 3;
-    console.log(a);
+  var a = yield 3;
+  console.log(a);
 }
 var foo = go();
 var k = foo.next(); //
@@ -74,9 +74,9 @@ console.log(j); // {value: undefined, done: true}
 
 ```js
 function* go() {
-    yield 1;
-    return 2;
-    yield 3;
+  yield 1;
+  return 2;
+  yield 3;
 }
 var foo = go();
 foo.next(); // {value: 1, done: false}
@@ -88,11 +88,11 @@ foo.next(); // {value: undefiend, done: true} 由于碰到了return语句，就�
 
 ```js
 function* go() {
-    var a = yield 1;
-    console.log(a);
-    var b = yield 2;
-    console.log(b);
-    return 3;
+  var a = yield 1;
+  console.log(a);
+  var b = yield 2;
+  console.log(b);
+  return 3;
 }
 var foo = go();
 
@@ -126,11 +126,11 @@ console.log(j);
 
 ```js
 function* go() {
-    try {
-        yield 3;
-    } catch (e) {
-        console.log(e); //  a
-    }
+  try {
+    yield 3;
+  } catch (e) {
+    console.log(e); //  a
+  }
 }
 var foo = go();
 var m = foo.next();
@@ -142,16 +142,16 @@ foo.throw("a");
 
 ```js
 function* go() {
-    yield 3;
-    yield 4;
+  yield 3;
+  yield 4;
 }
 var foo = go();
 var m = foo.next();
 console.log(m); // {value: 3, done: false}
 try {
-    foo.throw("a");
+  foo.throw("a");
 } catch (e) {
-    console.log(e); // a ，由于函数内部没有部署`try..catch`语句，所以会被这里捕获到抛出的错误
+  console.log(e); // a ，由于函数内部没有部署`try..catch`语句，所以会被这里捕获到抛出的错误
 }
 console.log(n);
 ```
@@ -160,7 +160,7 @@ console.log(n);
 
 ```js
 function* go() {
-    yield 3;
+  yield 3;
 }
 var foo = go();
 var m = foo.next();
@@ -173,12 +173,12 @@ console.log("不会执行这一句"); // 由于抛出的错误没有捕获语句
 
 ```js
 function* go() {
-    try {
-        yield 3;
-    } catch (e) {
-        console.log(e);
-    }
-    yield 4;
+  try {
+    yield 3;
+  } catch (e) {
+    console.log(e);
+  }
+  yield 4;
 }
 var foo = go();
 var m = foo.next();
@@ -193,22 +193,22 @@ console.log(k); // {value: undefined, done: true}
 
 ```js
 function* go() {
-    try {
-        yield 3;
-    } catch (e) {
-        console.log(e); //  throw 方法 抛出的错误
-    }
-    throw new Error("throw 命令 抛出的错误");
-    yield 4;
+  try {
+    yield 3;
+  } catch (e) {
+    console.log(e); //  throw 方法 抛出的错误
+  }
+  throw new Error("throw 命令 抛出的错误");
+  yield 4;
 }
 var foo = go();
 var m = foo.next();
 console.log(m); // {value: 3, done: false}
 try {
-    var n = foo.throw("throw 方法 抛出的错误");
-    console.log(n); //  不会执行，因为throw抛出了错误，将进入catch语句
+  var n = foo.throw("throw 方法 抛出的错误");
+  console.log(n); //  不会执行，因为throw抛出了错误，将进入catch语句
 } catch (e) {
-    console.log(e); // throw 命令 抛出的错误
+  console.log(e); // throw 命令 抛出的错误
 }
 
 //  执行结果
@@ -221,17 +221,17 @@ try {
 
 ```js
 function* go() {
-    yield 3;
-    throw new Error("没有捕获事件接收的throw命令抛出的错误");
-    yield 4;
+  yield 3;
+  throw new Error("没有捕获事件接收的throw命令抛出的错误");
+  yield 4;
 }
 var foo = go();
 var m = foo.next();
 console.log(m); // {value: 3, done: false}
 try {
-    var n = foo.next();
+  var n = foo.next();
 } catch (e) {
-    console.log(e); //  Error: 没有捕获事件接收的throw命令抛出的错误
+  console.log(e); //  Error: 没有捕获事件接收的throw命令抛出的错误
 }
 console.log(n); // 由于第二次next方法调用的时候，抛出了一个错误，所以这里的变量 n 不会被赋值，所以它的值就是undefined
 var k = foo.next();
@@ -244,9 +244,9 @@ console.log(k); // {value: undefined, done: true}
 
 ```js
 function* go() {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 }
 var foo = go();
 foo.next(); // {value: 1; done: false}
@@ -258,13 +258,13 @@ foo.next(); // {value: undefined; done: true}
 
 ```js
 function* go() {
-    yield 1;
-    try {
-        yield 2;
-    } finally {
-        yield 3;
-    }
-    yield 4;
+  yield 1;
+  try {
+    yield 2;
+  } finally {
+    yield 3;
+  }
+  yield 4;
 }
 var foo = go();
 foo.next(); // {value: 1; done: false}
@@ -303,14 +303,14 @@ Iterator 为不同的数据对象提供了一种新的访问机制，用来提�
 
 ```js
 var obj = {
-    *[Symbol.iterator]() {
-        yield 1;
-        yield 2;
-        yield 3;
-    }
+  *[Symbol.iterator]() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
 };
 for (item of obj) {
-    console.log(item);
+  console.log(item);
 }
 
 //  结果
@@ -332,12 +332,12 @@ console.log(a); //  [1, 2, 3, 4, 5, 6]
 
 ```js
 function* out() {
-    yield 1;
-    yield 2;
+  yield 1;
+  yield 2;
 }
 function* go() {
-    yield* out();
-    yield 3;
+  yield* out();
+  yield 3;
 }
 var foo = go();
 var m = foo.next();
@@ -352,12 +352,12 @@ console.log(k); // {value: 1, done: false}
 
 ```js
 function* out() {
-    yield 1;
-    yield 2;
+  yield 1;
+  yield 2;
 }
 function* go() {
-    yield* out();
-    yield 3;
+  yield* out();
+  yield 3;
 }
 var foo = go();
 var m = foo.next();
@@ -372,8 +372,8 @@ console.log(k); // {value: undefined, done: true}
 
 ```js
 function* go() {
-    yield "zhang";
-    yield* "zhang";
+  yield "zhang";
+  yield* "zhang";
 }
 var foo = go();
 foo.next(); // {value: 'zhang', done: false}
@@ -384,8 +384,8 @@ foo.next(); // {value: 'n', done: false}
 foo.next(); // {value: 'g', done: false}
 
 function* go() {
-    yield [1, 2, 3];
-    yield* [1, 2, 3];
+  yield [1, 2, 3];
+  yield* [1, 2, 3];
 }
 var foo = go();
 foo.next(); // {value: [1,2,3], done: false}
@@ -400,12 +400,12 @@ foo.next(); // {value: 3, done: false}
 
 ```js
 function* out() {
-    return 10;
+  return 10;
 }
 function* go() {
-    var a = yield* out();
-    console.log(a);
-    return 1;
+  var a = yield* out();
+  console.log(a);
+  return 1;
 }
 var foo = go();
 var m = foo.next();

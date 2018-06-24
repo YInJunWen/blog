@@ -1,4 +1,4 @@
-# es6 中的 function 扩展
+# es6 - function 函数的扩展
 
 es6 中，新增了允许声明函数参数默认值得属性，例如
 
@@ -172,14 +172,14 @@ let add = function() {};
 箭头函数中是没有 this 的，如果使用了 this，则永远指向声明函数时所在作用域内的 this，如果所在作用域依然是个箭头函数，则继续向上查找，直到找到 this 为止， 来看下面两段代码执行结果的区别：
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     foo(function() {
       console.log(this.name);
     });
-  },
+  }
 };
 function foo(cb) {
   cb();
@@ -190,16 +190,16 @@ person.getName(); // 'zhangsan'
 在上面的代码中，我们需要输入 person 中的`lisi`,结果输出结果却是`zhangsan`这是因为匿名函数的 this 默认指向全局，为了达到目标，通常我们会通过 bind、apply、call 方法来改变匿名函数的上下文：
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     foo(
       function() {
         console.log(this.name);
       }.bind(this)
     );
-  },
+  }
 };
 function foo(cb) {
   cb();
@@ -210,14 +210,14 @@ person.getName(); // 'lisi'
 箭头函数的出现，让我们省略了这一步：
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     foo(() => {
       console.log(this.name);
     });
-  },
+  }
 };
 function foo(cb) {
   cb();
@@ -231,28 +231,28 @@ setTimeout 也是一个可以参考的例子：
 
 ```js
 // 没有使用箭头函数
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     setTimeout(function() {
       console.log(this.name);
     });
-  },
+  }
 };
 person.getName(); // 'zhangsan'
 ```
 
 ```js
 // 使用了箭头函数
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     setTimeout(() => {
       console.log(this.name);
     });
-  },
+  }
 };
 person.getName(); // 'lisi'
 ```
@@ -287,7 +287,7 @@ person.getName()  // 'lisi'
 
 ```js
 var person = {
-  name: 'zhangsan',
+  name: "zhangsan"
 };
 function add() {
   console.log(this.name);
@@ -301,7 +301,7 @@ add(); // 'zhangsan'
 
 ```js
 var person = {
-  name: 'zhangsan',
+  name: "zhangsan"
 };
 function add(age) {
   console.log([this.name, age]);
@@ -316,7 +316,7 @@ person::add([15]);
 
 ```js
 var person = {
-  name: 'zhangsan',
+  name: "zhangsan"
 };
 function add(...values) {
   console.log([this.name, values]);
@@ -328,22 +328,22 @@ person::add([15, 30, 40]);
 再看一个案例：
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     console.log(this.name);
-  },
+  }
 };
 var log = person.getName;
 log(); // "zhangsan"
 
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: () => {
     console.log(this.name);
-  },
+  }
 };
 var log = person.getName;
 log(); // "zhangsan"
@@ -352,12 +352,12 @@ log(); // "zhangsan"
 为什么这里用了箭头函数结果还是`zhangsan`呢，因为我们只是把一个箭头函数赋值给了 **全局作用域** 内的变量`log`，箭头函数中的 this 指向的依然是全局作用域，那么如何让输出结果依然是`lisi`呢，我们会这样做
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     console.log(this.name);
-  },
+  }
 };
 var log = person.getName.bind(person);
 log();
@@ -366,12 +366,12 @@ log();
 现在结果就是我们想要的`lisi`了，双冒号运算符也可以达到我们的目的：
 
 ```js
-var name = 'zhangsan';
+var name = "zhangsan";
 var person = {
-  name: 'lisi',
+  name: "lisi",
   getName: function() {
     console.log(this.name);
-  },
+  }
 };
 var log = ::person.getName;
 // 这里就相当于  var log = person.getName.bind(person);
