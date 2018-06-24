@@ -1,0 +1,17 @@
+<script>
+    var add = {
+        name: "zhangsan"
+    };
+    var foo = {
+        age: 12,
+        getName() {
+            console.log(super.name)
+        },
+        getName2() {
+            console.log(Object.getPrototypeOf(this).name)
+        }
+    };
+    Object.setPrototypeOf(foo, add);
+    foo.getName(); // "zhangsan"
+    foo.getName2(); // "zhangsan"
+</script>

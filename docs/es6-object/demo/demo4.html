@@ -1,0 +1,15 @@
+<script>
+    var add = {
+        name: "zhangsan"
+    };
+    let foo = Object.create(add, {
+        age: {
+            value: 12
+        },
+        weight: {
+            value: "90kg"
+        }
+    });
+    console.log(Object.getOwnPropertyDescriptors(foo));
+    console.log(Object.getPrototypeOf(foo));
+</script>

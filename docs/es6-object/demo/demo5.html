@@ -1,0 +1,11 @@
+<script>
+    var add = {
+        name: 'zhangsan'
+    };
+    let foo = Object.create(add);
+    console.log("foo原型链上的属性：", Object.getPrototypeOf(foo))
+
+    add.name = "lisi";
+    console.log("foo原型链上的属性：", Object.getPrototypeOf(foo))
+
+</script>

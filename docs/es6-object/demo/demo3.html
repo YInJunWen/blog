@@ -1,0 +1,15 @@
+<script>
+
+    var add = {
+        name: "zhangsan",
+        get foo() {
+            return this.name;
+        }
+    };
+    var foo = Object.assign({}, add);
+    console.log(Object.getOwnPropertyDescriptors(foo));
+
+    var egg = {};
+    Object.defineProperties(egg, Object.getOwnPropertyDescriptors(add));
+    console.log(Object.getOwnPropertyDescriptors(egg));
+</script>

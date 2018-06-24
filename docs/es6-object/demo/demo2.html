@@ -1,0 +1,14 @@
+<script>
+    let result = Reflect.ownKeys({
+        [Symbol("foo")]: 1,
+        [Symbol("add")]: 2,
+        b: 2,
+        a: 1,
+        4: "si",
+        3: "san"
+    });
+
+    console.log(result);
+    //[ '3', '4', 'b', 'a', Symbol(foo), Symbol(add) ]
+
+</script>
