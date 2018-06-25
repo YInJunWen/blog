@@ -59,6 +59,7 @@ function generator(fileList, index = 0) {
 
   // console.log(realPath);
   fs.readFile(realPath, "utf8", (err, data) => {
+    // console.log(data)
     let title = data.match(/^#\ (.*)/g);
     if (!title) {
       // console.log(`${realPath}文件中未找到标题`);

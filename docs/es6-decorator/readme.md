@@ -1,4 +1,4 @@
-# es6 - decorator 修饰器
+<!-- # es6 - decorator 修饰器 -->
 
 ## 类的修饰器
 

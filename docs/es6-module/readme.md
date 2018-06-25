@@ -1,4 +1,4 @@
-# es6 - module 模块
+<!-- # es6 - module 模块 -->
 
 ## export 命令
 

@@ -1,4 +1,4 @@
-# es6 - symbol 新的原始数据类型 Symbol
+<!-- # es6 - symbol 新的原始数据类型 Symbol -->
 
 > ES6 之前存在 6 种原始数据类型,分别是`String, Number, Boolean, Object, undefined, null`,ES6 中新增了一种新的原始数据类型`Symbol`;
 > Symbol 类型数据通过`Symbol`函数生成，由于他是原始数据类型，因此不能使用 New 关键字来声明
