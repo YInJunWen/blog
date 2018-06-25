@@ -1,4 +1,4 @@
-# es6 中的解构赋值
+# es6 - descriptor 新的解构赋值
 
 > ES6 提供了一中新的语法，可以快速在声明变量的同时，从数组或者对象中提取内容进行赋值，这种方式被称作是解构。极大的提高了工作效率
 
@@ -68,12 +68,12 @@ d; // undefined
 
 ```js
 let a = 1,
-    b = 2,
-    c = 3;
+  b = 2,
+  c = 3;
 let obj = {
-    a,
-    b,
-    c
+  a,
+  b,
+  c
 };
 ```
 
@@ -99,22 +99,26 @@ g; // undefined
 
 ```js
 let obj = {
-    name: {
-        age: 18
-    }
+  name: {
+    age: 18
+  }
 };
 let { name: data } = obj;
 
 name; // name is not defined
 data; // {age: 18}
 
-let { name: { age } } = obj;
+let {
+  name: { age }
+} = obj;
 
 name; // name is not defined
 age; // 18
 data; // 18
 
-let { name: { age: data } } = obj;
+let {
+  name: { age: data }
+} = obj;
 
 name; // name is not defined
 age; // age is not defiend
@@ -194,7 +198,7 @@ console.log(s.call("zhangsan")); //  'zhangsan'
 
 ```js
 function add(a) {
-    let name = a || "zhanagsan";
+  let name = a || "zhanagsan";
 }
 add();
 ```
@@ -203,7 +207,7 @@ add();
 
 ```js
 function add([a = 3]) {
-    console.log(a);
+  console.log(a);
 }
 add(4); // 4
 add(); // 3
@@ -215,7 +219,7 @@ add(null); // null
 
 ```js
 function add({ a = 3 }) {
-    console.log(a);
+  console.log(a);
 }
 add({ a: 4 }); // 4
 add({ a }); // 3
