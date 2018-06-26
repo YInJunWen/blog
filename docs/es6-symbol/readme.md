@@ -17,10 +17,10 @@ var a = Symbol();
 symbol 的参数可以是一个字符串
 
 ```js
-var add = Symbol('a');
+var add = Symbol("a");
 console.log(add); // "a"
 var foo = Symbol({
-  name: '1',
+  name: "1"
 });
 console.log(foo); // "Symbol([object Object])"
 ```
@@ -30,8 +30,8 @@ console.log(foo); // "Symbol([object Object])"
 ```js
 var egg = Symbol({
   toString: function() {
-    return 'egg';
-  },
+    return "egg";
+  }
 });
 console.log(egg); // "Symbol(egg)"
 ```
@@ -55,9 +55,9 @@ egg[Symbol('add')]; // undefiend
 使用 symbol 值作为属性名时，赋值和取值都必须使用`[]`包括，且不能使用`.`运算符
 
 ```js
-var tmp = Symbol('foo');
+var tmp = Symbol("foo");
 var egg = {
-  [tmp]: 1,
+  [tmp]: 1
 };
 egg[tmp]; // 1
 
@@ -70,13 +70,13 @@ egg.tmp; // 3
 Symbol 值可以 **显式** 转为字符串和布尔值，却不能转为数值
 
 ```js
-var a = Symbol('foo');
+var a = Symbol("foo");
 String(a); // "Symbol(foo)"
 a.toString(); // "Symbol(foo)"
 Boolean(a); //true
 
 a + 2; // Typeerror
-a + ' string'; // TypeError ： can't covert symbol to string
+a + " string"; // TypeError ： can't covert symbol to string
 ```
 
 ## Symbol.for()
@@ -107,8 +107,8 @@ Object.is(Symbol.for('egg'), Symbol.for('egg')); // true
 通过`Symbol.keyFor()`方法，可以获取到登记在全局环境中 Symbol 值的 key ，
 
 ```js
-var add = Symbol('egg');
-var foo = Symbol.for('egg');
+var add = Symbol("egg");
+var foo = Symbol.for("egg");
 console.log(Symbol.keyFor(add)); // undefiend
 console.log(Symbol.keyFor(foo)); // "egg"
 ```
@@ -137,35 +137,29 @@ for( key in obj){
 要想获得对象的 Symbol 属性名，可以使用`Reflect.ownkeys()`和`getOwnPropertySymbols`方法。其中`Reflect.ownkeys()`会获取对象自身的的所有属性，其中包含了不可枚举属性和 Symbol 属性，而`getOwnPropertySymbols`则是专门获取对象自身所有的 Symbol 属性
 
 ```js
-let a = Symbol.for('a');
-let b = Symbol.for('b');
+let a = Symbol.for("a");
+let b = Symbol.for("b");
 
 const obj = {
   [a]: 1,
-  [b]: 2,
+  [b]: 2
 };
 console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(a), Symbol(b) ]
 ```
 
 ## 内置的 Symbol 属性
 
-ES6 提供了 11 个内置的 Symbol 值:
+ES6 提供了 11 个内置的 Symbol 值,这里只介绍几个常用的：
 
 ### Symbol.hasInstance
 
-`object instanceof constructor`运算用来判断 object 是否为 constructor 的实例, 在进行 instanceof 运算的时候，实际上执行的就是对象的`[symbol.hasInstance]`方法
+通常我们会用`object instanceof constructor`运算来判断 object 是否为 constructor 的实例(或者说 constructor.prototype 是否在 object 的原型链上) 在进行 instanceof 运算的时候，实际上就是执行了对象的`[symbol.hasInstance]`方法
 
 ```js
-function egg() {}
-new egg() instanceof egg; // true
+function Egg() {}
+var foo = new Egg();
+foo instanceof Egg; // true
+Egg[Symbol.hasInstance](foo); // true
 ```
 
-如果人为修改了对象的这个属性，结果会不同
-
-```js
-function egg() {}
-egg.prototype[Symbol.hasInstance] = function(){
-	return false
-}
-new egg() instanceof egg; // true
-```
+阮一峰老师的博客中写的太少了，我重新总结了一下，具体请阅读[es6-symbol 中的[Symbol.hasInstance]属性](../es6-symbol-hasinstance)
