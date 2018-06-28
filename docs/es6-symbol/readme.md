@@ -163,3 +163,33 @@ Egg[Symbol.hasInstance](foo); // true
 ```
 
 阮一峰老师的博客中写的太少了，我重新总结了一下，具体请阅读[es6-symbol 中的[Symbol.hasInstance]属性](../es6-symbol-hasinstance)
+
+### Symbol.unscopables
+
+这个属性主要用于修改使用 with 关键字后面代码块的上下文。先看一下正常的 with 案例
+
+```js
+var egg = {
+  name: "zhangsan"
+};
+with (egg) {
+  console.log(name); //  "张三"
+}
+```
+
+案例中，通过 with 关键字，egg 被自动设置为大括号中的上下文，所以可以直接使用 name 属性，如果人为设置了`[Symbol.unscopables]`属性呢
+
+```js
+var name = "lisi";
+var egg = {
+  name: "zhangsan",
+  [Symbol.unscopables]: {
+    name: true
+  }
+};
+with (egg) {
+  console.log(name); //  undefined
+}
+```
+
+上面的案例中，我们手动设置了`[Symbol.unscopables]`属性，并且把其中的 name 设置为 true，意味着在使用 with 语句的时候，后接代码块中的上下文不再包含 name 属性,此时输出 name 就会往上一级作用域中查找，最终输出了全局变量下的 name 属性
