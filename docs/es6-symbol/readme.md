@@ -17,10 +17,10 @@ var a = Symbol();
 symbol 的参数可以是一个字符串
 
 ```js
-var add = Symbol("a");
+var add = Symbol('a');
 console.log(add); // "a"
 var foo = Symbol({
-  name: "1"
+  name: '1',
 });
 console.log(foo); // "Symbol([object Object])"
 ```
@@ -30,8 +30,8 @@ console.log(foo); // "Symbol([object Object])"
 ```js
 var egg = Symbol({
   toString: function() {
-    return "egg";
-  }
+    return 'egg';
+  },
 });
 console.log(egg); // "Symbol(egg)"
 ```
@@ -55,9 +55,9 @@ egg[Symbol('add')]; // undefiend
 使用 symbol 值作为属性名时，赋值和取值都必须使用`[]`包括，且不能使用`.`运算符
 
 ```js
-var tmp = Symbol("foo");
+var tmp = Symbol('foo');
 var egg = {
-  [tmp]: 1
+  [tmp]: 1,
 };
 egg[tmp]; // 1
 
@@ -70,13 +70,13 @@ egg.tmp; // 3
 Symbol 值可以 **显式** 转为字符串和布尔值，却不能转为数值
 
 ```js
-var a = Symbol("foo");
+var a = Symbol('foo');
 String(a); // "Symbol(foo)"
 a.toString(); // "Symbol(foo)"
 Boolean(a); //true
 
 a + 2; // Typeerror
-a + " string"; // TypeError ： can't covert symbol to string
+a + ' string'; // TypeError ： can't covert symbol to string
 ```
 
 ## Symbol.for()
@@ -107,8 +107,8 @@ Object.is(Symbol.for('egg'), Symbol.for('egg')); // true
 通过`Symbol.keyFor()`方法，可以获取到登记在全局环境中 Symbol 值的 key ，
 
 ```js
-var add = Symbol("egg");
-var foo = Symbol.for("egg");
+var add = Symbol('egg');
+var foo = Symbol.for('egg');
 console.log(Symbol.keyFor(add)); // undefiend
 console.log(Symbol.keyFor(foo)); // "egg"
 ```
@@ -137,12 +137,12 @@ for( key in obj){
 要想获得对象的 Symbol 属性名，可以使用`Reflect.ownkeys()`和`getOwnPropertySymbols`方法。其中`Reflect.ownkeys()`会获取对象自身的的所有属性，其中包含了不可枚举属性和 Symbol 属性，而`getOwnPropertySymbols`则是专门获取对象自身所有的 Symbol 属性
 
 ```js
-let a = Symbol.for("a");
-let b = Symbol.for("b");
+let a = Symbol.for('a');
+let b = Symbol.for('b');
 
 const obj = {
   [a]: 1,
-  [b]: 2
+  [b]: 2,
 };
 console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(a), Symbol(b) ]
 ```
@@ -163,3 +163,7 @@ Egg[Symbol.hasInstance](foo); // true
 ```
 
 阮一峰老师的博客中写的太少了，我重新总结了一下，具体请阅读[es6-symbol 中的[Symbol.hasInstance]属性](../es6-symbol-hasinstance)
+
+### Symbol.isConcatSpreadable
+
+这个属性主要用于数组或者类数组在作为 concat 参数的时候，是否展开，数组默认为 true，类数组默认为 undefined，直接设置为 false 和 undefined 的效果是一样的 [完整案例看这里](../es6-symbol-isconcat-spreadable)
