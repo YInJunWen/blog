@@ -153,14 +153,7 @@ ES6 提供了 11 个内置的 Symbol 值,这里只介绍几个常用的：
 
 ### Symbol.hasInstance
 
-通常我们会用`object instanceof constructor`运算来判断 object 是否为 constructor 的实例(或者说 constructor.prototype 是否在 object 的原型链上) 在进行 instanceof 运算的时候，实际上就是执行了对象的`[symbol.hasInstance]`方法
-
-```js
-function Egg() {}
-var foo = new Egg();
-foo instanceof Egg; // true
-Egg[Symbol.hasInstance](foo); // true
-```
+通常我们会用`object instanceof constructor`运算来判断 object 是否为 constructor 的实例(或者说 constructor.prototype 是否在 object 的原型链上) 在进行 instanceof 运算的时候，实际上就是执行了对象的`[symbol.hasInstance]`方法.
 
 阮一峰老师的博客中写的太少了，我重新总结了一下，具体请阅读[es6-symbol 中的[Symbol.hasInstance]属性](../es6-symbol-hasinstance)
 
@@ -170,30 +163,25 @@ Egg[Symbol.hasInstance](foo); // true
 
 ### Symbol.unscopables
 
-这个属性主要用于修改使用 with 关键字后面代码块的上下文。先看一下正常的 with 案例
+这个属性主要用于修改使用 with 关键字后面代码块的上下文。可以参考[es6-symbol 中的[Symbol.unscopables]属性](../es6-symbol-unscopables)
+
+### Symbol.toPrimitive
+
+该属性主要用于修改对象被转成原始值时的行为。比如一个变量为`var obj = {};`;这个变量在不同的运算符中，需要转换为不同的原始值
 
 ```js
-var egg = {
-  name: 'zhangsan',
-};
-with (egg) {
-  console.log(name); //  "张三"
-}
+var obj = {};
+console.log('' + obj); // 需要转换成字符串 输出内容："[Object object]"
+console.log(+obj); // 需要转换成数字 输出内容：NaN
+console.log(!!obj); // 需要转换成布尔值 输出内容：true
 ```
 
-案例中，通过 with 关键字，egg 被自动设置为大括号中的上下文，所以可以直接使用 name 属性，如果人为设置了`[Symbol.unscopables]`属性呢
+这些转换为原始值的行为，都取决于这个属性，并且是可以更改的。具体案例看这里[es6-symbol 中的[Symbol.toPrimitive]属性](../es6-symbol-toprimitive)
 
-```js
-var name = 'lisi';
-var egg = {
-  name: 'zhangsan',
-  [Symbol.unscopables]: {
-    name: true,
-  },
-};
-with (egg) {
-  console.log(name); //  undefined
-}
-```
+### Symbol.toStringTag
 
-上面的案例中，我们手动设置了`[Symbol.unscopables]`属性，并且把其中的 name 设置为 true，意味着在使用 with 语句的时候，后接代码块中的上下文不再包含 name 属性,此时输出 name 就会往上一级作用域中查找，最终输出了全局变量下的 name 属性
+在使用`Object.prototype.toString()`来判断一个数据类型的时候，有的数据类型默认已经部署了这个属性，而那些自定义的数据类型就需要人为定义，用来明确的、更详细的告诉开发人员某个值的详细数据类型，完整的文档可参考[es6-symbol 中的[Symbol.toStringTag]属性](../es6-symbol-tostringtag)
+
+### Symbol.iterator
+
+指向对象的遍历器对象，大多数时候用在为没有部署迭代器的对象部署一个新的迭代器。迭代器主要用于`for...of...`循环或者扩展运算符。具体文档可以参考[es6-symbol 中的[Symbol.iterator]属性](../es6-symbol-iterator)
