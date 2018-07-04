@@ -8,7 +8,7 @@
 - Set.prototype[Symbol.iterator]
 - Map.prototype[Symbol.iterator]
 
-但是如果想对一个空对象使用`for...of...`方法时，就会抛出一个错误`egg is not iterable`，因为它没有被部署`[Symbol.iterator]`属性
+对有被部署`[Symbol.iterator]`属性对象,使用`for...of...`方法时，就会抛出一个错误`egg is not iterable`
 
 ```js
 var egg = {};
@@ -25,7 +25,7 @@ var egg = {
     yield 1;
     yield 2;
     yield 3;
-  }
+  },
 };
 for (item of egg) {
   console.log(item); // 1,2,3
@@ -56,7 +56,11 @@ class Egg {
 for (item of new Egg()) {
   console.log(item); // 1,2,3
 }
+```
 
+也可以部署到构造方法中
+
+```js
 class Egg {
   constructor() {
     this[Symbol.iterator] = function*() {

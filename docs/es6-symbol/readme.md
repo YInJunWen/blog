@@ -199,3 +199,11 @@ class Narray extends Array {
 new Narray() instanceof Narray;
 new Narray() instanceof Array;
 ```
+
+### Symbol.match
+[Symbol.match]属性有两个作用
+
+- 修改 match 函数的行为
+- 修改正则表达式的属性
+
+具体文档可以参考[es6-symbol 中的[Symbol.match]属性](../es6-symbol-match)
