@@ -25,23 +25,48 @@ var egg = {
     yield 1;
     yield 2;
     yield 3;
-  },
+  }
 };
 for (item of egg) {
   console.log(item); // 1,2,3
 }
 ```
 
-再来看一下部署到 class 中的案例
+再来看一下部署到 class 中的案例：
 
 ```js
-class Egg{};
-egg.prototype[Symbol.iterator]=function*() {
+class Egg {}
+Egg.prototype[Symbol.iterator] = function*() {
+  yield 1;
+  yield 2;
+  yield 3;
+};
+for (item of new Egg()) {
+  console.log(item); // 1,2,3
+}
+
+// 等同于：
+class Egg {
+  *[Symbol.iterator]() {
     yield 1;
     yield 2;
     yield 3;
-  },
-for (item of egg) {
+  }
+}
+for (item of new Egg()) {
+  console.log(item); // 1,2,3
+}
+
+class Egg {
+  constructor() {
+    this[Symbol.iterator] = function*() {
+      yield 1;
+      yield 2;
+      yield 3;
+    };
+  }
+}
+for (item of new Egg()) {
   console.log(item); // 1,2,3
 }
 ```
