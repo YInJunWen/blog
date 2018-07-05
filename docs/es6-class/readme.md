@@ -6,15 +6,6 @@
 
 constructor 方法默认返回实例对象(即 this),也可以重新指定返回另一个对象
 
-```js
-class Foo {
-  constructor() {
-    return Obj.create(null);
-  }
-}
-new Foo() instanceof Foo; // false
-```
-
 ## Class 中定义的方法和属性
 
 首先来明确一下和构造函数有关的几种不同类型的方法
@@ -218,6 +209,19 @@ new Person() instanceof Person; // true
 
 如果人为设置了类的 constructor 返回值，可能导致生成的对象不是类的实例。
 
+案例 1：
+
+```js
+class Foo {
+  constructor() {
+    return Obj.create(null);
+  }
+}
+new Foo() instanceof Foo; // false
+```
+
+案例 2：
+
 ```js
 class Name {
   constructor() {
@@ -245,18 +249,20 @@ new Person(); // {name: 'zhangsan'}
 生成类的实例也是通过`new`关键字,并且类的所有实例共享同一个原型对象
 
 ```js
-class Person{
-	this.name = 'zhangsan'
+class Person {
+  constructor() {
+    this.name = "zhangsan";
+  }
 }
 var a = new Person();
 var b = new Person();
-a.name // zhangsan
-b.name // zhangsan
-a.name = 'lisi'
-a.name // lisi
-b.name // lisi
+a.name; // zhangsan
+b.name; // zhangsan
+a.name = "lisi";
+a.name; // lisi
+b.name; // lisi
 
-a.__proto__  == b.__proto__ 	// true
+a.__proto__ == b.__proto__; // true
 ```
 
 ## new.target
