@@ -1,4 +1,4 @@
-# 目录 (一共 169 篇文章)
+# 目录 (一共 178 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
@@ -29,6 +29,7 @@
 |angularJS 的 ui-router 详解|2018-06-25 15:32|[详情](./docs/angularjs-ui-router)|
 |angularJS 中的文件上传|2018-06-25 15:32|[详情](./docs/angularjs-upload-file)|
 |antd-mobile 通过其他组件触发 Picker 组件的弹窗|2018-06-25 15:32|[详情](./docs/antd-mobile-trigger-selector)|
+|antd 表单中的验证规则|2018-07-06 16:14|[详情](./docs/antd-pc-async-validator)|
 |antd 中的多个 treeSelect 联动效果|2018-06-25 15:32|[详情](./docs/antd-treeselect-mutiple)|
 |axios 主动取消请求|2018-06-25 15:32|[详情](./docs/axios-cancel-request)|
 |axios 如何处理在 SPA 应用中路由切换后的请求终止问题|2018-06-25 15:32|[详情](./docs/axios-vue-nav-guards)|
@@ -50,13 +51,21 @@
 |es5 函数继承-构造函数的继承(2)|2018-06-25 15:32|[详情](./docs/es5-construct-function-inherit-2)|
 |es5 函数继承-构造函数的继承(3)|2018-06-25 15:32|[详情](./docs/es5-construct-function-inherit-3)|
 |es5 函数继承-非构造函数的继承|2018-06-25 15:32|[详情](./docs/es5-uncontructor-function-inherit)|
-|es6 - array 数组的扩展|2018-06-25 15:32|[详情](./docs/es6-array)|
-|es6 - class|2018-06-25 15:32|[详情](./docs/es6-class)|
-|es6 - function 函数的扩展|2018-06-25 15:33|[详情](./docs/es6-function)|
-|es6 - let -const 变量新的声明方式|2018-06-25 15:32|[详情](./docs/es6-let-const)|
-|es6 - object 对象的扩展|2018-06-25 15:32|[详情](./docs/es6-object)|
-|es6 - regexp 正则表达式的扩展|2018-06-25 15:32|[详情](./docs/es6-regexp)|
-|es6 - string 字符串的扩展|2018-06-25 15:32|[详情](./docs/es6-string)|
+|es6 - array 数组的扩展|2018-06-25 15:44|[详情](./docs/es6-array)|
+|es6 - class|2018-07-06 16:00|[详情](./docs/es6-class)|
+|es6 - function 函数的扩展|2018-07-02 14:20|[详情](./docs/es6-function)|
+|es6 - let -const 变量新的声明方式|2018-06-25 15:44|[详情](./docs/es6-let-const)|
+|es6 - object 对象的扩展|2018-06-25 15:44|[详情](./docs/es6-object)|
+|es6 - regexp 正则表达式的扩展|2018-06-25 15:44|[详情](./docs/es6-regexp)|
+|es6 - string 字符串的扩展|2018-06-25 15:44|[详情](./docs/es6-string)|
+|es6-symbol 新的原始数据类型|2018-07-04 17:08|[详情](./docs/es6-symbol)|
+|es6-symbol 中的[Symbol.hasInstance]属性|2018-07-02 13:51|[详情](./docs/es6-symbol-hasinstance)|
+|es6-symbol 中的[Symbol.isConcatSpreadable]属性|2018-07-02 13:51|[详情](./docs/es6-symbol-isconcat-spreadable)|
+|es6-symbol 中的[Symbol.iterator]属性|2018-07-04 16:29|[详情](./docs/es6-symbol-iterator)|
+|es6-symbol 中的[Symbol.match]属性|2018-07-04 16:45|[详情](./docs/es6-symbol-match)|
+|es6-symbol 中的[Symbol.toPrimitive]属性|2018-07-02 15:23|[详情](./docs/es6-symbol-toprimitive)|
+|es6-symbol 中的[Symbol.toStringTag]属性|2018-07-02 17:23|[详情](./docs/es6-symbol-tostringtag)|
+|es6-symbol 中的[Symbol.unscopables]属性|2018-07-02 14:42|[详情](./docs/es6-symbol-unscopables)|
 |eslint 对 Promise 方法解析报错|2018-06-25 15:32|[详情](./docs/eslint-promise-errors)|
 |express 中的 app|2018-06-25 15:32|[详情](./docs/express-app)|
 |express 初探|2018-06-25 15:32|[详情](./docs/express-basic)|
