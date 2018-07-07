@@ -1,16 +1,16 @@
-# es6-symbol 中的[Symbol.toStringTag]属性
+# es6-symbol-toStringTag [Symbol.toStringTag] 属性
 
 在工作中，通常会使用`Object.prototype.toString()`来返回一个值的数据类型, 比如：
 
 ```js
-Object.prototype.toString.call('abc'); // [object String]
+Object.prototype.toString.call("abc"); // [object String]
 Object.prototype.toString.call(1000); // [object Number]
 Object.prototype.toString.call(true); // [object Boolean]
 Object.prototype.toString.call(null); // [object Null]
 Object.prototype.toString.call(undefined); // [object Undefined]
 Object.prototype.toString.call(function() {}); // [object Function]
 Object.prototype.toString.call([1, 2, 3]); // [object Array]
-Object.prototype.toString.call({ name: 'zhangsan' }); // [object Object]
+Object.prototype.toString.call({ name: "zhangsan" }); // [object Object]
 ```
 
 ES6 中那些新的数据类型，本身也部署了这个属性
@@ -33,7 +33,7 @@ Object.prototype.toString.call(new Egg()); // "[object Object]"
 ```js
 class Egg {
   constructor() {
-    this[Symbol.toStringTag] = 'Egg';
+    this[Symbol.toStringTag] = "Egg";
   }
 }
 Object.prototype.toString.call(new Egg()); // "[object Egg]"
@@ -44,7 +44,7 @@ Object.prototype.toString.call(new Egg()); // "[object Egg]"
 ```js
 class Egg {
   get [Symbol.toStringTag]() {
-    return 'Egg';
+    return "Egg";
   }
 }
 Object.prototype.toString.call(new Egg()); // "[object Egg]"

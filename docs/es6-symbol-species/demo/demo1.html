@@ -1,0 +1,22 @@
+打开控制台查看输入结果
+
+<script>
+    class Egg extends Array {
+        constructor(props) {
+            super(props);
+        }
+
+        static get [Symbol.species]() {
+            return Array;
+        }
+    }
+
+    const egg = new Egg(1, 2, 3);
+    const apple = egg.map(x => x + 1);
+
+    console.log("apple instanceof Egg", apple instanceof Egg);
+    console.log("apple instanceof Array", apple instanceof Array);
+
+    console.log("apple.__proto__.constructor === Egg.prototype.constructor", apple.__proto__.constructor === Egg.prototype.constructor);
+    console.log("apple.__proto__.constructor === Array.prototype.constructor", apple.__proto__.constructor === Array.prototype.constructor);
+</script>

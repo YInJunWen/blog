@@ -1,4 +1,4 @@
-# es6-symbol 中的[Symbol.match]属性
+# es6-symbol-match [Symbol.match] 属性
 
 [Symbol.match]属性有两个作用
 
@@ -14,10 +14,10 @@
 ```js
 var reg = {
   [Symbol.match](string) {
-    return 'match ' + string;
-  },
+    return "match " + string;
+  }
 };
-'abcdef'.match(reg); // "match abcdef"
+"abcdef".match(reg); // "match abcdef"
 ```
 
 class 中同样可以使用
@@ -26,18 +26,18 @@ class 中同样可以使用
 class Egg {
   constructor() {
     this[Symbol.match] = function(string) {
-      return 'match ' + string;
+      return "match " + string;
     };
   }
 }
-'abcdef'.match(new Egg()); // "match abcdef"
+"abcdef".match(new Egg()); // "match abcdef"
 
 class Orange {
   [Symbol.match](string) {
-    return 'match ' + string;
+    return "match " + string;
   }
 }
-'abcdef'.match(new Orange()); // "match abcdef"
+"abcdef".match(new Orange()); // "match abcdef"
 ```
 
 ## 修改正则表达式的属性
@@ -47,15 +47,15 @@ class Orange {
 以 startsWith 为例，正常情况下 startsWith 函数的参数应该是一个字符串，如果传入一个正则表达式是会抛出错误`TypeError: First argument to String.prototype.startsWith must not be a regular expression`
 
 ```js
-'/abc/def'.startsWith('/abc/'); // true
-'/abc/def'.startsWith(/abc/); // throw an TypeError
+"/abc/def".startsWith("/abc/"); // true
+"/abc/def".startsWith(/abc/); // throw an TypeError
 ```
 
 如果把正则表达式的[Symbol.match]属性设置为 false，正则表达式会被当做一个字符串对待
 
 ```js
 var reg = /abc/;
-'/abc/def'.startsWith(reg); // throw an TypeError
+"/abc/def".startsWith(reg); // throw an TypeError
 reg[Symbol.match] = false;
-'/abc/def'.startsWith(reg); // true
+"/abc/def".startsWith(reg); // true
 ```

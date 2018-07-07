@@ -1,4 +1,4 @@
-<!-- # es6 - Generator 生成器 -->
+<!-- # es6-Generator 生成器 -->
 
 Generator 是 ES6 新提供的一种异步解决方案，generator 函数有两个明显的特征，1：函数名前面有`*`号，2：函数内部有`yeild`关键字,定义了不同的状态。
 

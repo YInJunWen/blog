@@ -1,4 +1,4 @@
-# es6 - regexp 正则表达式的扩展
+# es6-regexp 正则表达式的扩展
 
 ES5 声明一个 Regexp 构造函数有两种方法
 

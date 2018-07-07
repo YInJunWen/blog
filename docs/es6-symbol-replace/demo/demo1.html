@@ -1,0 +1,16 @@
+打开控制台查看输入结果
+<script>
+    var obj = {};
+    let a = 'abc def'.replace(' ', ',')
+    console.log("a: ", a)
+
+    let b = 'abc def'.replace(obj, ',')
+    console.log("b: ", b)
+
+    obj[Symbol.replace] = (obj) => {
+        console.log("方法的参数内容： ", obj);
+        return 'egg'
+    }
+    let c = 'abc def'.replace(obj, ',')
+    console.log("c: ", c)
+</script>

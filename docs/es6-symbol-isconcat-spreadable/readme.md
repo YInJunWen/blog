@@ -1,4 +1,4 @@
-# es6-symbol 中的[Symbol.isConcatSpreadable]属性
+# es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性
 
 这个属性主要用于数组或者类数组在作为 concat 参数的时候，是否展开，数组默认为 true，类数组默认为 undefined，直接设置为 false 和 undefined 的效果是一样的[查看完整案例](./demo1.js)
 
@@ -25,9 +25,9 @@ c; // [[1,2,3,[Symbol.isConcatSpreadable]: false]]
 
 var b = {
   length: 2,
-  0: 'a',
-  1: 'b',
-  [Symbol.isConcatSpreadable]: true,
+  0: "a",
+  1: "b",
+  [Symbol.isConcatSpreadable]: true
 };
 
 var d = [].concat(b);
@@ -46,9 +46,9 @@ var a = new Egg();
 
 console.log(Object.prototype.toString.call(a)); // [object Array]
 
-a[0] = 'a';
-a[1] = 'b';
-a[2] = 'c';
+a[0] = "a";
+a[1] = "b";
+a[2] = "c";
 
 console.log([].concat(a));
 ```
@@ -64,9 +64,9 @@ class Orange extends Array {
 }
 var b = new Orange();
 
-b[0] = 'a';
-b[1] = 'b';
-b[2] = 'c';
+b[0] = "a";
+b[1] = "b";
+b[2] = "c";
 
 console.log([].concat(b)); // [ Orange [ 'a', 'b', 'c', [Symbol(Symbol.isConcatSpreadable)]: false ] ]
 
@@ -80,9 +80,9 @@ class Pears extends Array {
 }
 var c = new Pears();
 
-c[0] = 'a';
-c[1] = 'b';
-c[2] = 'c';
+c[0] = "a";
+c[1] = "b";
+c[2] = "c";
 
 console.log([].concat(c)); // [ Pears [ 'a', 'b', 'c' ] ]
 ```

@@ -186,24 +186,27 @@ console.log(!!obj); // 需要转换成布尔值 输出内容：true
 
 指向对象的遍历器对象，大多数时候用在为没有部署迭代器的对象部署一个新的迭代器。迭代器主要用于`for...of...`循环或者扩展运算符。具体文档可以参考[es6-symbol 中的[Symbol.iterator]属性](../es6-symbol-iterator)
 
-### Symbol.species
-
-创建衍生对象的时候，可以使用这个属性，修改衍生对象与原型之前的关系， 比如：
-
-```js
-class Narray extends Array {
-  static get [Symbol.species]() {
-    return Array;
-  }
-}
-new Narray() instanceof Narray;
-new Narray() instanceof Array;
-```
-
 ### Symbol.match
+
 [Symbol.match]属性有两个作用
 
 - 修改 match 函数的行为
 - 修改正则表达式的属性
 
 具体文档可以参考[es6-symbol 中的[Symbol.match]属性](../es6-symbol-match)
+
+### Symbol.species
+
+主要用于修改"衍生对象"的构造器对象,具体文档可以参考[es6-symbol 中的[Symbol.species]属性](../es6-symbol-species)
+
+### Symbol.replace
+
+主要用于修改`String.prototype.replace`的行为,具体文档可以参考[es6-symbol 中的[Symbol.replace]属性](../es6-symbol-replace)
+
+### Symbol.search
+
+主要用于修改`String.prototype.search`的行为,具体文档可以参考[es6-symbol 中的[Symbol.search]属性](../es6-symbol-search)
+
+### Symbol.split
+
+主要用于修改`String.prototype.split`的行为,具体文档可以参考[es6-symbol 中的[Symbol.split]属性](../es6-symbol-split)
