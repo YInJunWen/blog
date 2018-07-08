@@ -1,4 +1,4 @@
-# 目录 (一共 181 篇文章)
+# 目录 (一共 183 篇文章)
 
 |标题|修改时间|详情|
 |---|---|---|
@@ -51,25 +51,27 @@
 |es5 函数继承-构造函数的继承(2)|2018-06-23 14:36|[详情](./docs/es5-construct-function-inherit-2)|
 |es5 函数继承-构造函数的继承(3)|2018-06-23 14:36|[详情](./docs/es5-construct-function-inherit-3)|
 |es5 函数继承-非构造函数的继承|2018-06-23 14:36|[详情](./docs/es5-uncontructor-function-inherit)|
-|es6-array 数组的扩展|2018-07-07 10:57|[详情](./docs/es6-array)|
-|es6-class|2018-07-07 10:57|[详情](./docs/es6-class)|
-|es6-function 函数的扩展|2018-07-07 10:57|[详情](./docs/es6-function)|
-|es6-let -const 变量新的声明方式|2018-07-07 10:57|[详情](./docs/es6-let-const)|
-|es6-object 对象的扩展|2018-07-07 10:57|[详情](./docs/es6-object)|
-|es6-regexp 正则表达式的扩展|2018-07-07 10:57|[详情](./docs/es6-regexp)|
-|es6-string 字符串的扩展|2018-07-07 10:57|[详情](./docs/es6-string)|
-|es6-symbol 新的原始数据类型|2018-07-07 12:55|[详情](./docs/es6-symbol)|
-|es6-symbol-hasInstance [Symbol.hasInstance] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-hasinstance)|
-|es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-isconcat-spreadable)|
-|es6-symbol-iterator [Symbol.iterator] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-iterator)|
-|es6-symbol-match [Symbol.match] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-match)|
-|es6-symbol-replace [Symbol.replace] 属性|2018-07-07 12:23|[详情](./docs/es6-symbol-replace)|
-|es6-symbol-search [Symbol.search] 属性|2018-07-07 12:48|[详情](./docs/es6-symbol-search)|
+|es6-array 数组的扩展|2018-07-07 12:57|[详情](./docs/es6-array)|
+|es6-class|2018-07-07 12:57|[详情](./docs/es6-class)|
+|es6-function 函数的扩展|2018-07-07 12:57|[详情](./docs/es6-function)|
+|es6-let -const 变量新的声明方式|2018-07-07 12:57|[详情](./docs/es6-let-const)|
+|es6-map 新的数据结构 Map 与 WeakMap|2018-07-08 17:30|[详情](./docs/es6-map)|
+|es6-object 对象的扩展|2018-07-08 10:19|[详情](./docs/es6-object)|
+|es6-regexp 正则表达式的扩展|2018-07-07 12:57|[详情](./docs/es6-regexp)|
+|es6-set 新的数据结构 Set 与 WeakSet|2018-07-08 17:31|[详情](./docs/es6-set)|
+|es6-string 字符串的扩展|2018-07-07 12:57|[详情](./docs/es6-string)|
+|es6-symbol 新的原始数据类型|2018-07-07 12:57|[详情](./docs/es6-symbol)|
+|es6-symbol-hasInstance [Symbol.hasInstance] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-hasinstance)|
+|es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-isconcat-spreadable)|
+|es6-symbol-iterator [Symbol.iterator] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-iterator)|
+|es6-symbol-match [Symbol.match] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-match)|
+|es6-symbol-replace [Symbol.replace] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-replace)|
+|es6-symbol-search [Symbol.search] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-search)|
 |es6-symbol-species [Symbol.species] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-species)|
-|es6-symbol-split [Symbol.split] 属性|2018-07-07 12:55|[详情](./docs/es6-symbol-split)|
-|es6-symbol-toPrimitive [Symbol.toPrimitive] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-toprimitive)|
-|es6-symbol-toStringTag [Symbol.toStringTag] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-tostringtag)|
-|es6-symbol-unscopables [Symbol.unscopables] 属性|2018-07-07 11:55|[详情](./docs/es6-symbol-unscopables)|
+|es6-symbol-split [Symbol.split] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-split)|
+|es6-symbol-toPrimitive [Symbol.toPrimitive] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-toprimitive)|
+|es6-symbol-toStringTag [Symbol.toStringTag] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-tostringtag)|
+|es6-symbol-unscopables [Symbol.unscopables] 属性|2018-07-07 12:57|[详情](./docs/es6-symbol-unscopables)|
 |eslint 对 Promise 方法解析报错|2018-06-23 14:36|[详情](./docs/eslint-promise-errors)|
 |express 中的 app|2018-06-23 14:36|[详情](./docs/express-app)|
 |express 初探|2018-06-23 14:36|[详情](./docs/express-basic)|

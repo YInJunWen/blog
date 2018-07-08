@@ -334,7 +334,7 @@ var add = {
   name: "zhangsan"
 };
 let foo = Object.create(add, {
-  weight: {
+  age: {
     value: 12
   },
   weight: {
