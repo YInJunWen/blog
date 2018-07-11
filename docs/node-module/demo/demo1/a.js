@@ -1,6 +1,6 @@
 const B = require("./b");
 console.log(B);
-
+console.log(global);
 const pad = str => {
   return str.padEnd("20", " ");
 };
@@ -22,3 +22,5 @@ const egg = () => {
 };
 foo();
 egg();
+add(foo);
+add(egg);
