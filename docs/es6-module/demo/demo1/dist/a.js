@@ -6,4 +6,4 @@ var _b2 = _interopRequireDefault(_b);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_b2.default);
+(0, _b2.default)(1);

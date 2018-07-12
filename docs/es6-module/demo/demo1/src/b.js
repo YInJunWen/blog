@@ -1,4 +1,7 @@
-const add = function() {
-  console.log(1);
+const add = function(str) {
+  console.log(str);
 };
-export { add };
+const add2 = function(str) {
+  console.log(str);
+};
+export { add, add2 };

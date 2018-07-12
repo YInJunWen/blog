@@ -1,2 +1,2 @@
-import B from "./b";
-console.log(B);
+import add from "./b";
+add(1)
