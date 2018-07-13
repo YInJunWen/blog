@@ -51,27 +51,28 @@
 |es5 函数继承-构造函数的继承(2)|2018-06-25 15:32|[详情](./docs/es5-construct-function-inherit-2)|
 |es5 函数继承-构造函数的继承(3)|2018-06-25 15:32|[详情](./docs/es5-construct-function-inherit-3)|
 |es5 函数继承-非构造函数的继承|2018-06-25 15:32|[详情](./docs/es5-uncontructor-function-inherit)|
-|es6-array 数组的扩展|2018-07-11 14:06|[详情](./docs/es6-array)|
-|es6-class|2018-07-11 14:06|[详情](./docs/es6-class)|
-|es6-function 函数的扩展|2018-07-11 14:06|[详情](./docs/es6-function)|
-|es6-let -const 变量新的声明方式|2018-07-11 14:06|[详情](./docs/es6-let-const)|
-|es6-map 新的数据结构 Map 与 WeakMap|2018-07-11 14:06|[详情](./docs/es6-map)|
-|es6-object 对象的扩展|2018-07-11 14:06|[详情](./docs/es6-object)|
-|es6-regexp 正则表达式的扩展|2018-07-11 14:06|[详情](./docs/es6-regexp)|
-|es6-set 新的数据结构 Set 与 WeakSet|2018-07-11 14:06|[详情](./docs/es6-set)|
-|es6-string 字符串的扩展|2018-07-11 14:06|[详情](./docs/es6-string)|
-|es6-symbol 新的原始数据类型|2018-07-11 14:06|[详情](./docs/es6-symbol)|
-|es6-symbol-hasInstance [Symbol.hasInstance] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-hasinstance)|
-|es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-isconcat-spreadable)|
-|es6-symbol-iterator [Symbol.iterator] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-iterator)|
-|es6-symbol-match [Symbol.match] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-match)|
-|es6-symbol-replace [Symbol.replace] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-replace)|
-|es6-symbol-search [Symbol.search] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-search)|
-|es6-symbol-species [Symbol.species] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-species)|
-|es6-symbol-split [Symbol.split] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-split)|
-|es6-symbol-toPrimitive [Symbol.toPrimitive] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-toprimitive)|
-|es6-symbol-toStringTag [Symbol.toStringTag] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-tostringtag)|
-|es6-symbol-unscopables [Symbol.unscopables] 属性|2018-07-11 14:06|[详情](./docs/es6-symbol-unscopables)|
+|es6-array 数组的扩展|2018-07-11 17:33|[详情](./docs/es6-array)|
+|es6-class|2018-07-11 17:33|[详情](./docs/es6-class)|
+|es6-function 函数的扩展|2018-07-11 17:33|[详情](./docs/es6-function)|
+|es6-let -const 变量新的声明方式|2018-07-11 17:33|[详情](./docs/es6-let-const)|
+|es6-map 新的数据结构 Map 与 WeakMap|2018-07-11 17:33|[详情](./docs/es6-map)|
+|es6-module ES6 中的 module|2018-07-13 16:28|[详情](./docs/es6-module)|
+|es6-object 对象的扩展|2018-07-11 17:33|[详情](./docs/es6-object)|
+|es6-regexp 正则表达式的扩展|2018-07-11 17:33|[详情](./docs/es6-regexp)|
+|es6-set 新的数据结构 Set 与 WeakSet|2018-07-11 17:33|[详情](./docs/es6-set)|
+|es6-string 字符串的扩展|2018-07-11 17:33|[详情](./docs/es6-string)|
+|es6-symbol 新的原始数据类型|2018-07-11 17:33|[详情](./docs/es6-symbol)|
+|es6-symbol-hasInstance [Symbol.hasInstance] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-hasinstance)|
+|es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-isconcat-spreadable)|
+|es6-symbol-iterator [Symbol.iterator] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-iterator)|
+|es6-symbol-match [Symbol.match] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-match)|
+|es6-symbol-replace [Symbol.replace] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-replace)|
+|es6-symbol-search [Symbol.search] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-search)|
+|es6-symbol-species [Symbol.species] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-species)|
+|es6-symbol-split [Symbol.split] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-split)|
+|es6-symbol-toPrimitive [Symbol.toPrimitive] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-toprimitive)|
+|es6-symbol-toStringTag [Symbol.toStringTag] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-tostringtag)|
+|es6-symbol-unscopables [Symbol.unscopables] 属性|2018-07-11 17:33|[详情](./docs/es6-symbol-unscopables)|
 |eslint 对 Promise 方法解析报错|2018-06-25 15:32|[详情](./docs/eslint-promise-errors)|
 |express 中的 app|2018-06-25 15:32|[详情](./docs/express-app)|
 |express 初探|2018-06-25 15:32|[详情](./docs/express-basic)|
@@ -86,11 +87,11 @@
 |gulp-rename 插件|2018-06-25 15:32|[详情](./docs/gulp-rename-plugin)|
 |h5 一些小坑整理|2018-06-25 15:32|[详情](./docs/h5-errors)|
 |h5 如何在 PC 上展示移动端页面的效果|2018-06-25 15:32|[详情](./docs/h5-show-in-pc)|
-|js 跨域 ajax 请求获取传递的 cookie|2018-06-25 15:32|[详情](./docs/js-ajax-cors-cookie)|
+|js 跨域 ajax 请求获取传递的 cookie|2018-07-12 10:14|[详情](./docs/js-ajax-cors-cookie)|
 |js 柯里化编程|2018-06-25 15:32|[详情](./docs/js-carry-programming)|
 |js 改变 select 元素的值|2018-06-25 15:32|[详情](./docs/js-change-select-value)|
 |js cookie 的作用域|2018-06-25 15:32|[详情](./docs/js-cookie)|
-|js 中的深拷贝与浅拷贝|2018-06-25 15:32|[详情](./docs/js-deep-copy)|
+|js 中的深拷贝与浅拷贝|2018-07-12 17:06|[详情](./docs/js-deep-copy)|
 |js display:none 的 input 元素会默认添加到表单中提交吗|2018-06-25 15:32|[详情](./docs/js-display-none-input-form)|
 |js 输入框延迟指定事件执行方法|2018-06-25 15:32|[详情](./docs/js-exec-function-later)|
 |optimize 前端优化方案|2018-06-25 15:32|[详情](./docs/js-font-client-optimize)|
@@ -113,7 +114,7 @@
 |js 获取浏览器滚动条高度 scrollTop|2018-06-25 15:32|[详情](./docs/js-scroll-top)|
 |js 实时预览选择的图片文件|2018-06-25 15:32|[详情](./docs/js-show-image-file-sync)|
 |js 类数组转数组|2018-06-25 15:32|[详情](./docs/js-similar-array-to-array)|
-|js 经常变脸的 this|2018-07-11 17:32|[详情](./docs/js-this)|
+|js 经常变脸的 this|2018-07-13 10:23|[详情](./docs/js-this)|
 |js Error: Unexpected token i in JSON|2018-06-25 15:32|[详情](./docs/json-import-point)|
 |less 常用移动端 less(scss)预定义样式|2018-06-25 15:32|[详情](./docs/less-in-h5-case1)|
 |less 适配移动端的常用 less 变量(最终版)|2018-06-25 15:32|[详情](./docs/less-in-h5-case2)|

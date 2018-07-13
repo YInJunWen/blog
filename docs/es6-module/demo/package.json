@@ -1,0 +1,33 @@
+{
+  "name": "demo3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "a": "npx babel-node a.js",
+    "b": "npx babel-node b.js",
+    "c": "npx babel-node c.js",
+    "d": "npx babel-node d.js",
+    "e": "npx babel-node e.js",
+    "f": "npx babel-node f.js",
+    "g": "npx babel-node g.js",
+    "h": "npx babel-node h.js",
+    "i": "npx babel-node i.js",
+    "j": "npx babel-node j.js",
+    "k": "npx babel-node k.js",
+    "l": "npx babel-node l.js",
+    "m": "npx babel-node quote1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-dynamic-import-node": "^2.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
+}

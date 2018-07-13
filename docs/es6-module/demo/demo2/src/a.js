@@ -1,1 +1,0 @@
-import {add, foo} from "./b";

@@ -23,7 +23,7 @@ console.log(name); // "orange"
 
 ## Node 环境中的顶层 this
 
-Node 环境中的顶层 this 统一指向 global 对象，还是以上面的代码为例
+Node 环境中的顶层 this 统一指向 undfined，如果在顶层代码中使用了 this，则相当于在 global 添加了属性
 
 ```js
 var name = 'pear';
@@ -34,6 +34,8 @@ console.log(global.name); // "orange"
 ```
 
 在案例中会发现`this.name`与`name`本身是毫不相干的，分别属于两个对象的不同属性。`name`仅仅是当前代码块中的一个普通变量，而`this.name`实际上相当于给`global`添加一个 name 属性并赋值
+
+> 注意，ES6 中不推荐在顶层代码中使用 this
 
 ## 普通函数和立即执行函数中的 this
 
