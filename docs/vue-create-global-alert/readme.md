@@ -18,7 +18,7 @@
 alert/index.vue
 
 ```html
-<template src=&./index.html&></template>
+<template src="./index.html"></template>
 <script>
 
 export default {
@@ -58,20 +58,20 @@ export default {
   }
 }
 </script>
-<style lang=&less&  src=&./index.less&></style>
+<style lang="less"  src="./index.less"></style>
 ```
 
 `alert/index.html`
 
 ```html
-<div class=&app_alert&  v-show=&showAlert&>
-    <div class=&content&>
-        <p class=&context&>
+<div class="app_alert"  v-show="showAlert">
+    <div class="content">
+        <p class="context">
             <span>{{context}}</span>
         </p>
-        <div class=&btnGroup& v-if=&allowClick&>
-            <button  @click=&btnClick(true)&>{{okText}}</button>
-            <button v-show=&allowClick&  @click=&btnClick(false)&>{{cancelText}}</button>
+        <div class="btnGroup" v-if="allowClick">
+            <button  @click="btnClick(true)">{{okText}}</button>
+            <button v-show="allowClick"  @click="btnClick(false)">{{cancelText}}</button>
         </div>
     </div>
 </div>
@@ -89,7 +89,7 @@ const Construct = Vue.extend(AppAlert);
 // 生成一个实例，并设置他的模板和组件
 const AppAlertComponent = new Construct({
   template: "<AppAlert/>",
-  component: AppAlert
+  component: AppAlert,
 });
 
 // 先挂载组件
@@ -103,7 +103,7 @@ export default {
   install: Vue => {
     // 把$alert挂在到Vue的属性上
     Vue.prototype.$alert = AppAlertComponent;
-  }
+  },
 };
 ```
 

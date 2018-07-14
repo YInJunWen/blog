@@ -3,8 +3,7 @@
 > 以下单位缓存以宽度为 375 为基础，可根据设计稿页面自行替换
 
 ```less
-<!--主色调-->
-@dmc: #00b7aa;
+<!--主色调-->@dmc: #00b7aa;
 
 .dmc {
   color: @dmc;
@@ -12,8 +11,7 @@
 <!-- 白色背景 -- > .bgw {
   background-color: white;
 }
-<!--线框颜色-->
-@llc: #e0e0e0;
+<!--线框颜色-->@llc: #e0e0e0;
 @dlc: #cecece;
 @lllc: #eaeaea;
 
