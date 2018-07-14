@@ -1,5 +1,4 @@
-import def, * as Cons from './_constant';
+import def, { insert } from "./_constant";
 
-Cons.insert(); // 'print in fn.insert'
-Cons.update(); // 'print in fn.insert'
 def(); // 'print in export default fn.remove'
+insert(); // 'print in fn.insert'

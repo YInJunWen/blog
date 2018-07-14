@@ -1,4 +1,4 @@
-import def, { insert } from './_constant';
+import { insert, update } from "./_constant";
 
-def(); // 'print in export default fn.remove'
 insert(); // 'print in fn.insert'
+update(); // 'print in fn.update'

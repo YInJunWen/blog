@@ -1,5 +1,5 @@
-import { default as def, insert, update } from './_constant';
+import * as Cons from "./_constant";
 
-insert(); // 'print in fn.insert'
-update(); // 'print in fn.update'
-def(); // 'print in export default fn.remove'
+Cons.insert(); // 'print in fn.insert'
+Cons.update(); // 'print in fn.insert'
+Cons.remove(); // Cons.remove is not a function

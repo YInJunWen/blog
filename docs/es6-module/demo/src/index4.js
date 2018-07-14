@@ -1,3 +1,4 @@
-import { insert as Insert } from './_constant';
+import { insert as insertData, update as updateDara } from "./_constant";
 
-Insert(); // 'print in fn.insert'
+insertData(); // 'print in fn.insert'
+updateDara(); // 'print in fn.update'

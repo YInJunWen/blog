@@ -5,12 +5,6 @@ fruit.name = "orange";
 console.log(fruit.name); // "orange"
 
 // fruit = { name: 'juice' }; // SyntaxError: "fruit" is read-only
-update();
-
-// SyntaxError: "update" is read-only
-// update = function() {
-//   console.log("update edited");
-// };
 
 console.log(fruits);
 
