@@ -180,7 +180,8 @@ const fruit = {
 function update() {
   console.log("print in fn.update");
 }
-export { insert, update, fruit };
+const fruits = ["orange", "pear", "juice"];
+export { insert, update, fruit, fruits };
 ```
 
 ## 只导入默认接口
@@ -194,7 +195,7 @@ Constant(); // 'print in export default fn.remove'
 
 ## 导入全部接口
 
-可以使用`*`引入所有的接口，在引入的时候需要使用`as`关键字把所有的接口放到一个指定的变量中去。使用的时候，可以按照以下方式：[完整案例代码](./demo/src/index5.js)
+可以使用`*`引入所有的接口，在引入的时候需要使用`as`关键字把所有的接口放到一个指定的变量中去。使用的时候，可以按照以下方式：[完整案例代码](./demo/src/index2.js)
 
 ```js
 import * as Cons from "./_constant";
@@ -214,7 +215,7 @@ Cons.default(); // 'print in export default fn.remove'
 
 ## 只导入部分接口
 
-module 中可以使用`{}`导入模块内的接口，引入时的名称 **必须与** 模块中 export 的名称相同
+module 中可以使用`{}`导入模块内的接口，引入时的名称 **必须与** 模块中 export 的名称相同[完整案例代码](./demo/src/index3.js)
 
 ```js
 import { insert, update } from "./_constant";
@@ -232,7 +233,7 @@ insertData(); // 'print in fn.insert'
 updateDara(); // 'print in fn.update'
 ```
 
-默认接口也可以使用`{default}`来获取到，只是由于 `default` 是 JavaScript 的保留字，需要使用 `as` 重新定义另一个名称:
+默认接口也可以使用`{default}`来获取到，只是由于 `default` 是 JavaScript 的保留字，需要使用 `as` 重新定义另一个名称[完整案例代码](./demo/src/index5.js):
 
 ```js
 import { default as def, insert, update } from "./_constant";
@@ -242,7 +243,7 @@ update(); // 'print in fn.update'
 def(); // 'print in export default fn.remove'
 ```
 
-也可以把默认接口和其他接口分别导入进来：[完整案例代码](./demo/src/index3.js)
+也可以把默认接口和其他接口分别导入进来：[完整案例代码](./demo/src/index6.js)
 
 ```js
 import def, { insert } from "./_constant";
@@ -253,21 +254,26 @@ insert(); // 'print in fn.insert'
 
 ## 修改接口的内容
 
-export 暴露的接口，不可以直接修改接口的值，如果接口的值不是六种基本数据类型或者函数，就可以修改接口的值的内容[完整案例代码](./demo/src/index7.js)
+export 暴露的接口，接口的值如果不是六种基本数据类型或者函数，就可以修改接口的值的内容[完整案例代码](./demo/src/index7.js)
 
 ```js
-import { fruit } from "./_constant";
+import { fruits, fruit, update } from "./_constant";
 
 console.log(fruit.name); // "pear"
 fruit.name = "orange";
 console.log(fruit.name); // "orange"
 
-fruit = { name: "juice" }; // SyntaxError: "fruit" is read-only
+// fruit = { name: 'juice' }; // SyntaxError: "fruit" is read-only
+
+console.log(fruits);
+
+fruits[0] = "apple";
+console.log(fruits);
 ```
 
 ## 使用 import 导入并直接执行一个模块
 
-import 也可以用来导入并直接执行一个模块，方法就是 import 后直接跟随一个文件地址，可以是绝对路径也可以是相对路径
+import 也可以用来导入并直接执行一个模块，方法就是 import 后直接跟随一个文件地址，可以是绝对路径也可以是相对路径[完整案例代码](./demo/src/index8.js)
 
 ```js
 // export.js
@@ -299,7 +305,7 @@ import name from "constant.js"; // 不被允许的
 
 在最新的提案中，有人提出了新曾一个`import()`方法来动态导入模块，并且返回一个 promise 对象,模块会作为一个对象，当做 then 方法的参数
 
-> 这个特性需要安装`"syntax-dynamic-import","dynamic-import-node"`两个 babel 的插件才能在 babel-node 中使用.[完整案例代码](./demo/src/i.js)
+> 这个特性需要安装`"syntax-dynamic-import","dynamic-import-node"`两个 babel 的插件才能在 babel-node 中使用.[完整案例代码](./demo/src/index9.js)
 
 ```js
 if (true) {
@@ -320,7 +326,7 @@ if (true) {
 
 在上面的代码中，默认传入的参数 res 是一个对象， 内含模块中 **所有的接口(包括默认接口)**，模块的默认接口被赋值给名为“default”的属性。
 
-可以使用解构赋值的方式获取到所有的接口[完整案例代码](./demo/src/j.js)
+可以使用解构赋值的方式获取到所有的接口[完整案例代码](./demo/src/index10.js)
 
 ```js
 if (true) {
@@ -331,7 +337,7 @@ if (true) {
 }
 ```
 
-由于 default 是 JS 的一个关键字，不能作为单独的函数名称，所以如果需要用到默认接口，最好是通过解构赋值放到到另一个变量名称中[完整案例代码](./demo/src/k.js)
+在获取默认接口的时候，同样需要把 default 接口重新命名[完整案例代码](./demo/src/index11.js)：
 
 ```js
 if (true) {
@@ -370,7 +376,7 @@ import(name).then(module => {
 
 ## 混合使用 export 和 import
 
-export 是可以继承的，便于将代码分化到更小的模块中
+export 是可以继承的，便于将代码分化到更小的模块中[完整案例代码](./demo/src/index12.js)
 
 `base1.js`:
 
@@ -404,9 +410,17 @@ export {
 }
 ```
 
+`index.js`
+
+```js
+import * as Base from "./base";
+console.log(Base); // { insert: [Getter], remove: [Getter] }
+Base.insert(); // print in base1.insert
+```
+
 ## 与 CommonJS 的不同之处
 
-ES6 的 module 与 CommonJS 最大的不同之处在于。CommonJS 导入模块的时候，使用的是模块的一个 **副本** ，而 ES6 用的是模块的一个 **引用** ，也就是说无论在哪个文件中引入一个模块，他们都共享了这个模块中的数据。
+ES6 的 module 与 CommonJS 最大的不同之处在于。CommonJS 导入模块的时候，使用的是模块的一个 **副本** ，而 ES6 用的是模块的一个 **引用** ，也就是说无论在哪个文件中引入一个模块，他们都共享了这个模块中的数据[完整案例代码](./demo/src/quote1.js)。
 
 `quote3.js`
 
@@ -439,6 +453,6 @@ editName();
 console.log(obj); // { name: 'orange' }
 ```
 
-在上面的案例中,quote2 模块中修改了 `quote3` 中 `obj` 的 `name` 属性，导致 `quote1` 中输出的结果也发生了变化。[完整案例代码](./demo/src.quote1.js)
+在上面的案例中,quote2 模块中修改了 `quote3` 中 `obj` 的 `name` 属性，导致 `quote1` 中输出的结果也发生了变化。
 
 利用这个特性，我们可以在日常开发中，可以把全局的变量专门放到一个模块中，便于在所有引用了该模块的代码中共享它的所有接口，这里就不再详细举例了
