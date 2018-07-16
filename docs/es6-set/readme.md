@@ -174,7 +174,7 @@ for (let item of set) {
 
 ### keys()、values()、entries()方法
 
-首先，和 Object、Array 的`keys()、values()、entries()`方法一样，Set 实例的这三个方法同样返回一个遍历器对象
+首先，和Array 的`keys()、values()、entries()`方法一样，Set 实例的这三个方法同样返回一个遍历器对象
 
 由于 Set 实例没有键名，或者说它的键名和键值是相同的，所以`keys()`和`values()`方法返回内容 **遍历输出** 后看起来都是一样的，都是元素的 value 值,而`entries()`返回的内容 **遍历输出** 后，key 和 value 也是一样的。
 

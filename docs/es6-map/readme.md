@@ -11,7 +11,7 @@ let map = new Map();
 `new Map()`方法，允许传递一个数组作为参数，数组的格式如下
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 map; // Map(2) {"name" => "orange", "age" => "18"}
 ```
 
@@ -21,24 +21,24 @@ map; // Map(2) {"name" => "orange", "age" => "18"}
 
 ```js
 let map = new Map([
-  ["name", "string"],
-  [10, "number"],
-  [true, "boolean"],
-  [null, "null"],
-  [undefined, "undefined"],
-  [function() {}, "function"],
-  [{}, "object"],
-  [[], "array"],
-  [Symbol(), "symbol"],
-  [new Set(), "set"],
-  [new Map(), "map"],
+  ['name', 'string'],
+  [10, 'number'],
+  [true, 'boolean'],
+  [null, 'null'],
+  [undefined, 'undefined'],
+  [function() {}, 'function'],
+  [{}, 'object'],
+  [[], 'array'],
+  [Symbol(), 'symbol'],
+  [new Set(), 'set'],
+  [new Map(), 'map'],
 ]);
 ```
 
 如果参数中出现两个一样的键名，对应的值以最后的为准
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"], ["name", "pear"]]);
+let map = new Map([['name', 'orange'], ['age', '18'], ['name', 'pear']]);
 map; // Map(2) {"name" => "pear", "age" => "18"}
 ```
 
@@ -46,10 +46,10 @@ map; // Map(2) {"name" => "pear", "age" => "18"}
 
 ```js
 let map = new Map([
-  [{}, "object"],
-  [{}, "object"],
-  [[], "array"],
-  [[], "array"],
+  [{}, 'object'],
+  [{}, 'object'],
+  [[], 'array'],
+  [[], 'array'],
 ]);
 map; // Map(2) {{} => "object", {} => "object", Array(0) => "array", Array(0) => "array"}
 ```
@@ -57,7 +57,7 @@ map; // Map(2) {{} => "object", {} => "object", Array(0) => "array", Array(0) =
 在处理 NaN 的问题上与 Set 保持一致，即：后面 NaN 的值会覆盖前面 NaN 的值
 
 ```js
-let map = new Map([[NaN, "NaN1"], [NaN, "NaN2"]]);
+let map = new Map([[NaN, 'NaN1'], [NaN, 'NaN2']]);
 map; // Map(1) {NaN => "NaN2"}
 ```
 
@@ -66,7 +66,7 @@ map; // Map(1) {NaN => "NaN2"}
 `size` 属性，可以返回 Map 实例有多少个键值对
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 map.size; // 2
 ```
 
@@ -78,11 +78,11 @@ map.size; // 2
 
 ```js
 let map = new Map();
-map.set("name", "orange").set("age", "18");
+map.set('name', 'orange').set('age', '18');
 map
-  .set("name", "orange")
-  .set("age", "18")
-  .set("name", "pear");
+  .set('name', 'orange')
+  .set('age', '18')
+  .set('name', 'pear');
 
 map; // Map(2) {"name" => "pear", "age" => "18"}
 map.size; // 2
@@ -93,14 +93,14 @@ map.size; // 2
 `get()`方法用来获取指定键名的值
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
-map.get("name"); // "orange"
+let map = new Map([['name', 'orange'], ['age', '18']]);
+map.get('name'); // "orange"
 ```
 
 复杂的数据类型作为键名的时候，就没那么简单了
 
 ```js
-let map = new Map([[{}, "orange"]]);
+let map = new Map([[{}, 'orange']]);
 map.get({}); // undefined
 ```
 
@@ -108,7 +108,7 @@ map.get({}); // undefined
 
 ```js
 let obj = {};
-let map = new Map([[obj, "orange"]]);
+let map = new Map([[obj, 'orange']]);
 map.get(obj); // "orange"
 ```
 
@@ -133,14 +133,14 @@ map2.has(obj); /true
 ```js
 let obj = {};
 let map = new Map([
-  ["name", "orange"],
-  [18, "18"],
-  [{}, "object"],
-  [obj, "obj"],
+  ['name', 'orange'],
+  [18, '18'],
+  [{}, 'object'],
+  [obj, 'obj'],
 ]);
 map.size; // 4
 
-map.delete("name"); // true
+map.delete('name'); // true
 map.size; // 3
 
 map.delete({}); // false  这里的{}与生成参数中的{}并不是同一个值
@@ -153,7 +153,7 @@ map.size; // 2
 `clear()`方法，用于清空 Map 实例的所有属性，返回 undefined
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 map.size; // 2
 
 map.clear();
@@ -164,24 +164,24 @@ map.size; // 0
 
 Map 实例也有自己的`keys()、values()、entries()`方法
 
-1.`keys()`返回一个遍历器接口，便利后可以得到 Map 实例的所有键名
+1.`keys()`返回一个遍历器对象，遍历后可以得到 Map 实例的所有键名
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 [...map.keys()]; // ["name", "age"]
 ```
 
 2.`values()`返回一个遍历器接口，便利后可以得到 Map 实例的所有键值
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 [...map.values()]; // ["orange", "18"]
 ```
 
 2.`entries()`返回一个遍历器接口，便利后可以得到 Map 实例的所有的键值对
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 [...map.entries()]; // [["name", "orange"], ["age", "18"]]
 ```
 
@@ -190,7 +190,7 @@ let map = new Map([["name", "orange"], ["age", "18"]]);
 Map 实例本身也部署了`[Symbol.iterator]`属性，因此也可以使用扩展运算符`...`和`for...of...`遍历 Map 实例。这两种方式实际上执行了 Map 实例的`entries()`方法
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 [...map]; // // [["name", "orange"], ["age", "18"]]
 
 for (let item of map) {
@@ -210,7 +210,7 @@ for (let [key, value] of map) {
 `forEach(fn, context)` 方法也可以用来遍历 Map 实例，与扩展和运算符和`for..of...`不同的是： forEach 遍历的对象实际上是`values()`方法的值
 
 ```js
-let map = new Map([["name", "orange"], ["age", "18"]]);
+let map = new Map([['name', 'orange'], ['age', '18']]);
 
 map.forEach(x => {
   console.log(x);
@@ -235,23 +235,23 @@ let weakMap = new WeakMap();
 
 ```js
 let weakMap = new WeakMap();
-weakMap.set("string", "string");
-weakMap.set(10, "number");
-weakMap.set(true, "boolean");
-weakMap.set(null, "null");
-weakMap.set(undefined, "undefined");
-weakMap.set(Symbol(), "symbol");
+weakMap.set('string', 'string');
+weakMap.set(10, 'number');
+weakMap.set(true, 'boolean');
+weakMap.set(null, 'null');
+weakMap.set(undefined, 'undefined');
+weakMap.set(Symbol(), 'symbol');
 ```
 
 也就是说只允许添加 **非原始数据类型**
 
 ```js
 let weakMap = new WeakMap();
-weakMap.set({}, "object");
-weakMap.set([], "array");
-weakMap.set(function() {}, "function");
-weakMap.set(new Set(), "Set");
-weakMap.set(new Map(), "Map");
+weakMap.set({}, 'object');
+weakMap.set([], 'array');
+weakMap.set(function() {}, 'function');
+weakMap.set(new Set(), 'Set');
+weakMap.set(new Map(), 'Map');
 // ...等等
 ```
 
@@ -278,7 +278,7 @@ weakMap.forEach; //undefined
 let obj = {};
 let weakMap = new WeakMap();
 
-weakMap.set(obj, "obj");
+weakMap.set(obj, 'obj');
 weakMap.get({}); // undefined
 weakMap.get(obj); // "obj"
 weakMap.has({}); // false

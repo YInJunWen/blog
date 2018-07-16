@@ -51,7 +51,7 @@ var d = [...a]; // [1, 2, 3]
 扩展运算符不仅仅用在数组上，只要目标对象具有遍历器接口`Iterator`都可以使用扩展运算符，因为扩展运算符实际上是`for...of`方法的一种特殊实现, 比如通过`document.querySelectorAll()`方法获取到的 NodeList 对象，就可以使用扩展运算符
 
 ```js
-var divs = document.querySelectorAll("div");
+var divs = document.querySelectorAll('div');
 var list = [...divs];
 ```
 
@@ -60,7 +60,7 @@ var list = [...divs];
 扩展运算符甚至可以拿来把字符串转成真正的数组
 
 ```js
-var person = "zhangsan";
+var person = 'zhangsan';
 var a = [...person]; // ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
 ```
 
@@ -70,10 +70,10 @@ var a = [...person]; // ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
 
 ```js
 var persons = {
-  "0": "zhangsan",
-  1: "lisi",
-  other: "wangwu",
-  length: 3
+  '0': 'zhangsan',
+  1: 'lisi',
+  other: 'wangwu',
+  length: 3,
 };
 ```
 
@@ -94,7 +94,7 @@ var a = Array.from(persons); // ['zhangsan', 'lisi']
 Array.from()顺便提供了 map 方法，可以在转成真正的数组后，执行一次 map 函数，再返回执行后的数组，和 map 函数相同，也提供了指定上下文的功能`Array.from(target, mapFn, mapThis)`
 
 ```js
-var person = { name: "zhangsan" };
+var person = { name: 'zhangsan' };
 var a = Array.from(
   [1, 2, 3],
   function(item, index) {
@@ -111,7 +111,7 @@ console.log(person); // { '0': 1, '1': 2, '2': 3, name: 'zhangsan' }
 上面的案例与下面的结果是相同的
 
 ```js
-var person = { name: "zhangsan" };
+var person = { name: 'zhangsan' };
 var a = Array.from([1, 2, 3]).map(function(item, index) {
   this[index] = item;
   return item * item;
@@ -232,10 +232,10 @@ fill 方法可以使用指定值填充数组，value 指定填充的内容，它
 > 如果填充对象是一个复合数据类型，这里的填充操作是一个[浅拷贝](./src/demo6.js)
 
 ```js
-var a = { name: "zhangsan" };
+var a = { name: 'zhangsan' };
 var b = [1, 2, 3].fill(a, 0, 1);
 console.log(b); // [ { name: 'zhangsan' }, 2, 3 ]
-a.name = "lisi";
+a.name = 'lisi';
 console.log(b); // [ { name: 'lisi' }, 2, 3 ]
 ```
 
@@ -252,8 +252,6 @@ var a = [1, 2, 3];
 ```
 
 注意：
-
-
 
 > 需要注意，这里是数组的属性，要和`Object.keys(), Object.values(), Object.entries()`区分开
 
