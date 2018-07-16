@@ -36,9 +36,9 @@ let files = allFiles.filter(item => {
 
 let errorFile = [];
 ws.write(
-  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|修改时间|详情|${
+  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|详情|${
     os.EOL
-  }|---|---|---|${os.EOL}`,
+  }|---|---|${os.EOL}`,
   () => {
     generator(files);
   }
@@ -73,9 +73,9 @@ function generator(fileList, index = 0) {
 
         let state = fs.statSync(realPath);
         // console.log(JSON.stringify(state.mtime));
-        const mtime = formatDate(state.mtime);
+        // const mtime = formatDate(state.mtime);
 
-        let wsData = `|${title}|${mtime}|[详情](./docs/${fileList[index]})|${
+        let wsData = `|${title}|[详情](./docs/${fileList[index]})|${
           os.EOL
         }`;
         ws.write(wsData, (err, data) => {

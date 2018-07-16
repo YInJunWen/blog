@@ -241,20 +241,21 @@ console.log(b); // [ { name: 'lisi' }, 2, 3 ]
 
 ## entries()、keys()、values()
 
-ES6 对数组提供了这三个方法来扩展对数组元素的获取，三种方法都返回一数组，可以通过`for...of...`或者`Iterator.next().value`获取其中的内容
+ES6 对数组实例提供了这三个方法来扩展对数组元素的获取，三种方法都返回一个遍历器对象，便于`for...of...`、结构赋值和扩展运算符使用
 
 ```js
 var a = [1, 2, 3];
-Object.keys(a); // [ '0', '1', '2' ]
-Object.values(a); // [ 1, 2, 3 ]
-Object.entries(a); // [ [ '0', 1 ], [ '1', 2 ], [ '2', 3 ] ]
+
+[...a.keys()] // [ '0', '1', '2' ]
+[...a.values(a)]; // [ 1, 2, 3 ]
+[...a.entries(a)]; // [ [ '0', 1 ], [ '1', 2 ], [ '2', 3 ] ]
 ```
 
 注意：
 
-> 我在 Node 环境中执行的时候，提示`.values() is not a function`，这是因为当前版本的 node 并没有部署这个方法，需要使用`babel-polyfill`才可以正常执行[完整案例看这里](./demo/src/demo7.js)
 
-> 另外需要注意，这里是数组的属性，要和`Object.keys(), Object.values(), Object.entries()`区分开
+
+> 需要注意，这里是数组的属性，要和`Object.keys(), Object.values(), Object.entries()`区分开
 
 ## includes(target, index)
 
