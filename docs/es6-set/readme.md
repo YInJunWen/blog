@@ -12,7 +12,7 @@ let set = new Set();
 let set = new Set([1, 2, 3, 3, 4, 5]);
 ```
 
-实际上，`new Set()`方法的参数也可以是一个类数组，或者说 **”只要是参数本身部署了[Symbol.iterator]属性“**，就可以作为`new Set()`的参数
+实际上，`new Set()`方法的参数也可以是一个类数组，或者说 `”只要是参数本身部署了[Symbol.iterator]属性“`，就可以作为`new Set()`的参数
 
 ```js
 let obj = {length: 3}
@@ -122,7 +122,7 @@ set.size; // 2
 
 2.delete()
 
-`delete()`方法用于删除 Set 实例中的元素，但是要注意，方法中的参数是元素的 **值**， 删除成功返回 true，失败返回 false
+`delete()`方法用于删除 Set 实例中的元素，但是要注意，方法中的参数是元素的 `值`， 删除成功返回 true，失败返回 false
 
 ```js
 let set = new Set(["orange", "pear"]);
@@ -176,7 +176,7 @@ for (let item of set) {
 
 首先，和Array 的`keys()、values()、entries()`方法一样，Set 实例的这三个方法同样返回一个遍历器对象
 
-由于 Set 实例没有键名，或者说它的键名和键值是相同的，所以`keys()`和`values()`方法返回内容 **遍历输出** 后看起来都是一样的，都是元素的 value 值,而`entries()`返回的内容 **遍历输出** 后，key 和 value 也是一样的。
+由于 Set 实例没有键名，或者说它的键名和键值是相同的，所以`keys()`和`values()`方法返回内容 `遍历输出** 后看起来都是一样的，都是元素的 value 值,而`entries()`返回的内容 **遍历输出` 后，key 和 value 也是一样的。
 
 ```js
 let set = new Set(["orange", "pear"]);
@@ -253,7 +253,7 @@ let weakSet2 = new WeakSet([]);
 
 ### WeakSet 实例与 Set 实例不同之处在于以下两点：
 
-1.WeakSet 的元素不允许添加 **原始类型数据**，以下类型都会抛出错误`TypeError: Invalid value used in weak set`
+1.WeakSet 的元素不允许添加 `原始类型数据`，以下类型都会抛出错误`TypeError: Invalid value used in weak set`
 
 ```js
 let set = new WeakSet();
@@ -265,7 +265,7 @@ set.add(undefined);
 set.add(Symbol());
 ```
 
-也就是说只允许添加 **非原始数据类型**
+也就是说只允许添加 `非原始数据类型`
 
 ```js
 let set = new WeakSet();
@@ -289,9 +289,9 @@ obj = null; //引用次数: 2-1=1
 egg = null; //引用次数: 1-1=0
 ```
 
-“引用计数”一般计算的是“一个值”的使用次数，如果一个 **值** 的引用次数不为 0，垃圾回收机制就不会释放这块内存。
+“引用计数”一般计算的是“一个值”的使用次数，如果一个 `值` 的引用次数不为 0，垃圾回收机制就不会释放这块内存。
 
-上面例子中数据`{name: 'zhangsan'}`被引用了 2 次，如果在某个时刻手动把两个变量都重新赋值了比如赋值为 null，`{name: 'zhangsan'}`的引用次数就会归零，在垃圾回收机制运行的时候，这个值机会被从内存中清理掉，从而避免 **内存泄露**。
+上面例子中数据`{name: 'zhangsan'}`被引用了 2 次，如果在某个时刻手动把两个变量都重新赋值了比如赋值为 null，`{name: 'zhangsan'}`的引用次数就会归零，在垃圾回收机制运行的时候，这个值机会被从内存中清理掉，从而避免 `内存泄露`。
 
 由于不知道 WeakSet 中的值会在什么时候就被垃圾回收机制清理掉，无法保证成员在遍历的时候是否仍然存在，导致了 WeakSet 实例没有`size`属性以及`clear(),keys(),values(),entries(),forEach()`方法
 

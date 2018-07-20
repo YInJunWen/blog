@@ -54,7 +54,7 @@ const store = new Vue.Store({
 
 ## module 中的 state
 
-在组件内通过正常方式获取 state 要使用`this.$store.state.module名`方法,且要**遵循 module 的嵌套顺序**
+在组件内通过正常方式获取 state 要使用`this.$store.state.module名`方法,且要`遵循 module 的嵌套顺序`
 
 ```js
 const store = new Vue.Store({
@@ -147,7 +147,7 @@ console.log(this.$store.getters);
 */
 ```
 
-上面的例子可以看到，获取 getter 的时候不需要遵循嵌套的顺序，这也就导致了**getter 名是不允许重复的**，控制台会输出`duplicate key value`错误.
+上面的例子可以看到，获取 getter 的时候不需要遵循嵌套的顺序，这也就导致了`getter 名是不允许重复的`，控制台会输出`duplicate key value`错误.
 
 getter 在 module 中使用的时候，他的属性会增加两个参数，分别是 rootState 和 rootGetter。
 
@@ -240,7 +240,7 @@ console.log(this.$store.getters.getterInA);
 
 ## module 中的 mutation
 
-mutation 中定义的函数，只有一个参数 state，且这个 state 无论在哪里，都**只会指向局部的数据**
+mutation 中定义的函数，只有一个参数 state，且这个 state 无论在哪里，都`只会指向局部的数据`
 
 ```js
 const store = new Vue.Store({
@@ -669,7 +669,7 @@ computed: {
 }
 ```
 
-注意：存在命名空间的时候，**不可以**使用下面的方法了,已经亲测过了,最终的值只会是 `undefined`
+注意：存在命名空间的时候，`不可以`使用下面的方法了,已经亲测过了,最终的值只会是 `undefined`
 
 ```js
 ...map(['a/b/count'])

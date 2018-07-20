@@ -15,7 +15,7 @@ function add(x, y) {
 add(1, 2); //  {x:1, y:2};
 ```
 
-除了属性，对象的方法名也是可以简写的,这里要注意的是对象里面简写方法的时候，逗号是不能少的**(class 语法糖中方法之间是不需要逗号的)**
+除了属性，对象的方法名也是可以简写的,这里要注意的是对象里面简写方法的时候，逗号是不能少的`(class 语法糖中方法之间是不需要逗号的)`
 
 ```js
 var obj = {
@@ -125,7 +125,7 @@ Object.assign(add, foo, egg);
 console.log(add); //{a:3, b:undefined}
 ```
 
-2.只会合并/覆盖对象中的 **第一级属性**
+2.只会合并/覆盖对象中的 `第一级属性`
 
 ```js
 let add = { a: { b: 1 } };
@@ -165,7 +165,7 @@ function add(options) {
 }
 ```
 
-5.只可以合并/覆盖 **可枚举的属性**， 比如对象的 toString 属性，就是不可枚举的，就不会被合并/覆盖到 target 上
+5.只可以合并/覆盖 `可枚举的属性`， 比如对象的 toString 属性，就是不可枚举的，就不会被合并/覆盖到 target 上
 
 6.方法不能拷贝`getter`和`setter`属性，如果一个对一个属性设置了`getter`和`setter`,`Object.assign()`会先自动计算`getter`的结果后，再进行拷贝。
 
@@ -237,7 +237,7 @@ console.log(Object.getOwnPropertyDescriptors(foo));
 - get: 给属性提供 getter 方法，主要用于获取属性值， 默认为 undefined
 - set: 给属性提供 setter 方法，主要用于设置属性值， 默认为 undefined
 
-属性的描述对象可以在`Object.defineProperty(object, name, descriptor)`中 **定义/修改**
+属性的描述对象可以在`Object.defineProperty(object, name, descriptor)`中 `定义/修改`
 
 ```js
 var obj = {};
@@ -247,7 +247,7 @@ Object.defintProperty(obj, 'name', {
 console.log(obj); // {name: 'zhangsan'}
 ```
 
-也可以使用`Object.defineProperties(object, properties)`中同时 **定义/修改** 多个属性
+也可以使用`Object.defineProperties(object, properties)`中同时 `定义/修改` 多个属性
 
 ```js
 var obj = {};
@@ -268,15 +268,15 @@ console.log(obj); // {name: 'zhangsan', weight: '90kg'}
 
 ## 对象的遍历方式
 
-ES6 中提供了几种新的遍历对象的方式，他们之间也有很大的区别，基本上都围绕着属性 **是否可枚举**、**是否是 symbol 类型**来区分
+ES6 中提供了几种新的遍历对象的方式，他们之间也有很大的区别，基本上都围绕着属性 `是否可枚举**、**是否是 symbol 类型`来区分
 
 | 方法                                 | 定义                                                                 |
 | ------------------------------------ | -------------------------------------------------------------------- |
-| for...in...                          | 遍历对象 **自身和原型链上**的 **可枚举属性**，不包含 Symbol 属性     |
-| Object.keys(object)                  | 返回对象 **自身** 的 **可枚举属性**，不包含 Symbol 属性              |
-| Object.getOwnPropertyNames(object)   | 返回对象 **自身** 的 所有属性(包含不可枚举属性)， 不包含 Symbol 属性 |
-| Object.getOwnPropertySymbols(object) | 返回对象 **自身** 所有的 Symbol 属性                                 |
-| Reflect.ownKeys(object)              | 返回对象 **自身** 的所有属性，包含不可枚举的和 Symbol 属性           |
+| for...in...                          | 遍历对象 `自身和原型链上**的 **可枚举属性`，不包含 Symbol 属性     |
+| Object.keys(object)                  | 返回对象 `自身** 的 **可枚举属性`，不包含 Symbol 属性              |
+| Object.getOwnPropertyNames(object)   | 返回对象 `自身` 的 所有属性(包含不可枚举属性)， 不包含 Symbol 属性 |
+| Object.getOwnPropertySymbols(object) | 返回对象 `自身` 所有的 Symbol 属性                                 |
+| Reflect.ownKeys(object)              | 返回对象 `自身` 的所有属性，包含不可枚举的和 Symbol 属性           |
 
 在遍历过程中，遵循以下顺序：
 
@@ -327,7 +327,7 @@ Object.getPropertyOf(add); // {age: 18, weight: '90kg'}
 
 ## Objet.create(source, propertiesObjet)
 
-这个方法可以创建一个 **新对象**，并且把参数中的 source 设置为新对象的`__proto__`, propertiesObject 中可以定义新对象本身的属性，默认值为 undefined，内容相当于`Object.defineProperties()`方法的第二个参数，否则会抛出一个错误[完整案例](./demo/demo4.html)
+这个方法可以创建一个 `新对象`，并且把参数中的 source 设置为新对象的`__proto__`, propertiesObject 中可以定义新对象本身的属性，默认值为 undefined，内容相当于`Object.defineProperties()`方法的第二个参数，否则会抛出一个错误[完整案例](./demo/demo4.html)
 
 ```js
 var add = {
@@ -390,7 +390,7 @@ foo.getName(); // "zhangsan"
 但是要注意：
 
 - super 表示原型对象的时候，只能用在对象的方法中，用在其他地方都会抛出一个错误
-- 目前的 JavaScript 引擎仅能识别在 **简写形式** 函数中 super， 其他箭头函数或者 function 都会抛出错误
+- 目前的 JavaScript 引擎仅能识别在 `简写形式` 函数中 super， 其他箭头函数或者 function 都会抛出错误
 
 也就是说在下面这三种形式中使用 super 都会抛出一个错误
 

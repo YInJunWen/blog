@@ -10,8 +10,8 @@ var jsPath = [
   'src/global/**/*.js',
   'src/model/**/*.js',
 ];
-var lessPath = ['src/components/**/*.less', 'src/common/**/*.less'];
-var htmlPath = ['src/components/**/*.html', 'src/common/**/*.html'];
+var lessPath = ['src/components/`/*.less', 'src/common/`/*.less'];
+var htmlPath = ['src/components/`/*.html', 'src/common/`/*.html'];
 
 var jsonPath = 'src/model/**/*.json';
 // gulp.plumber 编译出错时，不中断编译

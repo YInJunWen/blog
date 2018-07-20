@@ -74,9 +74,9 @@ Page({
 
 在上面的案例中，点击 button 的时候，就会触发组件内的 buttonTapEvent 事件，，并且通过 triggerEvent 触发在 index.wxml 绑定的 customevent 事件，最终在 customEvent 事件中输出包含了`{name: 'zhangsan'}`的参数
 
-**注意：**
+`注意：`
 
-父组件上添加自定义监听方法的时候，方法名是 **不需要**使用`{{}}`的！！！
+父组件上添加自定义监听方法的时候，方法名是 `不需要`使用`{{}}`的！！！
 
 ## 怎么获取传递过去的参数
 
@@ -143,6 +143,6 @@ Component({
 
 1.pageEventListener1 和 pageEventListener2 都是绑定在 page 页面上的，其中 pageEventListener1 是组件内部 triggerEvent 后的第一个触发事件，pageEventListener2 则属于允许冒泡后的事件
 
-2.anotherEventListener 是绑定在 another-component 组件上的，属于组件内部事件，只有在 options.composed 为 true 的时候，才会被触发，且它的优先级 **高于** 事件冒泡导致的 pageEventListener2
+2.anotherEventListener 是绑定在 another-component 组件上的，属于组件内部事件，只有在 options.composed 为 true 的时候，才会被触发，且它的优先级 `高于` 事件冒泡导致的 pageEventListener2
 
 3.myEventListener 绑定在 my-component 组件的根元素上(这个事件会不会被触发还没尝试过)

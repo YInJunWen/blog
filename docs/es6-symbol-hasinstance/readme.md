@@ -70,7 +70,7 @@ Pen.prototype[Symbol.hasInstance] = foo => {
 2 instanceof new Pen(); // true
 ```
 
-如果需要布置在 **静态方法** 上，目前只允许在 class 内部使用 static 的形式定义，其他两种方式都会赋值失败， [查看完整对比案例](./demo/demo3.html)
+如果需要布置在 `静态方法` 上，目前只允许在 class 内部使用 static 的形式定义，其他两种方式都会赋值失败， [查看完整对比案例](./demo/demo3.html)
 
 ```js
 // 定义在静态方法上

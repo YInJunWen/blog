@@ -1,0 +1,12 @@
+<script>
+    function* add() {
+        console.log(1)
+        let a = yield 1 + 2;
+        console.log(a)
+        yield a;
+    }
+    let it = add();
+    console.log(it.next())
+    console.log(it.next(10))
+    console.log(it.next())
+</script>

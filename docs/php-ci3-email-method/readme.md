@@ -23,7 +23,7 @@ $config['protocol'] = 'smtp';
 $config['smtp_host'] = 'ssl://smtp.exmail.qq.com';
 $config['smtp_user'] = 'send@codequan.com';
 
-$config['smtp_pass'] = '******';
+$config['smtp_pass'] = '`**`';
 $config['smtp_port'] = 465;
 $config['smtp_timeout'] = 30;
 $config['mailtype'] = 'text';

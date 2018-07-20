@@ -100,7 +100,7 @@ Zepto 的 forEach 方法和 API 文档上的有所不同，API 上写的方法�
 
 * offset 是获取元素与 document 的位置包含 left，top，width，height 四个属性
 * position 是获取对象集合中第一个元素的位置，如果他有相对元素，则获取相对于相对元素的位置，返回值包含 top,left 两个属性
-* offsetParent 获取到的是第一个定位的祖先元素 而**不是位置**！！
+* offsetParent 获取到的是第一个定位的祖先元素 而`不是位置`！！
 
 ### Zepto 中的新方法 pluck
 

@@ -14,7 +14,7 @@ hello,<br><span>今天我们去哪里？</span>
 
 ## angular 1.2 以前版本解决办法
 
-对于 **angular 1.2** 一下的版本我们必须要使用$sce 这个服务来解决我们的问题。所谓 sce 即“Strict Contextual Escaping”的缩写。翻译成中文就是“严格的上下文模式”也可以理解为安全绑定吧。来看看怎么用吧。
+对于 `angular 1.2` 一下的版本我们必须要使用$sce 这个服务来解决我们的问题。所谓 sce 即“Strict Contextual Escaping”的缩写。翻译成中文就是“严格的上下文模式”也可以理解为安全绑定吧。来看看怎么用吧。
 
 ```js
 // controller code:

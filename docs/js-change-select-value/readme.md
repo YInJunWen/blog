@@ -40,4 +40,4 @@ window.onload = function() {
 
 ## 设置 selected 属性的时候尤其要注意：
 
-通过 JS 把 option 元素的 selected 设置为值为 false 的任何表达式，都是**无效**的
+通过 JS 把 option 元素的 selected 设置为值为 false 的任何表达式，都是`无效`的

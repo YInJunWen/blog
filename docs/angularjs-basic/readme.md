@@ -155,7 +155,7 @@ import { TestService } from "./test.service";
 * 服务的文件名以`name.service.ts`或者`test-name.service.ts`为例，
 * export 的服务名称使用大写驼峰命名
 
-在组件中，通常只需要在**构造器函数中**定义就可以使用
+在组件中，通常只需要在`构造器函数中`定义就可以使用
 
 ```js
 import { TestService } from "./test.service";

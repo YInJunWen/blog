@@ -1,4 +1,4 @@
-# 目录 (一共 184 篇文章)
+# 目录 (一共 185 篇文章)
 
 |标题|详情|
 |---|---|
@@ -54,6 +54,7 @@
 |es6-array 数组的扩展|[详情](./docs/es6-array)|
 |es6-class|[详情](./docs/es6-class)|
 |es6-function 函数的扩展|[详情](./docs/es6-function)|
+|es6-Generator 遍历器对象生成函数|[详情](./docs/es6-generator)|
 |es6-iterator 遍历器|[详情](./docs/es6-iterator)|
 |es6-let -const 变量新的声明方式|[详情](./docs/es6-let-const)|
 |es6-map 新的数据结构 Map 与 WeakMap|[详情](./docs/es6-map)|

@@ -4,7 +4,7 @@
 
 ## optimization.minimize
 
-当 mode 为 production 的时候，webpack 会自动开启 **压缩 JS**插件，用的是`UglifyJsPlugin`插件
+当 mode 为 production 的时候，webpack 会自动开启 `压缩 JS`插件，用的是`UglifyJsPlugin`插件
 
 ## optimization.minimizer
 

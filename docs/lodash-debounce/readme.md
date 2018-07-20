@@ -13,7 +13,7 @@ debounce(func, wait, options);
 
 ## 返回值
 
-debuouce 函数返回一个新的**函数**
+debuouce 函数返回一个新的`函数`
 
 ## 参数 func
 
@@ -39,7 +39,7 @@ options 包含三个属性，默认值如下：
 
 用户在第一次调用的时候，检测在 wait 时间内，是否有下一次调用，如果没有，则在 wait 结束后执行一次 func，如果有，则重新计算 wait 时间，重新检测 wait 时间内是否有下一次调用
 
-**注意：**如果在 wait 时间内，发生多次调用，则 func 在执行的时候，参数以最后一次调用为准
+`注意：`如果在 wait 时间内，发生多次调用，则 func 在执行的时候，参数以最后一次调用为准
 
 ## leading 和 trailing 均为 true
 

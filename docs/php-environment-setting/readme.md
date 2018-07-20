@@ -58,7 +58,7 @@ yum install mysql55w-server
 liyun   ALL=(ALL) ALL   # 这里就是说允许用户liyun从任何主机使用任何用户的所有命令
 ```
 
-再看个例子，我们要让用户 liyun 只能通过 192.168.3.4 访问 root 用户传递 **启动 nginx** 命令
+再看个例子，我们要让用户 liyun 只能通过 192.168.3.4 访问 root 用户传递 `启动 nginx` 命令
 
 ```
 liyun 192.168.3.4=(root) /usr/sbin/nginx
@@ -130,7 +130,7 @@ listen 8080
 listen 8081
 ```
 
-如果想知道端口是否打开，`MAC` 可以通过`网络实用工具`的**端口扫描**功能扫描一次
+如果想知道端口是否打开，`MAC` 可以通过`网络实用工具`的`端口扫描`功能扫描一次
 
 ## MAC 安装 phpmyadmin
 

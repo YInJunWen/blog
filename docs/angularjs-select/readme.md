@@ -4,7 +4,7 @@
 
 ## 使用 ng-options 实现显示列表并且绑定 model
 
-当数组中的项目为**字符串**的时候
+当数组中的项目为`字符串`的时候
 
 ```js
 $scope.list = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu'];
@@ -22,7 +22,7 @@ $scope.selectValue = $scope.list[0];
 </select>
 ```
 
-当数组中的项目为**对象**的时候
+当数组中的项目为`对象`的时候
 
 ```js
 // js

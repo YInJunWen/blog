@@ -357,4 +357,4 @@ app.config(function($urlRouterProvider) {
 });
 ```
 
-**本文摘选了其他的一些优秀的博文**
+`本文摘选了其他的一些优秀的博文`

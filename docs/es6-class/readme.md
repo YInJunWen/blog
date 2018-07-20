@@ -83,7 +83,7 @@ class Person {
 }
 ```
 
-ES5 中一个对象实例不仅能够调用构造器本身的构造方法，也可以调用构造器原型链上的方法。在 class 中，写在 constructor 方法里面的就属于 **构造器属性**，写在外面的就属于 **原型链属性/方法**,因此上面的例子等同于
+ES5 中一个对象实例不仅能够调用构造器本身的构造方法，也可以调用构造器原型链上的方法。在 class 中，写在 constructor 方法里面的就属于 `构造器属性**，写在外面的就属于 **原型链属性/方法`,因此上面的例子等同于
 
 ```js
 function Person() {
@@ -105,7 +105,7 @@ new Person().add(); // add
 new Subperson().add(); // add
 ```
 
-通过`name='zhangsan`定义 **原型链属性**的方式暂时不可使用，只能通过在 constructor 中以及 prototype 的方式定义某个通过 **实例** 访问的属性/方法
+通过`name='zhangsan`定义 `原型链属性**的方式暂时不可使用，只能通过在 constructor 中以及 prototype 的方式定义某个通过 **实例` 访问的属性/方法
 
 ```js
 class Person {
@@ -168,7 +168,7 @@ new Subperson().name; // undefined
 
 ## 原型链属性的不可枚举属性
 
-ES6 规定 class 定义的 **原型链属性/方法**都是 **不可枚举** 的(enumerable)，而 ES5 中通过 prototype 定义的方法，默认是可枚举的
+ES6 规定 class 定义的 `原型链属性/方法**都是 **不可枚举` 的(enumerable)，而 ES5 中通过 prototype 定义的方法，默认是可枚举的
 
 ```js
 //class内部定义的属性
@@ -389,7 +389,7 @@ var foo = new Foo("zhangsan", 12);
 // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
 ```
 
-在当做对象使用的时候，在子类的构造函数和原型链函数中，super 的赋值运算改变的是子类本身的 **构造器属性/方法**，取值运算(获取属性或执行方法) **只会** 指向父类的 **原型链属性/方法** [源码](./demo/demo1.html)
+在当做对象使用的时候，在子类的构造函数和原型链函数中，super 的赋值运算改变的是子类本身的 `构造器属性/方法**，取值运算(获取属性或执行方法) **只会** 指向父类的 **原型链属性/方法` [源码](./demo/demo1.html)
 
 ```js
 class Add {
@@ -432,7 +432,7 @@ super.a: ƒ a() {
 this.a: 1
 ```
 
-在子类的构造函数和原型链函数中，通过 super 调用函数，函数中的 this 指向 **子类的实例**，这意味着我们可以通过 this 继续使用子类上的构造器属性/方法和原型链属性/方法, [属性案例](./demo/demo2.html)，[方法案例](./demo/demo3.html)
+在子类的构造函数和原型链函数中，通过 super 调用函数，函数中的 this 指向 `子类的实例`，这意味着我们可以通过 this 继续使用子类上的构造器属性/方法和原型链属性/方法, [属性案例](./demo/demo2.html)，[方法案例](./demo/demo3.html)
 
 ## class 的 prototype 与`__proto__`
 

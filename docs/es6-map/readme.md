@@ -1,6 +1,6 @@
 # es6-map 新的数据结构 Map 与 WeakMap
 
-在之前的对象中，**键名** 只能是字符串，为了解决这个问题，ES6 推出了一个类似于普通对象的数据结构： Map。
+在之前的对象中，`键名` 只能是字符串，为了解决这个问题，ES6 推出了一个类似于普通对象的数据结构： Map。
 
 Map 也是以键值对的形式出现，一个新的 Map 实例使用`new`关键字生成：
 
@@ -17,7 +17,7 @@ map; // Map(2) {"name" => "orange", "age" => "18"}
 
 可以看出上面案例中的键值对以多维数组的形式作为参数。最外层的数组表示内含多少组键值对，内层数组的第一个元素组成 Map 实例的键名，第二个元素作为 Map 实例的键值
 
-与传统对象不同的是：Map 实例可以使用 **任何数据类型** 作为 **键名**。
+与传统对象不同的是：Map 实例可以使用 `任何数据类型** 作为 **键名`。
 
 ```js
 let map = new Map([
@@ -114,7 +114,7 @@ map.get(obj); // "orange"
 
 ### has()
 
-`has()`方法用来判断是否存在某个 **键名**，存在则返回 true， 不存在返回 false
+`has()`方法用来判断是否存在某个 `键名`，存在则返回 true， 不存在返回 false
 
 ```js
 let map = new Map({})
@@ -231,7 +231,7 @@ let weakMap = new WeakMap();
 
 ### WeakMap 与 Map 的不同之处在于以下两点
 
-1.WeakMap 不允添加键名为 **原始数据类型**的属性，以下键名都会抛出错误`TypeError: Invalid value used as weak map key`
+1.WeakMap 不允添加键名为 `原始数据类型`的属性，以下键名都会抛出错误`TypeError: Invalid value used as weak map key`
 
 ```js
 let weakMap = new WeakMap();
@@ -243,7 +243,7 @@ weakMap.set(undefined, 'undefined');
 weakMap.set(Symbol(), 'symbol');
 ```
 
-也就是说只允许添加 **非原始数据类型**
+也就是说只允许添加 `非原始数据类型`
 
 ```js
 let weakMap = new WeakMap();

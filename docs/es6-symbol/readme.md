@@ -67,7 +67,7 @@ egg[tmp]; // 2
 egg.tmp; // 3
 ```
 
-Symbol 值可以 **显式** 转为字符串和布尔值，却不能转为数值
+Symbol 值可以 `显式` 转为字符串和布尔值，却不能转为数值
 
 ```js
 var a = Symbol("foo");

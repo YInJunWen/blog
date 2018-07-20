@@ -44,7 +44,7 @@ class ComponentHeader extends React.Component {
 
 这种方式的优点是定义的样式可以适用于全局的同类名元素，缺点是不能做到按需加载，即只加载当前组件需要的样式文件
 
-**注意：类名必须使用`className`来定义**
+`注意：类名必须使用`className`来定义`
 第三种 -
 使用 CSS MODULE，详细情况看本分类下关于 css-loader 的另一片文章<a href="../webpack/css-loader.md"></a>
 

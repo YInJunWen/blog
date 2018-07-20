@@ -4,7 +4,7 @@
 
 ```
 gulp.src('./js/*.js')                       // * 匹配js文件夹下所有.js格式的文件
-gulp.src('./js/**/*.js')                    // ** 匹配js文件夹的0个或多个子文件夹
+gulp.src('./js/`/*.js')                    // ` 匹配js文件夹的0个或多个子文件夹
 gulp.src(['./js/*.js','!./js/index.js'])    // ! 匹配除了index.js之外的所有js文件
 gulp.src('./js/**/{omui,common}.js')        // {} 匹配{}里的文件名
 ```

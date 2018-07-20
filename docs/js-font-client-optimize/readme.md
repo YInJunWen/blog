@@ -70,7 +70,7 @@ form.appendChild(button);
 div.appendChild(form);
 ```
 
-优化后的方案中，form 在插入到 div 元素中之前，只是一个**虚拟元素**，不会引起浏览器的重排与重绘，只会引发一次浏览器的渲染行为。
+优化后的方案中，form 在插入到 div 元素中之前，只是一个`虚拟元素`，不会引起浏览器的重排与重绘，只会引发一次浏览器的渲染行为。
 
 除了调整操作元素顺序，也可以使用 "空白片段文档" `document.createDocumentFragment()`方法来操作 DOM，相关内容可以参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment)
 

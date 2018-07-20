@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
-import { Checkbox, Input, Form, Button } from 'antd';
+import { Checkbox, Input, Form, Button, TimePicker } from 'antd';
 const FormItem = Form.Item;
 
 class CheckDemo extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      startTime: null,
+    };
   }
   submit(e) {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       console.log('errors: ', errors);
+      console.log('values: ', values);
     });
+  }
+  timePickerChange(date) {
+    console.log(date);
+    this.setState({
+      startTime: date.str
+    })
   }
   render() {
     const {
@@ -28,6 +38,14 @@ class CheckDemo extends Component {
         }}
         style={{ padding: '50px' }}
       >
+        <FormItem>
+          <TimePicker
+            value={this.state.startTime}
+            onChange={(date, str) => {
+              this.timePickerChange({ date, str });
+            }}
+          />
+        </FormItem>
         <FormItem>
           <Checkbox
             {...getFieldProps('dayLeft', {

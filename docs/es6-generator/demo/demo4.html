@@ -1,0 +1,15 @@
+<script>
+    function* add() {
+        yield 1;
+        throw new Error('函数内部抛出的错误');
+        yield 2;
+    }
+    var it = add();
+    console.log(it.next());
+    try {
+        console.log(it.next())
+    } catch (e) {
+        console.log(e); // 函数内部抛出的错误
+    }
+    console.log(it.next())
+</script>

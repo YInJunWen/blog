@@ -114,7 +114,7 @@ for (let item of egg) {
 除了字符串、数组、Set 实例、Map 实例，都默认部署了`[Symbol.iterator]`属性，我们经常获取到的`NodeList`也默认部署了该属性
 
 ```js
-let it = document.querySelectorAll('div')';
+let it = document.querySelectorAll('div');
 it[Symbol.iterator]; // ƒ values() { [native code] }
 ```
 
@@ -162,6 +162,45 @@ let it = makeIterator([1, 2, 3]);
 it.next(); // {done: false, value: 1}
 it.next(); // {done: false, value: 2}
 it.next(); // {done: false, value: 3}
+it.next(); // {done: true, value: undefined}
+it.next(); // {done: true, value: undefined}
+```
+
+例子中的`it`实际上就是一个遍历器对象，该对象包含 next 方法，每执行一次，都会输出一个状态，相当于一个指针，每执行一次 next 方法，指针就向向后移动一个位置。当遇到 done 为 true 的时候，后续执行的 next 方法，指针都不再向后移动
+
+实际上遍历器对象中还包含有 return 方法,return 方法执行后，指针直接跳到最后一个位置，并且随后的 next 方法，都指向`{done: true, value: undefined}`
+
+```js
+function makeIterator(arr) {
+  let index = 0,
+    len = arr.length;
+  return {
+    next: function() {
+      if (index < len) {
+        index++;
+        return {
+          done: false,
+          value: arr[index - 1],
+        };
+      } else {
+        return {
+          done: true,
+          value: undefined,
+        };
+      }
+    },
+    return: function() {
+      index = arr.length;
+      return {
+        done: true,
+        value: arr[index - 1],
+      };
+    },
+  };
+}
+let it = makeIterator([1, 2, 3]);
+it.next(); // {done: false, value: 1}
+it.return(); // {done: true, value: 3}
 it.next(); // {done: true, value: undefined}
 it.next(); // {done: true, value: undefined}
 ```
@@ -311,7 +350,7 @@ for (item of a) {
 
 ## 接收可迭代对象作为参数的方法
 
-ES6 中有许多方法都可以接收一个 **可迭代对象** 作为参数，这里的可迭代对象，指的就是部署了`[Symbol.iterator]`属性的对象
+ES6 中有许多方法都可以接收一个 `可迭代对象` 作为参数，这里的可迭代对象，指的就是部署了`[Symbol.iterator]`属性的对象
 
 Set 实例
 

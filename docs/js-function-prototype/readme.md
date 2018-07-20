@@ -24,7 +24,7 @@ console.log(zhangsan)
 }
 ```
 
-实例的**proto**指向该实例构造器函数的 prototype 属性，也就是说
+实例的`proto`指向该实例构造器函数的 prototype 属性，也就是说
 
 ```js
 function Person() {
@@ -60,7 +60,7 @@ new Person().constructor === Person.ptototype.constructor; // true
 
 ## 原型链
 
-实例对象，既可以访问构造函数中的 **构造器属性/方法**，又可以访问构造函数原型中的 **原型链属性/方法**。
+实例对象，既可以访问构造函数中的 `构造器属性/方法**，又可以访问构造函数原型中的 **原型链属性/方法`。
 
 ```js
 function add() {

@@ -97,7 +97,7 @@ var appPath = './app/';
 var opt = './app/output/';
 
 gulp.task('lib', function() {
-    gulp.src(['bower_components/**/*.js', 'lib/**/*.js'])
+    gulp.src(['bower_components/`/*.js', 'lib/`/*.js'])
         .pipe($.plumber())
         .pipe(gulp.dest(opt + '/vendor/'))
         .pipe($.connect.reload())

@@ -66,7 +66,7 @@ var a = [...person]; // ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
 
 ## 类数组转成真实数组的方法 Array.from(target, map, this)
 
-**类数组** 指的是拥有 length 属性的对象
+`类数组` 指的是拥有 length 属性的对象
 
 ```js
 var persons = {
@@ -162,7 +162,7 @@ copyWithin 方法主要用于数组内部元素的拷贝操作,
 
 ## find(fn(value, index, arr), fnThis)与 findIndex(fn(value, index, arr), fnThis)
 
-这两个方法都是通过传入一个函数来判断数组中是否有满足指定的条件的 **第一个** 元素
+这两个方法都是通过传入一个函数来判断数组中是否有满足指定的条件的 `第一个` 元素
 
 find()方法，返回满足条件的元素本身,如果没有找到返回 `undefined`
 
@@ -280,7 +280,7 @@ ES6 之前通常使用 indexOf 来判断，但是 indexOf 无法判断`NaN`，�
 
 ## 数组中的空位
 
-在使用构造函数`Array`时，如果只传递一个参数，会生成一个指定长度的数组，这个时候数组的每一个元素都是一个 **空位**，对于这些空位 ES5 不同的方法处理的方式不同[案例]('./src/demo8.js)
+在使用构造函数`Array`时，如果只传递一个参数，会生成一个指定长度的数组，这个时候数组的每一个元素都是一个 `空位`，对于这些空位 ES5 不同的方法处理的方式不同[案例]('./src/demo8.js)
 
 - forEach，filter，reduce，some，every,map 会跳过空位
 - join 和 toString 会将空位当做 undefined，但是 undefined 和 null 在转字符串的时候，会被转成一个空字符串

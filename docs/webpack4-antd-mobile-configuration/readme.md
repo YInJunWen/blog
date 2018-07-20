@@ -51,7 +51,7 @@ import 'antd-mobile/lib/button/style/index.less';
 },
 ```
 
-**注意：** 由于 antd-mobile 引入了 normalize.css 包，所以 webpack 中除了要配置自己常用的 less 文件相关的一系列 loader，也要配置 css 文件相关的一系列 laoder
+`注意：` 由于 antd-mobile 引入了 normalize.css 包，所以 webpack 中除了要配置自己常用的 less 文件相关的一系列 loader，也要配置 css 文件相关的一系列 laoder
 
 ## 报错 Inline JavaScript is not enabled
 

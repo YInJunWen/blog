@@ -20,7 +20,7 @@ class A extends React.Component{
 
 ## 第二种方式
 
-通过 react 的 refs 属性： **refs 是访问组件内部 DOM 节点唯一可靠的方法**，
+通过 react 的 refs 属性： `refs 是访问组件内部 DOM 节点唯一可靠的方法`，
 
 ```js
 class A extends React.Component{
