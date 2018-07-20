@@ -1,4 +1,4 @@
-# es6-symbol-species [Symbol.species] 属性
+# es6 内置属性-[Symbol.species]
 
 首先看一下什么叫做“衍生对象”
 

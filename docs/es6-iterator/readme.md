@@ -1,4 +1,4 @@
-# es6-iterator 遍历器
+# es6 遍历器-iterator
 
 ES6 推出了一个遍历数据结构的新方法`for...of...`循环，这个方法需要对象已经被部署了`[Symbol.iterator]`属性。
 

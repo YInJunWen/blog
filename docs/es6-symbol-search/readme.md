@@ -1,4 +1,4 @@
-# es6-symbol-search [Symbol.search] 属性
+# es6 内置属性-[Symbol.search]
 
 字符串的 search 方法，用于在指定字符串中查找是否存在指定的字符串,并返回匹配字符串的起始位置，search 的参数可以是 `string` 或者 `regexp`
 

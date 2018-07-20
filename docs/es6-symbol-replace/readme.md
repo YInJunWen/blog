@@ -1,4 +1,4 @@
-# es6-symbol-replace [Symbol.replace] 属性
+# es6 内置属性-[Symbol.replace]
 
 之前在使用字符串的 replace 方法时，心里很明白 replace 的第一个参数，应该是一个 `string` 或者 `regexp`，从来没想过如果传入一个对象会怎么样。先来看一下正确的用法：
 

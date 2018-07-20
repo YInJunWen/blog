@@ -1,4 +1,4 @@
-# es6-symbol-iterator [Symbol.iterator] 属性
+# es6 内置属性-[Symbol.iterator]
 
 当对一个对象使用`for...if...`方法时，会默认调用对象的`[Symbol.iterator]`属性，JS 中一些内置对象默认已经部署了该属性
 

@@ -51,30 +51,30 @@
 |es5 函数继承-构造函数的继承(2)|[详情](./docs/es5-construct-function-inherit-2)|
 |es5 函数继承-构造函数的继承(3)|[详情](./docs/es5-construct-function-inherit-3)|
 |es5 函数继承-非构造函数的继承|[详情](./docs/es5-uncontructor-function-inherit)|
-|es6-array 数组的扩展|[详情](./docs/es6-array)|
-|es6-class|[详情](./docs/es6-class)|
-|es6-function 函数的扩展|[详情](./docs/es6-function)|
-|es6-Generator 遍历器对象生成函数|[详情](./docs/es6-generator)|
-|es6-iterator 遍历器|[详情](./docs/es6-iterator)|
-|es6-let -const 变量新的声明方式|[详情](./docs/es6-let-const)|
-|es6-map 新的数据结构 Map 与 WeakMap|[详情](./docs/es6-map)|
-|es6-module ES6 中的 module|[详情](./docs/es6-module)|
-|es6-object 对象的扩展|[详情](./docs/es6-object)|
-|es6-regexp 正则表达式的扩展|[详情](./docs/es6-regexp)|
-|es6-set 新的数据结构 Set 与 WeakSet|[详情](./docs/es6-set)|
-|es6-string 字符串的扩展|[详情](./docs/es6-string)|
-|es6-symbol 新的原始数据类型|[详情](./docs/es6-symbol)|
-|es6-symbol-hasInstance [Symbol.hasInstance] 属性|[详情](./docs/es6-symbol-hasinstance)|
-|es6-symbol-isConcatSpreadable [Symbol.isConcatSpreadable] 属性|[详情](./docs/es6-symbol-isconcat-spreadable)|
-|es6-symbol-iterator [Symbol.iterator] 属性|[详情](./docs/es6-symbol-iterator)|
-|es6-symbol-match [Symbol.match] 属性|[详情](./docs/es6-symbol-match)|
-|es6-symbol-replace [Symbol.replace] 属性|[详情](./docs/es6-symbol-replace)|
-|es6-symbol-search [Symbol.search] 属性|[详情](./docs/es6-symbol-search)|
-|es6-symbol-species [Symbol.species] 属性|[详情](./docs/es6-symbol-species)|
-|es6-symbol-split [Symbol.split] 属性|[详情](./docs/es6-symbol-split)|
-|es6-symbol-toPrimitive [Symbol.toPrimitive] 属性|[详情](./docs/es6-symbol-toprimitive)|
-|es6-symbol-toStringTag [Symbol.toStringTag] 属性|[详情](./docs/es6-symbol-tostringtag)|
-|es6-symbol-unscopables [Symbol.unscopables] 属性|[详情](./docs/es6-symbol-unscopables)|
+|es6 数组的扩展|[详情](./docs/es6-array)|
+|es6 声明构造函数的语法糖-class|[详情](./docs/es6-class)|
+|es6 函数的扩展|[详情](./docs/es6-function)|
+|es6 遍历器对象生成函数-Generator|[详情](./docs/es6-generator)|
+|es6 遍历器-iterator|[详情](./docs/es6-iterator)|
+|es6 变量新的声明方式-let-const|[详情](./docs/es6-let-const)|
+|es6 新的数据结构 Map 与 WeakMap|[详情](./docs/es6-map)|
+|es6 模块化开发-module|[详情](./docs/es6-module)|
+|es6 对象的扩展|[详情](./docs/es6-object)|
+|es6 正则表达式的扩展|[详情](./docs/es6-regexp)|
+|es6 新的数据结构-Set-WeakSet|[详情](./docs/es6-set)|
+|es6 字符串的扩展|[详情](./docs/es6-string)|
+|es6 新的原始数据类型-Symbol|[详情](./docs/es6-symbol)|
+|es6 内置属性-[Symbol.hasInstance]|[详情](./docs/es6-symbol-hasinstance)|
+|es6 内置属性-[Symbol.isConcatSpreadable]|[详情](./docs/es6-symbol-isconcat-spreadable)|
+|es6 内置属性-[Symbol.iterator]|[详情](./docs/es6-symbol-iterator)|
+|es6 内置属性-[Symbol.match]|[详情](./docs/es6-symbol-match)|
+|es6 内置属性-[Symbol.replace]|[详情](./docs/es6-symbol-replace)|
+|es6 内置属性-[Symbol.search]|[详情](./docs/es6-symbol-search)|
+|es6 内置属性-[Symbol.species]|[详情](./docs/es6-symbol-species)|
+|es6 内置属性-[Symbol.split]|[详情](./docs/es6-symbol-split)|
+|es6 内置属性-[Symbol.toPrimitive]|[详情](./docs/es6-symbol-toprimitive)|
+|es6 内置属性-[Symbol.toStringTag]|[详情](./docs/es6-symbol-tostringtag)|
+|es6 内置属性-[Symbol.unscopables]|[详情](./docs/es6-symbol-unscopables)|
 |eslint 对 Promise 方法解析报错|[详情](./docs/eslint-promise-errors)|
 |express 中的 app|[详情](./docs/express-app)|
 |express 初探|[详情](./docs/express-basic)|
@@ -128,7 +128,6 @@
 |lodash debounce(防抖函数)|[详情](./docs/lodash-debounce)|
 |mac 中的 apache+php(多版本)+mysql@5.6|[详情](./docs/mac-apache-php-mysql)|
 |mysql 数据库的导入|[详情](./docs/myqsl-import-database)|
-|other 个人介绍|[详情](./docs/myself)|
 |mysql 的备份与恢复|[详情](./docs/mysql-backup-restore)|
 |mysql 包含子查询的查询语句该如何去写|[详情](./docs/mysql-child-select)|
 |mysql 导入、新建表的时候 datetime 行报错|[详情](./docs/mysql-errors)|
@@ -142,6 +141,7 @@
 |node node-stream|[详情](./docs/node-stream)|
 |npm brwoser-sync 插件常见错误|[详情](./docs/npm-browsersync-errors)|
 |other 创业者需要知道的 50 句话|[详情](./docs/other-50-word-for-new-bussiness)|
+|other 个人介绍|[详情](./docs/other-myself)|
 |php CI3 下使用 QQ 邮箱和 QQ 企业邮箱的案例|[详情](./docs/php-ci3-email-method)|
 |php 的面向对象|[详情](./docs/php-contructor-function)|
 |php 环境布置的问题|[详情](./docs/php-environment-setting)|

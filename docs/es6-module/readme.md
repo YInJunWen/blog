@@ -1,4 +1,4 @@
-# es6-module ES6 中的 module
+# es6 模块化开发-module
 
 ## module 的使用条件
 
@@ -15,7 +15,7 @@ babel-cli 包里面内置了 babel-node 命令，添加 babel-node 的配置文�
 
 ```js
 {
-  presets: ["env"];
+  presets: ['env'];
 }
 ```
 
@@ -56,7 +56,7 @@ ES6 的 module 在 CommonJS 规范的基础上，又做了优化.
 export 关键字主要用于创建模块的时候，对外暴露对象，函数或者原始值，便于其他模块使用 import 导入。这些暴露出去的都可以被称为“接口”。
 
 ```js
-export const name = "fruit";
+export const name = 'fruit';
 export const fruitCount = {
   pear: 1,
   orange: 2,
@@ -169,18 +169,18 @@ import 语句被用来导入其他模块中的属性/方法，主要有以下几
 
 ```js
 export default function remove() {
-  console.log("print in export default fn.remove");
+  console.log('print in export default fn.remove');
 }
 function insert() {
-  console.log("print in fn.insert");
+  console.log('print in fn.insert');
 }
 const fruit = {
-  name: "pear",
+  name: 'pear',
 };
 function update() {
-  console.log("print in fn.update");
+  console.log('print in fn.update');
 }
-const fruits = ["orange", "pear", "juice"];
+const fruits = ['orange', 'pear', 'juice'];
 export { insert, update, fruit, fruits };
 ```
 
@@ -189,7 +189,7 @@ export { insert, update, fruit, fruits };
 只引入默认的属性/方法，引入时的名称 `可以不` 与模块中的默认接口名称相同,[完整案例代码](./demo/src/index1.js)：
 
 ```js
-import Constant from "./_constant";
+import Constant from './_constant';
 Constant(); // 'print in export default fn.remove'
 ```
 
@@ -198,7 +198,7 @@ Constant(); // 'print in export default fn.remove'
 可以使用`*`引入所有的接口，在引入的时候需要使用`as`关键字把所有的接口放到一个指定的变量中去。使用的时候，可以按照以下方式：[完整案例代码](./demo/src/index2.js)
 
 ```js
-import * as Cons from "./_constant";
+import * as Cons from './_constant';
 
 Cons.insert(); // 'print in fn.insert'
 Cons.update(); // 'print in fn.insert'
@@ -208,7 +208,7 @@ Cons.remove(); // Cons.remove is not a function
 注意： 模块默认的接口,在导入的时候，会被统一修改为`default`。所以上面变量 Cons 中并没有名为`remove`的函数，只有一个名为`default`的函数
 
 ```js
-import * as Cons from "./_constant";
+import * as Cons from './_constant';
 
 Cons.default(); // 'print in export default fn.remove'
 ```
@@ -218,7 +218,7 @@ Cons.default(); // 'print in export default fn.remove'
 module 中可以使用`{}`导入模块内的接口，引入时的名称 `必须与` 模块中 export 的名称相同[完整案例代码](./demo/src/index3.js)
 
 ```js
-import { insert, update } from "./_constant";
+import { insert, update } from './_constant';
 
 insert(); // 'print in fn.insert'
 update(); // 'print in fn.update'
@@ -227,7 +227,7 @@ update(); // 'print in fn.update'
 import 在导入接口的术后，同样是使用 `as` 关键字重命名：[完整案例代码](./demo/src/index4.js)
 
 ```js
-import { insert as insertData, update as updateDara } from "./_constant";
+import { insert as insertData, update as updateDara } from './_constant';
 
 insertData(); // 'print in fn.insert'
 updateDara(); // 'print in fn.update'
@@ -236,7 +236,7 @@ updateDara(); // 'print in fn.update'
 默认接口也可以使用`{default}`来获取到，只是由于 `default` 是 JavaScript 的保留字，需要使用 `as` 重新定义另一个名称[完整案例代码](./demo/src/index5.js):
 
 ```js
-import { default as def, insert, update } from "./_constant";
+import { default as def, insert, update } from './_constant';
 
 insert(); // 'print in fn.insert'
 update(); // 'print in fn.update'
@@ -246,7 +246,7 @@ def(); // 'print in export default fn.remove'
 也可以把默认接口和其他接口分别导入进来：[完整案例代码](./demo/src/index6.js)
 
 ```js
-import def, { insert } from "./_constant";
+import def, { insert } from './_constant';
 
 def(); // 'print in export default fn.remove'
 insert(); // 'print in fn.insert'
@@ -257,17 +257,17 @@ insert(); // 'print in fn.insert'
 export 暴露的接口，接口的值如果不是六种基本数据类型或者函数，就可以修改接口的值的内容[完整案例代码](./demo/src/index7.js)
 
 ```js
-import { fruits, fruit, update } from "./_constant";
+import { fruits, fruit, update } from './_constant';
 
 console.log(fruit.name); // "pear"
-fruit.name = "orange";
+fruit.name = 'orange';
 console.log(fruit.name); // "orange"
 
 // fruit = { name: 'juice' }; // SyntaxError: "fruit" is read-only
 
 console.log(fruits);
 
-fruits[0] = "apple";
+fruits[0] = 'apple';
 console.log(fruits);
 ```
 
@@ -280,7 +280,7 @@ import 也可以用来导入并直接执行一个模块，方法就是 import �
 console.log(`print in function.js; it will execute after 'import' syntax `);
 
 // import.js
-import "export.js"; // "print in function.js; it will execute after 'import' syntax"
+import 'export.js'; // "print in function.js; it will execute after 'import' syntax"
 ```
 
 ## 动态导入模块
@@ -289,18 +289,18 @@ import "export.js"; // "print in function.js; it will execute after 'import' syn
 
 ```js
 if (true) {
-  import { fruit } from "constant.js"; // 不被允许的
+  import { fruit } from 'constant.js'; // 不被允许的
 }
 function get() {
-  import { fruit } from "constant.js"; // 不被允许的
+  import { fruit } from 'constant.js'; // 不被允许的
 }
 ```
 
 更不允许在 import 中使用表达式
 
 ```js
-const name = "dele" + "te"; // "update"
-import name from "constant.js"; // 不被允许的
+const name = 'dele' + 'te'; // "update"
+import name from 'constant.js'; // 不被允许的
 ```
 
 在最新的提案中，有人提出了新曾一个`import()`方法来动态导入模块，并且返回一个 promise 对象,模块会作为一个对象，当做 then 方法的参数
@@ -309,7 +309,7 @@ import name from "constant.js"; // 不被允许的
 
 ```js
 if (true) {
-  import("constant.js").then(res => {
+  import('constant.js').then(res => {
     console.log(res); // 这里的res 包含了模块中所有的接口(包括默认接口)
   });
 }
@@ -330,7 +330,7 @@ if (true) {
 
 ```js
 if (true) {
-  import("./_constant.js").then(({ insert, update }) => {
+  import('./_constant.js').then(({ insert, update }) => {
     insert(); // "print in fn.insert"
     update(); // "print in fn.update"
   });
@@ -341,12 +341,12 @@ if (true) {
 
 ```js
 if (true) {
-  import("./_constant.js").then(
+  import('./_constant.js').then(
     ({ default: removeData, insert: insertData, update: updateData }) => {
       removeData(); // "print in export default fn.remove"
       insertData(); // "print in fn.insert"
       updateData(); // "print in fn.update"
-    },
+    }
   );
 }
 ```
@@ -368,7 +368,7 @@ if (true) {
 和在顶层代码的 import 不同，按需引入 import 方法的参数支持表达式、函数返回值等方式,这里不再举例。
 
 ```js
-const name = "./a.js";
+const name = './a.js';
 import(name).then(module => {
   // ...code
 });
@@ -382,7 +382,7 @@ export 是可以继承的，便于将代码分化到更小的模块中[完整案
 
 ```js
 export function insert() {
-  console.log("print in base1.insert");
+  console.log('print in base1.insert');
 }
 ```
 
@@ -390,7 +390,7 @@ export function insert() {
 
 ```js
 export function remove() {
-  console.log("print in base1.remove");
+  console.log('print in base1.remove');
 }
 ```
 
@@ -413,7 +413,7 @@ export {
 `index.js`
 
 ```js
-import * as Base from "./base";
+import * as Base from './base';
 console.log(Base); // { insert: [Getter], remove: [Getter] }
 Base.insert(); // print in base1.insert
 ```
@@ -426,7 +426,7 @@ ES6 的 module 与 CommonJS 最大的不同之处在于。CommonJS 导入模块�
 
 ```js
 var obj = {
-  name: "pear",
+  name: 'pear',
 };
 export { obj };
 ```
@@ -434,10 +434,10 @@ export { obj };
 `quote2.js`
 
 ```js
-import { obj } from "./quote3";
+import { obj } from './quote3';
 
 function editName() {
-  obj.name = "orange";
+  obj.name = 'orange';
 }
 export { editName };
 ```
@@ -445,8 +445,8 @@ export { editName };
 `quote1.js`
 
 ```js
-import { editName } from "./quote2";
-import { obj } from "./quote3";
+import { editName } from './quote2';
+import { obj } from './quote3';
 
 console.log(obj); // { name: 'pear' }
 editName();

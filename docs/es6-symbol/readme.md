@@ -1,4 +1,4 @@
-# es6-symbol 新的原始数据类型
+# es6 新的原始数据类型-Symbol
 
 > ES6 之前存在 6 种原始数据类型,分别是`String, Number, Boolean, Object, undefined, null`,ES6 中新增了一种新的原始数据类型`Symbol`;
 
@@ -17,10 +17,10 @@ var a = Symbol();
 symbol 的参数可以是一个字符串
 
 ```js
-var add = Symbol("a");
+var add = Symbol('a');
 console.log(add); // "a"
 var foo = Symbol({
-  name: "1"
+  name: '1',
 });
 console.log(foo); // "Symbol([object Object])"
 ```
@@ -30,8 +30,8 @@ console.log(foo); // "Symbol([object Object])"
 ```js
 var egg = Symbol({
   toString: function() {
-    return "egg";
-  }
+    return 'egg';
+  },
 });
 console.log(egg); // "Symbol(egg)"
 ```
@@ -55,9 +55,9 @@ egg[Symbol('add')]; // undefiend
 使用 symbol 值作为属性名时，赋值和取值都必须使用`[]`包括，且不能使用`.`运算符
 
 ```js
-var tmp = Symbol("foo");
+var tmp = Symbol('foo');
 var egg = {
-  [tmp]: 1
+  [tmp]: 1,
 };
 egg[tmp]; // 1
 
@@ -70,13 +70,13 @@ egg.tmp; // 3
 Symbol 值可以 `显式` 转为字符串和布尔值，却不能转为数值
 
 ```js
-var a = Symbol("foo");
+var a = Symbol('foo');
 String(a); // "Symbol(foo)"
 a.toString(); // "Symbol(foo)"
 Boolean(a); //true
 
 a + 2; // Typeerror
-a + " string"; // TypeError ： can't covert symbol to string
+a + ' string'; // TypeError ： can't covert symbol to string
 ```
 
 ## Symbol.for()
@@ -107,8 +107,8 @@ Object.is(Symbol.for('egg'), Symbol.for('egg')); // true
 通过`Symbol.keyFor()`方法，可以获取到登记在全局环境中 Symbol 值的 key ，
 
 ```js
-var add = Symbol("egg");
-var foo = Symbol.for("egg");
+var add = Symbol('egg');
+var foo = Symbol.for('egg');
 console.log(Symbol.keyFor(add)); // undefiend
 console.log(Symbol.keyFor(foo)); // "egg"
 ```
@@ -137,12 +137,12 @@ for( key in obj){
 要想获得对象的 Symbol 属性名，可以使用`Reflect.ownkeys()`和`getOwnPropertySymbols`方法。其中`Reflect.ownkeys()`会获取对象自身的的所有属性，其中包含了不可枚举属性和 Symbol 属性，而`getOwnPropertySymbols`则是专门获取对象自身所有的 Symbol 属性
 
 ```js
-let a = Symbol.for("a");
-let b = Symbol.for("b");
+let a = Symbol.for('a');
+let b = Symbol.for('b');
 
 const obj = {
   [a]: 1,
-  [b]: 2
+  [b]: 2,
 };
 console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(a), Symbol(b) ]
 ```
@@ -171,7 +171,7 @@ ES6 提供了 11 个内置的 Symbol 值,这里只介绍几个常用的：
 
 ```js
 var obj = {};
-console.log("" + obj); // 需要转换成字符串 输出内容："[Object object]"
+console.log('' + obj); // 需要转换成字符串 输出内容："[Object object]"
 console.log(+obj); // 需要转换成数字 输出内容：NaN
 console.log(!!obj); // 需要转换成布尔值 输出内容：true
 ```

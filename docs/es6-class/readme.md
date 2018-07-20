@@ -1,4 +1,4 @@
-# es6-class
+# es6 声明构造函数的语法糖-class
 
 > ES5 本身没有“类”的概念，为了让有 C 、java 开发习惯的人群能快速学习 javascript，ES6 中添加了`class`的概念，来声明一个构造函数，在 ES6 里面 ，class 只是一个语法糖，而不是真正意义上的类。
 
@@ -24,18 +24,18 @@ class Person {
   }
 
   // 定义一个原型链属性，方法1
-  name = "zhangsan";
+  name = 'zhangsan';
   // 定义一个原型链方法，相当于定义Person.prototype.add = function(){}
   // 不需要function关键字，也不需要逗号隔开
   add() {
-    console.log("add");
+    console.log('add');
   }
 
   // 定义一个静态属性， 目前ES6不支持，可通过一个getter函数模拟实现
   static age: 16;
   // 定义一个静态方法,只能通过类或者子类本身调用，不能通过实例调用
   static foo() {
-    console.log("foo");
+    console.log('foo');
   }
 }
 // 定义一个静态属性，方法2
@@ -47,19 +47,19 @@ class Subperson extends Person {
   }
 }
 
-let lily = new Person("3");
-let lilei = new Subperson("4");
+let lily = new Person('3');
+let lilei = new Subperson('4');
 console.log(lily); // {klass:3}
 console.log(Person.height); // 180
 console.log(Subperson.height); // 180
 console.log(lily.height); // undefined
 console.log(lilei.height); // undefined
-console.log("------");
+console.log('------');
 Person.foo(); //  foo
 Subperson.foo(); //  foo
 lily.foo(); // TypeError: lily.foo is not a function
 lilei.foo(); // TypeError: lilei.foo is not a function
-console.log("------");
+console.log('------');
 Person.add(); // TypeError: Person.add is not a function
 Subperson.add(); // TypeError: Subperson.add is not a function
 lily.add(); // add
@@ -73,12 +73,12 @@ class Person {
   constructor() {
     //   这个方法会被保存在构造器方法中，只可以被实例调用
     this.add = function() {
-      console.log("add");
+      console.log('add');
     };
   }
   //   这个方法会被保存在Person的原型链中，只可以被实例调用
   foo() {
-    console.log("foo");
+    console.log('foo');
   }
 }
 ```
@@ -88,11 +88,11 @@ ES5 中一个对象实例不仅能够调用构造器本身的构造方法，也�
 ```js
 function Person() {
   this.add = function() {
-    console.log("add");
+    console.log('add');
   };
 }
 Person.prototype.foo = function() {
-  console.log("foo");
+  console.log('foo');
 };
 ```
 
@@ -110,7 +110,7 @@ new Subperson().add(); // add
 ```js
 class Person {
   constructor() {
-    this.name = "zhangan";
+    this.name = 'zhangan';
   }
 }
 class Subperson extends Person {}
@@ -132,7 +132,7 @@ ES6 中允许为 class 声明一个静态方法，通过关键字`static`标识
 ```js
 class Person {
   static foo() {
-    console.log("foo");
+    console.log('foo');
   }
 }
 class Subperson extends Person {}
@@ -151,7 +151,7 @@ new Subperson.foo(); // TypeError: new Suberson().foo is not a function
 
 ```js
 class Person {}
-Person.name = "zhangsan";
+Person.name = 'zhangsan';
 class Subperson extends Person {}
 ```
 
@@ -225,12 +225,12 @@ new Foo() instanceof Foo; // false
 ```js
 class Name {
   constructor() {
-    this.name = "zhangsan";
+    this.name = 'zhangsan';
   }
 }
 class Person {
   constructor() {
-    this.name = "lisi";
+    this.name = 'lisi';
     return new Name();
   }
 }
@@ -251,14 +251,14 @@ new Person(); // {name: 'zhangsan'}
 ```js
 class Person {
   constructor() {
-    this.name = "zhangsan";
+    this.name = 'zhangsan';
   }
 }
 var a = new Person();
 var b = new Person();
 a.name; // zhangsan
 b.name; // zhangsan
-a.name = "lisi";
+a.name = 'lisi';
 a.name; // lisi
 b.name; // lisi
 
@@ -272,7 +272,7 @@ ES6 中引入了一个 new.target 属性，这个属性返回`new`关键字后�
 ```js
 function Add(name) {
   if (new.target === undefined) {
-    throw new Erro("请用new命令生成实例");
+    throw new Erro('请用new命令生成实例');
     return false;
   }
   this.name = name;
@@ -280,14 +280,14 @@ function Add(name) {
 }
 function Add(name) {
   if (new.target !== Add) {
-    throw new Error("请用new命令生成实例");
+    throw new Error('请用new命令生成实例');
     return false;
   }
   this.name = name;
   console.log(name);
 }
-var a = new Add("zhangsan"); // 不会报错
-Add.call(null, "lisi"); // 会报错
+var a = new Add('zhangsan'); // 不会报错
+Add.call(null, 'lisi'); // 会报错
 ```
 
 new.target 在子类中使用，会返回子类的构造函数，可以利用这点来确保开发过程中，避免使用父类生成实例对象。
@@ -296,7 +296,7 @@ new.target 在子类中使用，会返回子类的构造函数，可以利用这
 class Add {
   constructor() {
     if (new.target === Add) {
-      throw new Error("不能使用父类生成实例对象");
+      throw new Error('不能使用父类生成实例对象');
     }
   }
 }
@@ -348,7 +348,7 @@ class Foo extends Add {
     this.name = name;
   }
 }
-var foo = new Foo("zhangsan", 12);
+var foo = new Foo('zhangsan', 12);
 
 foo; // {name: 'zhangsan', age: 12}
 ```
@@ -366,7 +366,7 @@ class Foo extends Add {
     this.name = name;
   }
 }
-var foo = new Foo("zhangsan", 12);
+var foo = new Foo('zhangsan', 12);
 // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
 ```
 
@@ -385,7 +385,7 @@ class Foo extends Add {
   }
 }
 
-var foo = new Foo("zhangsan", 12);
+var foo = new Foo('zhangsan', 12);
 // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
 ```
 
@@ -395,11 +395,11 @@ var foo = new Foo("zhangsan", 12);
 class Add {
   constructor(props) {
     this.a = () => {
-      console.log(" a in constructor");
+      console.log(' a in constructor');
     };
   }
   a() {
-    console.log("a in prop");
+    console.log('a in prop');
   }
 }
 class Foo extends Add {
@@ -407,14 +407,14 @@ class Foo extends Add {
     super(props);
     super.b = () => {
       super.a = 1;
-      console.log("super.a:", super.a);
-      console.log("this.a:", this.a);
+      console.log('super.a:', super.a);
+      console.log('this.a:', this.a);
     };
   }
   c() {
     super.a = 2;
-    console.log("super.a:", super.a);
-    console.log("this.a:", this.a);
+    console.log('super.a:', super.a);
+    console.log('this.a:', this.a);
   }
 }
 let a = new Add();
@@ -445,7 +445,7 @@ ES5 中每一个对象都有一个原型(`__proto__`)属性，指向它构造函
 ```js
 class A {
   constructor() {
-    this.name = "zhangsan";
+    this.name = 'zhangsan';
   }
   getName() {}
 }
@@ -492,7 +492,7 @@ let person = new class {
   getName() {
     console.log(this.name);
   }
-}("张三");
+}('张三');
 person.getName(); //Myclass
 ```
 

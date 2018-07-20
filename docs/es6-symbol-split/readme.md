@@ -1,4 +1,4 @@
-# es6-symbol-split [Symbol.split] 属性
+# es6 内置属性-[Symbol.split]
 
 字符串的 splite 方法，用于把源字符串按照参数指定的规则分割，并返回一个数组，常用的参数可以是 `string` 或者 `regexp`
 

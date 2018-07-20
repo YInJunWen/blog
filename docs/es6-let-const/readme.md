@@ -1,4 +1,4 @@
-# es6-let -const 变量新的声明方式
+# es6 变量新的声明方式-let-const
 
 es6 中开始提供了新声明变量的方式：let 与 const，其中 let 声明一个变量，const 声明一个常量
 
@@ -33,7 +33,7 @@ let 和 const 声明的变量必须在声明之后使用，否则就会报错。
 
 ```js
 console.log(a);
-let a = "123";
+let a = '123';
 ```
 
 上面的句子中就会暴露`ReferenceError: a is not defined`的错误。这个错误会直接导致程序的停止运行，而不是我们常见的输出到控制台就继续下一步了。
@@ -87,12 +87,12 @@ ES5 中虽然明确规定函数只能在 `顶层作用域** 和 **函数作用�
 
 ```js
 function add() {
-  console.log("outside");
+  console.log('outside');
 }
 function foo() {
   if (true) {
     function add() {
-      console.log("inside");
+      console.log('inside');
     }
   }
   add();
@@ -110,12 +110,12 @@ foo();
 
 ```js
 function add() {
-  console.log("outside");
+  console.log('outside');
 }
 function foo() {
   if (true) {
     var add = function() {
-      console.log("inside");
+      console.log('inside');
     };
   }
   add();
@@ -127,12 +127,12 @@ foo();
 
 ```js
 function add() {
-  console.log("outside");
+  console.log('outside');
 }
 function foo() {
   if (true) {
     let add = function() {
-      console.log("inside");
+      console.log('inside');
     };
   }
   add();
@@ -145,21 +145,21 @@ foo();
 最后看一个案例
 
 ```js
-var tmp = "123";
+var tmp = '123';
 function add() {
   console.log(tmp);
   if (true) {
-    var tmp = "456";
+    var tmp = '456';
   }
 }
 add(); // undefined
 console.log(tmp); // 123
 
-var tmp = "123";
+var tmp = '123';
 function add() {
   console.log(tmp);
   if (true) {
-    let tmp = "456";
+    let tmp = '456';
   }
 }
 add(); // 123

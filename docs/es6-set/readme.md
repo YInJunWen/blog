@@ -1,4 +1,4 @@
-# es6-set 新的数据结构 Set 与 WeakSet
+# es6 新的数据结构-Set-WeakSet
 
 ES6 中加入了一种新的数据结构：Set，Set 本身是一个构造函数，需要使用`new`关键字来生成一个实例
 
@@ -46,7 +46,7 @@ set; // Set(4) {{}, {}, [], []}
 在给 Set 添加元素的过程中，不会发生类型转换，因此在 Set 中数字`1`和字符串`'1'`是完全不同的
 
 ```js
-let set = new Set([1, "1"]);
+let set = new Set([1, '1']);
 set; // Set(2) {1, '1']}
 ```
 
@@ -62,7 +62,7 @@ Set 实例中可以添加任何类型的数据结构
 
 ```js
 let set = new Set([
-  "string",
+  'string',
   10,
   true,
   null,
@@ -95,7 +95,7 @@ set.size; // 5
 ```js
 let set = new Set();
 set
-  .add("string")
+  .add('string')
   .add(10)
   .add(true)
   .add(null)
@@ -113,9 +113,9 @@ set.size; // 9
 ```js
 let set = new Set();
 set
-  .add("orange")
-  .add("pear")
-  .add("orange");
+  .add('orange')
+  .add('pear')
+  .add('orange');
 
 set.size; // 2
 ```
@@ -125,16 +125,16 @@ set.size; // 2
 `delete()`方法用于删除 Set 实例中的元素，但是要注意，方法中的参数是元素的 `值`， 删除成功返回 true，失败返回 false
 
 ```js
-let set = new Set(["orange", "pear"]);
-set.delete("orange"); // true
+let set = new Set(['orange', 'pear']);
+set.delete('orange'); // true
 set.size; // 1
 ```
 
 删除失败是个什么意思呢？ 比如删除一个 Set 实例中并不存在的值，就会返回 false
 
 ```js
-let set = new Set(["orange", "pear"]);
-set.delete("vegetables"); // false
+let set = new Set(['orange', 'pear']);
+set.delete('vegetables'); // false
 set.size; // 2
 ```
 
@@ -143,7 +143,7 @@ set.size; // 2
 `clear()`方法用于一次性清空 Set 实例中的所有元素,方法执行后返回 undefined
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 set.size; // 2
 set.clear(); // undefined
 set.size; // 0
@@ -154,9 +154,9 @@ set.size; // 0
 `has()`方法用于判断 Set 实例中是否包含某个值,如果包含返回 true， 不包含返回 false
 
 ```js
-let set = new Set(["orange", "pear"]);
-set.has("orange"); // true
-set.has("vegetables"); // false
+let set = new Set(['orange', 'pear']);
+set.has('orange'); // true
+set.has('vegetables'); // false
 ```
 
 ## 遍历
@@ -164,7 +164,7 @@ set.has("vegetables"); // false
 在上面去除数组中重复元素的例子中，我对 Set 数据类型使用了扩展运算符，说明 Set 数据类型本身也部署了`[Symbol.iterator]`接口，那么同样的也可以使用`for...of...`循环
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 for (let item of set) {
   console.log(item);
 }
@@ -174,12 +174,12 @@ for (let item of set) {
 
 ### keys()、values()、entries()方法
 
-首先，和Array 的`keys()、values()、entries()`方法一样，Set 实例的这三个方法同样返回一个遍历器对象
+首先，和 Array 的`keys()、values()、entries()`方法一样，Set 实例的这三个方法同样返回一个遍历器对象
 
 由于 Set 实例没有键名，或者说它的键名和键值是相同的，所以`keys()`和`values()`方法返回内容 `遍历输出** 后看起来都是一样的，都是元素的 value 值,而`entries()`返回的内容 **遍历输出` 后，key 和 value 也是一样的。
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 [...set.keys()]; // ["orange", "pear"]
 [...set.values()]; // ["orange", "pear"]
 [...set.entries()]; // [["orange", "orange"] ,["pear", "pear"]]
@@ -190,7 +190,7 @@ let set = new Set(["orange", "pear"]);
 Set 实例，同样可以使用 forEach 来循环遍历内部的元素
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 set.forEach(x => {
   console.log(x);
 });
@@ -203,7 +203,7 @@ set.forEach(x => {
 上面已经与一个案例中使用了扩展运算符来把 Set 实例转成真正的数组了
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 let arr = [...set];
 arr; // ["orange", "pear"]
 ```
@@ -211,7 +211,7 @@ arr; // ["orange", "pear"]
 除了扩展运算符，还可以使用 ES6 中`Array.from()`方法：
 
 ```js
-let set = new Set(["orange", "pear"]);
+let set = new Set(['orange', 'pear']);
 let arr = Array.from(set);
 arr; // ["orange", "pear"]
 ```
@@ -223,8 +223,8 @@ arr; // ["orange", "pear"]
 1.使用数组的 map 方法
 
 ```js
-let set = new Set(["orange", "pear"]);
-let arr = [...set].map(x => "fruit: " + x);
+let set = new Set(['orange', 'pear']);
+let arr = [...set].map(x => 'fruit: ' + x);
 let newSet = new Set(arr);
 
 newSet; // Set(2) {"fruit: orange", "fruit: pear"}
@@ -233,8 +233,8 @@ newSet; // Set(2) {"fruit: orange", "fruit: pear"}
 2.使用数组的 filter 方法
 
 ```js
-let set = new Set(["orange", "pear"]);
-let arr = [...set].filter(x => x === "pear");
+let set = new Set(['orange', 'pear']);
+let arr = [...set].filter(x => x === 'pear');
 let newSet = new Set(arr);
 
 newSet; // Set(1) {"pear"}
@@ -257,7 +257,7 @@ let weakSet2 = new WeakSet([]);
 
 ```js
 let set = new WeakSet();
-set.add("string");
+set.add('string');
 set.add(1);
 set.add(true);
 set.add(null);
@@ -282,7 +282,7 @@ set.add(new Map());
 所有的浏览器内核总都有一种垃圾回事机制，在垃圾回收机制中有一种特殊的计算方法，叫做“引用计数”。
 
 ```js
-var obj = { name: "zhangsan" }; // 引用次数: 0+1=1
+var obj = { name: 'zhangsan' }; // 引用次数: 0+1=1
 var egg = obj; // 引用次数: 1+1=2
 
 obj = null; //引用次数: 2-1=1

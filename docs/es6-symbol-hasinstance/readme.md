@@ -1,4 +1,4 @@
-# es6-symbol-hasInstance [Symbol.hasInstance] 属性
+# es6 内置属性-[Symbol.hasInstance]
 
 通常我们会用`object instanceof constructor`运算来判断 object 是否为 constructor 的实例(或者说 constructor.prototype 是否在 object 的原型链上) 在进行 instanceof 运算的时候，实际上就是执行了对象的`[symbol.hasInstance]`方法
 
@@ -15,7 +15,7 @@ Egg[Symbol.hasInstance](foo); // true
 const Even = {
   [Symbol.hasInstance](obj) {
     return obj > 1;
-  }
+  },
 };
 1 instanceof Even; // flase
 2 instanceof Even; // true
@@ -58,8 +58,8 @@ class Apple {
     return obj > 1;
   }
 }
-console.log("1 instanceof new Apple(): ", 1 instanceof new Apple());
-console.log("2 instanceof new Apple(): ", 2 instanceof new Apple());
+console.log('1 instanceof new Apple(): ', 1 instanceof new Apple());
+console.log('2 instanceof new Apple(): ', 2 instanceof new Apple());
 
 // 定义在原型链上
 class Pen {}

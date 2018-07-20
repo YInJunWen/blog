@@ -1,4 +1,4 @@
-# es6-symbol-unscopables [Symbol.unscopables] 属性
+# es6 内置属性-[Symbol.unscopables]
 
 这个属性主要用于修改使用 with 关键字后面代码块的上下文。先看一下正常的 with 案例
 

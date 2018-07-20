@@ -1,4 +1,4 @@
-# es6-symbol-match [Symbol.match] 属性
+# es6 内置属性-[Symbol.match]
 
 [Symbol.match]属性有两个作用
 

@@ -1,4 +1,4 @@
-# es6-symbol-toPrimitive [Symbol.toPrimitive] 属性
+# es6 内置属性-[Symbol.toPrimitive]
 
 该属性主要用于修改对象被转成原始值时的行为。比如一个变量为`var obj = {};`;这个变量在不同的运算符中，需要转换为不同的原始值
 

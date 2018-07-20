@@ -1,4 +1,4 @@
-# es6-symbol-toStringTag [Symbol.toStringTag] 属性
+# es6 内置属性-[Symbol.toStringTag]
 
 在工作中，通常会使用`Object.prototype.toString()`来返回一个值的数据类型, 比如：
 
