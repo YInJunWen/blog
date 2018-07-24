@@ -1,0 +1,11 @@
+<script>
+    let foo = function () {
+        console.log('foo');
+    };
+    foo.prototype.add = function () {
+        console.log('add in prototype');
+    };
+    let { add } = new foo();
+
+    add();
+</script>

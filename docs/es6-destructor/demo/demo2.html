@@ -1,0 +1,19 @@
+<script>
+    let foo = Object.create(
+        {
+            add: function () {
+                console.log('add in prototype');
+            },
+        },
+        {
+            add: {
+                value: function () {
+                    console.log('add');
+                },
+            },
+        }
+    );
+    let { add } = foo;
+
+    add(); // 'add'
+</script>

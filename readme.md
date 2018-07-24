@@ -1,4 +1,4 @@
-# 目录 (一共 185 篇文章)
+# 目录 (一共 186 篇文章)
 
 |标题|详情|
 |---|---|
@@ -53,6 +53,7 @@
 |es5 函数继承-非构造函数的继承|[详情](./docs/es5-uncontructor-function-inherit)|
 |es6 数组的扩展|[详情](./docs/es6-array)|
 |es6 声明构造函数的语法糖-class|[详情](./docs/es6-class)|
+|es6 变量的解构赋值|[详情](./docs/es6-destructor)|
 |es6 函数的扩展|[详情](./docs/es6-function)|
 |es6 遍历器对象生成函数-Generator|[详情](./docs/es6-generator)|
 |es6 遍历器-iterator|[详情](./docs/es6-iterator)|
