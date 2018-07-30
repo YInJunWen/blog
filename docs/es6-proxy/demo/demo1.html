@@ -1,0 +1,17 @@
+<script>
+    let obj = {};
+    Object.defineProperty(obj, 'name', {
+        configurable: true,
+        enumerable: true,
+        set: function (value) {
+            obj.name = value;
+        },
+        get: undefined,
+    });
+    let proxy = new Proxy(obj, {
+        get(target, key, receiver) {
+            return 'orange';
+        },
+    });
+    console.log(proxy.name);
+</script>

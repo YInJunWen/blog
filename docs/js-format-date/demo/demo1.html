@@ -1,0 +1,36 @@
+<script>
+    /*
+    * baseDate 日期，可以是时间戳也可以是JS的date对象
+    * baseFormat 格式
+    */
+    function formatDate(baseDate, baseFormat) {
+        let date;
+        if (!baseDate) {
+            throw new Error('first parameter must be pass.')
+        }
+        if (!baseFormat) {
+            baseFormat = 'yy-mm-dd hh:ii:ss'
+        }
+        if (Object.prototype.toString.call(baseDate) === '[object Date]') {
+            date = baseDate;
+        } else if (/^\d{10,13}$/.test(String(baseDate))) {
+            date = new Date(baseDate)
+        } else {
+            throw new Error('first parameter must be [Object date] or timestamp.')
+        }
+
+        const padZero = function (str) {
+            return str < 10 ? '0' + str : str
+        }
+        const year = date.getFullYear();
+        const month = padZero(date.getMonth());
+        const day = padZero(date.getDate());
+        const hour = padZero(date.getHours());
+        const minute = padZero(date.getMinutes());
+        const seconds = padZero(date.getSeconds());
+        let str = baseFormat.replace('yy', year).replace('mm', month).replace('dd', day).replace('hh', hour).replace('ii', minute).replace('ss', seconds)
+        console.log(str)
+
+    }
+    formatDate(new Date(), 'yy-mm-dd hh:ii:ss');
+</script>

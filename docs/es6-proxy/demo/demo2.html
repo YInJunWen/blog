@@ -1,0 +1,22 @@
+<script>
+    let obj = function () {
+        this.name = 'pear'
+    }
+    obj.prototype.age = '12'
+
+    let proxy = new Proxy(obj, {
+        get: function (target, key, receiver) {
+            if (key in target.prototype) {
+                return target.prototype.age
+            } else {
+                return 'orange'
+            }
+        }
+    });
+    console.log(proxy)
+    console.log(proxy.age)
+    let egg = new proxy();
+    console.log(egg);
+    console.log(egg.age)
+
+</script>

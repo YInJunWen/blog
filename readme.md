@@ -1,4 +1,4 @@
-# 目录 (一共 186 篇文章)
+# 目录 (一共 187 篇文章)
 
 |标题|详情|
 |---|---|
@@ -40,6 +40,7 @@
 |css 如何实现一个元素在父元素中上下左右居中|[详情](./docs/css-align-center-all)|
 |css animate-timing-function 属性|[详情](./docs/css-animate-timing-function)|
 |css 常见标签大全|[详情](./docs/css-basic-style)|
+|css 不允许 IE 浏览器访问-强制升级|[详情](./docs/css-browser-check)|
 |css 来做 html 检查|[详情](./docs/css-check-html)|
 |css 清除内联元素之间的间隙|[详情](./docs/css-clean-inline-block-element-space)|
 |css 中的 display-flex|[详情](./docs/css-display-flex)|
