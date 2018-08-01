@@ -1,5 +1,6 @@
-`Proxy`是 ES6 提供的新对象，用来自定义对目标的代理操作。也就是说，可以在目标的外面，设置一层“拦截”，在设置或者获取目标某些属性/方法的时候，先通过`Proxy`中定义的行为过滤和改写，再返回指定的内容。
+<!-- Date: 2017-11-14 19:31:21 -->
 
+`Proxy`是 ES6 提供的新对象，用来自定义对目标的代理操作。也就是说，可以在目标的外面，设置一层“拦截”，在设置或者获取目标某些属性/方法的时候，先通过`Proxy`中定义的行为过滤和改写，再返回指定的内容。
 > 本文的所有案例都在 chrome 控制台中测试
 
 具体的用法如下：
@@ -486,17 +487,19 @@ Object.getPrototypeOf(proxy);
 
 ```js
 let obj = {};
-let prop = { name: 'pear' };
+let foo = function() {};
+foo.prototype.name = 'zhangsan';
+foo.prototype.age = 12;
 let proxy = new Proxy(obj, {
   getPrototypeOf: function(target) {
-    return prop;
+    return foo.prototype;
   },
 });
 console.log(
-  Object.getPrototypeOf(proxy),
-  Reflect.getPrototypeOf(proxy),
-  proxy.__proto__,
-  proxy.isPrototypeOf(prop),
-  proxy instanceof prop
+  Object.getPrototypeOf(proxy), // {name: "zhangsan", age: 12, constructor: ƒ}
+  Reflect.getPrototypeOf(proxy), // {name: "zhangsan", age: 12, constructor: ƒ}
+  proxy.__proto__, // {name: "zhangsan", age: 12, constructor: ƒ}
+  foo.prototype.isPrototypeOf(proxy), // true
+  proxy instanceof foo // true
 );
 ```

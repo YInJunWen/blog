@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='title'></div>
+    <div id='content'></div>
+</body>
+
+<script>
+    const appState = {
+        title: {
+            text: 'this is title',
+            color: 'red',
+        },
+        content: {
+            text: 'this is content',
+            color: 'blue'
+        }
+    }
+
+    function renderApp(newState, oldState) {
+        console.log(`render app`)
+        renderTitle(newState.title, oldState ? oldState.title : '')
+        renderContent(newState.content, oldState ? oldState.content : '')
+    }
+
+    function renderTitle(newState, oldState) {
+        if (newState === oldState) { return; }
+        console.log(`render title`)
+        const titleDOM = document.getElementById('title')
+        titleDOM.innerHTML = newState.text
+        titleDOM.style.color = newState.color
+    }
+
+    function renderContent(newState, oldState) {
+        if (newState === oldState) { return; }
+        console.log(`render content`)
+        const contentDOM = document.getElementById('content')
+        contentDOM.innerHTML = newState.text
+        contentDOM.style.color = newState.color
+    }
+    function createStore(stateChanger) {
+        let state = null;
+        const listeners = []
+        const subscribe = (listener) => {
+            listeners.push(listener)
+        }
+        const getState = () => state
+        const dispatch = (action) => {
+            state = stateChanger(state, action)
+            listeners.forEach((listener) => listener())
+        }
+        dispatch();
+        return { getState, dispatch, subscribe }
+    }
+    function stateChanger(state, action = {}) {
+        if (!state) {
+            return {
+                title: {
+                    text: 'this is title',
+                    color: 'red',
+                },
+                content: {
+                    text: 'this is content',
+                    color: 'blue'
+                }
+            }
+        }
+        switch (action.type) {
+            case 'UPDATE_TITLE_TEXT':
+                return {
+                    ...state,
+                    title: {
+                        ...state.title,
+                        text: action.text
+                    }
+                }
+                break
+            case 'UPDATE_TITLE_COLOR':
+                return {
+                    ...state,
+                    title: {
+                        ...state.title,
+                        color: action.color
+                    }
+                }
+                break
+            default:
+                break
+        }
+    }
+    const store = createStore(stateChanger)
+    let oldState = store.getState();
+    store.subscribe(() => {
+        const newState = store.getState();
+        renderApp(store.getState(), oldState)
+        oldState = newState
+    })
+    renderApp(store.getState())
+    store.dispatch({ type: 'UPDATE_TITLE_TEXT', text: 'this is store.dispatch' }) // 修改标题文本
+    store.dispatch({ type: 'UPDATE_TITLE_COLOR', color: 'blue' })
+</script>
+
+</html>

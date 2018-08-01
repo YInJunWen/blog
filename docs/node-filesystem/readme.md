@@ -1,3 +1,5 @@
+<!-- Date: 2017-04-02 06:58:21 -->
+
 # node node-filesystem
 
 ## fs.ftruncate(fd, len, callback)

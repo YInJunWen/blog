@@ -36,9 +36,9 @@ let files = allFiles.filter(item => {
 
 let errorFile = [];
 ws.write(
-  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|详情|${
+  `# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|日期|详情|${
     os.EOL
-  }|---|---|${os.EOL}`,
+  }|---|---|---|${os.EOL}`,
   () => {
     generator(files);
   }
@@ -65,29 +65,29 @@ function generator(fileList, index = 0) {
   } else {
     fs.readFile(realPath, 'utf8', (err, data = '') => {
       // console.log('data', data)
-      let title = data.match(/^#\ (.*)/g);
+      let title = data.match(/^#\ (.*)/gm);
       if (!title) {
         errorFile.push('未找到标题:' + realPath);
         generator(fileList, ++index);
       } else {
-        if (title) {
-          title = title[0].replace('# ', '');
-          console.log('');
-          console.log(title);
+        title = title[0].replace('# ', '');
+        console.log('');
+        console.log(title);
+        let createTime = data.match(/Date:\ (.*)\ /)[1];
+        console.log(createTime);
+        // console.log(JSON.stringify(state.mtime));
+        // const mtime = formatDate(state.mtime);
 
-          let state = fs.statSync(realPath);
-          // console.log(JSON.stringify(state.mtime));
-          // const mtime = formatDate(state.mtime);
-
-          let wsData = `|${title}|[详情](./docs/${fileList[index]})|${os.EOL}`;
-          ws.write(wsData, (err, data) => {
-            if (err) {
-              throw new Error(`write function failed at ${file[index]}`);
-              return false;
-            }
-            generator(fileList, ++index);
-          });
-        }
+        let wsData = `|${title}|${createTime}|[详情](./docs/${
+          fileList[index]
+        })|${os.EOL}`;
+        ws.write(wsData, (err, data) => {
+          if (err) {
+            throw new Error(`write function failed at ${file[index]}`);
+            return false;
+          }
+          generator(fileList, ++index);
+        });
       }
     });
   }

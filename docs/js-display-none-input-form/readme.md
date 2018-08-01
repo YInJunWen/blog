@@ -1,3 +1,5 @@
+<!-- Date: 2018-06-28 12:10:08 -->
+
 # js display:none 的 input 元素会默认添加到表单中提交吗
 
 在传统的 form 表单提交中，常见的是可见的 input 元素，那么 css 设置为`display:none`的 input 元素可以添加到 post 数据中去吗？我这里做了一个小 demo

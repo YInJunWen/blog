@@ -1,3 +1,5 @@
+<!-- Date: 2017-10-28 02:06:24 -->
+
 # react 错误集合
 
 ## Each child in an array or iterator should have a unique "key" prop

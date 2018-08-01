@@ -1,3 +1,5 @@
+<!-- Date: 2017-09-10 20:41:54 -->
+
 # webpack4 新增的 optimization 配置项
 
 从 v4 开始，webpack 为项目的打包过程添加了默认的优化方案，这个方案会根据 webapck 配置文件中的 mode 自动改变，也可以在 webpack 的配置文件中添加 optimization 选项来覆盖默认的优化方案

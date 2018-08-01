@@ -1,3 +1,5 @@
+<!-- Date: 2017-12-19 13:33:11 -->
+
 # eslint 对 Promise 方法解析报错
 
 > 在本博客的 vue 版开发中，启用了 eslint 的检测。在 app_alert 组件中用到了 ES6 中心的 API： Promise，编辑器输出了以下错误

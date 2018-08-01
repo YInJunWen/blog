@@ -1,3 +1,5 @@
+<!-- Date: 2018-06-28 20:50:56 -->
+
 # es6 内置属性-[Symbol.toStringTag]
 
 在工作中，通常会使用`Object.prototype.toString()`来返回一个值的数据类型, 比如：

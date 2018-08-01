@@ -1,4 +1,6 @@
-# mac 中的 apache+php(多版本)+mysql@5.6
+<!-- Date: 2017-10-05 12:17:11 -->
+
+# mac 中的 apache+php(多版本)+mysql\@5.6
 
 ## mac 中安装/使用 mysql
 

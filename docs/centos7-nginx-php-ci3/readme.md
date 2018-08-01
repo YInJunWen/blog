@@ -1,3 +1,5 @@
+<!-- Date: 2018-07-09 15:27:18 -->
+
 # centOS7 中布置 nginx+php+ci3
 
 ## 更改 centOS 防火墙设置

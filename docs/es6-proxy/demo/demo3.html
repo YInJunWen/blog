@@ -1,0 +1,16 @@
+<script>
+    let obj = {}
+    let foo = function () { }
+    foo.prototype.name = "zhangsan"
+    foo.prototype.age = 12
+    let proxy = new Proxy(obj, {
+        getPrototypeOf: function (target) {
+            return foo.prototype
+        }
+    })
+    console.log(Object.getPrototypeOf(proxy))
+    console.log(Reflect.getPrototypeOf(proxy))
+    console.log(proxy.__proto__)
+    console.log(foo.prototype.isPrototypeOf(proxy))
+    console.log(proxy instanceof foo)
+</script>

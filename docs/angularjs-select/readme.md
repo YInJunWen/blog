@@ -1,3 +1,5 @@
+<!-- Date: 2016-05-21 16:40:37 -->
+
 # angularJS 中 select-option 的用法
 
 目的： 在 angular 中实现 select+option 的循环与绑定初始值

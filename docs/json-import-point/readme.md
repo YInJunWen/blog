@@ -1,3 +1,5 @@
+<!-- Date: 2016-09-26 00:11:34 -->
+
 # js Error: Unexpected token i in JSON
 
 报错内容： `Unexpected token i in JSON`

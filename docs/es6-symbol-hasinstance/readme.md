@@ -1,3 +1,5 @@
+<!-- Date: 2018-06-17 11:45:14 -->
+
 # es6 内置属性-[Symbol.hasInstance]
 
 通常我们会用`object instanceof constructor`运算来判断 object 是否为 constructor 的实例(或者说 constructor.prototype 是否在 object 的原型链上) 在进行 instanceof 运算的时候，实际上就是执行了对象的`[symbol.hasInstance]`方法

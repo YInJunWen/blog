@@ -1,3 +1,5 @@
+<!-- Date: 2017-10-24 04:51:10 -->
+
 # npm brwoser-sync 插件常见错误
 
 ## mime.lookup is not a function

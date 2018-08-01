@@ -1,3 +1,5 @@
+<!-- Date: 2018-06-09 12:45:44 -->
+
 # es6 内置属性-[Symbol.match]
 
 [Symbol.match]属性有两个作用

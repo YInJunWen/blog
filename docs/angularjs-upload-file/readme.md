@@ -1,3 +1,5 @@
+<!-- Date: 2016-05-15 06:18:01 -->
+
 # angularJS 中的文件上传
 
 angular 中对 input[type=file]使用 ng-change 无效，解决办法如下：

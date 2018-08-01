@@ -1,3 +1,5 @@
+<!-- Date: 2017-04-12 17:00:40 -->
+
 # node node-buffer
 
 > 由于 JavaScript 自身没有二进制数据类型，所以 Node 定义了一个 Buffer 类，来存放二进制数据的缓存区，它随着 Node 内核一起发布

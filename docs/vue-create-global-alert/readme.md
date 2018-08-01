@@ -1,3 +1,5 @@
+<!-- Date: 2018-01-23 13:10:04 -->
+
 # vue 中创建全局的弹窗组件
 
 > agularJS 中，我使用一个全局的 factory 定义了一个 dict 变量，并在 dict 中创建了一些 alert、confirm 的组件，并且返回一个 promise 对象，方便后续的连续调用，又可以避免每个页面都要引入一次组件。 Vue 中所有的东西都是组件，不能像 angularJS 那样可以定义一个 factory，只能思考其他的方法。

@@ -1,3 +1,5 @@
+<!-- Date: 2016-04-19 05:58:15 -->
+
 # express 初探
 
 [参考中文文档](https://www.zybuluo.com/XiangZhou/note/208532#express-4x-api)

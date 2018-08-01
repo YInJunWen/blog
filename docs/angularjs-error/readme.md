@@ -1,3 +1,5 @@
+<!-- Date: 2016-07-26 22:44:30 -->
+
 # angularJS 错误提示集合
 
 ## `$controller:ctrlreg`
