@@ -1,0 +1,12 @@
+<script>
+    let obj = {};
+    let proxy = new Proxy(obj, {
+        ownKeys: function (target) {
+            return [Symbol.for('egg'), 'age'];
+        },
+    });
+    console.log(Object.getOwnPropertyNames(proxy));
+    console.log(Object.getOwnPropertySymbols(proxy));
+    console.log(Reflect.ownKeys(proxy));
+    console.log(Object.keys(proxy));
+</script>

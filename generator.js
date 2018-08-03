@@ -60,25 +60,29 @@ function generator(fileList, index = 0) {
   // console.log(realPath);
   let fileExists = fs.existsSync(realPath);
   if (!fileExists) {
-    errorFile.push('未找到文件:' + realPath);
+    errorFile.push('未找到文件: ' + realPath);
     generator(fileList, ++index);
   } else {
     fs.readFile(realPath, 'utf8', (err, data = '') => {
       // console.log('data', data)
       let title = data.match(/^#\ (.*)/gm);
       if (!title) {
-        errorFile.push('未找到标题:' + realPath);
+        errorFile.push('未找到标题: ' + realPath);
         generator(fileList, ++index);
       } else {
         title = title[0].replace('# ', '');
         console.log('');
         console.log(title);
-        let createTime = data.match(/Date:\ (.*)\ /)[1];
-        console.log(createTime);
+        let createTime = data.match(/Date:\ (.*)\ /);
+        // console.log(createTime);
         // console.log(JSON.stringify(state.mtime));
         // const mtime = formatDate(state.mtime);
-
-        let wsData = `|${title}|${createTime}|[详情](./docs/${
+        if (!createTime) {
+          errorFile.push('未找到日期: ' + realPath);
+          generator(fileList, ++index);
+          return false;
+        }
+        let wsData = `|${title}|${createTime[0]}|[详情](./docs/${
           fileList[index]
         })|${os.EOL}`;
         ws.write(wsData, (err, data) => {

@@ -28,7 +28,7 @@ function formatDate(baseDate, baseFormat) {
     return str < 10 ? '0' + str : str;
   };
   const year = date.getFullYear();
-  const month = padZero(date.getMonth());
+  const month = padZero(date.getMonth()+1);
   const day = padZero(date.getDate());
   const hour = padZero(date.getHours());
   const minute = padZero(date.getMinutes());

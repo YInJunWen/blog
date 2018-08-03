@@ -1,0 +1,10 @@
+<script>
+    let obj = { name: 'peaer' };
+    let proxy = new Proxy(obj, {
+        ownKeys: function (target) {
+            return ['a', 'b', 'c'];
+        },
+    });
+    console.log(Object.getOwnPropertyNames(obj))
+    console.log(Object.getOwnPropertyNames(proxy))
+</script>
