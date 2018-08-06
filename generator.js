@@ -82,7 +82,7 @@ function generator(fileList, index = 0) {
           generator(fileList, ++index);
           return false;
         }
-        let wsData = `|${title}|${createTime[0]}|[详情](./docs/${
+        let wsData = `|${title}|${createTime[1]}|[详情](./docs/${
           fileList[index]
         })|${os.EOL}`;
         ws.write(wsData, (err, data) => {

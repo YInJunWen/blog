@@ -1,6 +1,6 @@
 <!-- Date: 2018-07-13 12:11:21 -->
 
-# es6 代理对象拦截器属性-getPrototypeOf
+# es6 代理对象的拦截器属性-getPrototypeOf
 
 `getPrototypeOf`属性，会拦击以下几种操作， 返回值必须是一个`对象`！
 

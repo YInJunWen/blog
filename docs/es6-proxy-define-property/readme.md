@@ -1,6 +1,6 @@
 <!-- Date: 2018-07-13 12:11:21 -->
 
-# es6 代理对象拦截器属性-defineProperty
+# es6 代理对象的拦截器属性-defineProperty
 
 `defineProperty`属性会拦截`通过描述属性的方式定义属性值`的操作
 

@@ -1,6 +1,6 @@
 <!-- Date: 2018-07-13 12:11:21 -->
 
-# es6 代理对象拦截器属性-setPrototypeOf
+# es6 代理对象的拦截器属性-setPrototypeOf
 
 `setPrototypeOf`属性，主要用于拦截`Obejct.setPrototypeOf(target, prototype)`和`Reflect.setPrototypeOf(target, prototype)`两种操作。
 

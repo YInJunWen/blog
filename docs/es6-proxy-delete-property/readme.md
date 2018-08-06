@@ -1,6 +1,6 @@
 <!-- Date: 2018-07-13 12:11:21 -->
 
-# es6 代理对象拦截器属性-deleteProperty
+# es6 代理对象的拦截器属性-deleteProperty
 
 `deleteProperty`属性用于拦截删除某个属性的操作。
 
