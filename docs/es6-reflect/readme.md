@@ -1,6 +1,6 @@
 <!-- Date: 2018-08-07 10:25:09 -->
 
-# es6 Reflect 对象
+# es6 新的对象-Reflect
 
 Reflect 和 Proxy 是一一对应的，Proxy 的拦截器参数有多少属性，Reflect 就有多少方法。
 
