@@ -8,20 +8,20 @@
 
 - `target`表示被代理的对象
 - `key`表示要获取的属性值
-- `receiver`表示被代理后返回的对象
+- `receiver`默认表示返回的代理对象
 
 ## 拦截案例
 
 ```js
 let obj = {
-  name: 'pear',
+  name: "pear",
 };
 let proxy = new Proxy(obj, {
   get(target, key, receiver) {
     console.log(target === obj); // true
     console.log(key); // 'name'
     console.log(receiver === proxy); // true
-    return 'orange';
+    return "orange";
   },
 });
 console.log(proxy.name);
@@ -33,11 +33,11 @@ console.log(proxy.name);
 
 ```js
 let obj = {
-  name: 'pear',
+  name: "pear",
 };
 let proxy = new Proxy(obj, {
   get(target, key, receiver) {
-    return 'orange';
+    return "orange";
   },
 });
 let egg = Object.craete(proxy);
@@ -49,15 +49,15 @@ egg.name; //'orange'
 
 ```js
 let obj = {
-  name: 'pear',
+  name: "pear",
 };
 let proxy = new Proxy(obj, {
   get(target, key, receiver) {
-    return 'orange';
+    return "orange";
   },
 });
 
-Reflect.get(proxy, 'name'); //'orange'
+Reflect.get(proxy, "name"); //'orange'
 ```
 
 ## 错误案例
@@ -66,15 +66,15 @@ Reflect.get(proxy, 'name'); //'orange'
 
 ```js
 let obj = {};
-Object.defineProperty(obj, 'name', {
-  value: 'pear',
+Object.defineProperty(obj, "name", {
+  value: "pear",
   configurable: false,
   writable: false,
   enumerable: true,
 });
 let proxy = new Proxy(obj, {
   get(target, key, receiver) {
-    return 'orange';
+    return "orange";
   },
 });
 console.log(proxy); // Proxy {name: 'pear'}

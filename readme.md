@@ -67,6 +67,7 @@
 |es6 代理对象的拦截器属性-defineProperty|2018-07-13 12:11:21|[详情](./docs/es6-proxy-define-property)|
 |es6 代理对象的拦截器属性-deleteProperty|2018-07-13 12:11:21|[详情](./docs/es6-proxy-delete-property)|
 |es6 代理对象的拦截器属性-get|2018-07-13 12:11:21|[详情](./docs/es6-proxy-get)|
+|es6 代理对象拦截器的属性-getOwnPropertyDescriptor|2018-08-06 13:30:21|[详情](./docs/es6-proxy-get-own-property-descriptor)|
 |es6 代理对象的拦截器属性-getPrototypeOf|2018-07-13 12:11:21|[详情](./docs/es6-proxy-get-prototype-of)|
 |es6 代理对象的拦截器属性-has|2018-07-13 12:11:21|[详情](./docs/es6-proxy-has)|
 |es6 代理对象的拦截器属性-isExtensible|2018-08-06 13:27:43|[详情](./docs/es6-proxy-is-extensible)|

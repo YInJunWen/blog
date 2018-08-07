@@ -18,10 +18,10 @@ new Proxy(target, handler);
 handler 中可以定义拦截不同的操作，比如`get`属性
 
 ```js
-let obj = { name: 'pear' };
+let obj = { name: "pear" };
 let proxy = new Proxy(obj, {
   get: function(target, key) {
-    return 'orange';
+    return "orange";
   },
 });
 console.log(proxy.orange); // 'orange'
@@ -32,15 +32,15 @@ console.log(proxy.orange); // 'orange'
 除了取值操作，赋值操作也可以被拦截
 
 ```js
-let obj = { name: 'pear' };
+let obj = { name: "pear" };
 let proxy = new Proxy(obj, {
   set: function(target, key, value) {
     console.log(key, value);
-    target[key] = 'apple';
+    target[key] = "apple";
     return true;
   },
 });
-proxy.name = 'orange';
+proxy.name = "orange";
 console.log(obj); // {name: 'apple'}
 ```
 
@@ -61,3 +61,93 @@ console.log(obj); // {name: 'apple'}
 - [handler.preventExtensions()](../es6-proxy-prevent-extensions)
 - [handler.apply()](../es6-proxy-apply)
 - [handler.construct()](../es6-proxy-construct)
+
+## Proxy 中的 this 问题
+
+正常情况下 Proxy 中的`this`都指向代理对象本身
+
+```js
+let obj = {
+  getName() {
+    console.log(this === proxy);
+  },
+};
+let proxy = new Proxy(obj, {});
+
+console.log(
+  obj.getName(), // false
+  proxy.getName(), // true
+);
+```
+
+在`Proxy`的拦截器参数中`get(target, key, value, receiver),set(target, key, value, receiver)`中如果传入了`receiver`，`this`将指向`receiver`
+
+```js
+let egg = {
+  age: 20,
+};
+let obj = {
+  age: 10,
+  get name() {
+    console.log(this === proxy, this === egg);
+    return this.age;
+  },
+};
+let proxy = new Proxy(obj, {});
+
+console.log(
+  Reflect.get(proxy, "name"), // 10
+  Reflect.get(proxy, "name", egg), // 20
+);
+```
+
+上面的案例中，当`receiver`参数传入一个`egg`的时候，`this`指向了`egg`。所以`return this.age`的值也是不同的
+
+再看一个特殊的例子(该例子来源于阮一峰老师的案例)
+
+```js
+let map = new Map();
+class Egg {
+  constructor() {
+    map.set(this, "pear");
+  }
+  getName() {
+    return map.get(this);
+  }
+}
+let obj = new Egg();
+let proxy = new Proxy(obj, {});
+
+console.log(
+  obj.getName(); // 'pear'
+  proxy.getName(); // undefined
+);
+```
+
+上面的例子中，被代理对象`obj.getName()`和`proxy.getName()`返回的结果是不同的，就是因为内部的`this`指向不同。`obj.getName()`中的`this`指向`obj`，map 的内容是`Map(1) {Egg => "pear"}`， `proxy.getName()`中的`this`指向`proxy`。`map`中并没有以`proxy`为键名的属性，所以返回了`undefined`
+
+## 可撤销代理的`Proxy`对象
+
+在某些场景中，我们希望必须通过代理对象访问目标对象，并且在一定条件后，可以直接访问目标对象。 此时就用到了“可以撤销的`Proxy`对象”。
+
+方法：`Proxy.revocable(target, handler)`，其中`target`与`handler`与正常的`new Proxy(target, handler)`用法相同，返回一个特殊对象
+
+该对象的结构为`{"proxy": proxy, "revoke": revoke}`， 其中`proxy`就是返回的代理对象，`revoke`是一个方法，用于撤销代理。代理被撤销后，再使用代理对象进行任何操作都会抛出错误
+
+```js
+let obj = {
+  name: "pear",
+};
+
+let revocable = Proxy.revocable(obj, {
+  get(target, key) {
+    return "orange";
+  },
+});
+
+let proxy = revocable.proxy;
+console.log(proxy.name); // pear
+
+revocable.revoke(); // 撤销代理
+console.log(proxy.name); // Uncaught TypeError: Cannot perform 'get' on a proxy that has been revoked
+```
