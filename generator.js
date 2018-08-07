@@ -1,14 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
+const fs = require("fs");
+const path = require("path");
+const os = require("os");
 
 console.log(
-  'begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+  "begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",
 );
-console.log('');
+console.log("");
 
-const docPath = path.resolve(__dirname, './docs');
-const menuFile = path.resolve(__dirname, './readme.md');
+const docPath = path.resolve(__dirname, "./docs");
+const menuFile = path.resolve(__dirname, "./readme.md");
 let fiels;
 try {
   allFiles = fs.readdirSync(docPath);
@@ -22,8 +22,8 @@ if (state) {
 }
 // 创建输入流
 let ws = fs.createWriteStream(menuFile, {
-  flags: 'w+',
-  encoding: 'utf8',
+  flags: "w+",
+  encoding: "utf8",
   fd: null,
   mode: 0o666,
   autoClose: true,
@@ -41,7 +41,7 @@ ws.write(
   }|---|---|---|${os.EOL}`,
   () => {
     generator(files);
-  }
+  },
 );
 
 function generator(fileList, index = 0) {
@@ -56,33 +56,33 @@ function generator(fileList, index = 0) {
     }
     return false;
   }
-  let realPath = path.resolve(docPath, './' + fileList[index] + '/readme.md');
+  let realPath = path.resolve(docPath, "./" + fileList[index] + "/readme.md");
   // console.log(realPath);
   let fileExists = fs.existsSync(realPath);
   if (!fileExists) {
-    errorFile.push('未找到文件: ' + realPath);
+    errorFile.push("未找到文件: " + realPath);
     generator(fileList, ++index);
   } else {
-    fs.readFile(realPath, 'utf8', (err, data = '') => {
+    fs.readFile(realPath, "utf8", (err, data = "") => {
       // console.log('data', data)
       let title = data.match(/^#\ (.*)/gm);
       if (!title) {
-        errorFile.push('未找到标题: ' + realPath);
+        errorFile.push("未找到标题: " + realPath);
         generator(fileList, ++index);
       } else {
-        title = title[0].replace('# ', '');
-        console.log('');
+        title = title[0].replace("# ", "");
+        console.log("");
         console.log(title);
         let createTime = data.match(/Date:\ (.*)\ /);
         // console.log(createTime);
         // console.log(JSON.stringify(state.mtime));
         // const mtime = formatDate(state.mtime);
         if (!createTime) {
-          errorFile.push('未找到日期: ' + realPath);
+          errorFile.push("未找到日期: " + realPath);
           generator(fileList, ++index);
           return false;
         }
-        let wsData = `|${title}|${createTime[0]}|[详情](./docs/${
+        let wsData = `|${title}|${createTime[1]}|[详情](./docs/${
           fileList[index]
         })|${os.EOL}`;
         ws.write(wsData, (err, data) => {
@@ -100,15 +100,15 @@ function generator(fileList, index = 0) {
 function formatDate(date) {
   return (
     date.getFullYear() +
-    '-' +
+    "-" +
     (date.getMonth() + 1 < 10
-      ? '0' + (date.getMonth() + 1)
+      ? "0" + (date.getMonth() + 1)
       : date.getMonth() + 1) +
-    '-' +
-    (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) +
-    ' ' +
-    (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) +
-    ':' +
-    (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
+    "-" +
+    (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) +
+    " " +
+    (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) +
+    ":" +
+    (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes())
   );
 }
