@@ -1,4 +1,4 @@
-# 目录 (一共 202 篇文章)
+# 目录 (一共 203 篇文章)
 
 |标题|日期|详情|
 |---|---|---|
@@ -115,6 +115,7 @@
 |js ES5 与 ES6 中的 for 循环|2018-06-19 02:06:51|[详情](./docs/js-for)|
 |js 表单提交的那些事儿|2018-02-24 00:27:58|[详情](./docs/js-form-submit)|
 |js 格式化获取到的日期对象 xxxx-xx-xx xx:xx|2017-07-09 04:24:18|[详情](./docs/js-format-date)|
+|js 解读-Function.prototype.apply.call()|2018-08-07 10:24:54|[详情](./docs/js-function-apply-call)|
 |js 函数的 prototype 属性|2017-10-04 01:02:27|[详情](./docs/js-function-prototype)|
 |js 函数式编程|2017-07-22 23:50:30|[详情](./docs/js-functional-programing)|
 |js 生成 36 位随机字符串|2017-04-19 02:45:38|[详情](./docs/js-generator-random-string)|

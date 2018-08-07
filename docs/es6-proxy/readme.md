@@ -132,7 +132,7 @@ console.log(
 
 方法：`Proxy.revocable(target, handler)`，其中`target`与`handler`与正常的`new Proxy(target, handler)`用法相同，返回一个特殊对象
 
-该对象的结构为`{"proxy": proxy, "revoke": revoke}`， 其中`proxy`就是返回的代理对象，`revoke`是一个方法，用于撤销代理。代理被撤销后，再使用代理对象进行任何操作都会抛出错误
+该对象的结构为`{"proxy": proxy, "revoke": function(){}}`， 其中`proxy`就是返回的代理对象，`revoke`是一个方法，用于撤销代理。代理被撤销后，再使用代理对象进行任何操作都会抛出错误
 
 ```js
 let obj = {
