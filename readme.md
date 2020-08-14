@@ -1,4 +1,4 @@
-# 目录 (一共 201 篇文章)
+# 目录 (一共 206 篇文章)
 
 |标题|日期|详情|
 |---|---|---|
@@ -75,7 +75,7 @@
 |es6 代理对象的拦截器属性-prevetExtensions|2018-08-06 12:10:11|[详情](./docs/es6-proxy-prevent-extensions)|
 |es6 代理对象的拦截器属性-set|2018-07-13 12:11:21|[详情](./docs/es6-proxy-set)|
 |es6 代理对象的拦截器属性-setPrototypeOf|2018-07-13 12:11:21|[详情](./docs/es6-proxy-set-prototype-of)|
-|es6 Reflect 对象|2018-08-07 10:25:09|[详情](./docs/es6-reflect)|
+|es6 新的对象-Reflect|2018-08-07 10:25:09|[详情](./docs/es6-reflect)|
 |es6 正则表达式的扩展|2018-07-04 12:59:52|[详情](./docs/es6-regexp)|
 |es6 新的数据结构-Set-WeakSet|2018-04-15 05:11:49|[详情](./docs/es6-set)|
 |es6 字符串的扩展|2018-04-20 04:20:49|[详情](./docs/es6-string)|
@@ -176,6 +176,11 @@
 |react 中定义样式的几种方式|2017-03-10 18:33:55|[详情](./docs/react-use-style)|
 |requireJS 小结|2017-12-23 14:31:48|[详情](./docs/requirejs)|
 |rpm 包管理基础|2017-11-20 23:32:43|[详情](./docs/rpm-basic)|
+|uniapp 中使用 page 标签设置页面背景色无效的问题|2020-08-12 15:16:11|[详情](./docs/uniapp-page-background-color)|
+|uniapp 中页面下拉刷新需要注意的问题|2020-08-13 18:20:11|[详情](./docs/uniapp-page-downrefresh)|
+|uniapp 中 px 单位转 rpx 的问题|2020-08-12 15:16:11|[详情](./docs/uniapp-questions)|
+|uniapp 开发中总结的页面加载时多次 api 请求的处理意见|2020-08-13 18:20:11|[详情](./docs/uniapp-resolve-multiple-data-on-load)|
+|uiapp 中 scroll-view 的下拉刷新事件与页面的下拉刷新事件|2020-08-14 14:47:11|[详情](./docs/uniapp-scroll-view-component)|
 |unicode 码与 ASCII 码|2017-05-16 17:01:51|[详情](./docs/unicode-ascii)|
 |vue 中创建全局的弹窗组件|2018-01-23 13:10:04|[详情](./docs/vue-create-global-alert)|
 |vue-router2 中如何设置默认的路由|2018-02-22 10:10:12|[详情](./docs/vue-router2-default-path)|
