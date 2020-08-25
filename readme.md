@@ -1,4 +1,4 @@
-# 目录 (一共 206 篇文章)
+# 目录 (一共 209 篇文章)
 
 |标题|日期|详情|
 |---|---|---|
@@ -105,6 +105,7 @@
 |gulp-rename 插件|2017-02-06 20:32:16|[详情](./docs/gulp-rename-plugin)|
 |h5 一些小坑整理|2018-01-11 02:38:01|[详情](./docs/h5-errors)|
 |h5 如何在 PC 上展示移动端页面的效果|2017-12-18 23:44:07|[详情](./docs/h5-show-in-pc)|
+|html2pdf 插件中遇到的跨域问题(不同源的图片绘制不出来)|2020-08-25 16:45:00|[详情](./docs/html2pdf)|
 |js 跨域 ajax 请求获取传递的 cookie|2017-05-16 06:02:01|[详情](./docs/js-ajax-cors-cookie)|
 |js 柯里化编程|2017-04-13 03:17:42|[详情](./docs/js-carry-programming)|
 |js 改变 select 元素的值|2017-11-02 10:07:04|[详情](./docs/js-change-select-value)|
@@ -176,11 +177,13 @@
 |react 中定义样式的几种方式|2017-03-10 18:33:55|[详情](./docs/react-use-style)|
 |requireJS 小结|2017-12-23 14:31:48|[详情](./docs/requirejs)|
 |rpm 包管理基础|2017-11-20 23:32:43|[详情](./docs/rpm-basic)|
+|uniapp 中前端处理接口中的文件流实现当前页面下载文件|2020-08-18 13:38:11|[详情](./docs/uniapp-down-file-stream)|
 |uniapp 中使用 page 标签设置页面背景色无效的问题|2020-08-12 15:16:11|[详情](./docs/uniapp-page-background-color)|
 |uniapp 中页面下拉刷新需要注意的问题|2020-08-13 18:20:11|[详情](./docs/uniapp-page-downrefresh)|
 |uniapp 中 px 单位转 rpx 的问题|2020-08-12 15:16:11|[详情](./docs/uniapp-questions)|
 |uniapp 开发中总结的页面加载时多次 api 请求的处理意见|2020-08-13 18:20:11|[详情](./docs/uniapp-resolve-multiple-data-on-load)|
 |uiapp 中 scroll-view 的下拉刷新事件与页面的下拉刷新事件|2020-08-14 14:47:11|[详情](./docs/uniapp-scroll-view-component)|
+|uniapp 中 uni.chooseImage 方法的底层 bug(触发 app 级别 onhide 与 onshow)的问题|2020-08-18 13:38:11|[详情](./docs/uniapp-uni-choose-image-bug)|
 |unicode 码与 ASCII 码|2017-05-16 17:01:51|[详情](./docs/unicode-ascii)|
 |vue 中创建全局的弹窗组件|2018-01-23 13:10:04|[详情](./docs/vue-create-global-alert)|
 |vue-router2 中如何设置默认的路由|2018-02-22 10:10:12|[详情](./docs/vue-router2-default-path)|
