@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "express": "^4.17.1"
+  }
+}

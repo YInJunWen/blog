@@ -1,0 +1,39 @@
+<button>dpf</button>
+<div class="wrapper" id="capture" style="width: 250px;">
+    <h1>title</h1>
+    <img src="http://localhost:3001/public/3.jpg" alt="" />
+    <img src="http://localhost:3001/public/5.jpg" alt="" />
+    <img src="http://localhost:3001/public/6.jpg" alt="" />
+    <img src="http://localhost:3001/public/7.jpg" alt="" />
+</div>
+
+<style>
+    .wrapper img {
+        width: 100%;
+    }
+</style>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
+<script src="./html2pdf.js"></script>
+<script>
+    window.onload = function () {
+        document.querySelector('button').onclick = function () {
+            var element = document.querySelector('.wrapper');
+            // html2canvas(element, {
+            //     allowTaint: true,
+            // }).then((canvas) => {
+            //     document.body.append(canvas);
+            // });
+            html2pdf()
+                .set({
+                    html2canvas: {
+                        // useCORS: true, // 这里是重点
+                        allowTaint: true,
+                    },
+                })
+                .from(element)
+                .save();
+        };
+    };
+</script>
