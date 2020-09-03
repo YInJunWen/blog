@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-02 19:37:06 -->
+<!-- Date: 2017-06-02 19:37 -->
 
 # algorithm 基础算法之直接插入排序
 
@@ -16,25 +16,25 @@
 
 ```js
 function directInsertionSort(array) {
-  var length = array.length,
-    index,
-    current;
-  for (var i = 1; i < length; i++) {
-    index = i - 1; //待比较元素的下标
-    current = array[i]; //当前元素
-    while (index >= 0 && array[index] > current) {
-      //前置条件之一:待比较元素比当前元素大
-      array[index + 1] = array[index]; //将待比较元素后移一位
-      index--; //游标前移一位
-      console.log(array);
+    var length = array.length,
+        index,
+        current;
+    for (var i = 1; i < length; i++) {
+        index = i - 1; //待比较元素的下标
+        current = array[i]; //当前元素
+        while (index >= 0 && array[index] > current) {
+            //前置条件之一:待比较元素比当前元素大
+            array[index + 1] = array[index]; //将待比较元素后移一位
+            index--; //游标前移一位
+            console.log(array);
+        }
+        if (index + 1 != i) {
+            //避免同一个元素赋值给自身，当待比较元素正好比前面所有元素都大的时候，会出现这种情况，这个时候就不需要再插入到自己本来的位置了
+            array[index + 1] = current; //将当前元素插入预留空位
+            console.log(array);
+        }
     }
-    if (index + 1 != i) {
-      //避免同一个元素赋值给自身，当待比较元素正好比前面所有元素都大的时候，会出现这种情况，这个时候就不需要再插入到自己本来的位置了
-      array[index + 1] = current; //将当前元素插入预留空位
-      console.log(array);
-    }
-  }
-  return array;
+    return array;
 }
 ```
 

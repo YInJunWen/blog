@@ -1,4 +1,4 @@
-<!-- Date: 2017-10-17 00:56:44 -->
+<!-- Date: 2017-10-17 00:56 -->
 
 # js 获取浏览器滚动条高度 scrollTop
 
@@ -25,8 +25,5 @@ safari 比较特别，有自己获取 scrollTop 的函数 ：`window.pageYOffset
 完美的获取 scrollTop 赋值短语 ：
 
 ```js
-var scrollTop =
-  document.documentElement.scrollTop ||
-  window.pageYOffset ||
-  document.body.scrollTop;
+var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 ```

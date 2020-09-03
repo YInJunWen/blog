@@ -1,10 +1,10 @@
-<!-- Date: 2016-09-12 17:34:43 -->
+<!-- Date: 2016-09-12 17:34 -->
 
 # php 删除目录以及里面的文件代码片段
 
 ```php
 // 删除目录及里面的文件
-function deleteDir($path){  
+function deleteDir($path){
     if(is_dir($path)){
      if($op = opendir($path)){
       while($file = readdir($op)){

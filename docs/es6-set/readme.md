@@ -1,4 +1,4 @@
-<!-- Date: 2018-04-15 05:11:49 -->
+<!-- Date: 2018-04-15 05:11 -->
 
 # es6 新的数据结构-Set-WeakSet
 
@@ -63,17 +63,7 @@ let set = new Set(arr);
 Set 实例中可以添加任何类型的数据结构
 
 ```js
-let set = new Set([
-  'string',
-  10,
-  true,
-  null,
-  undefined,
-  [],
-  {},
-  Symbol(),
-  function() {},
-]);
+let set = new Set(['string', 10, true, null, undefined, [], {}, Symbol(), function () {}]);
 
 set.size; // 9
 ```
@@ -96,16 +86,15 @@ set.size; // 5
 
 ```js
 let set = new Set();
-set
-  .add('string')
-  .add(10)
-  .add(true)
-  .add(null)
-  .add(undefined)
-  .add({})
-  .add([])
-  .add(function() {})
-  .add(Symbol());
+set.add('string')
+    .add(10)
+    .add(true)
+    .add(null)
+    .add(undefined)
+    .add({})
+    .add([])
+    .add(function () {})
+    .add(Symbol());
 
 set.size; // 9
 ```
@@ -114,10 +103,7 @@ set.size; // 9
 
 ```js
 let set = new Set();
-set
-  .add('orange')
-  .add('pear')
-  .add('orange');
+set.add('orange').add('pear').add('orange');
 
 set.size; // 2
 ```
@@ -168,7 +154,7 @@ set.has('vegetables'); // false
 ```js
 let set = new Set(['orange', 'pear']);
 for (let item of set) {
-  console.log(item);
+    console.log(item);
 }
 // "orange"
 // "pear"
@@ -193,8 +179,8 @@ Set 实例，同样可以使用 forEach 来循环遍历内部的元素
 
 ```js
 let set = new Set(['orange', 'pear']);
-set.forEach(x => {
-  console.log(x);
+set.forEach((x) => {
+    console.log(x);
 });
 // orange
 // pear
@@ -226,7 +212,7 @@ arr; // ["orange", "pear"]
 
 ```js
 let set = new Set(['orange', 'pear']);
-let arr = [...set].map(x => 'fruit: ' + x);
+let arr = [...set].map((x) => 'fruit: ' + x);
 let newSet = new Set(arr);
 
 newSet; // Set(2) {"fruit: orange", "fruit: pear"}
@@ -236,7 +222,7 @@ newSet; // Set(2) {"fruit: orange", "fruit: pear"}
 
 ```js
 let set = new Set(['orange', 'pear']);
-let arr = [...set].filter(x => x === 'pear');
+let arr = [...set].filter((x) => x === 'pear');
 let newSet = new Set(arr);
 
 newSet; // Set(1) {"pear"}
@@ -273,7 +259,7 @@ set.add(Symbol());
 let set = new WeakSet();
 set.add({});
 set.add([]);
-set.add(function() {});
+set.add(function () {});
 set.add(new Set());
 set.add(new Map());
 // ...等等

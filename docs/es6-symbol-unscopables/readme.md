@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-25 13:01:23 -->
+<!-- Date: 2018-06-25 13:01 -->
 
 # es6 内置属性-[Symbol.unscopables]
 
@@ -6,25 +6,25 @@
 
 ```js
 var egg = {
-  name: "zhangsan"
+    name: 'zhangsan',
 };
 with (egg) {
-  console.log(name); //  "张三"
+    console.log(name); //  "张三"
 }
 ```
 
 案例中，通过 with 关键字，egg 被自动设置为大括号中的上下文，所以可以直接使用 name 属性，如果人为设置了`[Symbol.unscopables]`属性呢
 
 ```js
-var name = "lisi";
+var name = 'lisi';
 var egg = {
-  name: "zhangsan",
-  [Symbol.unscopables]: {
-    name: true
-  }
+    name: 'zhangsan',
+    [Symbol.unscopables]: {
+        name: true,
+    },
 };
 with (egg) {
-  console.log(name); //  undefined
+    console.log(name); //  undefined
 }
 ```
 
@@ -33,17 +33,17 @@ with (egg) {
 [Symbol.unscopables]属性也可以写成 getter：
 
 ```js
-var name = "lisi";
+var name = 'lisi';
 var egg = {
-  name: "zhangsan",
-  get [Symbol.unscopables]() {
-    return {
-      name: true
-    };
-  }
+    name: 'zhangsan',
+    get [Symbol.unscopables]() {
+        return {
+            name: true,
+        };
+    },
 };
 with (egg) {
-  console.log(name); //  undefined
+    console.log(name); //  undefined
 }
 ```
 
@@ -51,42 +51,42 @@ with (egg) {
 
 ```js
 // 正常情况下的输出：
-var name = "lisi";
+var name = 'lisi';
 function Egg() {
-  this.name = "zhangsan";
+    this.name = 'zhangsan';
 }
 var eg = new Egg();
 with (eg) {
-  console.log(name); // "zhangsan"
+    console.log(name); // "zhangsan"
 }
 
 // 设置了unscopables属性的输出：
-var name = "lisi";
+var name = 'lisi';
 function Egg() {
-  this.name = "zhangsan";
-  this[Symbol.unscopables] = {
-    name: true
-  };
+    this.name = 'zhangsan';
+    this[Symbol.unscopables] = {
+        name: true,
+    };
 }
 var eg = new Egg();
 with (eg) {
-  console.log(name); // "lisi"
+    console.log(name); // "lisi"
 }
 ```
 
 当然了，设置在构造函数的原型链上也是可以的：
 
 ```js
-var name = "lisi";
+var name = 'lisi';
 function Egg() {
-  this.name = "zhangsan";
+    this.name = 'zhangsan';
 }
 Egg.prototype[Symbol.unscopables] = {
-  name: true
+    name: true,
 };
 var eg = new Egg();
 with (eg) {
-  console.log(name); // "lisi"
+    console.log(name); // "lisi"
 }
 ```
 
@@ -94,52 +94,52 @@ with (eg) {
 
 ```js
 // 定义在构造函数中：
-var name = "lisi";
+var name = 'lisi';
 class Egg {
-  constuctor(props) {
-    this.name = "zhangsan";
-    this[Symbol.unscopables] = {
-      name: true
-    };
-  }
+    constuctor(props) {
+        this.name = 'zhangsan';
+        this[Symbol.unscopables] = {
+            name: true,
+        };
+    }
 }
 var eg = new Egg();
 with (eg) {
-  console.log(name); // "lisi"
+    console.log(name); // "lisi"
 }
 
 // 定义在原型链上：
-var name = "lisi";
+var name = 'lisi';
 class Egg {
-  constructor(props) {
-    this.name = "zhangsan";
-  }
-  [Symbol.unscopables]() {
-    return {
-      name: true
-    };
-  }
+    constructor(props) {
+        this.name = 'zhangsan';
+    }
+    [Symbol.unscopables]() {
+        return {
+            name: true,
+        };
+    }
 }
 var eg = new Egg();
 with (eg) {
-  console.log(name); // "lisi"
+    console.log(name); // "lisi"
 }
 ```
 
 最后再来看看定义在构造函数静态属性上的`[Symbol.unscopables]`属性:
 
 ```js
-var names = "lisi";
+var names = 'lisi';
 function Egg() {}
-Egg.names = "zhangsan";
+Egg.names = 'zhangsan';
 
 with (Egg) {
-  console.log(names); // "zhangsan"
+    console.log(names); // "zhangsan"
 }
 
 Egg[Symbol.unscopables] = { names: true };
 with (Egg) {
-  console.log(names); // "lisi"
+    console.log(names); // "lisi"
 }
 ```
 
@@ -152,33 +152,33 @@ with (Egg) {
 ```js
 // 第一种方式静态属性的方式：
 
-var names = "lisi";
+var names = 'lisi';
 class Egg {}
-Egg.names = "zhangsan";
+Egg.names = 'zhangsan';
 
 with (Egg) {
-  console.log(names); // "zhangsan"
+    console.log(names); // "zhangsan"
 }
 
 Egg[Symbol.unscopables] = { names: true };
 with (Egg) {
-  console.log(names); // "lisi"
+    console.log(names); // "lisi"
 }
 
 // 第二种设置静态属性的方式：
-var names = "lisi";
+var names = 'lisi';
 class Egg {
-  static get names() {
-    return "zhangsan";
-  }
-  static get [Symbol.unscopables]() {
-    return {
-      names: true
-    };
-  }
+    static get names() {
+        return 'zhangsan';
+    }
+    static get [Symbol.unscopables]() {
+        return {
+            names: true,
+        };
+    }
 }
 with (Egg) {
-  console.log(names); // "lisi"ƒ
+    console.log(names); // "lisi"ƒ
 }
 ```
 

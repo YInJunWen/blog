@@ -1,4 +1,4 @@
-<!-- Date: 2016-04-12 08:58:47 -->
+<!-- Date: 2016-04-12 08:58 -->
 
 # express 中的 app
 
@@ -21,17 +21,17 @@
 利用 cookie-parser 我们就可以自定义一个验证用户权限的中间件，比如：
 
 ```js
-var cookieParser = require("cookie-parser");
+var cookieParser = require('cookie-parser');
 app.use(cookieParser());
-app.use(function(req, res) {
-  username = req.cookies.fitsr_name;
-  uid = req.cookies.uid;
-  //验证用户身份
-  if (验证通过) {
-    继续下一步;
-  } else {
-    next("权限不足");
-  }
+app.use(function (req, res) {
+    username = req.cookies.fitsr_name;
+    uid = req.cookies.uid;
+    //验证用户身份
+    if (验证通过) {
+        继续下一步;
+    } else {
+        next('权限不足');
+    }
 });
 ```
 
@@ -42,15 +42,15 @@ app.use(function(req, res) {
 1.app.get(name)可以用来获取通过 app.set()方法定义的 name 值
 
 ```js
-app.set("title", "react-demo");
-app.get("title"); //react-demo
+app.set('title', 'react-demo');
+app.get('title'); //react-demo
 ```
 
 2.app.get(path,callback[,callback...])用来设置路由，path 是服务器上的额路径，callback 是当路由匹配时要执行的函数，例如
 
 ```js
 // 匹配根目录的访问
-app.get("/", function(req, res) {
-  res.send("hello world");
+app.get('/', function (req, res) {
+    res.send('hello world');
 });
 ```

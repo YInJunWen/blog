@@ -1,4 +1,4 @@
-<!-- Date: 2016-06-20 06:08:38 -->
+<!-- Date: 2016-06-20 06:08 -->
 
 # angularJS 项目结构总结
 
@@ -7,8 +7,8 @@
 1.  不想在开发调试某一个页面的时候，还要到 controller、directives、filters 中找对应的文件，因此产生了按照页面把他所包含的 js(_.controller.js, _.directive.js, _.filter.js, _.service.js 等)、less、html 全部放在一起的想法
 2.  在 Mac 开发中，忽然有一天编译的特别慢，电脑也卡了，经过排除，发现是图片的问题，由于在开发中的图片都是没有经过优化的，一些图片甚至超过了 2M 大小，因此就想把图片都放在一个文件夹中，这个文件夹要满足两方面的条件：
 
-* 在 html 或者 less 中引入的时候，固定格式为"/image/test/"
-* 文件夹不会被 gulp.clean 任务清除
+-   在 html 或者 less 中引入的时候，固定格式为"/image/test/"
+-   文件夹不会被 gulp.clean 任务清除
 
 3.  有一个项目中出现了多个页面都要获取一个相同类型的数据、比如用户的信息，所以在 components 中专门拿出来一个 modules 文件夹，来放置 service 文件和测试用的 json 文件
 

@@ -1,37 +1,37 @@
-<!-- Date: 2018-07-13 12:11:21 -->
+<!-- Date: 2018-07-13 12:11 -->
 
 # es6 代理对象的拦截器属性-defineProperty
 
 `defineProperty`属性会拦截`通过描述属性的方式定义属性值`的操作
 
-- Object.defineProperty(target, key, descriptor)
-- Object.defineProperties(target, values)
+-   Object.defineProperty(target, key, descriptor)
+-   Object.defineProperties(target, values)
 
 ## 参数
 
-- `target`表示被代理的对象
-- `key`表示要设置的属性名
-- `descriptor`表示属性值的描述对象
+-   `target`表示被代理的对象
+-   `key`表示要设置的属性名
+-   `descriptor`表示属性值的描述对象
 
 ## 拦截案例
 
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  defineProperty: function(target, key, descriptor) {
-    console.log(target === obj); // true
-    console.log(key); // 'name'
-    console.log(descriptor); // {value: 'pear'}
-    return true;
-  },
+    defineProperty: function (target, key, descriptor) {
+        console.log(target === obj); // true
+        console.log(key); // 'name'
+        console.log(descriptor); // {value: 'pear'}
+        return true;
+    },
 });
 Object.defineProperty(proxy, 'name', {
-  value: 'pear',
+    value: 'pear',
 });
 Object.defineProperties(proxy, {
-  age: {
-    value: 12,
-  },
+    age: {
+        value: 12,
+    },
 });
 ```
 
@@ -42,12 +42,12 @@ Object.defineProperties(proxy, {
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  defineProperty: function(target, key, descriptor) {
-    return false;
-  },
+    defineProperty: function (target, key, descriptor) {
+        return false;
+    },
 });
 Object.defineProperty(proxy, 'name', {
-  value: 'pear',
+    value: 'pear',
 });
 // Uncaught TypeError: 'defineProperty' on proxy: trap returned falsish for property 'name'
 ```
@@ -60,9 +60,9 @@ Object.defineProperty(proxy, 'name', {
 let obj = {};
 obj.preventExtensions = false;
 let proxy = new Proxy(obj, {
-  defineProperty: function(target, key, descriptor) {
-    return false;
-  },
+    defineProperty: function (target, key, descriptor) {
+        return false;
+    },
 });
 
 Object.defineProperty(proxy, 'name', { value: 1 });
@@ -76,15 +76,15 @@ Object.defineProperty(proxy, 'name', { value: 1 });
 ```js
 let obj = {};
 Object.defineProperty(obj, 'name', {
-  value: 'pear',
-  writable: false,
-  configurable: true,
-  enumerable: true,
+    value: 'pear',
+    writable: false,
+    configurable: true,
+    enumerable: true,
 });
 let proxy = new Proxy(obj, {
-  defineProperty: function(target, key, descriptor) {
-    return false;
-  },
+    defineProperty: function (target, key, descriptor) {
+        return false;
+    },
 });
 
 Object.defineProperty(proxy, 'name', { value: 1 });
@@ -96,15 +96,15 @@ Object.defineProperty(proxy, 'name', { value: 1 });
 ```js
 let obj = {};
 Object.defineProperty(obj, 'name', {
-  value: 'pear',
-  writable: true,
-  configurable: false,
-  enumerable: true,
+    value: 'pear',
+    writable: true,
+    configurable: false,
+    enumerable: true,
 });
 let proxy = new Proxy(obj, {
-  defineProperty: function(target, key, descriptor) {
-    return false;
-  },
+    defineProperty: function (target, key, descriptor) {
+        return false;
+    },
 });
 
 Object.defineProperty(proxy, 'name', { value: 1 });

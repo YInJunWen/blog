@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-14 02:51:22 -->
+<!-- Date: 2017-09-14 02:51 -->
 
 # js 实时预览选择的图片文件
 
@@ -26,13 +26,13 @@ function shwTHhumb(){
 
 ```js
 function shwTHhumb() {
-  var inputEle = document.querySelector('form');
-  var url = URL.createObjectURL(inputEle.files[0]);
-  var img = new Image();
-  img.src = url;
-  img.onload = function() {
-    document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
-  };
+    var inputEle = document.querySelector('form');
+    var url = URL.createObjectURL(inputEle.files[0]);
+    var img = new Image();
+    img.src = url;
+    img.onload = function () {
+        document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
+    };
 }
 ```
 
@@ -40,13 +40,13 @@ function shwTHhumb() {
 
 ```js
 function shwTHhumb() {
-  var inputEle = document.querySelector('form');
-  var url = URL.createObjectURL(inputEle.files[0]);
-  var img = new Image();
-  img.src = url;
-  img.onload = function() {
-    document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
-  };
+    var inputEle = document.querySelector('form');
+    var url = URL.createObjectURL(inputEle.files[0]);
+    var img = new Image();
+    img.src = url;
+    img.onload = function () {
+        document.querySelector('#thumb').style.backgroundImage = 'url(' + url + ')';
+    };
 }
 ```
 

@@ -1,4 +1,4 @@
-<!-- Date: 2016-08-21 05:45:17 -->
+<!-- Date: 2016-08-21 05:45 -->
 
 # es5 函数继承-构造函数的继承(2)
 
@@ -32,10 +32,10 @@ cat2.color = '黑色';
 
 ```js
 function Cat(name, color) {
-  return {
-    name: name,
-    color: color,
-  };
+    return {
+        name: name,
+        color: color,
+    };
 }
 ```
 
@@ -58,8 +58,8 @@ var cat2 = Cat('二毛', '黑色');
 
 ```js
 function Cat(name, color) {
-  this.name = name;
-  this.color = color;
+    this.name = name;
+    this.color = color;
 }
 ```
 
@@ -92,12 +92,12 @@ alert(cat2 instanceof Cat); //true
 
 ```js
 function Cat(name, color) {
-  this.name = name;
-  this.color = color;
-  this.type = '猫科动物';
-  this.eat = function() {
-    alert('吃老鼠');
-  };
+    this.name = name;
+    this.color = color;
+    this.type = '猫科动物';
+    this.eat = function () {
+        alert('吃老鼠');
+    };
 }
 ```
 
@@ -124,12 +124,12 @@ Javascript 规定，每一个构造函数都有一个 prototype 属性，指向�
 
 ```js
 function Cat(name, color) {
-  this.name = name;
-  this.color = color;
+    this.name = name;
+    this.color = color;
 }
 Cat.prototype.type = '猫科动物';
-Cat.prototype.eat = function() {
-  alert('吃老鼠');
+Cat.prototype.eat = function () {
+    alert('吃老鼠');
 };
 ```
 
@@ -182,6 +182,6 @@ in 运算符还可以用来遍历某个对象的所有属性。
 
 ```js
 for (var prop in cat1) {
-  alert('cat1[' + prop + ']=' + cat1[prop]);
+    alert('cat1[' + prop + ']=' + cat1[prop]);
 }
 ```

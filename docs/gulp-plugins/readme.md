@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-14 15:50:50 -->
+<!-- Date: 2018-03-14 15:50 -->
 
 # gulp 常用插件
 
@@ -14,8 +14,8 @@ gulp.src('./js/**/{omui,common}.js')        // {} 匹配{}里的文件名
 ## del (替代 gulp-clean)
 
 ```js
-var del = require("del");
-del("./dist"); // 删除整个dist文件夹
+var del = require('del');
+del('./dist'); // 删除整个dist文件夹
 ```
 
 ## gulp-rename
@@ -45,17 +45,15 @@ gulp.src('./hello.txt')
 描述：合并文件。
 
 ```js
-var concat = require("gulp-concat");
+var concat = require('gulp-concat');
 
-gulp
-  .src("./js/*.js")
-  .pipe(concat("all.js")) // 合并all.js文件
-  .pipe(gulp.dest("./dist"));
+gulp.src('./js/*.js')
+    .pipe(concat('all.js')) // 合并all.js文件
+    .pipe(gulp.dest('./dist'));
 
-gulp
-  .src(["./js/demo1.js", "./js/demo2.js", "./js/demo2.js"])
-  .pipe(concat("all.js")) // 按照[]里的顺序合并文件
-  .pipe(gulp.dest("./dist"));
+gulp.src(['./js/demo1.js', './js/demo2.js', './js/demo2.js'])
+    .pipe(concat('all.js')) // 按照[]里的顺序合并文件
+    .pipe(gulp.dest('./dist'));
 ```
 
 ## gulp-filter
@@ -63,21 +61,19 @@ gulp
 描述：在虚拟文件流中过滤文件。
 
 ```js
-var filter = require("gulp-filter");
+var filter = require('gulp-filter');
 
-const f = filter(["**", "!*/index.js"]);
-gulp
-  .src("js/**/*.js")
-  .pipe(f) // 过滤掉index.js这个文件
-  .pipe(gulp.dest("dist"));
+const f = filter(['**', '!*/index.js']);
+gulp.src('js/**/*.js')
+    .pipe(f) // 过滤掉index.js这个文件
+    .pipe(gulp.dest('dist'));
 
-const f1 = filter(["**", "!*/index.js"], { restore: true });
-gulp
-  .src("js/**/*.js")
-  .pipe(f1) // 过滤掉index.js这个文件
-  .pipe(uglify()) // 对其他文件进行压缩
-  .pipe(f1.restore) // 返回到未过滤执行的所有文件
-  .pipe(gulp.dest("dist")); // 再对所有文件操作，包括index.js
+const f1 = filter(['**', '!*/index.js'], { restore: true });
+gulp.src('js/**/*.js')
+    .pipe(f1) // 过滤掉index.js这个文件
+    .pipe(uglify()) // 对其他文件进行压缩
+    .pipe(f1.restore) // 返回到未过滤执行的所有文件
+    .pipe(gulp.dest('dist')); // 再对所有文件操作，包括index.js
 ```
 
 ## gulp-uglify
@@ -105,12 +101,9 @@ gulp.src('./hello.js')
 描述：压缩优化 css。
 
 ```js
-var csso = require("gulp-csso");
+var csso = require('gulp-csso');
 
-gulp
-  .src("./css/*.css")
-  .pipe(csso())
-  .pipe(gulp.dest("./dist/css"));
+gulp.src('./css/*.css').pipe(csso()).pipe(gulp.dest('./dist/css'));
 ```
 
 ## gulp-html-minify
@@ -118,12 +111,9 @@ gulp
 描述：压缩 HTML。
 
 ```js
-var htmlminify = require("gulp-html-minify");
+var htmlminify = require('gulp-html-minify');
 
-gulp
-  .src("index.html")
-  .pipe(htmlminify())
-  .pipe(gulp.dest("./dist"));
+gulp.src('index.html').pipe(htmlminify()).pipe(gulp.dest('./dist'));
 ```
 
 gulp-imagemin
@@ -131,12 +121,9 @@ gulp-imagemin
 描述：压缩图片。
 
 ```js
-var imagemin = require("gulp-imagemin");
+var imagemin = require('gulp-imagemin');
 
-gulp
-  .src("./img/*.{jpg,png,gif,ico}")
-  .pipe(imagemin())
-  .pipe(gulp.dest("./dist/img"));
+gulp.src('./img/*.{jpg,png,gif,ico}').pipe(imagemin()).pipe(gulp.dest('./dist/img'));
 ```
 
 ## gulp-zip
@@ -144,12 +131,11 @@ gulp
 描述：ZIP 压缩文件。
 
 ```js
-var zip = require("gulp-zip");
+var zip = require('gulp-zip');
 
-gulp
-  .src("./src/*")
-  .pipe(zip("all.zip")) // 压缩成all.zip文件
-  .pipe(gulp.dest("./dist"));
+gulp.src('./src/*')
+    .pipe(zip('all.zip')) // 压缩成all.zip文件
+    .pipe(gulp.dest('./dist'));
 ```
 
 ## gulp-autoprefixer
@@ -182,26 +168,22 @@ gulp.src('./css/*.css')
 
 ```html
 <!-- build:css /css/all.css -->
-<link rel=&stylesheet& href=&css/normalize.css&>
-<link rel=&stylesheet& href=&css/main.css&>
+<link rel=&stylesheet& href=&css/normalize.css&> <link rel=&stylesheet& href=&css/main.css&>
 <!-- endbuild -->
 ```
 
 // gulpfile.js
 
 ```js
-var useref = require("gulp-useref");
+var useref = require('gulp-useref');
 
-gulp
-  .src("index.html")
-  .pipe(useref())
-  .pipe(gulp.dest("./dist"));
+gulp.src('index.html').pipe(useref()).pipe(gulp.dest('./dist'));
 ```
 
 替换之后的 index.html 中就会变成：
 
 ```html
-<link rel=&stylesheet& href=&css/all.css&>  // 之前的两个<link>替换成一个了
+<link rel=&stylesheet& href=&css/all.css&> // 之前的两个<link />替换成一个了
 ```
 
 ## gulp-rev
@@ -209,12 +191,9 @@ gulp
 描述：给静态资源文件名添加 hash 值:unicorn.css => unicorn-d41d8cd98f.css
 
 ```js
-var rev = require("gulp-rev");
+var rev = require('gulp-rev');
 
-gulp
-  .src("./css/*.css")
-  .pipe(rev())
-  .pipe(gulp.dest("./dist/css"));
+gulp.src('./css/*.css').pipe(rev()).pipe(gulp.dest('./dist/css'));
 ```
 
 ## gulp-rev-replace
@@ -222,16 +201,15 @@ gulp
 描述：重写被 gulp-rev 重命名的文件名。
 
 ```js
-var rev = require("gulp-rev");
-var revReplace = require("gulp-rev-replace");
-var useref = require("gulp-useref");
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
+var useref = require('gulp-useref');
 
-gulp
-  .src("index.html")
-  .pipe(useref()) // 替换HTML中引用的css和js
-  .pipe(rev()) // 给css,js,html加上hash版本号
-  .pipe(revReplace()) // 把引用的css和js替换成有版本号的名字
-  .pipe(gulp.dest("./dist"));
+gulp.src('index.html')
+    .pipe(useref()) // 替换HTML中引用的css和js
+    .pipe(rev()) // 给css,js,html加上hash版本号
+    .pipe(revReplace()) // 把引用的css和js替换成有版本号的名字
+    .pipe(gulp.dest('./dist'));
 ```
 
 ## gulp-html-replace
@@ -241,31 +219,29 @@ gulp
 // index.html
 
 ```html
-<!-- build:css -->                          // css是buildName,可以自己定义
-<link rel=&stylesheet& href=&css/normalize.css&>
-<link rel=&stylesheet& href=&css/main.css&>
+<!-- build:css -->
+// css是buildName,可以自己定义 <link rel=&stylesheet& href=&css/normalize.css&> <link rel=&stylesheet& href=&css/main.css&>
 <!-- endbuild -->
 ```
 
 // gulpfile.js
 
 ```js
-var htmlreplace = require("gulp-html-replace");
+var htmlreplace = require('gulp-html-replace');
 
-gulp
-  .src("index.html")
-  .pipe(
-    htmlreplace({
-      css: "all.css" // css是index.html中定义的buildName
-    })
-  )
-  .pipe(gulp.dest("./dist"));
+gulp.src('index.html')
+    .pipe(
+        htmlreplace({
+            css: 'all.css', // css是index.html中定义的buildName
+        })
+    )
+    .pipe(gulp.dest('./dist'));
 ```
 
 替换之后的 index.html 中就会变成：
 
 ```html
-<link rel=&stylesheet& href=&all.css&>      // 之前的两个<link>替换成一个了
+<link rel="&stylesheet&" href="&all.css&" /> // 之前的两个<link />替换成一个了
 ```
 
 ## gulp-if
@@ -273,14 +249,13 @@ gulp
 描述：有条件地运行一个任务。
 
 ```js
-var gulpif = require("gulp-if");
-var uglify = require("gulp-uglify");
-var concat = require("gulp-concat");
+var gulpif = require('gulp-if');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 var condition = true;
-gulp
-  .src("./js/*.js")
-  .pipe(gulpif(condition, uglify(), concat("all.js"))) // condition为true时执行uglify(), else 执行concat('all.js')
-  .pipe(gulp.dest("./dist/"));
+gulp.src('./js/*.js')
+    .pipe(gulpif(condition, uglify(), concat('all.js'))) // condition为true时执行uglify(), else 执行concat('all.js')
+    .pipe(gulp.dest('./dist/'));
 ```
 
 ## gulp-load-plugins
@@ -313,18 +288,17 @@ gulp.src('./**/*.js')
 描述：编译 sass。
 
 ```js
-var sass = require("gulp-sass");
+var sass = require('gulp-sass');
 
-gulp
-  .src("./sass/**/*.scss")
-  .pipe(
-    sass({
-      outputStyle: "compressed" // 配置输出方式,默认为nested
-    })
-  )
-  .pipe(gulp.dest("./dist/css"));
+gulp.src('./sass/**/*.scss')
+    .pipe(
+        sass({
+            outputStyle: 'compressed', // 配置输出方式,默认为nested
+        })
+    )
+    .pipe(gulp.dest('./dist/css'));
 
-gulp.watch("./sass/**/*.scss", ["sass"]); // 实时监听sass文件变动,执行sass任务
+gulp.watch('./sass/**/*.scss', ['sass']); // 实时监听sass文件变动,执行sass任务
 ```
 
 ## gulp-babel
@@ -332,14 +306,13 @@ gulp.watch("./sass/**/*.scss", ["sass"]); // 实时监听sass文件变动,执行
 描述：将 ES6 代码编译成 ES5。
 
 ```js
-var babel = require("gulp-babel");
+var babel = require('gulp-babel');
 
-gulp
-  .src("./js/index.js")
-  .pipe(
-    babel({
-      presets: ["es2015"]
-    })
-  )
-  .pipe(gulp.dest("./dist"));
+gulp.src('./js/index.js')
+    .pipe(
+        babel({
+            presets: ['es2015'],
+        })
+    )
+    .pipe(gulp.dest('./dist'));
 ```

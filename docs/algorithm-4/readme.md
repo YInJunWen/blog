@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-02 11:41:27 -->
+<!-- Date: 2017-06-02 11:41 -->
 
 # algorithm 基础算法之双向冒泡排序
 
@@ -12,31 +12,31 @@
 
 ```js
 function sort(array) {
-  var len = array.length;
-  for (var i = 1; i <= len; i++) {
-    var skip = false;
-    // 最大的挪到最后
-    var a = len - i - 1;
-    for (var j = i - 1; j <= a; j++) {
-      array[j] > array[j + 1] && (skip = true) && swap(j, j + 1, array);
+    var len = array.length;
+    for (var i = 1; i <= len; i++) {
+        var skip = false;
+        // 最大的挪到最后
+        var a = len - i - 1;
+        for (var j = i - 1; j <= a; j++) {
+            array[j] > array[j + 1] && (skip = true) && swap(j, j + 1, array);
+        }
+        if (!skip) {
+            console.log(1);
+            break;
+        }
+        skip = false;
+        console.log(1, array);
+        var b = len - i;
+        // 最小的挪到最前面
+        for (var k = len - i; k >= i; k--) {
+            array[k] < array[k - 1] && (skip = true) && swap(k, k - 1, array);
+        }
+        if (!skip) {
+            console.log(2);
+            break;
+        }
+        console.log(2, array);
     }
-    if (!skip) {
-      console.log(1);
-      break;
-    }
-    skip = false;
-    console.log(1, array);
-    var b = len - i;
-    // 最小的挪到最前面
-    for (var k = len - i; k >= i; k--) {
-      array[k] < array[k - 1] && (skip = true) && swap(k, k - 1, array);
-    }
-    if (!skip) {
-      console.log(2);
-      break;
-    }
-    console.log(2, array);
-  }
 }
 sort([8, 7, 6, 5, 4, 3, 2, 1]);
 ```

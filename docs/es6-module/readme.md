@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-18 04:30:42 -->
+<!-- Date: 2018-07-18 04:30 -->
 
 # es6 模块化开发-module
 
@@ -17,7 +17,7 @@ babel-cli 包里面内置了 babel-node 命令，添加 babel-node 的配置文�
 
 ```js
 {
-  presets: ['env'];
+    presets: ['env'];
 }
 ```
 
@@ -33,9 +33,9 @@ babel-cli 包里面内置了 babel-node 命令，添加 babel-node 的配置文�
 
 > 注意配置文件中使用的 npx 命令，他会按照以下方式查找项目内的 npm 包，
 
-- 在项目内查找是否安装对应的 npm 包
-- 在全局的 node_modules 中查找是否安装对应的 npm 包
-- 如果都找不到，则会临时在项目中安装 npm 包，自动执行后，删除安装包
+-   在项目内查找是否安装对应的 npm 包
+-   在全局的 node_modules 中查找是否安装对应的 npm 包
+-   如果都找不到，则会临时在项目中安装 npm 包，自动执行后，删除安装包
 
 > 本文中的案例代码，下载后直接通过`npm install`安装 npm 包后。通过`npm run 文件名`来执行对应的脚本
 
@@ -60,8 +60,8 @@ export 关键字主要用于创建模块的时候，对外暴露对象，函数�
 ```js
 export const name = 'fruit';
 export const fruitCount = {
-  pear: 1,
-  orange: 2,
+    pear: 1,
+    orange: 2,
 };
 export function add() {}
 ```
@@ -108,14 +108,14 @@ export {add}; // 正确
 通常我们会把 export 放在模块的最后面，便于一眼看出模块暴露了那些属性/方法。
 
 ```js
-export const name = "zhangsan";
+export const name = 'zhangsan';
 
-const name = "zhangsan";
+const name = 'zhangsan';
 
-class Egg{}
+class Egg {}
 
-const add = function(){}
-export {name, Egg, add}; // 正确
+const add = function () {};
+export { name, Egg, add }; // 正确
 ```
 
 ## export 必须位于顶级作用域
@@ -123,14 +123,14 @@ export {name, Egg, add}; // 正确
 ES6 中的模块，初衷是为了静态编译，所以 export 必须处于代码的顶层位置，任何处于 `块级作用域** 的 export 语句都是 **不被允许` 的，比如
 
 ```js
-if(true){
-    export const name="zhangsan"
+if (true) {
+    export const name = 'zhangsan';
 }
 
-function add(){
-    export const name="zhjangsan"
+function add() {
+    export const name = 'zhjangsan';
 }
-add()
+add();
 ```
 
 ## 设置默认的接口
@@ -171,16 +171,16 @@ import 语句被用来导入其他模块中的属性/方法，主要有以下几
 
 ```js
 export default function remove() {
-  console.log('print in export default fn.remove');
+    console.log('print in export default fn.remove');
 }
 function insert() {
-  console.log('print in fn.insert');
+    console.log('print in fn.insert');
 }
 const fruit = {
-  name: 'pear',
+    name: 'pear',
 };
 function update() {
-  console.log('print in fn.update');
+    console.log('print in fn.update');
 }
 const fruits = ['orange', 'pear', 'juice'];
 export { insert, update, fruit, fruits };
@@ -291,10 +291,10 @@ import 'export.js'; // "print in function.js; it will execute after 'import' syn
 
 ```js
 if (true) {
-  import { fruit } from 'constant.js'; // 不被允许的
+    import { fruit } from 'constant.js'; // 不被允许的
 }
 function get() {
-  import { fruit } from 'constant.js'; // 不被允许的
+    import { fruit } from 'constant.js'; // 不被允许的
 }
 ```
 
@@ -311,9 +311,9 @@ import name from 'constant.js'; // 不被允许的
 
 ```js
 if (true) {
-  import('constant.js').then(res => {
-    console.log(res); // 这里的res 包含了模块中所有的接口(包括默认接口)
-  });
+    import('constant.js').then((res) => {
+        console.log(res); // 这里的res 包含了模块中所有的接口(包括默认接口)
+    });
 }
 /*
 {
@@ -332,10 +332,10 @@ if (true) {
 
 ```js
 if (true) {
-  import('./_constant.js').then(({ insert, update }) => {
-    insert(); // "print in fn.insert"
-    update(); // "print in fn.update"
-  });
+    import('./_constant.js').then(({ insert, update }) => {
+        insert(); // "print in fn.insert"
+        update(); // "print in fn.update"
+    });
 }
 ```
 
@@ -343,13 +343,11 @@ if (true) {
 
 ```js
 if (true) {
-  import('./_constant.js').then(
-    ({ default: removeData, insert: insertData, update: updateData }) => {
-      removeData(); // "print in export default fn.remove"
-      insertData(); // "print in fn.insert"
-      updateData(); // "print in fn.update"
-    }
-  );
+    import('./_constant.js').then(({ default: removeData, insert: insertData, update: updateData }) => {
+        removeData(); // "print in export default fn.remove"
+        insertData(); // "print in fn.insert"
+        updateData(); // "print in fn.update"
+    });
 }
 ```
 
@@ -371,8 +369,8 @@ if (true) {
 
 ```js
 const name = './a.js';
-import(name).then(module => {
-  // ...code
+import(name).then((module) => {
+    // ...code
 });
 ```
 
@@ -384,7 +382,7 @@ export 是可以继承的，便于将代码分化到更小的模块中[完整案
 
 ```js
 export function insert() {
-  console.log('print in base1.insert');
+    console.log('print in base1.insert');
 }
 ```
 
@@ -392,7 +390,7 @@ export function insert() {
 
 ```js
 export function remove() {
-  console.log('print in base1.remove');
+    console.log('print in base1.remove');
 }
 ```
 
@@ -428,7 +426,7 @@ ES6 的 module 与 CommonJS 最大的不同之处在于。CommonJS 导入模块�
 
 ```js
 var obj = {
-  name: 'pear',
+    name: 'pear',
 };
 export { obj };
 ```
@@ -439,7 +437,7 @@ export { obj };
 import { obj } from './quote3';
 
 function editName() {
-  obj.name = 'orange';
+    obj.name = 'orange';
 }
 export { editName };
 ```

@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-17 16:11:16 -->
+<!-- Date: 2018-06-17 16:11 -->
 
 # es6 内置属性-[Symbol.isConcatSpreadable]
 
@@ -26,10 +26,10 @@ var c = [].concat(a);
 c; // [[1,2,3,[Symbol.isConcatSpreadable]: false]]
 
 var b = {
-  length: 2,
-  0: "a",
-  1: "b",
-  [Symbol.isConcatSpreadable]: true
+    length: 2,
+    0: 'a',
+    1: 'b',
+    [Symbol.isConcatSpreadable]: true,
 };
 
 var d = [].concat(b);
@@ -40,17 +40,17 @@ console.log(d); // [ 'a', 'b' ]
 
 ```js
 class Egg extends Array {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 }
 var a = new Egg();
 
 console.log(Object.prototype.toString.call(a)); // [object Array]
 
-a[0] = "a";
-a[1] = "b";
-a[2] = "c";
+a[0] = 'a';
+a[1] = 'b';
+a[2] = 'c';
 
 console.log([].concat(a));
 ```
@@ -59,32 +59,32 @@ console.log([].concat(a));
 
 ```js
 class Orange extends Array {
-  constructor(props) {
-    super(props);
-    this[Symbol.isConcatSpreadable] = false;
-  }
+    constructor(props) {
+        super(props);
+        this[Symbol.isConcatSpreadable] = false;
+    }
 }
 var b = new Orange();
 
-b[0] = "a";
-b[1] = "b";
-b[2] = "c";
+b[0] = 'a';
+b[1] = 'b';
+b[2] = 'c';
 
 console.log([].concat(b)); // [ Orange [ 'a', 'b', 'c', [Symbol(Symbol.isConcatSpreadable)]: false ] ]
 
 class Pears extends Array {
-  constructor(props) {
-    super(props);
-  }
-  get [Symbol.isConcatSpreadable]() {
-    return false;
-  }
+    constructor(props) {
+        super(props);
+    }
+    get [Symbol.isConcatSpreadable]() {
+        return false;
+    }
 }
 var c = new Pears();
 
-c[0] = "a";
-c[1] = "b";
-c[2] = "c";
+c[0] = 'a';
+c[1] = 'b';
+c[2] = 'c';
 
 console.log([].concat(c)); // [ Pears [ 'a', 'b', 'c' ] ]
 ```

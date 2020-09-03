@@ -1,4 +1,4 @@
-<!-- Date: 2016-09-03 00:50:54 -->
+<!-- Date: 2016-09-03 00:50 -->
 
 # axios 主动取消请求
 
@@ -10,15 +10,14 @@
 
 一般情况下，对于`当请求未完成时，用户离开了当前页面`的行为，通常我们会有三种途径来解决这个办法
 
-*   发送请求时，创建全局的遮罩层，不允许用户点击。 优点：实现起来很简单；缺点：用户从地址栏导航到某个路由下，请求的后续操作还是会出现
-*   在请求的后续操作中，先检查页面路由地址，如果路由地址没有变化，再继续执行后续操作。 缺点: 每个请求的成功和失败方法都要写一遍，造成大量的重复代码
-*   在路由变化的时候，主动停止路由下组件内的所有正在进行的 ajax 请求。 优点：可以在框架的路由层创建一个`路由守卫`(有的框架本身已经实现了该方法),不会造成大量冗余代码
+-   发送请求时，创建全局的遮罩层，不允许用户点击。 优点：实现起来很简单；缺点：用户从地址栏导航到某个路由下，请求的后续操作还是会出现
+-   在请求的后续操作中，先检查页面路由地址，如果路由地址没有变化，再继续执行后续操作。 缺点: 每个请求的成功和失败方法都要写一遍，造成大量的重复代码
+-   在路由变化的时候，主动停止路由下组件内的所有正在进行的 ajax 请求。 优点：可以在框架的路由层创建一个`路由守卫`(有的框架本身已经实现了该方法),不会造成大量冗余代码
 
 先来看一下直接在页面中引入 axios 时，取消请求的方法
 
 ```html
-<button @click="submit()">submit</button>
-<button @click="cancel()">cancel</button>
+<button @click="submit()">submit</button> <button @click="cancel()">cancel</button>
 ```
 
 ```js
@@ -44,7 +43,7 @@
 下面是在 webpack 构建项目的时候，取消请求的方法，与普通方法不同的是，我们要把 source 保存在 data 内，来保证其他的方法调用的是同一个对象
 
 ```js
-import axios from "axios";
+import axios from 'axios';
 export default {
     data() {
         source: undefined;
@@ -54,19 +53,19 @@ export default {
             this.source = axios.CancelToken.source();
             axios
                 .post(url, data, {
-                    cancelToken: this.source.token
+                    cancelToken: this.source.token,
                 })
-                .then(res => {
+                .then((res) => {
                     console.log(res);
                 })
-                .catch(err => {
+                .catch((err) => {
                     console.log(err);
                 });
         },
         cancel() {
-            this.source.cancel("被主动取消了");
-        }
-    }
+            this.source.cancel('被主动取消了');
+        },
+    },
 };
 ```
 
@@ -86,7 +85,7 @@ export default {
 
 ```js
 Catch: {
-    message: "被主动取消了";
+    message: '被主动取消了';
 }
 ```
 

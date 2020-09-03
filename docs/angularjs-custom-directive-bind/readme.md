@@ -1,4 +1,4 @@
-<!-- Date: 2016-05-12 18:25:47 -->
+<!-- Date: 2016-05-12 18:25 -->
 
 # angularJS 自定义指令绑定策略
 
@@ -8,30 +8,6 @@ angularjs 支持三种绑定数据的方式
 
 ```html
 <div ng-controller="parentCtrl">
-    <div child-directive  test="zhangsan"></div>
-</div>
-```
-
-```js
-// parentCtrl:
-$scope.test = 'lisi';
-
-// child-directive:
-return {
-  strict: 'EA',
-  template: '<p ng-bind="test"></p>',
-  scope: {
-    test: '@',
-  },
-};
-```
-
-这个时候，`p`标签的内容会渲染成`test`属性的值`zhangsan`,而不是`lisi`
-
-## `=`把属性的值解析为表达式，方便引用父级作用域的模型，用作双向绑定使用
-
-```html
-<div  ng-controller="parentCtrl">
     <div child-directive test="zhangsan"></div>
 </div>
 ```
@@ -42,11 +18,35 @@ $scope.test = 'lisi';
 
 // child-directive:
 return {
-  strict: 'EA',
-  template: '<p ng-bind="test"></p>',
-  scope: {
-    test: '=',
-  },
+    strict: 'EA',
+    template: '<p ng-bind="test"></p>',
+    scope: {
+        test: '@',
+    },
+};
+```
+
+这个时候，`p`标签的内容会渲染成`test`属性的值`zhangsan`,而不是`lisi`
+
+## `=`把属性的值解析为表达式，方便引用父级作用域的模型，用作双向绑定使用
+
+```html
+<div ng-controller="parentCtrl">
+    <div child-directive test="zhangsan"></div>
+</div>
+```
+
+```js
+// parentCtrl:
+$scope.test = 'lisi';
+
+// child-directive:
+return {
+    strict: 'EA',
+    template: '<p ng-bind="test"></p>',
+    scope: {
+        test: '=',
+    },
 };
 ```
 
@@ -56,23 +56,23 @@ return {
 
 ```html
 <div ng-controller="parentCtrl">
-    <div child-directive test="zhangsan" ></div>
+    <div child-directive test="zhangsan"></div>
 </div>
 ```
 
 ```js
 // parentCtrl:
-$scope.zhangsan = function() {
-  alert(1);
+$scope.zhangsan = function () {
+    alert(1);
 };
 
 // child-directive:
 return {
-  strict: 'EA',
-  template: '<p ng-click="test"></p>',
-  scope: {
-    test: '&',
-  },
+    strict: 'EA',
+    template: '<p ng-click="test"></p>',
+    scope: {
+        test: '&',
+    },
 };
 ```
 
@@ -80,7 +80,7 @@ return {
 
 ```html
 <div ng-controller="parentCtrl">
-    <div child-directive test="zhangsan" ></div>
+    <div child-directive test="zhangsan"></div>
 </div>
 ```
 

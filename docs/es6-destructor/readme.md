@@ -1,4 +1,4 @@
-<!-- Date: 2018-05-05 10:46:36 -->
+<!-- Date: 2018-05-05 10:46 -->
 
 # es6 变量的解构赋值
 
@@ -35,7 +35,12 @@ console.log(a, b, c, d); // 'p','e','a','r'
 let [a, b, c, d] = new Set([1, 2, 3, 4]);
 console.log(a, b, c, d); // 1,2,3,4
 
-let [a, b, c, d] = new Map([[{}, 1], [{}, 2], [{}, 3], [{}, 4]]);
+let [a, b, c, d] = new Map([
+    [{}, 1],
+    [{}, 2],
+    [{}, 3],
+    [{}, 4],
+]);
 console.log(a, b, c, d); // [{…}, 1], [{…}, 2], [{…}, 3], [{…}, 4]
 ```
 
@@ -44,7 +49,12 @@ console.log(a, b, c, d); // [{…}, 1], [{…}, 2], [{…}, 3], [{…}, 4]
 数组、Set、Map 实例的`keys(), values(), entries()`返回的对象也可以用来完成`数组解构`
 
 ```js
-let obj = new Map([[{}, 1], [{}, 2], [{}, 3], [{}, 4]]);
+let obj = new Map([
+    [{}, 1],
+    [{}, 2],
+    [{}, 3],
+    [{}, 4],
+]);
 let [a, b, c, d] = obj.values();
 console.log(a, b, c, d); // 1,2,3,4
 ```
@@ -106,9 +116,9 @@ let b = 2;
 let c = 3;
 
 let obj = {
-  a,
-  b,
-  c,
+    a,
+    b,
+    c,
 };
 ```
 
@@ -136,9 +146,9 @@ g; // undefined
 
 ```js
 let obj = {
-  name: {
-    age: 18,
-  },
+    name: {
+        age: 18,
+    },
 };
 let { name: data } = obj;
 
@@ -150,12 +160,12 @@ data; // {age: 18}
 
 ```js
 let obj = {
-  name: {
-    age: 18,
-  },
+    name: {
+        age: 18,
+    },
 };
 let {
-  name: { age },
+    name: { age },
 } = obj;
 
 name; // name is not defined
@@ -167,7 +177,7 @@ data; // 18
 
 ```js
 let {
-  name: { age: age },
+    name: { age: age },
 } = obj;
 ```
 
@@ -225,9 +235,9 @@ let a,b;
 ```js
 let foo;
 foo = Object.create({
-  add: function() {
-    console.log('add in prototype');
-  },
+    add: function () {
+        console.log('add in prototype');
+    },
 });
 let { add } = foo;
 
@@ -238,18 +248,18 @@ add(); // 'add in prototype
 
 ```js
 let foo = Object.create(
-  {
-    add: function() {
-      console.log('add in prototype');
+    {
+        add: function () {
+            console.log('add in prototype');
+        },
     },
-  },
-  {
-    add: {
-      value: function() {
-        console.log('add');
-      },
-    },
-  }
+    {
+        add: {
+            value: function () {
+                console.log('add');
+            },
+        },
+    }
 );
 let { add } = foo;
 
@@ -259,11 +269,11 @@ add(); // 'add'
 通过构造函数生成的实例对象也是如此。[完整案例代码](./demo/demo3.html)
 
 ```js
-let foo = function() {
-  console.log('foo');
+let foo = function () {
+    console.log('foo');
 };
-foo.prototype.add = function() {
-  console.log('add in prototype');
+foo.prototype.add = function () {
+    console.log('add in prototype');
 };
 let { add } = new foo();
 
@@ -322,7 +332,7 @@ valueOf; // f(){[native code]}
 
 ```js
 function add({ name, weight }) {
-  console.log(name, weight);
+    console.log(name, weight);
 }
 add({ name: 'pear', weight: '19kg' });
 ```
@@ -331,7 +341,7 @@ add({ name: 'pear', weight: '19kg' });
 
 ```js
 function add({ name: realName, weight: realWeight }) {
-  console.log(realName, realWeight);
+    console.log(realName, realWeight);
 }
 add({ name: 'pear', weight: '19kg' });
 ```
@@ -340,9 +350,9 @@ add({ name: 'pear', weight: '19kg' });
 
 ```js
 function add(name, weight) {
-  const name = name || 'pear';
-  const weight = weight || '10kg';
-  console.log(name, weight);
+    const name = name || 'pear';
+    const weight = weight || '10kg';
+    console.log(name, weight);
 }
 add();
 ```
@@ -351,11 +361,11 @@ add();
 
 ```js
 defaultOptions = {
-  name: 'pear',
-  weight: '10kg',
+    name: 'pear',
+    weight: '10kg',
 };
 function add(options) {
-  const realOptions = Object.assign(option, defaultOptions);
+    const realOptions = Object.assign(option, defaultOptions);
 }
 add();
 ```
@@ -364,7 +374,7 @@ add();
 
 ```js
 function add({ name = 'pear', weight = '10kg' }) {
-  console.log(name, weight);
+    console.log(name, weight);
 }
 add({}); // 'paer', '10kg'
 add({ name: 'orange', weight: '20kg' }); // // 'pear', '20kg'
@@ -374,7 +384,7 @@ add({ name: 'orange', weight: '20kg' }); // // 'pear', '20kg'
 
 ```js
 function add({ name = 'pear', weight = '10kg' }) {
-  console.log(name, weight);
+    console.log(name, weight);
 }
 add(); // Uncaught TypeError: Cannot destructure property `name` of 'undefined' or 'null'.
 ```
@@ -383,7 +393,7 @@ add(); // Uncaught TypeError: Cannot destructure property `name` of 'undefined' 
 
 ```js
 function add({ name = 'pear', weight = '10kg' } = {}) {
-  console.log(name, weight);
+    console.log(name, weight);
 }
 add();
 ```
@@ -396,7 +406,7 @@ add();
 
 ```js
 function add({ name, weight } = { name: 'pear', weight: '10kg' }) {
-  console.log(name, weight);
+    console.log(name, weight);
 }
 add({ name: undefined, weight: undefined });
 ```

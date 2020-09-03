@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-13 16:42:03 -->
+<!-- Date: 2017-09-13 16:42 -->
 
 # webpack 中的 css-loader
 
@@ -14,7 +14,7 @@ style.css
 
 ```css
 .header {
-  font-size: 20px;
+    font-size: 20px;
 }
 ```
 
@@ -32,7 +32,7 @@ style.css
 ```js
 import css from 'style.css';
 function reactComponent() {
-  return <h1 className={css.header} />;
+    return <h1 className={css.header} />;
 }
 ```
 
@@ -46,10 +46,10 @@ style.css
 
 ```css
 .header {
-  font-size: 20px;
+    font-size: 20px;
 }
 :global(.header) {
-  font-size: 40px;
+    font-size: 40px;
 }
 ```
 
@@ -65,7 +65,7 @@ webpack.config.js
 ```js
 import css from 'style.css';
 function reactComponent() {
-  return <h1 className="header" />;
+    return <h1 className="header" />;
 }
 ```
 
@@ -77,14 +77,13 @@ function reactComponent() {
 
 ```js
 module: {
-  loaders: [
-    // ...
-    {
-      test: /\.css$/,
-      loader:
-        'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
-    },
-  ];
+    loaders: [
+        // ...
+        {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]',
+        },
+    ];
 }
 ```
 

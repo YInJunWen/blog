@@ -1,41 +1,41 @@
-<!-- Date: 2018-07-13 12:11:21 -->
+<!-- Date: 2018-07-13 12:11 -->
 
 # es6 代理对象的拦截器属性-deleteProperty
 
 `deleteProperty`属性用于拦截删除某个属性的操作。
 
-- `delete target[key]`或者`delete target.key`
-- `Reflect.deleteProperty(target, key)`
+-   `delete target[key]`或者`delete target.key`
+-   `Reflect.deleteProperty(target, key)`
 
 ## 参数
 
-- target 表示代理对象
-- key 表示要删除的属性名
+-   target 表示代理对象
+-   key 表示要删除的属性名
 
 ## 拦截案例
 
 ```js
 let obj = {
-  name: 'pear',
+    name: 'pear',
 };
 let proxy = new Proxy(obj, {
-  deleteProperty: function(target, key) {
-    console.log(target === obj); // true
-    console.log(key); // 'name'
-    return true;
-  },
+    deleteProperty: function (target, key) {
+        console.log(target === obj); // true
+        console.log(key); // 'name'
+        return true;
+    },
 });
 let result = delete obj.name; // true
 ```
 
 ```js
 let obj = {
-  name: 'pear',
+    name: 'pear',
 };
 let proxy = new Proxy(obj, {
-  deleteProperty: function(target, key) {
-    return delete target[key];
-  },
+    deleteProperty: function (target, key) {
+        return delete target[key];
+    },
 });
 let result = Reflect.deleteProperty(proxy, 'name'); // true
 ```
@@ -45,9 +45,9 @@ let result = Reflect.deleteProperty(proxy, 'name'); // true
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  deleteProperty: function(target, key) {
-    return Reflect.deleteProperty(target, key);
-  },
+    deleteProperty: function (target, key) {
+        return Reflect.deleteProperty(target, key);
+    },
 });
 let result = Reflect.deleteProperty(proxy, 'name'); // true
 ```

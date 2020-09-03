@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-07 16:25:44 -->
+<!-- Date: 2018-07-07 16:25 -->
 
 <!-- # es6-decorator 修饰器 -->
 
@@ -10,7 +10,7 @@ ES6 中是不支持类的属性和静态属性的，这属于 ES7 的提案
 
 ```js
 function testable(target) {
-  target.isTestable = true;
+    target.isTestable = true;
 }
 @testable
 class Foo {}
@@ -25,9 +25,9 @@ Foo.isTestable; //true
 
 ```js
 function testable(value) {
-  return function(target) {
-    target.isTestable = value;
-  };
+    return function (target) {
+        target.isTestable = value;
+    };
 }
 @testable(true)
 class Foo {}
@@ -46,7 +46,7 @@ Dev.isTestable; //false
 
 ```js
 function testable(target) {
-  target.prototype.isTestable = true;
+    target.prototype.isTestable = true;
 }
 @testable
 class Foo {}
@@ -60,20 +60,20 @@ f.isTestable; //true
 
 ```js
 function readonly(target, name, descriptor) {
-  descriptor.writable = false;
-  return descriptor;
+    descriptor.writable = false;
+    return descriptor;
 }
 class Foo {
-  @readonly
-  get() {}
+    @readonly
+    get() {}
 }
 ```
 
 修饰器后面的参数是根据关键字后面跟着的方法获取的，上面的例子中 target 指向 Foo.prototype，name 指向 Foo 类中 get 方法， descriptor 指向 get 方法的描述对象，他的结果和
 
 ```js
-Object.defineProperty(Foo.prototype, "get", {
-  writable: false
+Object.defineProperty(Foo.prototype, 'get', {
+    writable: false,
 });
 ```
 

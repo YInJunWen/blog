@@ -1,4 +1,4 @@
-<!-- Date: 2016-08-19 20:57:34 -->
+<!-- Date: 2016-08-19 20:57 -->
 
 # js 输入框延迟指定事件执行方法
 
@@ -15,17 +15,17 @@
 // 同样定义一个临时保存内容的变量
 var lastEditTime = ', lastContent = ';
 function upperCase(ele) {
-  lastEditTime = new Date().getTime();
-  // 只有和之前内容不同的情况下才继续后面的判断,这是为了区别用户按下真实输入键和非真实输入键，比如上下左右等
-  if (ele.value === lastContent) {
-    return false;
-  }
-  lastContent = ele.value;
-  setTimeout(function() {
-    if (new Date().getTime() - lastEditTime > 3000) {
-      console.log('执行想要的操作');
+    lastEditTime = new Date().getTime();
+    // 只有和之前内容不同的情况下才继续后面的判断,这是为了区别用户按下真实输入键和非真实输入键，比如上下左右等
+    if (ele.value === lastContent) {
+        return false;
     }
-  }, 3000);
+    lastContent = ele.value;
+    setTimeout(function () {
+        if (new Date().getTime() - lastEditTime > 3000) {
+            console.log('执行想要的操作');
+        }
+    }, 3000);
 }
 ```
 
@@ -34,12 +34,12 @@ function upperCase(ele) {
 ## angularJS 中用法
 
 ```html
-<input ng-model="content" type='text'/>
+<input ng-model="content" type="text" />
 ```
 
 ```js
-$scope.$watch('content', function(newVaue, oldValue) {
-  // 执行代码
+$scope.$watch('content', function (newVaue, oldValue) {
+    // 执行代码
 });
 ```
 
@@ -48,16 +48,16 @@ angularJs 中要把上面的`lastEditTime`和`lastContent`放在`$scope`模型�
 ## Vue 中用法
 
 ```html
-<input type='text' v-model="content" />
+<input type="text" v-model="content" />
 ```
 
 ```js
 export default {
-  watch: {
-    content() {
-      // ..执行代码
+    watch: {
+        content() {
+            // ..执行代码
+        },
     },
-  },
 };
 ```
 

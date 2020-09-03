@@ -1,4 +1,4 @@
-<!-- Date: 2017-08-29 11:35:22 -->
+<!-- Date: 2017-08-29 11:35 -->
 
 # antd 表单中的验证规则
 
@@ -6,25 +6,25 @@
 
 antd 表单验证过程中出现了两个问题
 
-- 官方案例无法验证输入内容为 number
-- rules 中包含自定义的 validator 时，未通过的验证规则抛出的错误提示会同时显示
+-   官方案例无法验证输入内容为 number
+-   rules 中包含自定义的 validator 时，未通过的验证规则抛出的错误提示会同时显示
 
 先说第一个，官方案例如下
 
 ```js
 <FormItem label="账户">
-  <Input
-    placeholder="请输入账户名"
-    {...getFieldProps('userName', {
-      validateFirst: true,
-      rules: [
-        {
-          type: 'number',
-          message: '必须是数字',
-        },
-      ],
-    })}
-  />
+    <Input
+        placeholder="请输入账户名"
+        {...getFieldProps('userName', {
+            validateFirst: true,
+            rules: [
+                {
+                    type: 'number',
+                    message: '必须是数字',
+                },
+            ],
+        })}
+    />
 </FormItem>
 ```
 
@@ -34,19 +34,19 @@ antd 表单验证过程中出现了两个问题
 
 ```js
 <FormItem label="账户">
-  <Input
-    placeholder="请输入账户名"
-    {...getFieldProps('userName', {
-      validateFirst: true,
-      rules: [
-        {
-          required: true,
-          pattern: /^\d+$/,
-          message: '必须是数字',
-        },
-      ],
-    })}
-  />
+    <Input
+        placeholder="请输入账户名"
+        {...getFieldProps('userName', {
+            validateFirst: true,
+            rules: [
+                {
+                    required: true,
+                    pattern: /^\d+$/,
+                    message: '必须是数字',
+                },
+            ],
+        })}
+    />
 </FormItem>
 ```
 
@@ -60,27 +60,27 @@ antd 表单验证过程中出现了两个问题
 
 ```js
 <FormItem label="账户">
-  <Input
-    placeholder="请输入账户名"
-    {...getFieldProps('userName', {
-      rules: [
-        {
-          required: true,
-          message: '不能为空',
-        },
-        {
-          type: 'string',
-          pattern: /^\d+$/,
-          message: '必须是数字',
-        },
-        {
-          validator(rules, value, cb) {
-            cb('不管你填啥我就是想报错');
-          },
-        },
-      ],
-    })}
-  />
+    <Input
+        placeholder="请输入账户名"
+        {...getFieldProps('userName', {
+            rules: [
+                {
+                    required: true,
+                    message: '不能为空',
+                },
+                {
+                    type: 'string',
+                    pattern: /^\d+$/,
+                    message: '必须是数字',
+                },
+                {
+                    validator(rules, value, cb) {
+                        cb('不管你填啥我就是想报错');
+                    },
+                },
+            ],
+        })}
+    />
 </FormItem>
 ```
 
@@ -96,28 +96,28 @@ antd 上关于 getFieldProps 的 option 选项有一个隐藏的参数并没有�
 
 ```js
 <FormItem label="账户">
-  <Input
-    placeholder="请输入账户名"
-    {...getFieldProps('userName', {
-      validateFirst: true, //  对的， 就是多了这个属性
-      rules: [
-        {
-          required: true,
-          message: '不能为空',
-        },
-        {
-          type: 'string',
-          pattern: /^\d+$/,
-          message: '必须是数字',
-        },
-        {
-          validator(rules, value, cb) {
-            cb('不管你填啥我就是想报错');
-          },
-        },
-      ],
-    })}
-  />
+    <Input
+        placeholder="请输入账户名"
+        {...getFieldProps('userName', {
+            validateFirst: true, //  对的， 就是多了这个属性
+            rules: [
+                {
+                    required: true,
+                    message: '不能为空',
+                },
+                {
+                    type: 'string',
+                    pattern: /^\d+$/,
+                    message: '必须是数字',
+                },
+                {
+                    validator(rules, value, cb) {
+                        cb('不管你填啥我就是想报错');
+                    },
+                },
+            ],
+        })}
+    />
 </FormItem>
 ```
 

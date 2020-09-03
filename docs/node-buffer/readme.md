@@ -1,4 +1,4 @@
-<!-- Date: 2017-04-12 17:00:40 -->
+<!-- Date: 2017-04-12 17:00 -->
 
 # node node-buffer
 
@@ -63,7 +63,7 @@ const a = new Buffer('汉');
 console.log(a); // <Buffer e6 b1 89>
 ```
 
-输出的 e6 b1 89 都是些什么东西？ 下面来看一下他们的转换过程，Unicode相关信息可以[点击这里](../unicode-ascii/index.md)
+输出的 e6 b1 89 都是些什么东西？ 下面来看一下他们的转换过程，Unicode 相关信息可以[点击这里](../unicode-ascii/index.md)
 
 ```js
 let b = '汉';

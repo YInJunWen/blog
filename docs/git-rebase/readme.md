@@ -1,4 +1,4 @@
-<!-- Date: 2016-07-10 21:36:51 -->
+<!-- Date: 2016-07-10 21:36 -->
 
 # git rebase 命令
 
@@ -273,7 +273,7 @@ Date:   Thu May 31 12:53:17 2018 +0800
 
 ```
 $ git checkout worker
-$ git merge master  
+$ git merge master
 ```
 
 git merge 后会自动产生一个合并的 commit，并出现一个临时文件，可以在里面写入 commit message，我没有进行修改，直接保存后再查看分支的日志:˝

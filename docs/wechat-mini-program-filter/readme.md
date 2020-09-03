@@ -1,4 +1,4 @@
-<!-- Date: 2018-05-04 18:25:17 -->
+<!-- Date: 2018-05-04 18:25 -->
 
 # wechat 微信小程序中如何创建类似于 Vue 和 Angular 中的过滤器
 
@@ -10,12 +10,8 @@
 
 ```html
 <wxs module="foo">
-module.exports = {
-    test: function(data){
-      return 'detail='+JSON.stringify(data)
-    }
-}
-<view>{{ foo.test({name: 'zhangsan'})}}}</view>
+    module.exports = { test: function(data){ return 'detail='+JSON.stringify(data) } }
+    <view>{{ foo.test({name: 'zhangsan'})}}}</view>
 </wxs>
 ```
 
@@ -24,9 +20,9 @@ module.exports = {
 
 ```js
 module.exports = {
-  test: function(data) {
-    return 'detail=' + JSON.stringify(data);
-  },
+    test: function (data) {
+        return 'detail=' + JSON.stringify(data);
+    },
 };
 ```
 
@@ -34,6 +30,6 @@ module.exports = {
 
 ```html
 <wxs src="filter.wxs" module="foo">
-<view>{{ foo.test({name: 'zhangsan'})}}}</view>
+    <view>{{ foo.test({name: 'zhangsan'})}}}</view>
 </wxs>
 ```

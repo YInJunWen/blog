@@ -1,4 +1,4 @@
-<!-- Date: 2016-05-21 16:40:37 -->
+<!-- Date: 2016-05-21 16:40 -->
 
 # angularJS 中 select-option 的用法
 
@@ -52,7 +52,7 @@ $scope.selectValue = $scope.list[0];
 
 //使用ng-repeat
 <select name=" id=" ng-model="selectValule.id">
- <option value="{{x.id}}" ng-repeat="x in list" ng-bind="x.name"></option>
+    <option value="{{x.id}}" ng-repeat="x in list" ng-bind="x.name"></option>
 </select>
 ```
 

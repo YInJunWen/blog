@@ -1,4 +1,4 @@
-<!-- Date: 2016-06-24 18:11:18 -->
+<!-- Date: 2016-06-24 18:11 -->
 
 # angularJS 初探
 
@@ -9,8 +9,8 @@
 ```js
 import { Component } from '@angular/core';
 @Component({
-  selector: 'app-root', //  要扩展的元素
-  template: '', //    html内容
+    selector: 'app-root', //  要扩展的元素
+    template: '', //    html内容
 })
 export class AppComponent {} // 组件的方法以及属性
 ```
@@ -26,8 +26,8 @@ import { AppComponent } from "./组件路径";
 
 命名要求：
 
-* 组件的文件名以`name.service.ts`或者`test-name.service.ts`为例，
-* export 的组件名称使用大写驼峰命名
+-   组件的文件名以`name.service.ts`或者`test-name.service.ts`为例，
+-   export 的组件名称使用大写驼峰命名
 
 ## 数据双向绑定
 
@@ -53,13 +53,13 @@ import { FormsModule } from "@angular/core";
 类名赋值
 
 ```html
-<div [class.className] = "expression"></div>
+<div [class.className]="expression"></div>
 ```
 
 例子:
 
 ```html
-<div [class.show] = "true"></div>
+<div [class.show]="true"></div>
 ```
 
 例子中会为 div 添加一个名为"show"的 class
@@ -75,7 +75,7 @@ import { FormsModule } from "@angular/core";
 ```js
 import { Component, Input } from '@anglar/core';
 export class AppComonent {
-  @Input() prop;
+    @Input() prop;
 }
 ```
 
@@ -90,7 +90,7 @@ export class AppComonent {
 ```js
 import { Component, Input } from '@anglar/core';
 export class AppComonent {
-  @Input() name;
+    @Input() name;
 }
 ```
 
@@ -103,7 +103,7 @@ export class AppComonent {
 ```js
 import { Component, Input } from '@anglar/core';
 export class AppComonent {
-  @Input('test-name') name;
+    @Input('test-name') name;
 }
 ```
 
@@ -123,8 +123,8 @@ for 循环指令:
 </ul>
 ```
 
-* 流程控制指令前面不要忘记添加`*`号
-* 第二个单词首字母要大写
+-   流程控制指令前面不要忘记添加`*`号
+-   第二个单词首字母要大写
 
 ## 注册服务
 
@@ -135,12 +135,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TestService {
-  add() {}
+    add() {}
 }
 ```
 
-* export 前面千万要记得使用 Injectable 装饰器
-* Injectabe 装饰器是一个方法，不要忘记他后面的括号
+-   export 前面千万要记得使用 Injectable 装饰器
+-   Injectabe 装饰器是一个方法，不要忘记他后面的括号
 
 注册的服务必须在`app.module.ts`文件的`@ngModule.providers`中注册，才能在组件中使用
 
@@ -154,8 +154,8 @@ import { TestService } from "./test.service";
 
 命名要求：
 
-* 服务的文件名以`name.service.ts`或者`test-name.service.ts`为例，
-* export 的服务名称使用大写驼峰命名
+-   服务的文件名以`name.service.ts`或者`test-name.service.ts`为例，
+-   export 的服务名称使用大写驼峰命名
 
 在组件中，通常只需要在`构造器函数中`定义就可以使用
 

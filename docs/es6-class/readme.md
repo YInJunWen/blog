@@ -1,4 +1,4 @@
-<!-- Date: 2018-05-13 10:26:56 -->
+<!-- Date: 2018-05-13 10:26 -->
 
 # es6 声明构造函数的语法糖-class
 
@@ -12,41 +12,41 @@ constructor 方法默认返回实例对象(即 this),也可以重新指定返回
 
 首先来明确一下和构造函数有关的几种不同类型的方法
 
-- 静态属性/方法: 只能被构造函数本身调用
-- 构造器属性/方法：只能被构造函数的实例调用
-- 原型链属性/方法: 只能被构造函数的实例调用
+-   静态属性/方法: 只能被构造函数本身调用
+-   构造器属性/方法：只能被构造函数的实例调用
+-   原型链属性/方法: 只能被构造函数的实例调用
 
 下面是一个 class 中常见的用法
 
 ```js
 class Person {
-  constructor(klass) {
-    // 定义一个构造器属性
-    this.klass = klass;
-  }
+    constructor(klass) {
+        // 定义一个构造器属性
+        this.klass = klass;
+    }
 
-  // 定义一个原型链属性，方法1
-  name = 'zhangsan';
-  // 定义一个原型链方法，相当于定义Person.prototype.add = function(){}
-  // 不需要function关键字，也不需要逗号隔开
-  add() {
-    console.log('add');
-  }
+    // 定义一个原型链属性，方法1
+    name = 'zhangsan';
+    // 定义一个原型链方法，相当于定义Person.prototype.add = function(){}
+    // 不需要function关键字，也不需要逗号隔开
+    add() {
+        console.log('add');
+    }
 
-  // 定义一个静态属性， 目前ES6不支持，可通过一个getter函数模拟实现
-  static age: 16;
-  // 定义一个静态方法,只能通过类或者子类本身调用，不能通过实例调用
-  static foo() {
-    console.log('foo');
-  }
+    // 定义一个静态属性， 目前ES6不支持，可通过一个getter函数模拟实现
+    static age: 16;
+    // 定义一个静态方法,只能通过类或者子类本身调用，不能通过实例调用
+    static foo() {
+        console.log('foo');
+    }
 }
 // 定义一个静态属性，方法2
 Person.height = 180;
 
 class Subperson extends Person {
-  subAdd() {
-    super.add();
-  }
+    subAdd() {
+        super.add();
+    }
 }
 
 let lily = new Person('3');
@@ -72,16 +72,16 @@ lilei.add(); // add
 
 ```js
 class Person {
-  constructor() {
-    //   这个方法会被保存在构造器方法中，只可以被实例调用
-    this.add = function() {
-      console.log('add');
-    };
-  }
-  //   这个方法会被保存在Person的原型链中，只可以被实例调用
-  foo() {
-    console.log('foo');
-  }
+    constructor() {
+        //   这个方法会被保存在构造器方法中，只可以被实例调用
+        this.add = function () {
+            console.log('add');
+        };
+    }
+    //   这个方法会被保存在Person的原型链中，只可以被实例调用
+    foo() {
+        console.log('foo');
+    }
 }
 ```
 
@@ -89,12 +89,12 @@ ES5 中一个对象实例不仅能够调用构造器本身的构造方法，也�
 
 ```js
 function Person() {
-  this.add = function() {
-    console.log('add');
-  };
+    this.add = function () {
+        console.log('add');
+    };
 }
-Person.prototype.foo = function() {
-  console.log('foo');
+Person.prototype.foo = function () {
+    console.log('foo');
 };
 ```
 
@@ -111,9 +111,9 @@ new Subperson().add(); // add
 
 ```js
 class Person {
-  constructor() {
-    this.name = 'zhangan';
-  }
+    constructor() {
+        this.name = 'zhangan';
+    }
 }
 class Subperson extends Person {}
 ```
@@ -133,9 +133,9 @@ ES6 中允许为 class 声明一个静态方法，通过关键字`static`标识
 
 ```js
 class Person {
-  static foo() {
-    console.log('foo');
-  }
+    static foo() {
+        console.log('foo');
+    }
 }
 class Subperson extends Person {}
 ```
@@ -175,8 +175,8 @@ ES6 规定 class 定义的 `原型链属性/方法**都是 **不可枚举` 的(e
 ```js
 //class内部定义的属性
 class Foo {
-  constructor() {}
-  dev() {}
+    constructor() {}
+    dev() {}
 }
 Object.keys(Foo.prototype); // [], 返回指定对象自身的所有可枚举属性
 Object.getOwnPropertyNames(Foo.prototype);
@@ -184,7 +184,7 @@ Object.getOwnPropertyNames(Foo.prototype);
 
 //ES5 prototype定义的属性
 function add() {}
-add.prototype.toString = function() {};
+add.prototype.toString = function () {};
 Object.keys(add.prototype); //['toString']
 Object.getOwnPropertyNames(add.prototype); //['constructor','toString']
 ```
@@ -204,7 +204,7 @@ class Person {}
 
 ```js
 class Person {
-  construct() {}
+    construct() {}
 }
 new Person() instanceof Person; // true
 ```
@@ -215,9 +215,9 @@ new Person() instanceof Person; // true
 
 ```js
 class Foo {
-  constructor() {
-    return Obj.create(null);
-  }
+    constructor() {
+        return Obj.create(null);
+    }
 }
 new Foo() instanceof Foo; // false
 ```
@@ -226,15 +226,15 @@ new Foo() instanceof Foo; // false
 
 ```js
 class Name {
-  constructor() {
-    this.name = 'zhangsan';
-  }
+    constructor() {
+        this.name = 'zhangsan';
+    }
 }
 class Person {
-  constructor() {
-    this.name = 'lisi';
-    return new Name();
-  }
+    constructor() {
+        this.name = 'lisi';
+        return new Name();
+    }
 }
 new Person() instanceof Person; // false
 new Person() instanceof Name; // true
@@ -252,9 +252,9 @@ new Person(); // {name: 'zhangsan'}
 
 ```js
 class Person {
-  constructor() {
-    this.name = 'zhangsan';
-  }
+    constructor() {
+        this.name = 'zhangsan';
+    }
 }
 var a = new Person();
 var b = new Person();
@@ -273,20 +273,20 @@ ES6 中引入了一个 new.target 属性，这个属性返回`new`关键字后�
 
 ```js
 function Add(name) {
-  if (new.target === undefined) {
-    throw new Erro('请用new命令生成实例');
-    return false;
-  }
-  this.name = name;
-  console.log(name);
+    if (new.target === undefined) {
+        throw new Erro('请用new命令生成实例');
+        return false;
+    }
+    this.name = name;
+    console.log(name);
 }
 function Add(name) {
-  if (new.target !== Add) {
-    throw new Error('请用new命令生成实例');
-    return false;
-  }
-  this.name = name;
-  console.log(name);
+    if (new.target !== Add) {
+        throw new Error('请用new命令生成实例');
+        return false;
+    }
+    this.name = name;
+    console.log(name);
 }
 var a = new Add('zhangsan'); // 不会报错
 Add.call(null, 'lisi'); // 会报错
@@ -296,16 +296,16 @@ new.target 在子类中使用，会返回子类的构造函数，可以利用这
 
 ```js
 class Add {
-  constructor() {
-    if (new.target === Add) {
-      throw new Error('不能使用父类生成实例对象');
+    constructor() {
+        if (new.target === Add) {
+            throw new Error('不能使用父类生成实例对象');
+        }
     }
-  }
 }
 class Foo extends Add {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 var a = new Foo(); // 不会报错
 var a = new Add(); // 会报错
@@ -317,15 +317,15 @@ class 之间通过 extends 实现继承，子类必须在 constructor 中加入 
 
 ```js
 class Foo {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 class Dev extends Foo {
-  constructor() {
-    super(x, y);
-  }
+    constructor() {
+        super(x, y);
+    }
 }
 ```
 
@@ -333,22 +333,22 @@ class Dev extends Foo {
 
 在 class 语法中有一个关键词叫做`super`,super 在 class 中有两种用法，
 
-- 在子类的 constructor 函数中，作为函数调用，目的是为了调用父类的构造器函数、传递参数到父类的构造器函数、生成对应的构造器属性和方法，并且拿到父类的 this
-- 在子类中作为一个对象调用，可以调用父类中的属性和方法
+-   在子类的 constructor 函数中，作为函数调用，目的是为了调用父类的构造器函数、传递参数到父类的构造器函数、生成对应的构造器属性和方法，并且拿到父类的 this
+-   在子类中作为一个对象调用，可以调用父类中的属性和方法
 
 第一种用法：
 
 ```js
 class Add {
-  constructor(age) {
-    this.age = age;
-  }
+    constructor(age) {
+        this.age = age;
+    }
 }
 class Foo extends Add {
-  constructor(name, age) {
-    super(age);
-    this.name = name;
-  }
+    constructor(name, age) {
+        super(age);
+        this.name = name;
+    }
 }
 var foo = new Foo('zhangsan', 12);
 
@@ -359,14 +359,14 @@ foo; // {name: 'zhangsan', age: 12}
 
 ```js
 class Add {
-  constructor(age) {
-    this.age = age;
-  }
+    constructor(age) {
+        this.age = age;
+    }
 }
 class Foo extends Add {
-  constructor(name, age) {
-    this.name = name;
-  }
+    constructor(name, age) {
+        this.name = name;
+    }
 }
 var foo = new Foo('zhangsan', 12);
 // Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
@@ -376,15 +376,15 @@ var foo = new Foo('zhangsan', 12);
 
 ```js
 class Add {
-  constructor(age) {
-    this.age = age;
-  }
+    constructor(age) {
+        this.age = age;
+    }
 }
 class Foo extends Add {
-  constructor(name, age) {
-    this.name = name;
-    super();
-  }
+    constructor(name, age) {
+        this.name = name;
+        super();
+    }
 }
 
 var foo = new Foo('zhangsan', 12);
@@ -395,29 +395,29 @@ var foo = new Foo('zhangsan', 12);
 
 ```js
 class Add {
-  constructor(props) {
-    this.a = () => {
-      console.log(' a in constructor');
-    };
-  }
-  a() {
-    console.log('a in prop');
-  }
+    constructor(props) {
+        this.a = () => {
+            console.log(' a in constructor');
+        };
+    }
+    a() {
+        console.log('a in prop');
+    }
 }
 class Foo extends Add {
-  constructor(props) {
-    super(props);
-    super.b = () => {
-      super.a = 1;
-      console.log('super.a:', super.a);
-      console.log('this.a:', this.a);
-    };
-  }
-  c() {
-    super.a = 2;
-    console.log('super.a:', super.a);
-    console.log('this.a:', this.a);
-  }
+    constructor(props) {
+        super(props);
+        super.b = () => {
+            super.a = 1;
+            console.log('super.a:', super.a);
+            console.log('this.a:', this.a);
+        };
+    }
+    c() {
+        super.a = 2;
+        console.log('super.a:', super.a);
+        console.log('this.a:', this.a);
+    }
 }
 let a = new Add();
 let b = new Foo();
@@ -446,15 +446,15 @@ ES5 中每一个对象都有一个原型(`__proto__`)属性，指向它构造函
 
 ```js
 class A {
-  constructor() {
-    this.name = 'zhangsan';
-  }
-  getName() {}
+    constructor() {
+        this.name = 'zhangsan';
+    }
+    getName() {}
 }
 class B extends A {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 }
 B.__proto__ === A; // true
 ```
@@ -472,9 +472,9 @@ Class 的 name 属性 返回跟在 class 关键字后面的类名，当使用 cl
 ```js
 class Foo {} //Foo.name  =  Foo
 let DevName = class Dev {
-  getClassName() {
-    return Dev.name;
-  }
+    getClassName() {
+        return Dev.name;
+    }
 };
 Dev.name; // DevName 而不是  Dev
 let d = new DevName();
@@ -487,14 +487,14 @@ Dev.name; //Dev is not defined
 与 function 一样，我们也可以写出立即执行的 class 实例，这个时候不需要实例化就可以直接使用里面的方法
 
 ```js
-let person = new class {
-  constructor(name) {
-    this.name = name;
-  }
-  getName() {
-    console.log(this.name);
-  }
-}('张三');
+let person = new (class {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        console.log(this.name);
+    }
+})('张三');
 person.getName(); //Myclass
 ```
 
@@ -504,15 +504,15 @@ class 内部也可以像 ES5 一样使用取值、存值函数
 
 ```js
 class Foo {
-  constructor() {
-    this.x = 1;
-  }
-  get prop() {
-    return this.x;
-  }
-  set prop(v) {
-    this.x = v;
-  }
+    constructor() {
+        this.x = 1;
+    }
+    get prop() {
+        return this.x;
+    }
+    set prop(v) {
+        this.x = v;
+    }
 }
 var f = new Foo();
 f.prop; //1
@@ -526,16 +526,16 @@ class 中的函数前面加一个\*就表示该方法是一个 generator 函数
 
 ```js
 class Foo {
-  *add() {
-    yield 1;
-    yield 2;
-    yield 3;
-  }
+    *add() {
+        yield 1;
+        yield 2;
+        yield 3;
+    }
 }
 var f = new Foo();
 var g = f.add();
 for (let i of g) {
-  console.log(i);
+    console.log(i);
 }
 //1
 //2

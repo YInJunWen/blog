@@ -1,4 +1,4 @@
-<!-- Date: 2016-10-08 06:14:48 -->
+<!-- Date: 2016-10-08 06:14 -->
 
 # vue-router2 的二次封装
 
@@ -83,7 +83,7 @@ post(url, data) {
 
 这里要注意为什么我在 post 的 successCallback 方法有用 res.ok 区分了一下呢？当在前端设置了 timeout 值的时候，vue-resource 不会执行 failCallback 方法，它执行的是 successCallback 方法，只是返回的 res.ok 值为 false， 因此我把这一类也放在失败的方法中了
 
-现在，假设我们已经把上面的 post 方法封装在了 Vue.$dict 组件中
+现在，假设我们已经把上面的 post 方法封装在了 Vue.\$dict 组件中
 
 在一些不需要验证用户权限的接口中我们这样操作：
 

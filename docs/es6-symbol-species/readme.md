@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-04 01:17:52 -->
+<!-- Date: 2018-06-04 01:17 -->
 
 # es6 内置属性-[Symbol.species]
 
@@ -6,16 +6,16 @@
 
 ```js
 class Egg extends Array {
-  constructor(props) {
-    super(props);
-  }
-  static get [Symbol.species]() {
-    return Array;
-  }
+    constructor(props) {
+        super(props);
+    }
+    static get [Symbol.species]() {
+        return Array;
+    }
 }
 
 const egg = new Egg(1, 2, 3);
-const apple = egg.map(x => x + 1);
+const apple = egg.map((x) => x + 1);
 
 apple instanceof Egg; // true
 apple instanceof Array; // true
@@ -34,17 +34,17 @@ apple.__proto__.constructor === Array.prototype.constructor; // false
 
 ```js
 class Egg extends Array {
-  constructor(props) {
-    super(props);
-  }
-  // 在这里添加
-  static get [Symbol.species]() {
-    return Array;
-  }
+    constructor(props) {
+        super(props);
+    }
+    // 在这里添加
+    static get [Symbol.species]() {
+        return Array;
+    }
 }
 
 const egg = new Egg(1, 2, 3);
-const apple = egg.map(x => x + 1);
+const apple = egg.map((x) => x + 1);
 
 apple instanceof Egg; // false
 apple instanceof Array; // true
@@ -59,17 +59,17 @@ apple.__proto__.constructor === Array.prototype.constructor; // true
 
 ```js
 class Egg extends Array {
-  constructor(props) {
-    super(props);
-  }
-  // 在这里添加
-  static get [Symbol.species]() {
-    return Array;
-  }
+    constructor(props) {
+        super(props);
+    }
+    // 在这里添加
+    static get [Symbol.species]() {
+        return Array;
+    }
 }
 
 const egg = new Egg(1, 2, 3);
-const apple = egg.map(x => x + 1);
+const apple = egg.map((x) => x + 1);
 
 egg instanceof Egg; // true
 egg instanceof Array; // true

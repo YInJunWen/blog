@@ -1,4 +1,4 @@
-<!-- Date: 2017-05-16 06:02:01 -->
+<!-- Date: 2017-05-16 06:02 -->
 
 # js 跨域 ajax 请求获取传递的 cookie
 
@@ -9,45 +9,41 @@ a.com/index.html:
 ```html
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
 
-<head>
- <meta charset="utf-8">
- <title></title>
-</head>
-
-<body>
- <button>btn</button>
- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
- <script type="text/javascript">
-  document.cookie = "name=zhangsan";
-  $(function () {
-   $('button').click(function (e) {
-    test();
-   })
-  })
-  function test(ev) {
-   $.ajax({
-    url: 'a.com/index.php',
-    type: 'POST',
-    data: {
-     name: 'zhangsan'
-    },
-    success: function (data) {
-     console.log(data)
-    },
-    error: function (err) {
-     console.log(err)
-    },
-    xhrFields: {
-     withCredentials: true
-    },
-
-   })
-  }
-
- </script>
-</body>
-
+    <body>
+        <button>btn</button>
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            document.cookie = 'name=zhangsan';
+            $(function () {
+                $('button').click(function (e) {
+                    test();
+                });
+            });
+            function test(ev) {
+                $.ajax({
+                    url: 'a.com/index.php',
+                    type: 'POST',
+                    data: {
+                        name: 'zhangsan',
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    xhrFields: {
+                        withCredentials: true,
+                    },
+                });
+            }
+        </script>
+    </body>
 </html>
 ```
 

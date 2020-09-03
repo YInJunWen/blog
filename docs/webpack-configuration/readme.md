@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-12 07:29:03 -->
+<!-- Date: 2017-09-12 07:29 -->
 
 # webpack 配置
 
@@ -10,9 +10,9 @@
 
 ```js
 module.exports = {
-  module: {
-    noParse: /jquery|backbone/
-  }
+    module: {
+        noParse: /jquery|backbone/,
+    },
 };
 ```
 
@@ -24,10 +24,10 @@ module.exports = {
 
 ```js
 plugins: [
-  new webpack.ProvidePlugin({
-    $: "jquery"
-  })
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+    }),
 ];
 ```
 
-这样一来，只要碰到 js 文件中使用$符号的内容，webpack 会自动引入 jQuery 的模块
+这样一来，只要碰到 js 文件中使用\$符号的内容，webpack 会自动引入 jQuery 的模块

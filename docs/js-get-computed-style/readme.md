@@ -1,4 +1,4 @@
-<!-- Date: 2018-04-25 17:20:46 -->
+<!-- Date: 2018-04-25 17:20 -->
 
 # js 获取元素计算后的样式
 
@@ -41,11 +41,11 @@ var dom = document.getElementById("test"),
 
 我们使用 element.style 也可以获取元素的 CSS 样式声明对象，但是其与 getComputedStyle 方法还有有一些差异的。
 
-* 只读与可写
+-   只读与可写
 
 正如上面提到的 getComputedStyle 方法是只读的，只能获取样式，不能设置；而 element.style 能读能写，能屈能伸。
 
-* 获取的对象范围
+-   获取的对象范围
 
 getComputedStyle 方法获取的是最终应用在元素上的所有 CSS 属性对象（即使没有 CSS 代码，也会把默认的祖宗八代都显示出来）；而 element.style 只能获取元素 style 属性中的 CSS 样式。因此对于一个光秃秃的元素`<p>`，getComputedStyle 方法返回对象中 length 属性值（如果有）就是 190+(据我测试 FF:192, IE9:195, Chrome:253, 不同环境结果可能有差异), 而 element.style 就是 0。
 
@@ -60,14 +60,14 @@ jQuery 源码使用 document.defaultView.getComputedStyle 截图证明
 
 ## 五、getComputedStyle 兼容性
 
-* 对于桌面设备：
+-   对于桌面设备：
 
 | 属性         | Chrome | Firefox(Gecko) | Internet Explorer | Opera  | Safari |
 | ------------ | ------ | -------------- | ----------------- | ------ | ------ |
 | 基本支持     | 支持   | 支持           | 9                 | 支持   | 支持   |
 | 伪类元素支持 | 支持   | 支持           | 不支持            | 不支持 | 支持   |
 
-* 对于手机设备：
+-   对于手机设备：
 
 | 属性       | Android | Firefox Mobile (Gecko) | IE Mobile | Opera Mobile | Safari Mobile |
 | ---------- | ------- | ---------------------- | --------- | ------------ | ------------- |

@@ -1,4 +1,4 @@
-<!-- Date: 2020-08-12 15:16:11 -->
+<!-- Date: 2020-08-12 15:16 -->
 
 # uniapp 中 px 单位转 rpx 的问题
 
@@ -7,7 +7,7 @@
 这个时候就需要计算移动位置的高度，可以使用 uniapp 提供的 api
 
 ```js
-let seaerchEle = uni.createSelectorQuery().select(".tui-header-screen");
+let seaerchEle = uni.createSelectorQuery().select('.tui-header-screen');
 seaerchEle
     .boundingClientRect(function (data) {
         // data中包含了元素的尺寸属性值，但是要注意，该方法必须放在mounted函数中，才能正确获取
@@ -40,7 +40,7 @@ uni.getSystemInfo({
 ```js
 uni.getSystemInfo({
     success: (res) => {
-        let seaerchEle = uni.createSelectorQuery().select(".tui-header-screen");
+        let seaerchEle = uni.createSelectorQuery().select('.tui-header-screen');
         seaerchEle
             .boundingClientRect(function (data) {
                 // 想要的rpx值 = data.heght*750/res.window.width

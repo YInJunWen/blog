@@ -1,26 +1,26 @@
-<!-- Date: 2017-09-05 02:03:43 -->
+<!-- Date: 2017-09-05 02:03 -->
 
 # webpack4 构建 react + antd-mobile 应用
 
 ## webpack-dev-server 配置文件在哪里添加
 
-* 在 webpack.config.js 中，通过 module.exports.devServer 添加配置文件
-* 使用 webpackDevServer.addDevServerEntrypoints(config,options)方法添加配置文件其中 config 值得是 webapck.config.js 文件的内容，options 中包含了具体的启动服务配置内容
-* option 中的 contentBase 路径必须和 output.path 保持一致，否则会出现`Cannot get /`的错误
-* 如果使用了 HTMLWebpackPlugin 插件，也要保证生成的 html 路径和 output.path 路径保持一致，否则页面会空白
+-   在 webpack.config.js 中，通过 module.exports.devServer 添加配置文件
+-   使用 webpackDevServer.addDevServerEntrypoints(config,options)方法添加配置文件其中 config 值得是 webapck.config.js 文件的内容，options 中包含了具体的启动服务配置内容
+-   option 中的 contentBase 路径必须和 output.path 保持一致，否则会出现`Cannot get /`的错误
+-   如果使用了 HTMLWebpackPlugin 插件，也要保证生成的 html 路径和 output.path 路径保持一致，否则页面会空白
 
 ## 使用 less 编写样式文件的时候需要以下 laoder
 
 ```js
 rules: [
-  {
-    test: '/*.less/',
-    use: ['style-loader', 'css-loader', 'less-loader'],
-  },
+    {
+        test: '/*.less/',
+        use: ['style-loader', 'css-loader', 'less-loader'],
+    },
 ];
 ```
 
-* 一定要注意着三个 loader 的顺序，webpack 中 laoder 的使用顺序是从后往前
+-   一定要注意着三个 loader 的顺序，webpack 中 laoder 的使用顺序是从后往前
 
 其中 less-loader 的目的是把 less 文件转为 css，css-loader 是为了把 css 转为一个 js 模块，style-laoder 是为了把这个模块插入到 html 文件中
 

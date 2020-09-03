@@ -1,14 +1,12 @@
-<!-- Date: 2016-07-26 04:11:07 -->
+<!-- Date: 2016-07-26 04:11 -->
 
 # angularJS 自定义指令详解
 
 ```js
 //angular指令的定义，myDirective ，使用驼峰命名法
-angular
-  .module('myApp', [])
-  .directive('myDirective', function($timeout, UserDefinedService) {
+angular.module('myApp', []).directive('myDirective', function ($timeout, UserDefinedService) {
     // 指令操作代码放在这里
-  });
+});
 ```
 
 ```js
@@ -18,7 +16,7 @@ angular
 
 注意： 为了避免与未来的 HTML 标准冲突， 给自定义的指令加入前缀来代表自定义的命名空间。 AngularJS 本身已经使用了 ng - 前缀， 所以可以选择除此以外的名字。在例子中我们使用 my - 前缀（ 比如 my - derictive）。
 
-指令的生命周期开始于 $compile 方法并结束于 link 方法
+指令的生命周期开始于 \$compile 方法并结束于 link 方法
 
 //自定义指令的全部可设置的属性大致如下指令的选项如下所示， 每个键的值说明了可以将这个属性设置为何种类型或者什么样的函数：
 

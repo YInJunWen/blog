@@ -1,4 +1,4 @@
-<!-- Date: 2017-07-22 23:50:30 -->
+<!-- Date: 2017-07-22 23:50 -->
 
 # js 函数式编程
 
@@ -50,29 +50,23 @@ sub(sum(sub(sum(1,4),5),6),7)     // -1
 
 ```js
 var calcultor = {
-  init: function(a) {
-    this.tmp = a;
-    return this;
-  },
-  sum: function(b) {
-    this.tmp += b;
-    return this;
-  },
-  sub: function(c) {
-    this.tmp -= c;
-    return this;
-  },
-  value: function() {
-    return this.tmp;
-  },
+    init: function (a) {
+        this.tmp = a;
+        return this;
+    },
+    sum: function (b) {
+        this.tmp += b;
+        return this;
+    },
+    sub: function (c) {
+        this.tmp -= c;
+        return this;
+    },
+    value: function () {
+        return this.tmp;
+    },
 };
-calcultor
-  .init(1)
-  .sum(4)
-  .sub(5)
-  .sum(6)
-  .sub(7)
-  .value();
+calcultor.init(1).sum(4).sub(5).sum(6).sub(7).value();
 ```
 
 我们把每一个函数执行后都返回 calculate 本身，来实现链式调用，是不是就能清晰的看出来每一步都做了些什么。

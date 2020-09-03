@@ -1,4 +1,4 @@
-<!-- Date: 2016-08-11 20:01:43 -->
+<!-- Date: 2016-08-11 20:01 -->
 
 # js 图片加载状态
 
@@ -107,8 +107,8 @@ function get(ts){
 <img id="pic1" src="..." />;
 
 // js
-document.getElementById('pic1').onload = function() {
-  alert('图片加载已完成');
+document.getElementById('pic1').onload = function () {
+    alert('图片加载已完成');
 };
 ```
 
@@ -120,15 +120,15 @@ document.getElementById('pic1').onload = function() {
 
 为每个 class 为 pic1 的图片元素绑定事件，通过 jQuery 的 load 方法，将元素渐现出来。
 
-注意，不要在$(document).ready()里绑定 load 事件。
+注意，不要在\$(document).ready()里绑定 load 事件。
 
 ```js
-$(function() {
-  $('.pic1').each(function() {
-    $(this).load(function() {
-      $(this).fadeIn();
+$(function () {
+    $('.pic1').each(function () {
+        $(this).load(function () {
+            $(this).fadeIn();
+        });
     });
-  });
 });
 ```
 

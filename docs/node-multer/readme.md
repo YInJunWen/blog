@@ -1,4 +1,4 @@
-<!-- Date: 2017-04-05 07:01:48 -->
+<!-- Date: 2017-04-05 07:01 -->
 
 # node node-multer
 
@@ -36,8 +36,8 @@ multer 是一个 NodeJS 中间件，用来处理 multipart/form-data 类型的�
 这个方法需要使用 req.file 来获取上传的文件，只适用于上传单个文件,single()需要填写正确的文件 field_name，否则会报错
 
 ```js
-app.post('upload_cache/', multer().single(), function(req, res) {
-  console.log(req.file); //获取上传的文件信息
+app.post('upload_cache/', multer().single(), function (req, res) {
+    console.log(req.file); //获取上传的文件信息
 });
 ```
 
@@ -45,7 +45,7 @@ app.post('upload_cache/', multer().single(), function(req, res) {
 
 ```js
 {
-  //文件信息...
+    //文件信息...
 }
 ```
 
@@ -54,18 +54,15 @@ app.post('upload_cache/', multer().single(), function(req, res) {
 这个方法适用于上传多个文件，且文件的 name 属性是一致的；方法返回的是一个数组，数组内包含文件的所有信息，如下所示：
 
 ```html
-    <form>
-        <input type=&file& name=&file_example1&>
-        <input type=&file& name=&file_example2&>
-    </form>
+<form>
+    <input type="&file&" name="&file_example1&" />
+    <input type="&file&" name="&file_example2&" />
+</form>
 ```
 
 ```js
-app.post('upload_cache/', multer().array('file_example', 10), function(
-  req,
-  res
-) {
-  console.log(req.files); //获取上传的文件信息,是一个数组
+app.post('upload_cache/', multer().array('file_example', 10), function (req, res) {
+    console.log(req.files); //获取上传的文件信息,是一个数组
 });
 ```
 
@@ -75,12 +72,12 @@ app.post('upload_cache/', multer().array('file_example', 10), function(
 
 ```js
 [
-  {
-    //文件信息...
-  },
-  {
-    //文件信息...
-  },
+    {
+        //文件信息...
+    },
+    {
+        //文件信息...
+    },
 ];
 ```
 
@@ -89,16 +86,16 @@ app.post('upload_cache/', multer().array('file_example', 10), function(
 这个方法适用于上传多个文件，但区别在于这些文件的 name 属性名都是不同的
 
 ```html
-    <form>
-        <input type=&file& name=&file_example1&>
-        <input type=&file& name=&file_example1&>
-        <input type=&file& name=&file_example2&>
-    </form>
+<form>
+    <input type="&file&" name="&file_example1&" />
+    <input type="&file&" name="&file_example1&" />
+    <input type="&file&" name="&file_example2&" />
+</form>
 ```
 
 ```js
-app.post('upload_cache/', multer().fields(), function(req, res) {
-  console.log(req.files); //获取上传的文件信息
+app.post('upload_cache/', multer().fields(), function (req, res) {
+    console.log(req.files); //获取上传的文件信息
 });
 ```
 

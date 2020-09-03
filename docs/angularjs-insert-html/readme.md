@@ -1,4 +1,4 @@
-<!-- Date: 2016-06-11 04:53:52 -->
+<!-- Date: 2016-06-11 04:53 -->
 
 # angularJS 如何把字符串内的 html 标签以 html 形式插入到文档内
 
@@ -16,7 +16,7 @@ hello,<br><span>今天我们去哪里？</span>
 
 ## angular 1.2 以前版本解决办法
 
-对于 `angular 1.2` 一下的版本我们必须要使用$sce 这个服务来解决我们的问题。所谓 sce 即“Strict Contextual Escaping”的缩写。翻译成中文就是“严格的上下文模式”也可以理解为安全绑定吧。来看看怎么用吧。
+对于 `angular 1.2` 一下的版本我们必须要使用\$sce 这个服务来解决我们的问题。所谓 sce 即“Strict Contextual Escaping”的缩写。翻译成中文就是“严格的上下文模式”也可以理解为安全绑定吧。来看看怎么用吧。
 
 ```js
 // controller code:
@@ -26,10 +26,10 @@ $http.get('/api/work/get?workId=' + $routeParams.workId).success(function (work)
 
 ```html
 <!--HTML code:-->
-<p> {{currentWork.description}}</p>
+<p>{{currentWork.description}}</p>
 ```
 
-我们返回的内容中包含一系列的 html 标记。表现出来的结果就如我们文章开头所说的那样。这时候我们必须告诉它安全绑定。它可以通过使用`$sce.trustAsHtml()`。该方法将值转换为特权所接受并能安全地使用“ng-bind-html”。所以，我们必须在我们的控制器中引入$sce 服务
+我们返回的内容中包含一系列的 html 标记。表现出来的结果就如我们文章开头所说的那样。这时候我们必须告诉它安全绑定。它可以通过使用`$sce.trustAsHtml()`。该方法将值转换为特权所接受并能安全地使用“ng-bind-html”。所以，我们必须在我们的控制器中引入\$sce 服务
 
 ```js
 controller('transferWorkStep2', ['$scope','$http','$routeParams','$sce', function ($scope,$http, $routeParams, $sce) {
@@ -43,7 +43,7 @@ controller('transferWorkStep2', ['$scope','$http','$routeParams','$sce', functio
 ```html
 <!--html code:-->
 
-<p ng-bind-html=&currentWork.description&></p>
+<p ng-bind-html="&currentWork.description&"></p>
 ```
 
 这样结果就完美的呈现在页面上了：
@@ -56,17 +56,17 @@ hello
 
 ```js
 app.filter('to_trusted', [
-  '$sce',
-  function($sce) {
-    return function(text) {
-      return $sce.trustAsHtml(text);
-    };
-  },
+    '$sce',
+    function ($sce) {
+        return function (text) {
+            return $sce.trustAsHtml(text);
+        };
+    },
 ]);
 ```
 
 ```html
 <!--html code:-->
 
-<p ng-bind-html=&currentWork.description | to_trusted&></p>
+<p ng-bind-html="&currentWork.description" | to_trusted&></p>
 ```

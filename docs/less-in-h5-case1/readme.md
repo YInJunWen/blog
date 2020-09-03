@@ -1,4 +1,4 @@
-<!-- Date: 2016-08-23 01:17:58 -->
+<!-- Date: 2016-08-23 01:17 -->
 
 # less 常用移动端 less(scss)预定义样式
 
@@ -6,146 +6,146 @@
 
 ```less
 .br {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 .pm {
-  .pl(20);
-  .pr(20);
+    .pl(20);
+    .pr(20);
 }
 .fs(@px) {
-  font-size: unit(@px / 37.5, rem);
+    font-size: unit(@px / 37.5, rem);
 }
 
 .w(@px) {
-  width: unit(@px / 37.5, rem);
+    width: unit(@px / 37.5, rem);
 }
 
 .h(@px) {
-  height: unit(@px / 37.5, rem);
+    height: unit(@px / 37.5, rem);
 }
 
 .lh(@px) {
-  line-height: unit(@px / 37.5, rem);
+    line-height: unit(@px / 37.5, rem);
 }
 
 .t(@px) {
-  top: unit(@px / 37.5, rem);
+    top: unit(@px / 37.5, rem);
 }
 
 .l(@px) {
-  left: unit(@px / 37.5, rem);
+    left: unit(@px / 37.5, rem);
 }
 
 .r(@px) {
-  right: unit(@px / 37.5, rem);
+    right: unit(@px / 37.5, rem);
 }
 
 .b(@px) {
-  bottom: unit(@px / 37.5, rem);
+    bottom: unit(@px / 37.5, rem);
 }
 
 .fl {
-  float: left;
+    float: left;
 }
 
 .fr {
-  float: right;
+    float: right;
 }
 
 .dib {
-  display: inline-block;
+    display: inline-block;
 }
 
 .db {
-  display: block;
+    display: block;
 }
 .dn {
-  display: none;
+    display: none;
 }
 
 .ptr {
-  position: relative;
+    position: relative;
 }
 
 .pta {
-  position: absolute;
+    position: absolute;
 }
 
 .ptf {
-  position: fixed;
+    position: fixed;
 }
 
 .tl {
-  text-align: left;
+    text-align: left;
 }
 
 .tc {
-  text-align: center;
+    text-align: center;
 }
 
 .tr {
-  text-align: right;
+    text-align: right;
 }
 
 .vt {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 .vm {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .vb {
-  vertical-align: bottom;
+    vertical-align: bottom;
 }
 
 .mt(@px) {
-  margin-top: unit(@px / 37.5, rem);
+    margin-top: unit(@px / 37.5, rem);
 }
 
 .mr(@px) {
-  margin-right: unit(@px / 37.5, rem);
+    margin-right: unit(@px / 37.5, rem);
 }
 
 .mb(@px) {
-  margin-bottom: unit(@px / 37.5, rem);
+    margin-bottom: unit(@px / 37.5, rem);
 }
 
 .ml(@px) {
-  margin-left: unit(@px / 37.5, rem);
+    margin-left: unit(@px / 37.5, rem);
 }
 
 .pt(@px) {
-  padding-top: unit(@px / 37.5, rem);
+    padding-top: unit(@px / 37.5, rem);
 }
 
 .pr(@px) {
-  padding-right: unit(@px / 37.5, rem);
+    padding-right: unit(@px / 37.5, rem);
 }
 
 .pb(@px) {
-  padding-bottom: unit(@px / 37.5, rem);
+    padding-bottom: unit(@px / 37.5, rem);
 }
 
 .pl(@px) {
-  padding-left: unit(@px / 37.5, rem);
+    padding-left: unit(@px / 37.5, rem);
 }
 
 .arrowLeft {
-  .w(10);
-  .h(10);
-  border: 2px solid white;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  transform: rotate(-45deg);
+    .w(10);
+    .h(10);
+    border: 2px solid white;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(-45deg);
 }
 .arrowRight {
-  .w(10);
-  .h(10);
-  .db;
-  border: 2px solid @defaultLineColor;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  transform: rotate(45deg);
+    .w(10);
+    .h(10);
+    .db;
+    border: 2px solid @defaultLineColor;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
 }
 ```

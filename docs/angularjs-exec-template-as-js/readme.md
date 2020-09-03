@@ -1,4 +1,4 @@
-<!-- Date: 2016-06-29 05:26:46 -->
+<!-- Date: 2016-06-29 05:26 -->
 
 # angularJS 中如何执行 html 模版内部的 js 文件
 
@@ -9,34 +9,40 @@
 ```html
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div ng-controller="mainCtrl">
-        <div test-dire=" ng-show="></div>
-    </div>
-    <script src="../static/js/angular.js"></script>
-    <script>
-        angular.module('app', [])
-            .controller('mainCtrl', ['$scope', function($scope){
-                console.log(1);
-            }])
-            .directive('testDire',[function(){
-                return {
-                    strict: 'EA',
-                    template: 'alert(1)',
-                    link:function ($scope, ele, attr){
-                        var fn = new Function(ele.text())
-                        fn();
-                    }
-                }
-            }])
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div ng-controller="mainCtrl">
+            <div test-dire=" ng-show="></div>
+        </div>
+        <script src="../static/js/angular.js"></script>
+        <script>
+            angular
+                .module('app', [])
+                .controller('mainCtrl', [
+                    '$scope',
+                    function ($scope) {
+                        console.log(1);
+                    },
+                ])
+                .directive('testDire', [
+                    function () {
+                        return {
+                            strict: 'EA',
+                            template: 'alert(1)',
+                            link: function ($scope, ele, attr) {
+                                var fn = new Function(ele.text());
+                                fn();
+                            },
+                        };
+                    },
+                ]);
+        </script>
+    </body>
 </html>
 ```
 

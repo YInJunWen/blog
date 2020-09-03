@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-11 22:38:25 -->
+<!-- Date: 2017-09-11 22:38 -->
 
 # webpack3 CommonsChunkPlugin 插件
 
@@ -96,10 +96,10 @@ var config = {
 
 上面的这个配置会最终会打包出来 5 个 js 文件，分别是：
 
-* 所有文件中的 jquery 模块，会被打包进 jquery.common.js 文件
-* 所有文件中的 react 模块，会被打包进 react.common.js 文件
-* index1 和 index2 中包含的其他公共模块(代码)会被打包进 manifest.common.js 文件
-* index1 和 index2 中的其他非公共模块(代码)会被打包在 index1.bundle.js 和 index2.bundle.js 中
+-   所有文件中的 jquery 模块，会被打包进 jquery.common.js 文件
+-   所有文件中的 react 模块，会被打包进 react.common.js 文件
+-   index1 和 index2 中包含的其他公共模块(代码)会被打包进 manifest.common.js 文件
+-   index1 和 index2 中的其他非公共模块(代码)会被打包在 index1.bundle.js 和 index2.bundle.js 中
 
 ## 案例 2： 记录打包过程中的日志文件
 

@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-06 06:24:56 -->
+<!-- Date: 2018-03-06 06:24 -->
 
 # css 响应式布局注意的地方
 
@@ -11,8 +11,7 @@
 最初这个方法也是学习其他老师的方法，是用 JS 设置的, 方法如下：
 
 ```js
-document.getElementsByTagName('html')[0].style.fontSize =
-  window.screen.width / 100;
+document.getElementsByTagName('html')[0].style.fontSize = window.screen.width / 100;
 ```
 
 今天在测试的时候，发现了关于 screen 的问题， 关于获取浏览器宽度有两个方式，
@@ -28,8 +27,7 @@ document.getElementsByTagName('html')[0].style.fontSize =
 按照第一种设置根元素字号的方法，会导致打开了开发者工具的时候，达不到自己想要的样式效果，因此正确写法应该是这样的
 
 ```js
-document.getElementsByTagName('html')[0].style.fontSize =
-  window.innerWidth / 100;
+document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 100;
 ```
 
 ## 设置基础类样式
@@ -46,7 +44,7 @@ document.getElementsByTagName('html')[0].style.fontSize =
 
 ```css
 .wp(@px) {
-  width: unit(@px / 37.5, px);
+    width: unit(@px / 37.5, px);
 }
 ```
 
@@ -60,6 +58,6 @@ document.getElementsByTagName('html')[0].style.fontSize =
 
 ```css
 .hr(@px) {
-  height: unit(@px / 37.5, rem);
+    height: unit(@px / 37.5, rem);
 }
 ```

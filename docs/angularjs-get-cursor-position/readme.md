@@ -1,4 +1,4 @@
-<!-- Date: 2016-05-24 00:14:27 -->
+<!-- Date: 2016-05-24 00:14 -->
 
 # angularJS 获取光标在输入框中的位置
 
@@ -10,40 +10,38 @@
 在 angular 项目中的用法如下：
 
 ```html
-<input type="file" style="display: none;" onchange="angular.element(this).scope().fileChange(this)" name="file">
+<input type="file" style="display: none;" onchange="angular.element(this).scope().fileChange(this)" name="file" />
 <button class="btn_default" ng-click="addImage()">添加图片</button>
 <textarea ng-click="contentClick($event)" ng-change="contentChange()" ng-model="content" autofocus></textarea>
 ```
 
 ```js
-$scope.contentClick = function(event) {
-  $scope.contentAnthor = event.target.selectionStart;
+$scope.contentClick = function (event) {
+    $scope.contentAnthor = event.target.selectionStart;
 };
-$scope.contentChange = function(event) {
-  $scope.contentAnthor = $scope.content.length;
+$scope.contentChange = function (event) {
+    $scope.contentAnthor = $scope.content.length;
 };
-$scope.fileChange = function(ele) {
-  if (ele.value) {
-    var postData = {
-      action: 'article',
-      file: ele.files[0],
-    };
-    model.uploadImg(postData).then(function(res) {
-      if (res.ok) {
-        if ($scope.contentAnthor == 0) {
-          $scope.content =
-            $scope.content + '![图片](' + res.ok.data.url + ')\n\n';
-        } else {
-          var tmp1 = $scope.content.substr(0, $scope.contentAnthor);
-          var tmp2 = $scope.content.substr($scope.contentAnthor);
-          $scope.content =
-            tmp1 + '\n\n![图片](' + res.ok.data.url + ')\n\n' + tmp2;
-        }
-      } else {
-        dict.alert($scope, '图片上传失败');
-      }
-      ele.value = null;
-    });
-  }
+$scope.fileChange = function (ele) {
+    if (ele.value) {
+        var postData = {
+            action: 'article',
+            file: ele.files[0],
+        };
+        model.uploadImg(postData).then(function (res) {
+            if (res.ok) {
+                if ($scope.contentAnthor == 0) {
+                    $scope.content = $scope.content + '![图片](' + res.ok.data.url + ')\n\n';
+                } else {
+                    var tmp1 = $scope.content.substr(0, $scope.contentAnthor);
+                    var tmp2 = $scope.content.substr($scope.contentAnthor);
+                    $scope.content = tmp1 + '\n\n![图片](' + res.ok.data.url + ')\n\n' + tmp2;
+                }
+            } else {
+                dict.alert($scope, '图片上传失败');
+            }
+            ele.value = null;
+        });
+    }
 };
 ```

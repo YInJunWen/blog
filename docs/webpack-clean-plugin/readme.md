@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-12 07:39:15 -->
+<!-- Date: 2017-09-12 07:39 -->
 
 # webpack 中的 CleanWebpackPlugin
 
@@ -13,6 +13,7 @@ module.exports = {
     ]
 }
 ```
+
 [DEMO](./demo)
 
 ## path
@@ -21,13 +22,13 @@ module.exports = {
 
 ## options
 
-修改插件的默认配置，**主要*包括以下内容
+修改插件的默认配置，\**主要*包括以下内容
 
-allowExternal：该参数默认值为false，表示不允许清理root所指定目录之外的文件，从安全考虑，不建议设置为true
+allowExternal：该参数默认值为 false，表示不允许清理 root 所指定目录之外的文件，从安全考虑，不建议设置为 true
 
-root：该参数指定webpack的root目录，默认情况下指向webpack配置文件所在的目录，当要被清理的目录不在这个目录下，会抛出`outside the project root directory`错误
+root：该参数指定 webpack 的 root 目录，默认情况下指向 webpack 配置文件所在的目录，当要被清理的目录不在这个目录下，会抛出`outside the project root directory`错误
 
-exclude： 该参数指定的文件不会被清理，值为一个包含字符串的数组，注意当使用这个参数的时候，第一个参数定义个path千万不能写成`dist/*`的格式，否则这里的值会失效，下面就是一个会失效的配置
+exclude： 该参数指定的文件不会被清理，值为一个包含字符串的数组，注意当使用这个参数的时候，第一个参数定义个 path 千万不能写成`dist/*`的格式，否则这里的值会失效，下面就是一个会失效的配置
 
 ```js
 // dist
@@ -36,22 +37,20 @@ exclude： 该参数指定的文件不会被清理，值为一个包含字符串
 //  |test.txt
 
 // 错误的配置:
-new CleanWebpackPlugin(['dist/*'],{
-    exclude: ['test.txt', 'static']
-})
+new CleanWebpackPlugin(['dist/*'], {
+    exclude: ['test.txt', 'static'],
+});
 
-new CleanWebpackPlugin(['dist/*'],{
-    exclude: ['test.txt', 'static/*']   // 暂不支持glob语法
-})
+new CleanWebpackPlugin(['dist/*'], {
+    exclude: ['test.txt', 'static/*'], // 暂不支持glob语法
+});
 
 // 正确的配置:
-new CleanWebpackPlugin(['dist'],{
-    exclude: ['test.txt', 'static']
-})
-
+new CleanWebpackPlugin(['dist'], {
+    exclude: ['test.txt', 'static'],
+});
 ```
 
+verbose：当设置为 true 的时候，会在控制台输出清理的日志信息，默认为 true
 
-verbose：当设置为true的时候，会在控制台输出清理的日志信息，默认为true
-
-dry： 该参数默认值是false，表示在运行的时候会 `真实`清理需要清理的目录， 当设置为true的时候，并没有真实的清理目录，主要用于测试
+dry： 该参数默认值是 false，表示在运行的时候会 `真实`清理需要清理的目录， 当设置为 true 的时候，并没有真实的清理目录，主要用于测试

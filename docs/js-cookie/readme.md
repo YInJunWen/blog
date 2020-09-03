@@ -1,12 +1,12 @@
-<!-- Date: 2018-04-11 11:25:35 -->
+<!-- Date: 2018-04-11 11:25 -->
 
 # js cookie 的作用域
 
 `cookie`是保存在浏览器端的一小段数据，会在浏览器下一次向服务器发送请求的时候携带到服务器上，主要用以以下三个方面
 
-* 会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
-* 个性化设置（如用户自定义设置、主题等）
-* 浏览器行为跟踪（如跟踪分析用户行为等）
+-   会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
+-   个性化设置（如用户自定义设置、主题等）
+-   浏览器行为跟踪（如跟踪分析用户行为等）
 
 ## cookie 的属性
 
@@ -76,8 +76,7 @@ setCookie('name', 'zhangsan', time()+3600, '/', 'test.com', true, true)
 下面是一个通过 js 设置 cookie 的案例
 
 ```js
-document.cookie =
-  "name=zhangsan;path=/;doman='test.com';expires=Wed, 21 Oct 2020 07:28:00 GMT;httpOnly;secure";
+document.cookie = "name=zhangsan;path=/;doman='test.com';expires=Wed, 21 Oct 2020 07:28:00 GMT;httpOnly;secure";
 ```
 
 ## 获取 cookie 的方法
@@ -121,14 +120,14 @@ console.log(document.cookie);
 
 ```html
 <!-- 假设本页面已有cookie: name=zhangsan -->
-<img src="http://a.test.com/logo.png">
+<img src="http://a.test.com/logo.png" />
 ```
 
 `a.test.com/index.html`
 
 ```html
 <!-- 假设本页面已有cookie: age=12 -->
-<img src="http://test.com/logo.png">
+<img src="http://test.com/logo.png" />
 ```
 
 在没有插入图片标签的时候，两个页面在开发者工具中显示的 `cookie` 信息如下
@@ -172,8 +171,8 @@ name=zhangsan
 
 ```html
 <!-- 假设本页面已有cookie: name=zhangsan -->
-<img src="/logo.png">
-<img src="http://a.test.com/logo.png">
+<img src="/logo.png" />
+<img src="http://a.test.com/logo.png" />
 ```
 
 访问一下`test.com/index.html`页面，服务端的日志信息如下所示

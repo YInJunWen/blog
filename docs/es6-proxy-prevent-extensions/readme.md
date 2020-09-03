@@ -1,22 +1,23 @@
-<!-- Date: 2018-08-06 12:10:11 -->
+<!-- Date: 2018-08-06 12:10 -->
+
 # es6 代理对象的拦截器属性-prevetExtensions
 
 `prevetExtensions`主要用于拦截`Object.preventExtensions(), Reflect.preventExtensions()`方法，属性返回一个布尔值。
 
 参数
 
-- `target`表示被代理对象
+-   `target`表示被代理对象
 
 ## 拦截案例
 
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  preventExtensions(target) {
-    console.log(target === obj); // true
-    Object.preventExtensions(target);
-    return true;
-  },
+    preventExtensions(target) {
+        console.log(target === obj); // true
+        Object.preventExtensions(target);
+        return true;
+    },
 });
 Object.preventExtensions(proxy); // Proxy{}
 Reflect.preventExtensions(proxy); // true
@@ -31,10 +32,10 @@ Reflect.preventExtensions(proxy); // true
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  preventExtensions(target) {
-    console.log(target === obj);
-    return true;
-  },
+    preventExtensions(target) {
+        console.log(target === obj);
+        return true;
+    },
 });
 Object.preventExtensions(proxy);
 // Uncaught TypeError: 'preventExtensions' on proxy: trap returned truish but the proxy target is extensible
@@ -45,10 +46,10 @@ Object.preventExtensions(proxy);
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  preventExtensions(target) {
-    console.log(target === obj);
-    return false;
-  },
+    preventExtensions(target) {
+        console.log(target === obj);
+        return false;
+    },
 });
 Object.preventExtensions(proxy);
 
@@ -60,10 +61,10 @@ Object.preventExtensions(proxy);
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  preventExtensions(target) {
-    console.log(target === obj);
-    return false;
-  },
+    preventExtensions(target) {
+        console.log(target === obj);
+        return false;
+    },
 });
 Reflect.preventExtensions(proxy); // true
 ```

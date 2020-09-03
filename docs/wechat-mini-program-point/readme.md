@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-06 03:34:42 -->
+<!-- Date: 2018-06-06 03:34 -->
 
 # wechat 微信小程序开发要注意的地方
 
@@ -16,27 +16,27 @@ text 组建中有两个属性 space 和 decode 都可以用来正确显示想要
 
 官方文档写的不全，这里补充一下：
 
-- 滚动容器一定要设置 white-space: no-wrap;
-- 滚动项要设置为： display:inline-block;
-- 滚动项添加 float 是无效的
+-   滚动容器一定要设置 white-space: no-wrap;
+-   滚动项要设置为： display:inline-block;
+-   滚动项添加 float 是无效的
 
 ## 事件传参
 
 小程序的事件只会传递一个参数，那就是 event，如果想传递其他参数可以通过 event 事件的其他属性来获取，看下面的例子
 
 ```html
-<view data-name="zhangsan" data-age="{{age}}" bindtap="tapEvent">
+<view data-name="zhangsan" data-age="{{age}}" bindtap="tapEvent"></view>
 ```
 
 ```js
 Page({
-  data: {
-    age: 12,
-  },
-  tapEvent(event) {
-    let name = event.target.dataset.name; // 这里就可以获取到我们传递进来的 name 值
-    let age = event.target.dataset.age; // 这里就可以获取到我们传递进来的 age 值
-  },
+    data: {
+        age: 12,
+    },
+    tapEvent(event) {
+        let name = event.target.dataset.name; // 这里就可以获取到我们传递进来的 name 值
+        let age = event.target.dataset.age; // 这里就可以获取到我们传递进来的 age 值
+    },
 });
 ```
 

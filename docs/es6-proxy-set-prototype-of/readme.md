@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-13 12:11:21 -->
+<!-- Date: 2018-07-13 12:11 -->
 
 # es6 代理对象的拦截器属性-setPrototypeOf
 
@@ -6,21 +6,21 @@
 
 ## 参数
 
-- `target`表示被代理对象
-- `prototype`表示想要设置的原型
+-   `target`表示被代理对象
+-   `prototype`表示想要设置的原型
 
 ```js
 let obj = {};
-let foo = function() {};
+let foo = function () {};
 foo.prototype.name = 'zhangsan';
 foo.prototype.age = 12;
 
 let proxy = new Proxy(obj, {
-  setPrototypeOf: function(target, prototype) {
-    console.log(target === obj); // true
-    console.log(prototype === foo.prototype); // true
-    return true;
-  },
+    setPrototypeOf: function (target, prototype) {
+        console.log(target === obj); // true
+        console.log(prototype === foo.prototype); // true
+        return true;
+    },
 });
 Object.setPrototypeOf(proxy, foo.prototype); // true
 ```
@@ -31,14 +31,14 @@ Object.setPrototypeOf(proxy, foo.prototype); // true
 
 ```js
 let obj = {};
-let foo = function() {};
+let foo = function () {};
 foo.prototype.name = 'zhangsan';
 foo.prototype.age = 12;
 
 let proxy = new Proxy(obj, {
-  setPrototypeOf: function(target, prototype) {
-    return Reflect.setPrototypeOf(target, prototype);
-  },
+    setPrototypeOf: function (target, prototype) {
+        return Reflect.setPrototypeOf(target, prototype);
+    },
 });
 Object.setPrototypeOf(proxy, foo.prototype); // true
 
@@ -56,14 +56,14 @@ console.log(proxy instanceof foo); // true
 ```js
 let obj = {};
 Object.freeze(obj);
-let foo = function() {};
+let foo = function () {};
 foo.prototype.name = 'zhangsan';
 foo.prototype.age = 12;
 
 let proxy = new Proxy(obj, {
-  setPrototypeOf: function(target, prototype) {
-    return Reflect.setPrototypeOf(target, prototype);
-  },
+    setPrototypeOf: function (target, prototype) {
+        return Reflect.setPrototypeOf(target, prototype);
+    },
 });
 Object.setPrototypeOf(proxy, foo.prototype);
 // Uncaught TypeError: 'setPrototypeOf' on proxy: trap returned falsish
@@ -77,14 +77,14 @@ let obj2 = { age: 3 };
 Object.setPrototypeOf(obj, obj2);
 Object.freeze(obj);
 
-let foo = function() {};
+let foo = function () {};
 foo.prototype.name = 'zhangsan';
 foo.prototype.age = 12;
 
 let proxy = new Proxy(obj, {
-  setPrototypeOf: function(target, prototype) {
-    return Reflect.setPrototypeOf(target, prototype);
-  },
+    setPrototypeOf: function (target, prototype) {
+        return Reflect.setPrototypeOf(target, prototype);
+    },
 });
 Object.setPrototypeOf(proxy, obj2); // 这里就不会抛出错误了
 ```

@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-12 04:31:46 -->
+<!-- Date: 2017-09-12 04:31 -->
 
 # webpack htmlWebpackPlugin 插件
 
@@ -31,9 +31,9 @@ html 中 title 元素的内容，
 
 ```js
 plugins: [
-  new htmlWebpackPlugin({
-    title: '标题',
-  }),
+    new htmlWebpackPlugin({
+        title: '标题',
+    }),
 ];
 ```
 
@@ -44,10 +44,10 @@ html 中 title 元素的内容，
 
 ```js
 plugins: [
-  new htmlWebpackPlugin({
-    title: '标题',
-    filename: 'ouput/index.html',
-  }),
+    new htmlWebpackPlugin({
+        title: '标题',
+        filename: 'ouput/index.html',
+    }),
 ];
 ```
 
@@ -57,26 +57,26 @@ plugins: [
 
 ```js
 plugins: [
-  new htmlWebpackPlugin({
-    title: '标题',
-    filename: 'template/index.jade',
-  }),
+    new htmlWebpackPlugin({
+        title: '标题',
+        filename: 'template/index.jade',
+    }),
 ];
 ```
 
 ## inject: true| body | head | false
 
-* true|body： 默认值 script 标签位于 html 文件的 body 地步
-* head: script 标签位于 head 标签内
-* false： 不在 html 中引入 js 代码
+-   true|body： 默认值 script 标签位于 html 文件的 body 地步
+-   head: script 标签位于 head 标签内
+-   false： 不在 html 中引入 js 代码
 
 ```js
 plugins: [
-  new htmlWebpackPlugin({
-    title: '标题',
-    filename: 'template/index.jade',
-    inject: true,
-  }),
+    new htmlWebpackPlugin({
+        title: '标题',
+        filename: 'template/index.jade',
+        inject: true,
+    }),
 ];
 ```
 
@@ -118,7 +118,7 @@ var config = {
 
 excludeChunks： boolean
 
-* 设置不允许自动引入到 html 文件中的模块，也就是这里的只不会被自动引入到 html 文件中
+-   设置不允许自动引入到 html 文件中的模块，也就是这里的只不会被自动引入到 html 文件中
 
 ```js
 var config = {
@@ -152,13 +152,13 @@ var config = {
 
 ```js
 plugins: [
-  new htmlWebpackPlugin({
-    title: '标题',
-    filename: 'template/index.jade',
-    minify: {
-      removeAttributeQuotes: true, // 移除属性的引号
-    },
-  }),
+    new htmlWebpackPlugin({
+        title: '标题',
+        filename: 'template/index.jade',
+        minify: {
+            removeAttributeQuotes: true, // 移除属性的引号
+        },
+    }),
 ];
 ```
 

@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-10 20:41:54 -->
+<!-- Date: 2017-09-10 20:41 -->
 
 # webpack4 新增的 optimization 配置项
 
@@ -14,15 +14,15 @@
 
 ```js
 module.exports = {
-  //...
-  optimization: {
-    minimizer: [
-      new webpack.optimize.UglifyJsPlugin({
-        /* your config */
-      }),
-    ],
-  },
-  ß,
+    //...
+    optimization: {
+        minimizer: [
+            new webpack.optimize.UglifyJsPlugin({
+                /* your config */
+            }),
+        ],
+    },
+    ß,
 };
 ```
 
@@ -32,12 +32,12 @@ webpack4 提供了这个选项来代替 v4 之前版本使用的`CommonsChunkPlu
 
 ```js
 module.exports = {
-  //...
-  optimization: {
-    runtimeChunk: {
-      name: entrypoint => `runtimechunk~${entrypoint.name}`,
+    //...
+    optimization: {
+        runtimeChunk: {
+            name: (entrypoint) => `runtimechunk~${entrypoint.name}`,
+        },
     },
-  },
 };
 ```
 
@@ -47,9 +47,9 @@ module.exports = {
 
 ```js
 module.exports = {
-  //...
-  optimization: {
-    noEmitOnErrors: true,
-  },
+    //...
+    optimization: {
+        noEmitOnErrors: true,
+    },
 };
 ```

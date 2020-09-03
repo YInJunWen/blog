@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-03 14:18:22 -->
+<!-- Date: 2017-06-03 14:18 -->
 
 # algorithm 基础算法之折半插入排序
 
@@ -22,28 +22,28 @@
 
 ```js
 function sort(array) {
-  var current, i, j, low, high, m;
-  for (i = 1; i < array.length; i++) {
-    low = 0;
-    high = i - 1;
-    current = array[i];
+    var current, i, j, low, high, m;
+    for (i = 1; i < array.length; i++) {
+        low = 0;
+        high = i - 1;
+        current = array[i];
 
-    while (low <= high) {
-      m = (low + high) >> 1;
-      if (array[i] >= array[m]) {
-        //值相同时, 切换到高半区，保证稳定性
-        low = m + 1; //插入点在高半区
-      } else {
-        high = m - 1; //插入点在低半区
-      }
+        while (low <= high) {
+            m = (low + high) >> 1;
+            if (array[i] >= array[m]) {
+                //值相同时, 切换到高半区，保证稳定性
+                low = m + 1; //插入点在高半区
+            } else {
+                high = m - 1; //插入点在低半区
+            }
+        }
+        for (j = i; j > low; j--) {
+            //插入位置之后的元素全部后移一位
+            array[j] = array[j - 1];
+        }
+        array[low] = current; //把元素插入正确的位置
     }
-    for (j = i; j > low; j--) {
-      //插入位置之后的元素全部后移一位
-      array[j] = array[j - 1];
-    }
-    array[low] = current; //把元素插入正确的位置
-  }
-  return array;
+    return array;
 }
 ```
 

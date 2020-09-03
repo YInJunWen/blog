@@ -1,23 +1,23 @@
-<!-- Date: 2018-06-22 12:00:54 -->
+<!-- Date: 2018-06-22 12:00 -->
 
 # js 向 textarea 输入 tab 字符
 
 > 在本博客的编辑器功能中，需要模仿 IDE 按下 tab 键插入四个空格功能，实现方式记录如下
 
 ```js
-document.onkeydown = function(e) {
-  if (e.target.nodeName.toLowerCase() == "textarea" && e.keyCode == 9) {
-    e.preventDefault();
-    var ele = e.target;
-    var start = ele.selectionStart;
-    var end = ele.selectionEnd;
-    var tmp1 = ele.value.substr(0, start);
-    var tmp2 = ele.value.substr(end);
-    ele.value = tmp1 + "    " + tmp2;
-    ele.selectionStart = ele.selectionEnd = start + 4;
-    $scope.$apply();
-    // return false;
-  }
+document.onkeydown = function (e) {
+    if (e.target.nodeName.toLowerCase() == 'textarea' && e.keyCode == 9) {
+        e.preventDefault();
+        var ele = e.target;
+        var start = ele.selectionStart;
+        var end = ele.selectionEnd;
+        var tmp1 = ele.value.substr(0, start);
+        var tmp2 = ele.value.substr(end);
+        ele.value = tmp1 + '    ' + tmp2;
+        ele.selectionStart = ele.selectionEnd = start + 4;
+        $scope.$apply();
+        // return false;
+    }
 };
 ```
 

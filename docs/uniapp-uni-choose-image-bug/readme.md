@@ -1,4 +1,4 @@
-<!-- Date: 2020-08-18 13:38:11 -->
+<!-- Date: 2020-08-18 13:38 -->
 
 # uniapp 中 uni.chooseImage 方法的底层 bug(触发 app 级别 onhide 与 onshow)的问题
 

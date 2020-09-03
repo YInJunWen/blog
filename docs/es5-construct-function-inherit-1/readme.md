@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-09 21:50:45 -->
+<!-- Date: 2017-09-09 21:50 -->
 
 # es5 函数继承-构造函数的继承(1)
 
@@ -24,7 +24,7 @@ Brendan Eich 无疑受到了影响，Javascript 里面所有的数据类型都�
 C++的写法是：
 
 ```js
-　　ClassName *object = new ClassName(param);
+ClassName * object = new ClassName(param);
 ```
 
 Java 的写法是：
@@ -39,7 +39,7 @@ Java 的写法是：
 
 ```js
 function DOG(name) {
-  this.name = name;
+    this.name = name;
 }
 ```
 
@@ -60,8 +60,8 @@ alert(dogA.name); // 大毛
 
 ```js
 function DOG(name) {
-  this.name = name;
-  this.species = '犬科';
+    this.name = name;
+    this.species = '犬科';
 }
 ```
 
@@ -91,7 +91,7 @@ alert(dogB.species); // 显示"犬科"，不受dogA的影响
 
 ```js
 function DOG(name) {
-  this.name = name;
+    this.name = name;
 }
 DOG.prototype = { species: '犬科' };
 
@@ -113,9 +113,9 @@ alert(dogB.species); // 猫科
 
 ## 五、总结
 
-* 构造函数本身的属性相当于私有属性，生成的对象实例之间互不影响
+-   构造函数本身的属性相当于私有属性，生成的对象实例之间互不影响
 
-* 而构造函数的 prototype 属性上定义的属性，相当于公共属性，生成的对象实例之间互相影响，只要一个被修改，另一个也会被修改
+-   而构造函数的 prototype 属性上定义的属性，相当于公共属性，生成的对象实例之间互相影响，只要一个被修改，另一个也会被修改
 
 由于所有的实例对象共享同一个 prototype 对象，那么从外界看起来，prototype 对象就好像是实例对象的原型，而实例对象则好像"继承"了 prototype 对象一样。
 

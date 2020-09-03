@@ -1,4 +1,4 @@
-<!-- Date: 2017-03-10 18:33:55 -->
+<!-- Date: 2017-03-10 18:33 -->
 
 # react 中定义样式的几种方式
 
@@ -8,17 +8,17 @@
 
 ```js
 class ComponentHeader extends React.Component {
-  render() {
-    const styleComponentHeader = {
-      header: {
-        backgroundColor: "#333",
-        color: "red",
-        // "padding-top": "20px",//这种写法react会提示警告，要求流使用JSX的模式，即paddingTop
-        paddingBottom: "20px"
-      }
-    };
-    return <h1 style={styleComponentHeader.header}>这是头部</h1>;
-  }
+    render() {
+        const styleComponentHeader = {
+            header: {
+                backgroundColor: '#333',
+                color: 'red',
+                // "padding-top": "20px",//这种写法react会提示警告，要求流使用JSX的模式，即paddingTop
+                paddingBottom: '20px',
+            },
+        };
+        return <h1 style={styleComponentHeader.header}>这是头部</h1>;
+    }
 }
 ```
 

@@ -1,4 +1,4 @@
-<!-- Date: 2018-01-23 13:10:04 -->
+<!-- Date: 2018-01-23 13:10 -->
 
 # vue 中创建全局的弹窗组件
 
@@ -22,58 +22,57 @@ alert/index.vue
 ```html
 <template src="./index.html"></template>
 <script>
+    export default {
+        data() {
+            return {
+                showAlert: false,
+                context: '没有标题',
+                allowClick: false,
+                okText: '确定',
+                cancelText: '取消',
+            };
+        },
+        methods: {
+            show(context, allowClick, okText, cancelText) {
+                let p = new Promise((resolve, reject) => {
+                    this.showAlert = true;
 
-export default {
-  data () {
-    return {
-      showAlert: false,
-      context: '没有标题',
-      allowClick: false,
-      okText: '确定',
-      cancelText: '取消'
-    }
-  },
-  methods: {
-    show (context, allowClick, okText, cancelText) {
-      let p = new Promise((resolve, reject) => {
-        this.showAlert = true
+                    if (allowClick) {
+                        this.allowClick = allowClick;
+                    } else {
+                        setTimeout(() => {
+                            this.showAlert = false;
+                            resolve({ ok: true });
+                        }, 1000);
+                        return false;
+                    }
+                    this.okText = okText || '确定';
+                    this.cancelText = cancelText || '取消';
 
-        if (allowClick) {
-          this.allowClick = allowClick
-        } else {
-          setTimeout(() => {
-            this.showAlert = false
-          resolve({ok: true})
-          }, 1000)
-          return false
-        }
-        this.okText = okText || '确定'
-        this.cancelText = cancelText || '取消'
-
-        this.btnClick = function (state) {
-          this.showAlert = false
-          resolve({ok: state})
-        }
-      })
-      return p
-    }
-  }
-}
+                    this.btnClick = function (state) {
+                        this.showAlert = false;
+                        resolve({ ok: state });
+                    };
+                });
+                return p;
+            },
+        },
+    };
 </script>
-<style lang="less"  src="./index.less"></style>
+<style lang="less" src="./index.less"></style>
 ```
 
 `alert/index.html`
 
 ```html
-<div class="app_alert"  v-show="showAlert">
+<div class="app_alert" v-show="showAlert">
     <div class="content">
         <p class="context">
             <span>{{context}}</span>
         </p>
         <div class="btnGroup" v-if="allowClick">
-            <button  @click="btnClick(true)">{{okText}}</button>
-            <button v-show="allowClick"  @click="btnClick(false)">{{cancelText}}</button>
+            <button @click="btnClick(true)">{{okText}}</button>
+            <button v-show="allowClick" @click="btnClick(false)">{{cancelText}}</button>
         </div>
     </div>
 </div>
@@ -82,16 +81,16 @@ export default {
 `alert/index.js`
 
 ```js
-import Vue from "vue";
-import AppAlert from "./index.vue";
+import Vue from 'vue';
+import AppAlert from './index.vue';
 
 // 根据模板创建一个Vue的子类，注意这里是子类，而不是一个实例
 const Construct = Vue.extend(AppAlert);
 
 // 生成一个实例，并设置他的模板和组件
 const AppAlertComponent = new Construct({
-  template: "<AppAlert/>",
-  component: AppAlert,
+    template: '<AppAlert/>',
+    component: AppAlert,
 });
 
 // 先挂载组件
@@ -102,17 +101,17 @@ document.body.appendChild(Ele.$el);
 
 // Vue规定使用use方法的时候，必须接受一个包含install属性的对象，或者一个function
 export default {
-  install: Vue => {
-    // 把$alert挂在到Vue的属性上
-    Vue.prototype.$alert = AppAlertComponent;
-  },
+    install: (Vue) => {
+        // 把$alert挂在到Vue的属性上
+        Vue.prototype.$alert = AppAlertComponent;
+    },
 };
 ```
 
 `main.js`
 
 ```js
-import VAlert from "@/common/app_alert/index.js";
+import VAlert from '@/common/app_alert/index.js';
 Vue.use(VAlert);
 ```
 

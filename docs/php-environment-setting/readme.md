@@ -1,4 +1,4 @@
-<!-- Date: 2017-11-06 15:43:46 -->
+<!-- Date: 2017-11-06 15:43 -->
 
 # php 环境布置的问题
 
@@ -32,7 +32,7 @@ AddType application/x-httpd-php .php
 AddHandler php7-script .php
 ```
 
-* "php7-script"中的数字根据 PHP 版本填 5 或 7
+-   "php7-script"中的数字根据 PHP 版本填 5 或 7
 
 ## centos6 中找不到 php72 的包
 
@@ -121,7 +121,7 @@ grant all privileges on sspanel.* to 'liyun'@'%'
 
 命令格式为`允许 操作 on 表名 to 用户@访问主机`
 
-* table\* 表示指定数据库下的所有表具体的使用方式可以参考[mysql 的 grant 命令](https://www.cnblogs.com/hcbin/archive/2010/04/23/1718379.html)
+-   table\* 表示指定数据库下的所有表具体的使用方式可以参考[mysql 的 grant 命令](https://www.cnblogs.com/hcbin/archive/2010/04/23/1718379.html)
 
 # apache 同时监听多个端口
 

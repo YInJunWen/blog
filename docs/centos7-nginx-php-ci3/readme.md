@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-09 15:27:18 -->
+<!-- Date: 2018-07-09 15:27 -->
 
 # centOS7 中布置 nginx+php+ci3
 
@@ -139,13 +139,13 @@ netstat -ntlp
 
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1214/nginx: master  
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      1214/nginx: master
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      879/sshd
-tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      1214/nginx: master  
+tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      1214/nginx: master
 tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1129/master
 tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      2902/php-fpm: maste
 tcp6       0      0 :::22                   :::*                    LISTEN      879/sshd
-tcp6       0      0 ::1:25                  :::*                    LISTEN      1129/master  
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1129/master
 ```
 
 这里可以看到 php-fpm 使用的端口为`9000`，也可以在上一步手动配置 php-fpm 的端口，yum 安装的配置文件默认在`/etc/php-fpm`和`/etc/php-fpm.d/*.conf`
@@ -207,7 +207,7 @@ user liyun admin
 
 ## 四个重点
 
-* loop 网卡一定要启用
-* nginx 的运行用户要和项目创建人保持一致
-* php-fpm 的运行用户要和项目创建人保持一致
-* nginx 中 php-fpm：fastcg_script 不能设置错误
+-   loop 网卡一定要启用
+-   nginx 的运行用户要和项目创建人保持一致
+-   php-fpm 的运行用户要和项目创建人保持一致
+-   nginx 中 php-fpm：fastcg_script 不能设置错误

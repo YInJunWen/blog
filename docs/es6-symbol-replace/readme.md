@@ -1,11 +1,11 @@
-<!-- Date: 2018-06-20 14:01:59 -->
+<!-- Date: 2018-06-20 14:01 -->
 
 # es6 内置属性-[Symbol.replace]
 
 之前在使用字符串的 replace 方法时，心里很明白 replace 的第一个参数，应该是一个 `string` 或者 `regexp`，从来没想过如果传入一个对象会怎么样。先来看一下正确的用法：
 
 ```js
-let a = "abc def".replace(" ", ",");
+let a = 'abc def'.replace(' ', ',');
 a; // 'abc,def'
 ```
 
@@ -13,7 +13,7 @@ a; // 'abc,def'
 
 ```js
 var obj = {};
-let a = "abc def".replace(obj, ",");
+let a = 'abc def'.replace(obj, ',');
 a; // 'abc def'
 ```
 
@@ -23,10 +23,10 @@ a; // 'abc def'
 
 ```js
 var obj = {};
-obj[Symbol.replace] = function(arg) {
-  return "egg";
+obj[Symbol.replace] = function (arg) {
+    return 'egg';
 };
-let a = "abc def".replace(obj, ",");
+let a = 'abc def'.replace(obj, ',');
 a; // 'egg'
 ```
 
@@ -38,18 +38,18 @@ a; // 'egg'
 
 ```js
 var obj = {};
-let a = "abc def".replace(" ", ",");
-console.log("a: ", a);
+let a = 'abc def'.replace(' ', ',');
+console.log('a: ', a);
 
-let b = "abc def".replace(obj, ",");
-console.log("b: ", b);
+let b = 'abc def'.replace(obj, ',');
+console.log('b: ', b);
 
-obj[Symbol.replace] = obj => {
-  console.log("方法的参数内容： ", obj);
-  return "egg";
+obj[Symbol.replace] = (obj) => {
+    console.log('方法的参数内容： ', obj);
+    return 'egg';
 };
-let c = "abc def".replace(obj, ",");
-console.log("c: ", c);
+let c = 'abc def'.replace(obj, ',');
+console.log('c: ', c);
 ```
 
 ![](./images/1.png)

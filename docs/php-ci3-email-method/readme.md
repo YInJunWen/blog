@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-15 15:15:15 -->
+<!-- Date: 2018-07-15 15:15 -->
 
 # php CI3 下使用 QQ 邮箱和 QQ 企业邮箱的案例
 
@@ -50,7 +50,7 @@ windows 环境下使用 ci3 的邮件库，与 linux 中有很不同。
 
 window 中默认是没有 sendmail 插件的，需要自行安装 [下载 sendmail for windows](https://downloads.tomsguide.com/SendMail,0301-2037.html)
 
-假设我们用的是 wamp 客户端，把文件解压到$wamp/bin/sendmail/下
+假设我们用的是 wamp 客户端，把文件解压到\$wamp/bin/sendmail/下
 
 2.配置 php.ini 文件
 

@@ -1,18 +1,18 @@
-<!-- Date: 2016-07-26 09:41:34 -->
+<!-- Date: 2016-07-26 09:41 -->
 
 # react-router4X 版本用法
 
 Route 组件可能是 React Router 中需要我们理解和学习的最重要的组件，它最主要的任务是当 location 发生变化的时候，渲染对应的 UI 界面，基础用法如下：
 
 ```js
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 <Router>
-  <div>
-    <Route exact path="/" component={Home}/>
-    <Route path="/news" component={NewsFeed}/>
-  </div>
-</Router>
+    <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/news" component={NewsFeed} />
+    </div>
+</Router>;
 ```
 
 ## props.exact
@@ -83,16 +83,16 @@ strict path='/about/'
 
 总共有三种渲染方法：平常只会使用以下三种中的一种，最常用的是 component
 
-* `<Route component>`
-* `<Route render>`
-* `<Route children>`
+-   `<Route component>`
+-   `<Route render>`
+-   `<Route children>`
 
 以上三种方式，都会获得相同的三个属性，可以用来将他们传递到`<Route/>`的组件中使用
 
-* match
-* location
-* history
-  其中：
+-   match
+-   location
+-   history
+    其中：
 
 component 只会在地址匹配的时候，才会被渲染，如果使用这种方式，路由会根据指定的内容创建一个新的组件，因此这种方式不适用于内联渲染，稍后再说什叫做内联渲染。用法如下：
 
@@ -100,7 +100,7 @@ component 只会在地址匹配的时候，才会被渲染，如果使用这种�
 <Route path="/user/:username" component={User} />;
 
 const User = ({ match }) => {
-  return <h1>Hello {match.params.username}!</h1>;
+    return <h1>Hello {match.params.username}!</h1>;
 };
 ```
 
@@ -109,8 +109,8 @@ const User = ({ match }) => {
 ```js
 <Route path="/user/:username" component={User} />;
 
-const User = match => {
-  return <h1>Hello {match.match.params.username}!</h1>;
+const User = (match) => {
+    return <h1>Hello {match.match.params.username}!</h1>;
 };
 ```
 
@@ -123,6 +123,7 @@ const User = match => {
 这里要注意一点，上面案例并没有 return 了一个新的组件出来，仅仅只是一个 DOM 节点，这种方式就可以看做是一个`内联渲染`！官方是不推荐内联渲染的时候使用 component 的，官方建议使用 render 方式：
 
 ```js
+
 ```
 
 参考网站：

@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-05 10:51:04 -->
+<!-- Date: 2017-06-05 10:51 -->
 
 # algorithm 基础算法之快速排序
 
@@ -14,27 +14,25 @@
 
 ```js
 function quick(array) {
-  if (array.length <= 1) {
-    return array;
-  }
-  var tmp = array[0];
-  var len = array.length;
-  var arr1 = [],
-    arr2 = [];
-  for (var j = 1; j <= len - 1; j++) {
-    if (array[j] < tmp) {
-      arr1.push(array[j]);
+    if (array.length <= 1) {
+        return array;
     }
-    if (array[j] >= tmp) {
-      arr2.push(array[j]);
+    var tmp = array[0];
+    var len = array.length;
+    var arr1 = [],
+        arr2 = [];
+    for (var j = 1; j <= len - 1; j++) {
+        if (array[j] < tmp) {
+            arr1.push(array[j]);
+        }
+        if (array[j] >= tmp) {
+            arr2.push(array[j]);
+        }
     }
-  }
-  return quick(arr1)
-    .concat([tmp])
-    .concat(quick(arr2));
+    return quick(arr1).concat([tmp]).concat(quick(arr2));
 }
 function sort(array) {
-  console.log(quick(array));
+    console.log(quick(array));
 }
 ```
 
@@ -60,7 +58,7 @@ function sort(array) {
 
             关闭栈   返回排序后的内容： [3,5]
 
-        打开新的栈： quick([8])  
+        打开新的栈： quick([8])
             元素数量小于等于1，返回数组本身 return [8]
             关闭栈  返回 [8]
         回到上一个栈

@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-08 05:21:55 -->
+<!-- Date: 2018-06-08 05:21 -->
 
 # es6 新的原始数据类型-Symbol
 
@@ -22,7 +22,7 @@ symbol 的参数可以是一个字符串
 var add = Symbol('a');
 console.log(add); // "a"
 var foo = Symbol({
-  name: '1',
+    name: '1',
 });
 console.log(foo); // "Symbol([object Object])"
 ```
@@ -31,9 +31,9 @@ console.log(foo); // "Symbol([object Object])"
 
 ```js
 var egg = Symbol({
-  toString: function() {
-    return 'egg';
-  },
+    toString: function () {
+        return 'egg';
+    },
 });
 console.log(egg); // "Symbol(egg)"
 ```
@@ -59,7 +59,7 @@ egg[Symbol('add')]; // undefiend
 ```js
 var tmp = Symbol('foo');
 var egg = {
-  [tmp]: 1,
+    [tmp]: 1,
 };
 egg[tmp]; // 1
 
@@ -143,8 +143,8 @@ let a = Symbol.for('a');
 let b = Symbol.for('b');
 
 const obj = {
-  [a]: 1,
-  [b]: 2,
+    [a]: 1,
+    [b]: 2,
 };
 console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(a), Symbol(b) ]
 ```
@@ -192,8 +192,8 @@ console.log(!!obj); // 需要转换成布尔值 输出内容：true
 
 [Symbol.match]属性有两个作用
 
-- 修改 match 函数的行为
-- 修改正则表达式的属性
+-   修改 match 函数的行为
+-   修改正则表达式的属性
 
 具体文档可以参考[es6-symbol 中的[Symbol.match]属性](../es6-symbol-match)
 

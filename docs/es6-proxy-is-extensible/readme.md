@@ -1,15 +1,15 @@
-<!-- Date: 2018-08-06 13:27:43 -->
+<!-- Date: 2018-08-06 13:27 -->
 
 # es6 代理对象的拦截器属性-isExtensible
 
 `isExtensible`拦截器属性，主要用来拦截“判断对象是否可扩展”的方法
 
-- `Object.isExtensible(target)`
-- `Reflect.isExtensible(target)`
+-   `Object.isExtensible(target)`
+-   `Reflect.isExtensible(target)`
 
 参数
 
-- `target`表示被代理对象
+-   `target`表示被代理对象
 
 ## 拦截案例
 
@@ -18,10 +18,10 @@
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  isExtensible(target) {
-    console.log(target === obj); // true
-    return true;
-  },
+    isExtensible(target) {
+        console.log(target === obj); // true
+        return true;
+    },
 });
 console.log(Object.isExtensible(proxy)); // true
 ```
@@ -31,9 +31,9 @@ console.log(Object.isExtensible(proxy)); // true
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  isExtensible(target) {
-    return 1;
-  },
+    isExtensible(target) {
+        return 1;
+    },
 });
 console.log(Object.isExtensible(proxy)); // true
 ```
@@ -44,9 +44,9 @@ console.log(Object.isExtensible(proxy)); // true
 let obj = {};
 Object.preventExtensions(obj);
 let proxy = new Proxy(obj, {
-  isExtensible(target) {
-    return 0;
-  },
+    isExtensible(target) {
+        return 0;
+    },
 });
 console.log(Object.isExtensible(proxy)); // false
 ```
@@ -61,9 +61,9 @@ console.log(Object.isExtensible(proxy)); // false
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  isExtensible(target) {
-    return false;
-  },
+    isExtensible(target) {
+        return false;
+    },
 });
 console.log(Object.isExtensible(proxy));
 // Uncaught TypeError: 'isExtensible' on proxy: trap result does not reflect extensibility of proxy target (which is 'true')
@@ -75,9 +75,9 @@ console.log(Object.isExtensible(proxy));
 let obj = {};
 Object.preventExtensions(obj);
 let proxy = new Proxy(obj, {
-  isExtensible(target) {
-    return true;
-  },
+    isExtensible(target) {
+        return true;
+    },
 });
 console.log(Object.isExtensible(proxy));
 // Uncaught TypeError: 'isExtensible' on proxy: trap result does not reflect extensibility of proxy target (which is 'false')

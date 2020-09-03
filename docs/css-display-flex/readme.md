@@ -1,4 +1,4 @@
-<!-- Date: 2016-11-03 16:46:03 -->
+<!-- Date: 2016-11-03 16:46 -->
 
 # css 中的 display-flex
 
@@ -14,11 +14,11 @@ flex 布局出来之后，实在是用的太顺手了，不管什么地方都想
 var u = navigator.userAgent;
 
 if (/OS\ (\d{1,3}_\d{1,3})\ /g.test(u)) {
-  var tmp = u.match(/OS\ (\d{1,3}_\d{1,3})\ /g)[0];
-  var version = tmp.slice(3).replace('_', '.');
-  if (parseFloat(version) < 9) {
-    document.body.className = 'oslt9';
-  }
+    var tmp = u.match(/OS\ (\d{1,3}_\d{1,3})\ /g)[0];
+    var version = tmp.slice(3).replace('_', '.');
+    if (parseFloat(version) < 9) {
+        document.body.className = 'oslt9';
+    }
 }
 ```
 

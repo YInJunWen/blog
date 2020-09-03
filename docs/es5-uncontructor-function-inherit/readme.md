@@ -1,4 +1,4 @@
-<!-- Date: 2016-09-22 09:48:23 -->
+<!-- Date: 2016-09-22 09:48 -->
 
 # es5 函数继承-非构造函数的继承
 
@@ -8,7 +8,7 @@
 
 ```js
 var Chinese = {
-  nation: '中国',
+    nation: '中国',
 };
 ```
 
@@ -16,7 +16,7 @@ var Chinese = {
 
 ```js
 var Doctor = {
-  career: '医生',
+    career: '医生',
 };
 ```
 
@@ -30,9 +30,9 @@ json 格式的发明人 Douglas Crockford，提出了一个 object()函数，可
 
 ```js
 function object(o) {
-  function F() {}
-  F.prototype = o;
-  return new F();
+    function F() {}
+    F.prototype = o;
+    return new F();
 }
 ```
 
@@ -64,12 +64,12 @@ alert(Doctor.nation); //中国
 
 ```js
 function extendCopy(p) {
-  var c = {};
-  for (var i in p) {
-    c[i] = p[i];
-  }
-  c.uber = p;
-  return c;
+    var c = {};
+    for (var i in p) {
+        c[i] = p[i];
+    }
+    c.uber = p;
+    return c;
 }
 ```
 
@@ -116,16 +116,16 @@ alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门
 
 ```js
 function deepCopy(p, c) {
-  var c = c || {};
-  for (var i in p) {
-    if (typeof p[i] === 'object') {
-      c[i] = p[i].constructor === Array ? [] : {};
-      deepCopy(p[i], c[i]);
-    } else {
-      c[i] = p[i];
+    var c = c || {};
+    for (var i in p) {
+        if (typeof p[i] === 'object') {
+            c[i] = p[i].constructor === Array ? [] : {};
+            deepCopy(p[i], c[i]);
+        } else {
+            c[i] = p[i];
+        }
     }
-  }
-  return c;
+    return c;
 }
 ```
 

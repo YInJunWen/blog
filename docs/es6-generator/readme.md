@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-30 03:34:37 -->
+<!-- Date: 2018-03-30 03:34 -->
 
 # es6 遍历器对象生成函数-Generator
 
@@ -8,24 +8,24 @@ Generator 是 ES6 新提供的一种异步解决方案，在[es6-iterator 遍历
 
 ```js
 function makeIterator(arr) {
-  let index = 0,
-    len = arr.length;
-  return {
-    next: function() {
-      if (index < len) {
-        index++;
-        return {
-          done: false,
-          value: arr[index - 1],
-        };
-      } else {
-        return {
-          done: true,
-          value: undefined,
-        };
-      }
-    },
-  };
+    let index = 0,
+        len = arr.length;
+    return {
+        next: function () {
+            if (index < len) {
+                index++;
+                return {
+                    done: false,
+                    value: arr[index - 1],
+                };
+            } else {
+                return {
+                    done: true,
+                    value: undefined,
+                };
+            }
+        },
+    };
 }
 ```
 
@@ -33,8 +33,8 @@ generator 函数实际上可以看做是一个更直观、简单、快捷的遍�
 
 generator 函数有两个明显的特征：
 
-- 1：函数名前面有`*`号
-- 2：函数内部有`yeild`关键字,定义了不同的状态。
+-   1：函数名前面有`*`号
+-   2：函数内部有`yeild`关键字,定义了不同的状态。
 
 ```js
 function* add(){
@@ -52,9 +52,9 @@ function* add(){
 
 ```js
 function* add() {
-  yield 1 + 1;
-  yield 'a' + 'b';
-  yield true ? 1 : 2;
+    yield 1 + 1;
+    yield 'a' + 'b';
+    yield true ? 1 : 2;
 }
 ```
 
@@ -99,12 +99,12 @@ for (let item of it2) {
 
 ```js
 function* add() {
-  console.log(1);
-  yield 1;
-  console.log(2);
-  yield 2;
-  console.log(3);
-  yield 3;
+    console.log(1);
+    yield 1;
+    console.log(2);
+    yield 2;
+    console.log(3);
+    yield 3;
 }
 let it = add();
 console.log(it.next()); // {value: 1, done: false}
@@ -121,12 +121,12 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  console.log(1);
-  yield 1;
-  console.log(2);
-  yield 2;
-  console.log(3);
-  return 3;
+    console.log(1);
+    yield 1;
+    console.log(2);
+    yield 2;
+    console.log(3);
+    return 3;
 }
 let it = add();
 console.log(it.next()); // {value: 1, done: false}
@@ -141,8 +141,8 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  let a = yield 1 + 2;
-  yield a;
+    let a = yield 1 + 2;
+    yield a;
 }
 let it = add();
 console.log(it.next()); // {done: false, value: 3}
@@ -158,8 +158,8 @@ console.log(it.next()); // {done: true, value: undefined}
 
 ```js
 function* add() {
-  let a = yield 1 + 2;
-  yield a;
+    let a = yield 1 + 2;
+    yield a;
 }
 let it = add();
 console.log(it.next()); // {done: false, value: 3}
@@ -173,10 +173,10 @@ console.log(it.next()); // {done: true, value: undefined}
 
 ```js
 function* add() {
-  yield 1;
-  yield 2;
-  yield 3;
-  yield 4;
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
 }
 
 let it = add();
@@ -189,13 +189,13 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  yield 1;
-  try {
-    yield 2;
-  } finally {
-    yield 3;
-  }
-  yield 4;
+    yield 1;
+    try {
+        yield 2;
+    } finally {
+        yield 3;
+    }
+    yield 4;
 }
 let it = add();
 console.log(it.next()); // {done: false, value: 1}
@@ -207,13 +207,13 @@ console.log(it.next()); // {done: true, value: undefined}
 
 ```js
 function* add() {
-  yield 1;
-  try {
-    yield 2;
-  } finally {
-    yield 3;
-  }
-  yield 4;
+    yield 1;
+    try {
+        yield 2;
+    } finally {
+        yield 3;
+    }
+    yield 4;
 }
 let it = add();
 console.log(it.next()); // {done: false, value: 1}
@@ -229,16 +229,16 @@ console.log(it.next()); // {done: true, value: undefined}
 
 ```js
 function* add() {
-  yield 3;
-  yield 4;
-  yield 5;
+    yield 3;
+    yield 4;
+    yield 5;
 }
 var it = add();
 console.log(it.next()); // {value: 3, done: false}
 try {
-  console.log(it.throw('throw方法抛出的错误')); // {value: 4, done: false}
+    console.log(it.throw('throw方法抛出的错误')); // {value: 4, done: false}
 } catch (e) {
-  console.log(e); // “throw方法抛出的错误”
+    console.log(e); // “throw方法抛出的错误”
 }
 console.log(it.next()); // {value: 5, done: false}
 console.log(it.next()); // {value: undefined, done: true}
@@ -248,12 +248,12 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  try {
-    yield 1;
-  } catch (e) {
-    console.log(e); //  "throw方法抛出的错误"
-  }
-  yield 2;
+    try {
+        yield 1;
+    } catch (e) {
+        console.log(e); //  "throw方法抛出的错误"
+    }
+    yield 2;
 }
 var it = add();
 console.log(it.next()); // {value: 1, done: false}
@@ -265,15 +265,15 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  yield 1;
-  yield 2;
+    yield 1;
+    yield 2;
 }
 var it = add();
 console.log(it.next()); // {value: 1, done: false}
 try {
-  console.log(it.throw('throw方法抛出的错误')); // {value: 2, done: false}
+    console.log(it.throw('throw方法抛出的错误')); // {value: 2, done: false}
 } catch (e) {
-  console.log(e); // “throw方法抛出的错误”
+    console.log(e); // “throw方法抛出的错误”
 }
 console.log(it.next()); // {done: true, value: undefined}
 ```
@@ -282,8 +282,8 @@ console.log(it.next()); // {done: true, value: undefined}
 
 ```js
 function* add() {
-  yield 1;
-  yield 2;
+    yield 1;
+    yield 2;
 }
 var it = add();
 console.log(it.next()); // {value: 1, done: false}
@@ -295,16 +295,16 @@ console.log('不会执行这一句'); // 由于抛出的错误没有捕获语句
 
 ```js
 function* add() {
-  yield 1;
-  throw new Error('函数内部抛出的错误');
-  yield 2;
+    yield 1;
+    throw new Error('函数内部抛出的错误');
+    yield 2;
 }
 var it = add();
 console.log(it.next()); // {value: 1, done: false}
 try {
-  console.log(it.next()); // 由于函数内部抛出了错误，且没有内部捕获这句不会进行任何输出
+    console.log(it.next()); // 由于函数内部抛出了错误，且没有内部捕获这句不会进行任何输出
 } catch (e) {
-  console.log(e); // "函数内部抛出的错误"
+    console.log(e); // "函数内部抛出的错误"
 }
 console.log(it.next()); // {done: true, value: undefined}
 ```
@@ -315,11 +315,11 @@ generator 函数执行后会返回一个遍历器对象，所以我们完全可�
 
 ```js
 var obj = {
-  *[Symbol.iterator]() {
-    yield 1;
-    yield 2;
-    yield 3;
-  },
+    *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+    },
 };
 ```
 
@@ -327,7 +327,7 @@ var obj = {
 
 ```js
 for (item of obj) {
-  console.log(item);
+    console.log(item);
 }
 // 1
 // 2
@@ -344,12 +344,12 @@ var a = [...obj, 4, 5, 6]; //  [1, 2, 3, 4, 5, 6]
 
 ```js
 function* out() {
-  yield 1;
-  yield 2;
+    yield 1;
+    yield 2;
 }
 function* add() {
-  yield* out();
-  yield 3;
+    yield* out();
+    yield 3;
 }
 var it = add();
 console.log(it.next()); // {value: 1, done: false}
@@ -362,12 +362,12 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* out() {
-  yield 1;
-  yield 2;
+    yield 1;
+    yield 2;
 }
 function* add() {
-  yield out();
-  yield 3;
+    yield out();
+    yield 3;
 }
 var it = add();
 console.log(it.next()); // {value: out, done: false}
@@ -379,8 +379,8 @@ console.log(it.next()); // {value: undefined, done: true}
 
 ```js
 function* add() {
-  yield 'orange';
-  yield* 'pear';
+    yield 'orange';
+    yield* 'pear';
 }
 var it = add();
 it.next(); // {value: 'orange', done: false}
@@ -391,8 +391,8 @@ it.next(); // {value: 'r', done: false}
 it.next(); // {value: undefined, done: false}
 
 function* add() {
-  yield [1, 2, 3];
-  yield* [1, 2, 3];
+    yield [1, 2, 3];
+    yield* [1, 2, 3];
 }
 var it = add();
 it.next(); // {value: [1,2,3], done: false}
@@ -406,14 +406,14 @@ it.next(); // {value: undefined, done: false}
 
 ```js
 function* out() {
-  yield 1;
-  yield 2;
-  return 10;
+    yield 1;
+    yield 2;
+    return 10;
 }
 function* add() {
-  var a = yield* out();
-  yield 3;
-  return a;
+    var a = yield* out();
+    yield 3;
+    return a;
 }
 var it = add();
 console.log(it.next()); // {done: false, value: 1}

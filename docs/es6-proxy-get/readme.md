@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-13 12:11:21 -->
+<!-- Date: 2018-07-13 12:11 -->
 
 # es6 代理对象的拦截器属性-get
 
@@ -6,23 +6,23 @@
 
 ## 参数
 
-- `target`表示被代理的对象
-- `key`表示要获取的属性值
-- `receiver`默认表示返回的代理对象
+-   `target`表示被代理的对象
+-   `key`表示要获取的属性值
+-   `receiver`默认表示返回的代理对象
 
 ## 拦截案例
 
 ```js
 let obj = {
-  name: "pear",
+    name: 'pear',
 };
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    console.log(target === obj); // true
-    console.log(key); // 'name'
-    console.log(receiver === proxy); // true
-    return "orange";
-  },
+    get(target, key, receiver) {
+        console.log(target === obj); // true
+        console.log(key); // 'name'
+        console.log(receiver === proxy); // true
+        return 'orange';
+    },
 });
 console.log(proxy.name);
 ```
@@ -33,12 +33,12 @@ console.log(proxy.name);
 
 ```js
 let obj = {
-  name: "pear",
+    name: 'pear',
 };
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    return "orange";
-  },
+    get(target, key, receiver) {
+        return 'orange';
+    },
 });
 let egg = Object.craete(proxy);
 
@@ -49,15 +49,15 @@ egg.name; //'orange'
 
 ```js
 let obj = {
-  name: "pear",
+    name: 'pear',
 };
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    return "orange";
-  },
+    get(target, key, receiver) {
+        return 'orange';
+    },
 });
 
-Reflect.get(proxy, "name"); //'orange'
+Reflect.get(proxy, 'name'); //'orange'
 ```
 
 ## 错误案例
@@ -66,16 +66,16 @@ Reflect.get(proxy, "name"); //'orange'
 
 ```js
 let obj = {};
-Object.defineProperty(obj, "name", {
-  value: "pear",
-  configurable: false,
-  writable: false,
-  enumerable: true,
+Object.defineProperty(obj, 'name', {
+    value: 'pear',
+    configurable: false,
+    writable: false,
+    enumerable: true,
 });
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    return "orange";
-  },
+    get(target, key, receiver) {
+        return 'orange';
+    },
 });
 console.log(proxy); // Proxy {name: 'pear'}
 console.log(proxy.name);
@@ -85,8 +85,8 @@ console.log(proxy.name);
 
 `get`属性可以拦截以下三种方式的取值操作：
 
-- proxy.key 或者 proxy[key]
-- Reflect.get(proxy, key)
-- 通过`Object.create(proxy)`创建的对象的取值操作
+-   proxy.key 或者 proxy[key]
+-   Reflect.get(proxy, key)
+-   通过`Object.create(proxy)`创建的对象的取值操作
 
 拦截赋值操作可以参考[es6 Proxy 的赋值拦截属性](../es6-proxy-set)

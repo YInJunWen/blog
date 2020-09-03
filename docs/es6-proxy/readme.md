@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-12 19:31:21 -->
+<!-- Date: 2018-07-12 19:31 -->
 
 # es6 新的代理对象-Proxy
 
@@ -10,19 +10,19 @@
 new Proxy(target, handler);
 ```
 
-- target： 表示被代理的对象，该对象可以是任何数据类型
-- handler：表示具体的拦截内容，以对象的形式设置不同的拦截属性
+-   target： 表示被代理的对象，该对象可以是任何数据类型
+-   handler：表示具体的拦截内容，以对象的形式设置不同的拦截属性
 
 该方法，返回一个`proxy`对象， 可以通过`proxy`对象进行属性的获取、赋值等一系列操作.
 
 handler 中可以定义拦截不同的操作，比如`get`属性
 
 ```js
-let obj = { name: "pear" };
+let obj = { name: 'pear' };
 let proxy = new Proxy(obj, {
-  get: function(target, key) {
-    return "orange";
-  },
+    get: function (target, key) {
+        return 'orange';
+    },
 });
 console.log(proxy.orange); // 'orange'
 ```
@@ -32,15 +32,15 @@ console.log(proxy.orange); // 'orange'
 除了取值操作，赋值操作也可以被拦截
 
 ```js
-let obj = { name: "pear" };
+let obj = { name: 'pear' };
 let proxy = new Proxy(obj, {
-  set: function(target, key, value) {
-    console.log(key, value);
-    target[key] = "apple";
-    return true;
-  },
+    set: function (target, key, value) {
+        console.log(key, value);
+        target[key] = 'apple';
+        return true;
+    },
 });
-proxy.name = "orange";
+proxy.name = 'orange';
 console.log(obj); // {name: 'apple'}
 ```
 
@@ -48,19 +48,19 @@ console.log(obj); // {name: 'apple'}
 
 在生成新的代理对象过程中，一共可以设置 13 个拦截属性，各自可以拦截多种操作：
 
-- [handler.get()](../es6-proxy-get)
-- [handler.set()](../es6-proxy-set)
-- [handler.has()](../es6-proxy-has)
-- [handler.defineProperty()](../es6-proxy-define-property)
-- [handler.deleteProperty()](../es6-proxy-delete-property)
-- [handler.ownKeys()](../es6-proxy-own-keys)
-- [handler.getOwnPropertyDescriptor()](../es6-proxy-get-own-property-descriptor)
-- [handler.getPrototypeOf()](../es6-proxy-get-prototype-of)
-- [handler.setPrototypeOf()](../es6-proxy-set-prototype-of)
-- [handler.isExtensible()](../es6-proxy-is-extensible)
-- [handler.preventExtensions()](../es6-proxy-prevent-extensions)
-- [handler.apply()](../es6-proxy-apply)
-- [handler.construct()](../es6-proxy-construct)
+-   [handler.get()](../es6-proxy-get)
+-   [handler.set()](../es6-proxy-set)
+-   [handler.has()](../es6-proxy-has)
+-   [handler.defineProperty()](../es6-proxy-define-property)
+-   [handler.deleteProperty()](../es6-proxy-delete-property)
+-   [handler.ownKeys()](../es6-proxy-own-keys)
+-   [handler.getOwnPropertyDescriptor()](../es6-proxy-get-own-property-descriptor)
+-   [handler.getPrototypeOf()](../es6-proxy-get-prototype-of)
+-   [handler.setPrototypeOf()](../es6-proxy-set-prototype-of)
+-   [handler.isExtensible()](../es6-proxy-is-extensible)
+-   [handler.preventExtensions()](../es6-proxy-prevent-extensions)
+-   [handler.apply()](../es6-proxy-apply)
+-   [handler.construct()](../es6-proxy-construct)
 
 ## Proxy 中的 this 问题
 
@@ -68,15 +68,15 @@ console.log(obj); // {name: 'apple'}
 
 ```js
 let obj = {
-  getName() {
-    console.log(this === proxy);
-  },
+    getName() {
+        console.log(this === proxy);
+    },
 };
 let proxy = new Proxy(obj, {});
 
 console.log(
-  obj.getName(), // false
-  proxy.getName(), // true
+    obj.getName(), // false
+    proxy.getName() // true
 );
 ```
 
@@ -84,20 +84,20 @@ console.log(
 
 ```js
 let egg = {
-  age: 20,
+    age: 20,
 };
 let obj = {
-  age: 10,
-  get name() {
-    console.log(this === proxy, this === egg);
-    return this.age;
-  },
+    age: 10,
+    get name() {
+        console.log(this === proxy, this === egg);
+        return this.age;
+    },
 };
 let proxy = new Proxy(obj, {});
 
 console.log(
-  Reflect.get(proxy, "name"), // 10
-  Reflect.get(proxy, "name", egg), // 20
+    Reflect.get(proxy, 'name'), // 10
+    Reflect.get(proxy, 'name', egg) // 20
 );
 ```
 
@@ -136,13 +136,13 @@ console.log(
 
 ```js
 let obj = {
-  name: "pear",
+    name: 'pear',
 };
 
 let revocable = Proxy.revocable(obj, {
-  get(target, key) {
-    return "orange";
-  },
+    get(target, key) {
+        return 'orange';
+    },
 });
 
 let proxy = revocable.proxy;

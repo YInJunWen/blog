@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-05 19:43:59 -->
+<!-- Date: 2017-06-05 19:43 -->
 
 # algorithm 基础算法之冒泡排序
 
@@ -18,24 +18,24 @@
 
 ```js
 function swap(i, j, array) {
-  var temp = array[j];
-  array[j] = array[i];
-  array[i] = temp;
+    var temp = array[j];
+    array[j] = array[i];
+    array[i] = temp;
 }
 
 function sort(array) {
-  var length = array.length,
-    skip;
-  for (var i = 1; i <= length; i++) {
-    //正序
-    skip = false;
-    for (var j = 0; j < length - i; j++) {
-      //正序
-      array[j] > array[j + 1] && (skip = true) && swap(j, j + 1, array);
+    var length = array.length,
+        skip;
+    for (var i = 1; i <= length; i++) {
+        //正序
+        skip = false;
+        for (var j = 0; j < length - i; j++) {
+            //正序
+            array[j] > array[j + 1] && (skip = true) && swap(j, j + 1, array);
+        }
+        if (!skip) break;
     }
-    if (!skip) break;
-  }
-  return array;
+    return array;
 }
 ```
 

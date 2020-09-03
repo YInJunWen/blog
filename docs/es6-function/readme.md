@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-15 01:14:39 -->
+<!-- Date: 2018-03-15 01:14 -->
 
 # es6 函数的扩展
 
@@ -17,7 +17,7 @@ add(3,4) // [3,4]
 
 ```js
 function add({ x = 1, y = 2 }) {
-  console.log([x, y]);
+    console.log([x, y]);
 }
 add({}); // [1,2]
 add({ x: 3, y: 4 }); //[3,4]
@@ -27,7 +27,7 @@ add({ x: 3, y: 4 }); //[3,4]
 
 ```js
 function add({ x = 1, y = 2 }) {
-  console.log([x, y]);
+    console.log([x, y]);
 }
 add(); // Error
 ```
@@ -36,7 +36,7 @@ add(); // Error
 
 ```js
 function add({ x = 1, y = 2 } = {}) {
-  console.log([x, y]);
+    console.log([x, y]);
 }
 add();
 ```
@@ -58,8 +58,8 @@ add();
 使用了`...rest`参数的函数，也会影响到函数的 length 属性值，例如：
 
 ```js
-(function(a, b) {}.length); // 2
-(function(a, ...b) {}.length); // 1
+(function (a, b) {}.length); // 2
+(function (a, ...b) {}.length); // 1
 ```
 
 ## 作用域
@@ -69,7 +69,7 @@ es6 中 let 和 const 的出现，引入了块级作用域，所以在函数中�
 ```js
 let x = 1;
 function add(y = x) {
-  console.log(y);
+    console.log(y);
 }
 add(); // 1
 ```
@@ -78,7 +78,7 @@ add(); // 1
 
 ```js
 function foo(y = x) {
-  console.log(y);
+    console.log(y);
 }
 foo(); // Error
 ```
@@ -100,14 +100,14 @@ ES5 中使用的 arguments 属性是一个类数组，需要使用 Array 的 sli
 
 ```js
 function add() {
-  Array.prototype.slice.call(arguments).map(item => {
-    // ...
-  });
+    Array.prototype.slice.call(arguments).map((item) => {
+        // ...
+    });
 }
 function foo(...values) {
-  values.map(item => {
-    // ...
-  });
+    values.map((item) => {
+        // ...
+    });
 }
 ```
 
@@ -167,15 +167,15 @@ ES6 推出了新的声明函数的方法：箭头函数`()=>{}`，箭头函数�
 ```js
 let add = () => {};
 // 相当于
-let add = function() {};
+let add = function () {};
 ```
 
 箭头函数需要记住以下四个特性：
 
-- 箭头函数中是没有 this 的
-- 箭头函数中是没有 arguments 属性的，如果需要可以用`...rest`参数代替
-- 箭头函数不可以当做构造函数，把箭头函数用作构造函数的时候是会抛出错误的，这也是因为箭头函数本身没有 this 的缘故
-- 箭头函数中不可以使用 yield 语句，所以也不能作为 generator 函数，同样是因为箭头函数本身没有 this 的缘故
+-   箭头函数中是没有 this 的
+-   箭头函数中是没有 arguments 属性的，如果需要可以用`...rest`参数代替
+-   箭头函数不可以当做构造函数，把箭头函数用作构造函数的时候是会抛出错误的，这也是因为箭头函数本身没有 this 的缘故
+-   箭头函数中不可以使用 yield 语句，所以也不能作为 generator 函数，同样是因为箭头函数本身没有 this 的缘故
 
 ## 箭头函数中的 this
 
@@ -184,15 +184,15 @@ let add = function() {};
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    foo(function() {
-      console.log(this.name);
-    });
-  },
+    name: 'lisi',
+    getName: function () {
+        foo(function () {
+            console.log(this.name);
+        });
+    },
 };
 function foo(cb) {
-  cb();
+    cb();
 }
 person.getName(); // 'zhangsan'
 ```
@@ -202,17 +202,17 @@ person.getName(); // 'zhangsan'
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    foo(
-      function() {
-        console.log(this.name);
-      }.bind(this)
-    );
-  },
+    name: 'lisi',
+    getName: function () {
+        foo(
+            function () {
+                console.log(this.name);
+            }.bind(this)
+        );
+    },
 };
 function foo(cb) {
-  cb();
+    cb();
 }
 person.getName(); // 'lisi'
 ```
@@ -222,15 +222,15 @@ person.getName(); // 'lisi'
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    foo(() => {
-      console.log(this.name);
-    });
-  },
+    name: 'lisi',
+    getName: function () {
+        foo(() => {
+            console.log(this.name);
+        });
+    },
 };
 function foo(cb) {
-  cb();
+    cb();
 }
 person.getName(); // 'lisi'
 ```
@@ -243,12 +243,12 @@ setTimeout 也是一个可以参考的例子：
 // 没有使用箭头函数
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    setTimeout(function() {
-      console.log(this.name);
-    });
-  },
+    name: 'lisi',
+    getName: function () {
+        setTimeout(function () {
+            console.log(this.name);
+        });
+    },
 };
 person.getName(); // 'zhangsan'
 ```
@@ -257,12 +257,12 @@ person.getName(); // 'zhangsan'
 // 使用了箭头函数
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    setTimeout(() => {
-      console.log(this.name);
-    });
-  },
+    name: 'lisi',
+    getName: function () {
+        setTimeout(() => {
+            console.log(this.name);
+        });
+    },
 };
 person.getName(); // 'lisi'
 ```
@@ -297,10 +297,10 @@ person.getName()  // 'lisi'
 
 ```js
 var person = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 function add() {
-  console.log(this.name);
+    console.log(this.name);
 }
 person::add; // 相当于add.bind(person);
 
@@ -311,10 +311,10 @@ add(); // 'zhangsan'
 
 ```js
 var person = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 function add(age) {
-  console.log([this.name, age]);
+    console.log([this.name, age]);
 }
 person::add([15]);
 // 相当于add.apply(person,[15]);  输出结果为： ['zhangsan', 15]
@@ -326,10 +326,10 @@ person::add([15]);
 
 ```js
 var person = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 function add(...values) {
-  console.log([this.name, values]);
+    console.log([this.name, values]);
 }
 person::add([15, 30, 40]);
 // 相当于add.apply(person,[15,30,40]);  输出结果为： ['zhangsan', [15,30,40]]
@@ -340,20 +340,20 @@ person::add([15, 30, 40]);
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    console.log(this.name);
-  },
+    name: 'lisi',
+    getName: function () {
+        console.log(this.name);
+    },
 };
 var log = person.getName;
 log(); // "zhangsan"
 
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: () => {
-    console.log(this.name);
-  },
+    name: 'lisi',
+    getName: () => {
+        console.log(this.name);
+    },
 };
 var log = person.getName;
 log(); // "zhangsan"
@@ -364,10 +364,10 @@ log(); // "zhangsan"
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    console.log(this.name);
-  },
+    name: 'lisi',
+    getName: function () {
+        console.log(this.name);
+    },
 };
 var log = person.getName.bind(person);
 log();
@@ -378,10 +378,10 @@ log();
 ```js
 var name = 'zhangsan';
 var person = {
-  name: 'lisi',
-  getName: function() {
-    console.log(this.name);
-  },
+    name: 'lisi',
+    getName: function () {
+        console.log(this.name);
+    },
 };
 var log = ::person.getName;
 // 这里就相当于  var log = person.getName.bind(person);

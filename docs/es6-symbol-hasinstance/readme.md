@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-17 11:45:14 -->
+<!-- Date: 2018-06-17 11:45 -->
 
 # es6 内置属性-[Symbol.hasInstance]
 
@@ -15,9 +15,9 @@ Egg[Symbol.hasInstance](foo); // true
 
 ```js
 const Even = {
-  [Symbol.hasInstance](obj) {
-    return obj > 1;
-  },
+    [Symbol.hasInstance](obj) {
+        return obj > 1;
+    },
 };
 1 instanceof Even; // flase
 2 instanceof Even; // true
@@ -28,45 +28,45 @@ const Even = {
 ```js
 // 定义在构造方法上
 function Foo() {
-  this[Symbol.hasInstance] = function(obj) {
-    return obj > 1;
-  };
+    this[Symbol.hasInstance] = function (obj) {
+        return obj > 1;
+    };
 }
 1 instanceof new Foo(); // false
 2 instanceof new Foo(); // true
 
 // 定义在原型链上
 function Egg() {}
-Egg.prototype[Symbol.hasInstance] = function(obj) {
-  return obj > 1;
+Egg.prototype[Symbol.hasInstance] = function (obj) {
+    return obj > 1;
 };
 1 instanceof new Egg(); // false
 2 instanceof new Egg(); // true
 
 // 定义在构造方法上
 class Phone {
-  constructor() {
-    this[Symbol.hasInstance] = foo => {
-      return foo > 1;
-    };
-  }
+    constructor() {
+        this[Symbol.hasInstance] = (foo) => {
+            return foo > 1;
+        };
+    }
 }
 1 instanceof new Phone(); // false
 2 instanceof new Phone(); // true
 
 // 定义在原型链上
 class Apple {
-  [Symbol.hasInstance](obj) {
-    return obj > 1;
-  }
+    [Symbol.hasInstance](obj) {
+        return obj > 1;
+    }
 }
 console.log('1 instanceof new Apple(): ', 1 instanceof new Apple());
 console.log('2 instanceof new Apple(): ', 2 instanceof new Apple());
 
 // 定义在原型链上
 class Pen {}
-Pen.prototype[Symbol.hasInstance] = foo => {
-  return foo > 1;
+Pen.prototype[Symbol.hasInstance] = (foo) => {
+    return foo > 1;
 };
 1 instanceof new Pen(); // false
 2 instanceof new Pen(); // true
@@ -77,9 +77,9 @@ Pen.prototype[Symbol.hasInstance] = foo => {
 ```js
 // 定义在静态方法上
 class Pears {
-  static [Symbol.hasInstance](obj) {
-    return obj > 1;
-  }
+    static [Symbol.hasInstance](obj) {
+        return obj > 1;
+    }
 }
 1 instanceof Pears; // false
 2 instanceof Pears; // true
@@ -87,15 +87,15 @@ class Pears {
 // 以下两种方式都是无效的
 
 function Add() {}
-Add[Symbol.hasInstance] = function(obj) {
-  return obj > 1;
+Add[Symbol.hasInstance] = function (obj) {
+    return obj > 1;
 };
 1 instanceof Add; // false
 2 instanceof Add; // false
 
 class Orange {}
-Orange[Symbol.hasInstance] = function(foo) {
-  return foo > 1;
+Orange[Symbol.hasInstance] = function (foo) {
+    return foo > 1;
 };
 1 instanceof Orange; // false
 2 instanceof Orange; // false
@@ -107,7 +107,7 @@ Orange[Symbol.hasInstance] = function(foo) {
 
 ```js
 var add = {};
-var foo = function() {};
+var foo = function () {};
 add[Symbol.hasInstance]; // undefined
 foo[Symbol.hasInstance]; // ƒ [Symbol.hasInstance]() { [native code] }
 

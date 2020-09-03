@@ -1,26 +1,24 @@
-<!-- Date: 2016-07-09 15:23:08 -->
+<!-- Date: 2016-07-09 15:23 -->
 
 # angularJS 实时显示选择的图片文件
 
 ```html
-<input type="file" onchange="angular.element(this).scope().fileNameChanged()">
+<input type="file" onchange="angular.element(this).scope().fileNameChanged()" />
 ```
 
 ```js
-$socpe.fileNameChanged = function() {
-  var form = document.querySelector('form');
-  var url = window.URL.createObjectURL(form.coverImg.files[0]);
-  var coverImg = document.querySelector('.coverImg');
-  coverImg.style.backgroundImage = 'url(' + url + ')';
+$socpe.fileNameChanged = function () {
+    var form = document.querySelector('form');
+    var url = window.URL.createObjectURL(form.coverImg.files[0]);
+    var coverImg = document.querySelector('.coverImg');
+    coverImg.style.backgroundImage = 'url(' + url + ')';
 };
 // 或者直接选择input元素
-$socpe.fileNameChanged = function() {
-  var url = window.URL.createObjectURL(
-    document.querySelector('input[type=file]').files[0]
-  );
-  var coverImg = document.querySelector('.coverImg');
-  coverImg.style.backgroundImage = 'url(' + url + ')';
-  coverImg.style.backgroundSize = 'auto 100%';
+$socpe.fileNameChanged = function () {
+    var url = window.URL.createObjectURL(document.querySelector('input[type=file]').files[0]);
+    var coverImg = document.querySelector('.coverImg');
+    coverImg.style.backgroundImage = 'url(' + url + ')';
+    coverImg.style.backgroundSize = 'auto 100%';
 };
 ```
 

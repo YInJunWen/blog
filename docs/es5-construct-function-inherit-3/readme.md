@@ -1,4 +1,4 @@
-<!-- Date: 2017-12-12 18:49:52 -->
+<!-- Date: 2017-12-12 18:49 -->
 
 # es5 函数继承-构造函数的继承(3)
 
@@ -6,11 +6,11 @@
 
 ```js
 function Animal() {
-  this.species = '动物';
+    this.species = '动物';
 }
 Animal.prototype.age = 12;
-Animal.prototype.test = function() {
-  return 'test';
+Animal.prototype.test = function () {
+    return 'test';
 };
 ```
 
@@ -18,8 +18,8 @@ Animal.prototype.test = function() {
 
 ```js
 function Cat(name, color) {
-  this.name = name;
-  this.color = color;
+    this.name = name;
+    this.color = color;
 }
 ```
 
@@ -33,9 +33,9 @@ function Cat(name, color) {
 
 ```js
 function Cat(name, color) {
-  Animal.apply(this, arguments);
-  this.name = name;
-  this.color = color;
+    Animal.apply(this, arguments);
+    this.name = name;
+    this.color = color;
 }
 let a = new Cat('大毛', '黄色');
 ```
@@ -158,7 +158,7 @@ alert(Animal.prototype.constructor); // Cat
 由于"直接继承 prototype"存在上述的缺点，所以就有第四种方法，利用一个空对象作为中介。
 
 ```js
-var F = function() {};
+var F = function () {};
 F.prototype = Animal.prototype;
 Cat.prototype = new F();
 Cat.prototype.constructor = Cat;
@@ -174,11 +174,11 @@ alert(Animal.prototype.constructor); // Animal
 
 ```js
 function extend(Child, Parent) {
-  var F = function() {};
-  F.prototype = Parent.prototype;
-  Child.prototype = new F();
-  Child.prototype.constructor = Child;
-  Child.uber = Parent.prototype;
+    var F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
 }
 ```
 
@@ -213,12 +213,12 @@ Animal.prototype.species = '动物';
 
 ```js
 function extend2(Child, Parent) {
-  var p = Parent.prototype;
-  var c = Child.prototype;
-  for (var i in p) {
-    c[i] = p[i];
-  }
-  c.uber = p;
+    var p = Parent.prototype;
+    var c = Child.prototype;
+    for (var i in p) {
+        c[i] = p[i];
+    }
+    c.uber = p;
 }
 ```
 
@@ -238,27 +238,27 @@ alert(cat1.species); // 动物
 
 ```js
 function Animal() {
-  this.species = '动物';
+    this.species = '动物';
 }
 Animal.prototype.age = 12;
-Animal.prototype.test = function() {
-  return 'test';
+Animal.prototype.test = function () {
+    return 'test';
 };
 Animal.prototype.other = {
-  width: 10,
-  height: 20,
+    width: 10,
+    height: 20,
 };
 function Cat(name, color) {
-  this.name = name;
-  this.color = color;
+    this.name = name;
+    this.color = color;
 }
 
 function extend(Child, Parent) {
-  var F = function() {};
-  F.prototype = Parent.prototype;
-  Child.prototype = new F();
-  Child.prototype.constructor = Child;
-  Child.uber = Parent.prototype;
+    var F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
 }
 
 extend(Cat, Animal);

@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-19 02:06:51 -->
+<!-- Date: 2018-06-19 02:06 -->
 
 # js ES5 与 ES6 中的 for 循环
 
@@ -9,7 +9,7 @@
 ```js
 var i = 100;
 for (var i = 0; i < 10; i++) {
-  console.log(i);
+    console.log(i);
 }
 console.log(i); // 10
 ```
@@ -22,7 +22,7 @@ i 的值不是 100，而是 10
 ```js
 var i = 100;
 for (let i = 0; i < 10; i++) {
-  console.log(i);
+    console.log(i);
 }
 console.log(i); // 100
 ```
@@ -33,24 +33,24 @@ console.log(i); // 100
 
 ```js
 for (var i = 0; i < 10; i++) {
-  var i = 100;
-  console.log(i); // 输出1次 100
+    var i = 100;
+    console.log(i); // 输出1次 100
 }
 
 for (let i = 0; i < 10; i++) {
-  let i = 100;
-  console.log(i); // 输出10次 100
+    let i = 100;
+    console.log(i); // 输出10次 100
 }
 
 for (var i = 0; i < 10; i++) {
-  let i = 100;
-  console.log(i); // 输出10次 100
+    let i = 100;
+    console.log(i); // 输出10次 100
 }
 
 for (let i = 0; i < 10; i++) {
-  var i = 100;
-  console.log(i);
-  // Error Uncaught SyntaxError: Identifier 'i' has already been declared
+    var i = 100;
+    console.log(i);
+    // Error Uncaught SyntaxError: Identifier 'i' has already been declared
 }
 ```
 
@@ -67,13 +67,13 @@ for (let i = 0; i < 10; i++) {
 ```js
 // 转换前
 for (let i = 0; i < 10; i++) {
-  let i = 100;
-  console.log(i); // 输出10次 100
+    let i = 100;
+    console.log(i); // 输出10次 100
 }
 // 转换后
 for (var i = 0; i < 10; i++) {
-  var i = 100;
-  console.log(i); // 输出1次 100
+    var i = 100;
+    console.log(i); // 输出1次 100
 }
 ```
 

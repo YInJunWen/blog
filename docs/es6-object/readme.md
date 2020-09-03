@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-25 15:27:40 -->
+<!-- Date: 2018-03-25 15:27 -->
 
 # es6 对象的扩展
 
@@ -12,7 +12,7 @@ var obj = { name };
 obj.name; // 'zhangsan'
 
 function add(x, y) {
-  return { x, y }; // 这里等同于 {x: x, y: y}
+    return { x, y }; // 这里等同于 {x: x, y: y}
 }
 add(1, 2); //  {x:1, y:2};
 ```
@@ -21,12 +21,12 @@ add(1, 2); //  {x:1, y:2};
 
 ```js
 var obj = {
-  getName() {
-    console.log('zhangsan');
-  },
-  getAge() {
-    console.log(20);
-  },
+    getName() {
+        console.log('zhangsan');
+    },
+    getAge() {
+        console.log(20);
+    },
 };
 obj.getName(); // zhangsan
 obj.getAge(); // 20
@@ -35,15 +35,15 @@ obj.getAge(); // 20
 我们在写 nodeJs 模块的时候，也可以这么写
 
 ```js
-var getName = function() {
-  console.log('zhangsan');
+var getName = function () {
+    console.log('zhangsan');
 };
-var getAge = function() {
-  console.log(20);
+var getAge = function () {
+    console.log(20);
 };
 module.exports = {
-  getName, //  相当于 getName: getName
-  getAge, //  相当于 getAge: getAge
+    getName, //  相当于 getName: getName
+    getAge, //  相当于 getAge: getAge
 };
 ```
 
@@ -64,7 +64,7 @@ console.log(add); // {male: 1, famale: 2, name: 3}
 ```js
 var sex = 'male';
 var add = {
-  [sex]: 1,
+    [sex]: 1,
 };
 console.log(add); // {male: 1}
 ```
@@ -162,8 +162,8 @@ console.log(target); // {a:2, b:2}
 ```js
 var defaultOptions = {};
 function add(options) {
-  var realOptions = Object.assign({}, defaultOptions, options);
-  // ...code
+    var realOptions = Object.assign({}, defaultOptions, options);
+    // ...code
 }
 ```
 
@@ -173,10 +173,10 @@ function add(options) {
 
 ```js
 var add = {
-  name: 'zhangsan',
-  get foo() {
-    return this.name;
-  },
+    name: 'zhangsan',
+    get foo() {
+        return this.name;
+    },
 };
 var foo = Object.assign({}, add);
 console.log(Object.getOwnPropertyDescriptors(foo));
@@ -202,10 +202,10 @@ console.log(Object.getOwnPropertyDescriptors(foo));
 
 ```js
 var add = {
-  name: 'zhangsan',
-  get foo() {
-    return this.name;
-  },
+    name: 'zhangsan',
+    get foo() {
+        return this.name;
+    },
 };
 var foo = {};
 Object.defineProperties(foo, Object.getOwnPropertyDescriptors(add));
@@ -232,19 +232,19 @@ console.log(Object.getOwnPropertyDescriptors(foo));
 
 每个属性都有他们各自的描述对象`descriptor`,描述对象包含了多个属性：
 
-- value: 定义属性的值
-- writable: 定义属性是否可被重新赋值， 默认为 true
-- enumerable: 定义属性的可枚举性， 默认为 false
-- configurable: 定义属性是否可以被重新定义描述对象， 默认为 false
-- get: 给属性提供 getter 方法，主要用于获取属性值， 默认为 undefined
-- set: 给属性提供 setter 方法，主要用于设置属性值， 默认为 undefined
+-   value: 定义属性的值
+-   writable: 定义属性是否可被重新赋值， 默认为 true
+-   enumerable: 定义属性的可枚举性， 默认为 false
+-   configurable: 定义属性是否可以被重新定义描述对象， 默认为 false
+-   get: 给属性提供 getter 方法，主要用于获取属性值， 默认为 undefined
+-   set: 给属性提供 setter 方法，主要用于设置属性值， 默认为 undefined
 
 属性的描述对象可以在`Object.defineProperty(object, name, descriptor)`中 `定义/修改`
 
 ```js
 var obj = {};
 Object.defintProperty(obj, 'name', {
-  value: 'zhangsan',
+    value: 'zhangsan',
 });
 console.log(obj); // {name: 'zhangsan'}
 ```
@@ -254,12 +254,12 @@ console.log(obj); // {name: 'zhangsan'}
 ```js
 var obj = {};
 Object.defintProperties(obj, {
-  name: {
-    value: 'zhangsan',
-  },
-  weight: {
-    value: '90kg',
-  },
+    name: {
+        value: 'zhangsan',
+    },
+    weight: {
+        value: '90kg',
+    },
 });
 console.log(obj); // {name: 'zhangsan', weight: '90kg'}
 ```
@@ -282,18 +282,18 @@ ES6 中提供了几种新的遍历对象的方式，他们之间也有很大的�
 
 在遍历过程中，遵循以下顺序：
 
-- 找出属性值为数字的，按照升序排列
-- 找出属性值为字符串的，按照加入时间排列
-- 找出属性值为 Symbol 的，按照加入时间排列
+-   找出属性值为数字的，按照升序排列
+-   找出属性值为字符串的，按照加入时间排列
+-   找出属性值为 Symbol 的，按照加入时间排列
 
 ```js
 let result = Reflect.ownKeys({
-  [Symbol('foo')]: 1,
-  [Symbol('add')]: 2,
-  b: 2,
-  a: 1,
-  4: 'si',
-  3: 'san',
+    [Symbol('foo')]: 1,
+    [Symbol('add')]: 2,
+    b: 2,
+    a: 1,
+    4: 'si',
+    3: 'san',
 });
 
 console.log(result); //[ '3', '4', 'b', 'a', Symbol(foo), Symbol(add) ]
@@ -305,7 +305,7 @@ console.log(result); //[ '3', '4', 'b', 'a', Symbol(foo), Symbol(add) ]
 
 ```js
 var add = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 add.prototype.age = 18;
 add.prototype.weight = '90kg';
@@ -317,11 +317,11 @@ Object.getPropertyOf(add); // {age: 18, weight: '90kg'}
 
 ```js
 var add = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 Object.setPrototypeOf(add, {
-  age: 18,
-  weight: '90kg',
+    age: 18,
+    weight: '90kg',
 });
 
 Object.getPropertyOf(add); // {age: 18, weight: '90kg'}
@@ -333,15 +333,15 @@ Object.getPropertyOf(add); // {age: 18, weight: '90kg'}
 
 ```js
 var add = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 let foo = Object.create(add, {
-  age: {
-    value: 12,
-  },
-  weight: {
-    value: '90kg',
-  },
+    age: {
+        value: 12,
+    },
+    weight: {
+        value: '90kg',
+    },
 });
 Object.getOwnPropertyDescriptors(foo); // {age: 12, weight:'90kg'}
 Object.getPrototypeOf(foo); // {name: 'zhangsan'}
@@ -351,10 +351,10 @@ Object.getPrototypeOf(foo); // {name: 'zhangsan'}
 
 ```js
 var add = {
-  name: 'zhangsan',
-  parent: {
-    age: 13,
-  },
+    name: 'zhangsan',
+    parent: {
+        age: 13,
+    },
 };
 let foo = Object.create(add);
 Object.getPrototypeOf(foo); // {name: 'zhangsan'}
@@ -377,13 +377,13 @@ ES6 中除了 this 之外，新增了一个关键字`super`，指向对象的原
 
 ```js
 var add = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 var foo = {
-  age: 12,
-  getName() {
-    console.log(super.name);
-  },
+    age: 12,
+    getName() {
+        console.log(super.name);
+    },
 };
 Object.setPrototypeOf(foo, add);
 foo.getName(); // "zhangsan"
@@ -391,26 +391,26 @@ foo.getName(); // "zhangsan"
 
 但是要注意：
 
-- super 表示原型对象的时候，只能用在对象的方法中，用在其他地方都会抛出一个错误
-- 目前的 JavaScript 引擎仅能识别在 `简写形式` 函数中 super， 其他箭头函数或者 function 都会抛出错误
+-   super 表示原型对象的时候，只能用在对象的方法中，用在其他地方都会抛出一个错误
+-   目前的 JavaScript 引擎仅能识别在 `简写形式` 函数中 super， 其他箭头函数或者 function 都会抛出错误
 
 也就是说在下面这三种形式中使用 super 都会抛出一个错误
 
 ```js
 var foo = {
-    age: super.name
+    age: super.name,
 };
 
 var foo = {
-    age: ()=>{
-        console.log(super.name)
-    }
+    age: () => {
+        console.log(super.name);
+    },
 };
 
 var foo = {
-    age: function(){
-        console.log(super.name)
-    }
+    age: function () {
+        console.log(super.name);
+    },
 };
 ```
 
@@ -422,16 +422,16 @@ var foo = {
 
 ```js
 var add = {
-  name: 'zhangsan',
+    name: 'zhangsan',
 };
 var foo = {
-  age: 12,
-  getName() {
-    console.log(super.name);
-  },
-  getName2() {
-    console.log(Object.getProtorypeOf(this).name);
-  },
+    age: 12,
+    getName() {
+        console.log(super.name);
+    },
+    getName2() {
+        console.log(Object.getProtorypeOf(this).name);
+    },
 };
 Object.setPrototypeOf(foo, add);
 foo.getName(); // "zhangsan"
@@ -447,10 +447,10 @@ ES6 引入了这三个新的方法用来获取对象的键名列表、值列表�
 ```js
 require('babel-polyfill');
 var obj = {
-  b: 'b',
-  a: 'a',
-  5: 5,
-  4: 4,
+    b: 'b',
+    a: 'a',
+    5: 5,
+    4: 4,
 };
 Object.keys(obj); //["4", "5", "b", "a"]
 
@@ -467,9 +467,9 @@ ES2016 中引入了数组的扩展运算符，为数组的解构赋值提供了�
 
 ```js
 var add = {
-  x: 1,
-  y: 2,
-  z: 3,
+    x: 1,
+    y: 2,
+    z: 3,
 };
 var { x, ...foo } = add;
 console.log(foo); // {y:2, z:3}
@@ -481,9 +481,9 @@ console.log(foo); // {y:2, z:3}
 
 ```js
 var add = {
-  x: 1,
-  y: 2,
-  z: 3,
+    x: 1,
+    y: 2,
+    z: 3,
 };
 var foo = { ...add };
 console.log(foo); // {x: 1, y: 2, z: 3}
@@ -493,9 +493,9 @@ console.log(foo); // {x: 1, y: 2, z: 3}
 
 ```js
 var add = {
-  x: 1,
-  y: 2,
-  z: 3,
+    x: 1,
+    y: 2,
+    z: 3,
 };
 var foo = { ...add, x: 4 };
 console.log(foo); // {x: 4, y: 2, z: 3}
@@ -505,10 +505,10 @@ console.log(foo); // {x: 4, y: 2, z: 3}
 
 ```js
 var add = {
-  z: 3,
-  m: {
-    name: 'zhangsan',
-  },
+    z: 3,
+    m: {
+        name: 'zhangsan',
+    },
 };
 var foo = { ...add, x: 4 };
 console.log(foo); // { z: 3, m: {name: 'zhangsan'} }
@@ -528,12 +528,12 @@ var egg = { ...null };
 
 ```js
 var add = {
-  get name() {
-    return 'zhangsan';
-  },
+    get name() {
+        return 'zhangsan';
+    },
 };
 var foo = {
-  ...add,
+    ...add,
 };
 console.log(Object.getOwnPropertyDescriptors(foo));
 /*
@@ -552,12 +552,12 @@ console.log(Object.getOwnPropertyDescriptors(foo));
 
 ```js
 var add = {
-  get name() {
-    return 'zhangsan';
-  },
+    get name() {
+        return 'zhangsan';
+    },
 };
 var foo = {
-  ...Object.getOwnPropertyDescriptors(add),
+    ...Object.getOwnPropertyDescriptors(add),
 };
 console.log(Object.getOwnPropertyDescriptors(foo));
 /*

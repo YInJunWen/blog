@@ -1,4 +1,4 @@
-<!-- Date: 2017-02-28 10:09:42 -->
+<!-- Date: 2017-02-28 10:09 -->
 
 # vuex 中 module 的使用
 
@@ -46,11 +46,11 @@ const store = new Vue.Store({
             modules: {
                 b: {
                     state: {},
-                    getters: {}
-                }
-            }
-        }
-    }
+                    getters: {},
+                },
+            },
+        },
+    },
 });
 ```
 
@@ -61,24 +61,24 @@ const store = new Vue.Store({
 ```js
 const store = new Vue.Store({
     state: {
-        count: "global" // 这里的状态是root节点下的
+        count: 'global', // 这里的状态是root节点下的
     },
     modules: {
         a: {
             state: {
-                count: "a"
+                count: 'a',
             },
             getters: {},
             modules: {
                 b: {
                     state: {
-                        count: "b"
+                        count: 'b',
                     },
-                    getters: {}
-                }
-            }
-        }
-    }
+                    getters: {},
+                },
+            },
+        },
+    },
 });
 
 console.log(this.$store.state);
@@ -100,41 +100,41 @@ console.log(this.$store.state);
 
 ## module 中的 getter
 
-获取 getter 的方法则与普通方法一样，使用 this.$store.getters.getter 名`即可
+获取 getter 的方法则与普通方法一样，使用 this.\$store.getters.getter 名`即可
 
 ```js
 const store = new Vue.Store({
     getters: {
-        getterInRoot() {}
+        getterInRoot() {},
     },
     modules: {
         a: {
             state: {},
             getters: {
                 getterInA() {
-                    return "getterInA";
-                }
+                    return 'getterInA';
+                },
             },
             modules: {
                 b: {
                     state: {},
                     getters: {
                         getterInB() {
-                            return "getterInB";
-                        }
-                    }
-                }
-            }
+                            return 'getterInB';
+                        },
+                    },
+                },
+            },
         },
         c: {
             state: {},
             getters: {
                 getterInC() {
-                    return "getterInC";
-                }
-            }
-        }
-    }
+                    return 'getterInC';
+                },
+            },
+        },
+    },
 });
 
 console.log(this.$store.getters);
@@ -157,44 +157,44 @@ getter 在 module 中使用的时候，他的属性会增加两个参数，分�
 const store = new Vue.Store({
     getters: {
         getterInRoot() {
-            return "getterInRoot";
-        }
+            return 'getterInRoot';
+        },
     },
     modules: {
         a: {
             state: {
-                count: "b"
+                count: 'b',
             },
             getters: {
                 getterInA(state, getters, rootState, rootGetter) {
-                    return "getterInA";
-                }
+                    return 'getterInA';
+                },
             },
             modules: {
                 b: {
                     namespae: true,
                     state: {
-                        count: "b"
+                        count: 'b',
                     },
                     getters: {
                         getterInB(state, getters, rootState, rootGetter) {
-                            return "getterInB";
-                        }
-                    }
-                }
-            }
+                            return 'getterInB';
+                        },
+                    },
+                },
+            },
         },
         c: {
             state: {
-                count: "c"
+                count: 'c',
             },
             getters: {
                 getterInC() {
-                    return "getterInC";
-                }
-            }
-        }
-    }
+                    return 'getterInC';
+                },
+            },
+        },
+    },
 });
 ```
 
@@ -249,7 +249,7 @@ const store = new Vue.Store({
     modules: {
         a: {
             state: {
-                count: "a"
+                count: 'a',
             },
             mutations: {
                 incrementA(state) {
@@ -262,12 +262,12 @@ const store = new Vue.Store({
                             }
                         }
                     */
-                }
+                },
             },
             modules: {
                 b: {
                     state: {
-                        count: "b"
+                        count: 'b',
                     },
                     mutations: {
                         incrementB(state) {
@@ -277,12 +277,12 @@ const store = new Vue.Store({
                                     count: 'b'
                                 }
                             */
-                        }
-                    }
-                }
-            }
-        }
-    }
+                        },
+                    },
+                },
+            },
+        },
+    },
 });
 ```
 
@@ -320,37 +320,37 @@ action 与 mutation 一样，不会遵循嵌套规则，可以通过正常的`th
 const store = new Vue.Store({
     mutations: {
         // 这里的可以直接通过 'mutationInRoot' 访问
-        mutationInRoot() {}
+        mutationInRoot() {},
     },
     modules: {
         a: {
             namespaced: true,
             state: {
-                count: 0
+                count: 0,
             },
             mutations: {
-                mutationInA(state) {} // 自身具有命名空间，访问方式： this.$store.commit('a/mutationInA')
+                mutationInA(state) {}, // 自身具有命名空间，访问方式： this.$store.commit('a/mutationInA')
             },
             modules: {
                 b: {
                     namespaced: true, // 自身和上一层都具有命名空间，访问方式： this.$store.commit('a/b/mutationInA')
                     mutations: {
-                        mutationInB(state) {}
-                    }
+                        mutationInB(state) {},
+                    },
                 },
                 c: {
                     mutations: {
-                        mutationInC(state) {} // 自身没有具有命名空间，上层具有命名空间，挂载在上层命名空间下，访问方式： this.$store.commit('a/mutationInA')
-                    }
-                }
-            }
+                        mutationInC(state) {}, // 自身没有具有命名空间，上层具有命名空间，挂载在上层命名空间下，访问方式： this.$store.commit('a/mutationInA')
+                    },
+                },
+            },
         },
         d: {
             mutations: {
-                mutationInD() {} // 自身没有命名空间，直接挂载在根节点下，访问方式： this.$store.commit('mutationInD')
-            }
-        }
-    }
+                mutationInD() {}, // 自身没有命名空间，直接挂载在根节点下，访问方式： this.$store.commit('mutationInD')
+            },
+        },
+    },
 });
 ```
 
@@ -374,11 +374,11 @@ console.log(this.$store);
 上面的输出中会发现，我们的 mutation 名字前面都加上了命名空间的字符串，因此，如果想在组件中进行提交操作的话我们需要按照下面的方式来操作
 
 ```js
-this.$store.commit("mutationInRoot");
-this.$store.commit("a/mutationInA");
-this.$store.commit("a/b/mutationInB");
-this.$store.commit("a/mutationInC");
-this.$store.commit("mutationInD");
+this.$store.commit('mutationInRoot');
+this.$store.commit('a/mutationInA');
+this.$store.commit('a/b/mutationInB');
+this.$store.commit('a/mutationInC');
+this.$store.commit('mutationInD');
 ```
 
 getter 在命名空间下的规则和 mutation 一样
@@ -386,34 +386,34 @@ getter 在命名空间下的规则和 mutation 一样
 ```js
 const store = new Vue.Store({
     getters: {
-        getterInRoot() {} //  直接定义在根节点下  访问方式为： this.$store.getters['getterInRoot'] 或者 this.$store.getters.getterInRoot
+        getterInRoot() {}, //  直接定义在根节点下  访问方式为： this.$store.getters['getterInRoot'] 或者 this.$store.getters.getterInRoot
     },
     modules: {
         a: {
             namespaced: true,
             getters: {
-                getterInA() {}
+                getterInA() {},
             },
             modules: {
                 c: {
                     namespaced: true,
                     getters: {
-                        getterInC() {} //  自身和上一层都有命名空间， 访问方式为： this.$store.getters['a/c/getterInC']
-                    }
+                        getterInC() {}, //  自身和上一层都有命名空间， 访问方式为： this.$store.getters['a/c/getterInC']
+                    },
                 },
                 d: {
                     getters: {
-                        getterInD() {} // 自身没有命名空间，上一层有，访问方式为： this.$store.getters['a/getterInD']
-                    }
-                }
-            }
+                        getterInD() {}, // 自身没有命名空间，上一层有，访问方式为： this.$store.getters['a/getterInD']
+                    },
+                },
+            },
         },
         b: {
             getters: {
-                getterInB() {} // b没有局部命名空间，所以定义在根节点下，访问方式为 this.$store.getters['getterInB'] 或者 this.$store.getters.getterInB
-            }
-        }
-    }
+                getterInB() {}, // b没有局部命名空间，所以定义在根节点下，访问方式为 this.$store.getters['getterInB'] 或者 this.$store.getters.getterInB
+            },
+        },
+    },
 });
 
 console.log(this.$store);
@@ -435,34 +435,34 @@ console.log(this.$store);
 ```js
 const store = new Vue.Store({
     actions: {
-        actionInRoot() {} //  直接定义在根节点下  访问方式为： this.$store.dispatch('actionInRoot') 或者 this.$store.dispatch(actionInRoot
+        actionInRoot() {}, //  直接定义在根节点下  访问方式为： this.$store.dispatch('actionInRoot') 或者 this.$store.dispatch(actionInRoot
     },
     modules: {
         a: {
             namespaced: true,
             actions: {
-                actionInA() {}
+                actionInA() {},
             },
             modules: {
                 c: {
                     namespaced: true,
                     actions: {
-                        actionInC() {} //  自身和上一层都有命名空间， 访问方式为： this.$store.dispatch('a/c/actionInC')
-                    }
+                        actionInC() {}, //  自身和上一层都有命名空间， 访问方式为： this.$store.dispatch('a/c/actionInC')
+                    },
                 },
                 d: {
                     actions: {
-                        actionInD() {} // 自身没有命名空间，上一层有，访问方式为： this.$store.dispatch('a/actionInD')
-                    }
-                }
-            }
+                        actionInD() {}, // 自身没有命名空间，上一层有，访问方式为： this.$store.dispatch('a/actionInD')
+                    },
+                },
+            },
         },
         b: {
             actions: {
-                actionInB() {} // b没有局部命名空间，所以定义在根节点下，访问方式为 this.$store.dispatch('actionInB') 或者 this.$store.dispatch('actionInB')
-            }
-        }
-    }
+                actionInB() {}, // b没有局部命名空间，所以定义在根节点下，访问方式为 this.$store.dispatch('actionInB') 或者 this.$store.dispatch('actionInB')
+            },
+        },
+    },
 });
 
 console.log(this.$store);
@@ -486,34 +486,34 @@ console.log(this.$store);
 ```js
 const store = new Vue.Store({
     state: {
-        count: 0
+        count: 0,
     },
     mutations: {
         increment(state) {
             state.count = 1;
-        }
+        },
     },
     modules: {
         a: {
             namespaced: true,
             state: {
-                count: 0
+                count: 0,
             },
             mutations: {
                 increment(state) {
                     state.count = 2;
-                }
+                },
             },
             actions: {
                 actionToSelf({ commit }) {
-                    commit("increment");
+                    commit('increment');
                 },
                 actionToRoot({ commit }) {
-                    commit("increment", null, { root: true });
-                }
-            }
-        }
-    }
+                    commit('increment', null, { root: true });
+                },
+            },
+        },
+    },
 });
 ```
 
@@ -521,8 +521,8 @@ const store = new Vue.Store({
 
 ```js
 setTimeout(() => {
-    this.$store.dispatch("a/actionToSelf"); // 这里还记得为什么前面要加上命名空间吗
-    this.$store.dispatch("a/actionToRoot");
+    this.$store.dispatch('a/actionToSelf'); // 这里还记得为什么前面要加上命名空间吗
+    this.$store.dispatch('a/actionToRoot');
 }, 2000);
 
 console.log(this.$store.state);
@@ -544,39 +544,39 @@ console.log(this.$store.state);
 const store = new Vue.Store({
     actions: {
         increment() {
-            console.log("increment in root");
-        }
+            console.log('increment in root');
+        },
     },
     modules: {
         a: {
             namespaced: true,
             actions: {
                 increment() {
-                    console.log("increment in a");
+                    console.log('increment in a');
                 },
                 actionNoRoot({ dispatch }) {
-                    dispatch("increment"); // 执行的是内部的 action: increment   输出：increment in a
+                    dispatch('increment'); // 执行的是内部的 action: increment   输出：increment in a
                 },
                 actionWithRoot({ dispatch }) {
-                    dispatch("increment", null, { root: true }); // 执行的是外部的 action: increment   输出：increment in root
+                    dispatch('increment', null, { root: true }); // 执行的是外部的 action: increment   输出：increment in root
                 },
                 actionTobNoRoot({ dispatch }) {
-                    dispatch("b/increment"); // 直接报错，因为a模块内部没有 'b/increment' 事件
+                    dispatch('b/increment'); // 直接报错，因为a模块内部没有 'b/increment' 事件
                 },
                 actionTobWidthRoot({ dispatch }) {
-                    dispatch("b/increment", null, { root: true }); // 执行的是外部的的 action: b/increment   输出：increment in b
-                }
-            }
+                    dispatch('b/increment', null, { root: true }); // 执行的是外部的的 action: b/increment   输出：increment in b
+                },
+            },
         },
         b: {
             namespaced: true,
             actions: {
                 increment() {
-                    console.log("increment in b");
-                }
-            }
-        }
-    }
+                    console.log('increment in b');
+                },
+            },
+        },
+    },
 });
 ```
 
@@ -590,36 +590,36 @@ const store = new Vue.Store({
         a: {
             namespaced: true,
             state: {
-                count: 0
+                count: 0,
             },
             getters: {
-                persons: []
+                persons: [],
             },
             mutations: {
-                increment() {}
+                increment() {},
             },
             actions: {
-                update() {}
+                update() {},
             },
             modules: {
                 b: {
                     namespaced: true,
                     state: {
-                        count: 0
+                        count: 0,
                     },
                     getters: {
-                        persons: []
+                        persons: [],
                     },
                     mutations: {
-                        increment() {}
+                        increment() {},
                     },
                     actions: {
-                        update() {}
-                    }
-                }
-            }
-        }
-    }
+                        update() {},
+                    },
+                },
+            },
+        },
+    },
 });
 
 computed: {

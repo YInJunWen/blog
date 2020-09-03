@@ -1,4 +1,4 @@
-<!-- Date: 2016-12-01 07:39:24 -->
+<!-- Date: 2016-12-01 07:39 -->
 
 # css 资源大全
 
@@ -14,8 +14,8 @@ Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的
 
 ### 我们要做什么？
 
-* 基于 awesome-css 列表，我们将对其中的各个资源项进行编译整理。此外还将从其他来源补充好资源。
-* 整理后的内容，将收录在[伯乐在线资源频道](http://hao.jobbole.com/)。可参考已整理的内容：：《[BEM：前端命名方法论](http://hao.jobbole.com/bem/)》：《[Sass：CSS 预处理器](http://hao.jobbole.com/sass-css/)》：《[YUI Compressor：JS/CSS 压缩工具](http://hao.jobbole.com/yui-compressor/)》
+-   基于 awesome-css 列表，我们将对其中的各个资源项进行编译整理。此外还将从其他来源补充好资源。
+-   整理后的内容，将收录在[伯乐在线资源频道](http://hao.jobbole.com/)。可参考已整理的内容：：《[BEM：前端命名方法论](http://hao.jobbole.com/bem/)》：《[Sass：CSS 预处理器](http://hao.jobbole.com/sass-css/)》：《[YUI Compressor：JS/CSS 压缩工具](http://hao.jobbole.com/yui-compressor/)》
 
 ---
 
@@ -25,8 +25,8 @@ Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的
 
 不过加入前，有几个小要求：
 
-* 英文还不错，能读懂英文并用自己的话复述；
-* 在用 CSS；
+-   英文还不错，能读懂英文并用自己的话复述；
+-   在用 CSS；
 
 如有兴趣，请加 QQ：50872495。加 Q 时请注明「CSS 大全」
 
@@ -36,8 +36,8 @@ Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的
 
 欢迎大家为列表贡献高质量的新资源，提交 PR 时请参照以下要求：
 
-* 请确保推荐的资源自己使用过
-* 提交 PR 时请注明推荐理由
+-   请确保推荐的资源自己使用过
+-   提交 PR 时请注明推荐理由
 
 资源列表管理收到 PR 请求后，会定期（每周）在微博转发本周提交的 PR 列表，并在微博上面听取使用过这些资源的意见。确认通过后，会加入资源大全。
 
@@ -47,8 +47,8 @@ Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的
 
 ### 本项目的参与者
 
-* 维护者：
-* 贡献者：iLeo、[伯小乐](http://www.jobbole.com/members/aoi/)、[tzstone](http://www.jobbole.com/members/tzstone/)、[llhua2329](https://github.com/llhua2329)、[凝枫](http://hao.jobbole.com/author/yangxy81118/)
+-   维护者：
+-   贡献者：iLeo、[伯小乐](http://www.jobbole.com/members/aoi/)、[tzstone](http://www.jobbole.com/members/tzstone/)、[llhua2329](https://github.com/llhua2329)、[凝枫](http://hao.jobbole.com/author/yangxy81118/)
 
 注：名单不分排名，不定期补充更新
 
@@ -58,132 +58,132 @@ Awesome 系列虽然挺全，但基本只对收录的资源做了极为简要的
 
 虽然奖励可能并不是你加入的主要原因，但还是有必要提一下：
 
-* 整理超过 20 个资源后，可在伯乐在线上开通打赏；
-* 每整理 20 个资源，有机会获得技术书籍或各种有意思的创意、极客产品；
-* [奖励详情](http://hao.jobbole.com/rewards/)
+-   整理超过 20 个资源后，可在伯乐在线上开通打赏；
+-   每整理 20 个资源，有机会获得技术书籍或各种有意思的创意、极客产品；
+-   [奖励详情](http://hao.jobbole.com/rewards/)
 
 ---
 
 sotayamashita 发起维护的 CSS 资源大全，包括：预处理器、框架、CSS 结构、代码风格指南、命名习惯、播客、演讲视频、大网站的 CSS 开发经验等等。
 
-* [目录](#awesome-css)
-  * [预处理器](#preprocessors)
-  * [框架](#frameworks)
-  * [CSS 结构](#structure)
-  * [CSS 规范化](#reset-and-normalize)
-  * [大型网站的 CSS 开发](#css-development-at-large-scale-websites)
-  * [代码风格指南](#code-style-guideline)
-  * [样式指南](#style-guide)
-  * [命名习惯和方式](#naming-conventions--methodologies)
-  * [参考](#references)
-* [在线资源](#resources)
-  * [播客](#podcasts)
-  * [Twitter](#twitter)
-  * [视频](#videos)
-  * [有影响力的书](#influential-books)
-  * [微博、微信公众号](#weibo-weixin)
-  * [知名网站](#websites)
-  * [博客](#blogs)
+-   [目录](#awesome-css)
+    -   [预处理器](#preprocessors)
+    -   [框架](#frameworks)
+    -   [CSS 结构](#structure)
+    -   [CSS 规范化](#reset-and-normalize)
+    -   [大型网站的 CSS 开发](#css-development-at-large-scale-websites)
+    -   [代码风格指南](#code-style-guideline)
+    -   [样式指南](#style-guide)
+    -   [命名习惯和方式](#naming-conventions--methodologies)
+    -   [参考](#references)
+-   [在线资源](#resources)
+    -   [播客](#podcasts)
+    -   [Twitter](#twitter)
+    -   [视频](#videos)
+    -   [有影响力的书](#influential-books)
+    -   [微博、微信公众号](#weibo-weixin)
+    -   [知名网站](#websites)
+    -   [博客](#blogs)
 
 ## 预处理器
 
 更快地编译 CSS
 
-* GCSS：一个用 GO 语言编写的 CSS 预处理器。[官网](https://github.com/yosssi/gcss)
-* LESS：向下兼容 CSS 并为当前的 CSS 增加额外的功能。[官网](http://lesscss.org/)
-* [Myth](http://hao.jobbole.com/myth/)：只用写纯 CSS 而不用担心浏览器加载缓慢。[官网](https://github.com/segmentio/myth)
-* PCSS：一个用 Python 语言编写的 CSS 预处理器。[官网](https://github.com/senko/pcss)
-* [PostCSS](http://hao.jobbole.com/postcss/)：通过 JS 插件来转换 CSS。[PostCSS](https://github.com/postcss/postcss)
-* [Sass](http://hao.jobbole.com/sass/)：成熟、稳定且强力的专业 CSS 扩展语言。[官网](http://sass-lang.com/)
-* [Stylus](http://hao.jobbole.com/stylus/)：用于 nodejs 的直观、强健、极具特色的 CSS 语言。[官网](http://learnboost.github.io/stylus/)
-* [YACP](http://hao.jobbole.com/yacp/)：另一种 CSS 预处理器。[官网](https://github.com/morishitter/YACP)
+-   GCSS：一个用 GO 语言编写的 CSS 预处理器。[官网](https://github.com/yosssi/gcss)
+-   LESS：向下兼容 CSS 并为当前的 CSS 增加额外的功能。[官网](http://lesscss.org/)
+-   [Myth](http://hao.jobbole.com/myth/)：只用写纯 CSS 而不用担心浏览器加载缓慢。[官网](https://github.com/segmentio/myth)
+-   PCSS：一个用 Python 语言编写的 CSS 预处理器。[官网](https://github.com/senko/pcss)
+-   [PostCSS](http://hao.jobbole.com/postcss/)：通过 JS 插件来转换 CSS。[PostCSS](https://github.com/postcss/postcss)
+-   [Sass](http://hao.jobbole.com/sass/)：成熟、稳定且强力的专业 CSS 扩展语言。[官网](http://sass-lang.com/)
+-   [Stylus](http://hao.jobbole.com/stylus/)：用于 nodejs 的直观、强健、极具特色的 CSS 语言。[官网](http://learnboost.github.io/stylus/)
+-   [YACP](http://hao.jobbole.com/yacp/)：另一种 CSS 预处理器。[官网](https://github.com/morishitter/YACP)
 
 这里[有一个 CSS 预处理器汇总](https://github.com/showcases/css-preprocessors)。
 
 ## 框架
 
-* [960 Grid System](http://hao.jobbole.com/960-grid-system/)：简化了 web 开发工作流程。[官网](http://960.gs/)
-* [Blueprint](http://hao.jobbole.com/blueprintcss/)：这个 CSS 框架为你提供易用的栅格系统、符合直觉的排版功能、有用的插件以及可打印的样式 [官网](http://www.blueprintcss.org/)
-* [Bootstrap](http://hao.jobbole.com/bootstrap/)：最流行的 HTML、CSS、JS 框架 [官网](http://getbootstrap.com/)
-* [inuit.css](http://hao.jobbole.com/inuit-css/) ：强力的、可扩展的、基于 Sass 的、采用 BEM 命名的面向对象 CSS 框架 [官网](http://inuitcss.com/)
-* [Foundation](http://hao.jobbole.com/foundation/)：一个高级响应式前端框架。[官网](http://foundation.zurb.com/)
-* [Material Design Lite](http://hao.jobbole.com/material-design-lite/)：很好的用于制作 Material Design 风格网站的框架。[官网](http://www.getmdl.io/started/)
-* [Materialize](http://hao.jobbole.com/materialize/)：基于 Material Design 的现代响应式前端框架。[官网](http://materializecss.com/)
-* [Pure.css](http://hao.jobbole.com/pure-css/)：一套可用于所有 web 项目的小型响应式 CSS 模块。[官网](http://purecss.io/)
-* [Semantic UI](http://hao.jobbole.com/semantic-ui/)：使用人性化 html 的强力框架。[官网](http://semantic-ui.com/)
-* [Skeleton](http://hao.jobbole.com/skeleton/)：一个超简单的响应式模板。[官网](http://getskeleton.com/)
-* [UIkit](http://hao.jobbole.com/uikit/)：适用于手机、平板以及电脑端的栅格系统。[官网](http://getuikit.com/)
+-   [960 Grid System](http://hao.jobbole.com/960-grid-system/)：简化了 web 开发工作流程。[官网](http://960.gs/)
+-   [Blueprint](http://hao.jobbole.com/blueprintcss/)：这个 CSS 框架为你提供易用的栅格系统、符合直觉的排版功能、有用的插件以及可打印的样式 [官网](http://www.blueprintcss.org/)
+-   [Bootstrap](http://hao.jobbole.com/bootstrap/)：最流行的 HTML、CSS、JS 框架 [官网](http://getbootstrap.com/)
+-   [inuit.css](http://hao.jobbole.com/inuit-css/) ：强力的、可扩展的、基于 Sass 的、采用 BEM 命名的面向对象 CSS 框架 [官网](http://inuitcss.com/)
+-   [Foundation](http://hao.jobbole.com/foundation/)：一个高级响应式前端框架。[官网](http://foundation.zurb.com/)
+-   [Material Design Lite](http://hao.jobbole.com/material-design-lite/)：很好的用于制作 Material Design 风格网站的框架。[官网](http://www.getmdl.io/started/)
+-   [Materialize](http://hao.jobbole.com/materialize/)：基于 Material Design 的现代响应式前端框架。[官网](http://materializecss.com/)
+-   [Pure.css](http://hao.jobbole.com/pure-css/)：一套可用于所有 web 项目的小型响应式 CSS 模块。[官网](http://purecss.io/)
+-   [Semantic UI](http://hao.jobbole.com/semantic-ui/)：使用人性化 html 的强力框架。[官网](http://semantic-ui.com/)
+-   [Skeleton](http://hao.jobbole.com/skeleton/)：一个超简单的响应式模板。[官网](http://getskeleton.com/)
+-   [UIkit](http://hao.jobbole.com/uikit/)：适用于手机、平板以及电脑端的栅格系统。[官网](http://getuikit.com/)
 
 ## 工具集
 
-* Basscss：一个基本元素样式与不可修改工具轻量级集合。[官网](http://www.basscss.com/)
-* Bourbon：用于 Sass 的简单且轻量的混合库。[官网](http://bourbon.io/)
-* Corpus：另一个 CSS 工具集。[官网](http://corpuscss.com/)
-* Susy：用于 Sass 的响应式工具集。[官网](http://susy.oddbird.net/)
+-   Basscss：一个基本元素样式与不可修改工具轻量级集合。[官网](http://www.basscss.com/)
+-   Bourbon：用于 Sass 的简单且轻量的混合库。[官网](http://bourbon.io/)
+-   Corpus：另一个 CSS 工具集。[官网](http://corpuscss.com/)
+-   Susy：用于 Sass 的响应式工具集。[官网](http://susy.oddbird.net/)
 
 ## CSS 结构
 
-* RSCSS：CSS 样式结构的合理标准。[官网](https://github.com/rstacruz/rscss)
-* ITCSS：用于大型 UI 项目的稳定、可扩展、可控制的 CSS 架构。[官网](https://twitter.com/itcss_io)
+-   RSCSS：CSS 样式结构的合理标准。[官网](https://github.com/rstacruz/rscss)
+-   ITCSS：用于大型 UI 项目的稳定、可扩展、可控制的 CSS 架构。[官网](https://twitter.com/itcss_io)
 
 ## CSS 标准化
 
-* Normalize：一套提供较好的多浏览器默认样式一致性的 CSS 规范。[官网](https://github.com/necolas/normalize.css)
-* Normalize OpenType：为 Normalize.css 添加了 OpenType 特性，如连字、字间距等等。[官网](https://github.com/kennethormandy/normalize-opentype.css)
-* Reset：一套 CSS 标准，将全部的 HTML 元素调整到一致的基准线。[官网](http://meyerweb.com/eric/tools/css/reset/)
-* sanitize.css：一套可立即使用的，符合当今最优实践的 CSS 规范。[官网](https://10up.github.io/sanitize.css/)
+-   Normalize：一套提供较好的多浏览器默认样式一致性的 CSS 规范。[官网](https://github.com/necolas/normalize.css)
+-   Normalize OpenType：为 Normalize.css 添加了 OpenType 特性，如连字、字间距等等。[官网](https://github.com/kennethormandy/normalize-opentype.css)
+-   Reset：一套 CSS 标准，将全部的 HTML 元素调整到一致的基准线。[官网](http://meyerweb.com/eric/tools/css/reset/)
+-   sanitize.css：一套可立即使用的，符合当今最优实践的 CSS 规范。[官网](https://10up.github.io/sanitize.css/)
 
 ## 大型网站的 CSS 开发
 
-* [Github 的 CSS 方案](http://hao.jobbole.com/htmlcss-code-guide-by-mark-otto/） by [Mark Otto](https://twitter.com/mdo)，[英文](http://markdotto.com/2014/07/23/githubs-css/)
-* CodePen 的 CSS 方案  by [Chris Coyier](https://twitter.com/chriscoyier)，[英文](http://codepen.io/chriscoyier/blog/codepens-css)
-* Lonely Planet 的 CSS 方案  by [Ian Feather](https://twitter.com/ianfeather)，[英文](http://ianfeather.co.uk/css-at-lonely-planet/)
-* Groupon 的 CSS 方案  by [Mike Aparicio](https://twitter.com/peruvianidol)，[英文](http://mikeaparicio.com/2014/08/10/css-at-groupon/)
-* Buffer 的 CSS 方案  by [Brian Lovin](https://twitter.com/brian_lovin)，[英文](http://blog.brianlovin.com/buffers-css/)
-* HOOTSUITE 的 CSS 方案  by Steve Mynett，[英文](http://code.hootsuite.com/css-at-hootsuite/)
-* [如何精简 TrelloCSS 架构](http://hao.jobbole.com/refining-the-way-we-structure-our-css-at-trello/) by [Bobby Grace](https://twitter.com/bobbygrace)，[英文](http://blog.trello.com/refining-the-way-we-structure-our-css-at-trello/)
-* Bugsnag 的 CSS 架构  by [Max Luster](https://twitter.com/maxluster)，[英文](https://bugsnag.com/blog/bugsnags-css-architecture)
-* Ghost 的 CSS 方案  by Paul Davis，[英文](http://dev.ghost.org/css-at-ghost/)
-* [Medium 的 CSS 方案](http://hao.jobbole.com/mediu-css/) by [Jacob Thornton](https://twitter.com/fat)，[英文](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06)
+-   [Github 的 CSS 方案](http://hao.jobbole.com/htmlcss-code-guide-by-mark-otto/） by [Mark Otto](https://twitter.com/mdo)，[英文](http://markdotto.com/2014/07/23/githubs-css/)
+-   CodePen 的 CSS 方案  by [Chris Coyier](https://twitter.com/chriscoyier)，[英文](http://codepen.io/chriscoyier/blog/codepens-css)
+-   Lonely Planet 的 CSS 方案  by [Ian Feather](https://twitter.com/ianfeather)，[英文](http://ianfeather.co.uk/css-at-lonely-planet/)
+-   Groupon 的 CSS 方案  by [Mike Aparicio](https://twitter.com/peruvianidol)，[英文](http://mikeaparicio.com/2014/08/10/css-at-groupon/)
+-   Buffer 的 CSS 方案  by [Brian Lovin](https://twitter.com/brian_lovin)，[英文](http://blog.brianlovin.com/buffers-css/)
+-   HOOTSUITE 的 CSS 方案  by Steve Mynett，[英文](http://code.hootsuite.com/css-at-hootsuite/)
+-   [如何精简 TrelloCSS 架构](http://hao.jobbole.com/refining-the-way-we-structure-our-css-at-trello/) by [Bobby Grace](https://twitter.com/bobbygrace)，[英文](http://blog.trello.com/refining-the-way-we-structure-our-css-at-trello/)
+-   Bugsnag 的 CSS 架构  by [Max Luster](https://twitter.com/maxluster)，[英文](https://bugsnag.com/blog/bugsnags-css-architecture)
+-   Ghost 的 CSS 方案  by Paul Davis，[英文](http://dev.ghost.org/css-at-ghost/)
+-   [Medium 的 CSS 方案](http://hao.jobbole.com/mediu-css/) by [Jacob Thornton](https://twitter.com/fat)，[英文](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06)
 
 ## 代码风格指导
 
-* [编写符合语言习惯的 CSS](https://github.com/necolas/idiomatic-css) by [Nicolas Gallagher](https://twitter.com/necolas).
-* [CSS 指南](http://cssguidelin.es/) by [Harry Roberts](https://twitter.com/csswizardry).
-* [Sass 指南](http://sass-guidelin.es/) by [Hugo Giraudel](https://twitter.com/HugoGiraudel).
-* [Mark Otto 编写的风格指南，受「GitHub 风格」和「编写符合语言习惯的 CSS」所激发](http://codeguide.co/) by [Mark Otto](https://twitter.com/mdo).
-* [ThinkUp 的 CSS 风格指导](https://github.com/ThinkUpLLC/ThinkUp/wiki/Code-Style-Guide:-CSS)，作者 ThinkUp
-* [Google 的 HTML/CSS 风格指导](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
-* [WordPress 的 CSS 代码标准](http://hao.jobbole.com/wordpress-css-coding-standards/)：[官网](https://make.wordpress.org/core/handbook/coding-standards/css/)
+-   [编写符合语言习惯的 CSS](https://github.com/necolas/idiomatic-css) by [Nicolas Gallagher](https://twitter.com/necolas).
+-   [CSS 指南](http://cssguidelin.es/) by [Harry Roberts](https://twitter.com/csswizardry).
+-   [Sass 指南](http://sass-guidelin.es/) by [Hugo Giraudel](https://twitter.com/HugoGiraudel).
+-   [Mark Otto 编写的风格指南，受「GitHub 风格」和「编写符合语言习惯的 CSS」所激发](http://codeguide.co/) by [Mark Otto](https://twitter.com/mdo).
+-   [ThinkUp 的 CSS 风格指导](https://github.com/ThinkUpLLC/ThinkUp/wiki/Code-Style-Guide:-CSS)，作者 ThinkUp
+-   [Google 的 HTML/CSS 风格指导](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+-   [WordPress 的 CSS 代码标准](http://hao.jobbole.com/wordpress-css-coding-standards/)：[官网](https://make.wordpress.org/core/handbook/coding-standards/css/)
 
 ## 风格指导
 
-* [Atlassian  官方 UI 文档](https://docs.atlassian.com/aui/latest/)；
-* [设计元素](http://rizzo.lonelyplanet.com/styleguide/design-elements/colours) by [lonely planet](http://www.lonelyplanet.com/).
-* [GitHub 的 CSS 风格指导](https://github.com/styleguide/css)
-* [Patterns](http://ux.mailchimp.com/patterns) by [MailChimp 的风格指南](http://mailchimp.com/).
-* [Lighting Design System](https://www.lightningdesignsystem.com/) by [Salesforce 的风格指南](http://www.salesforce.com/).
-* [SASS 风格指南](http://sass-lang.com/styleguide) by Sass team.
-* [星巴克的风格指南](http://www.starbucks.com/static/reference/styleguide/) by [Starbucks](http://www.starbucks.com/).
-* [关于网站风格指导的一些资源](http://styleguides.io/examples.html) by [Awesome people](https://github.com/maban/styleguides/graphs/contributors).
+-   [Atlassian  官方 UI 文档](https://docs.atlassian.com/aui/latest/)；
+-   [设计元素](http://rizzo.lonelyplanet.com/styleguide/design-elements/colours) by [lonely planet](http://www.lonelyplanet.com/).
+-   [GitHub 的 CSS 风格指导](https://github.com/styleguide/css)
+-   [Patterns](http://ux.mailchimp.com/patterns) by [MailChimp 的风格指南](http://mailchimp.com/).
+-   [Lighting Design System](https://www.lightningdesignsystem.com/) by [Salesforce 的风格指南](http://www.salesforce.com/).
+-   [SASS 风格指南](http://sass-lang.com/styleguide) by Sass team.
+-   [星巴克的风格指南](http://www.starbucks.com/static/reference/styleguide/) by [Starbucks](http://www.starbucks.com/).
+-   [关于网站风格指导的一些资源](http://styleguides.io/examples.html) by [Awesome people](https://github.com/maban/styleguides/graphs/contributors).
 
 # 命名习惯和方式
 
-* Atomic OOBEMITSCSS：[官网](http://www.sitepoint.com/atomic-oobemitscss/)
-* [BEM](http://hao.jobbole.com/css-naming-bem/)：[官网](https://en.bem.info/)
-* SMACSS：[官网](https://smacss.com/)
-* Point North：[官网](http://pointnorth.io/#base-browser-styling)
-* ITCSS：[官网](http://itcss.io/)
-* OOCSS：[官网](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
-* Title CSS：[官网](http://www.sitepoint.com/title-css-simple-approach-css-class-naming/)
-* idiomatic-css：[官网](https://github.com/necolas/idiomatic-css)
-* Atomic Design：[官网](http://patternlab.io/resources.html)
-* SUIT CSS：[官网](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#u-utilityname)
-* Kickoff CSS：[官网](https://trykickoff.github.io/learn/css.html#namingscheme)
+-   Atomic OOBEMITSCSS：[官网](http://www.sitepoint.com/atomic-oobemitscss/)
+-   [BEM](http://hao.jobbole.com/css-naming-bem/)：[官网](https://en.bem.info/)
+-   SMACSS：[官网](https://smacss.com/)
+-   Point North：[官网](http://pointnorth.io/#base-browser-styling)
+-   ITCSS：[官网](http://itcss.io/)
+-   OOCSS：[官网](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
+-   Title CSS：[官网](http://www.sitepoint.com/title-css-simple-approach-css-class-naming/)
+-   idiomatic-css：[官网](https://github.com/necolas/idiomatic-css)
+-   Atomic Design：[官网](http://patternlab.io/resources.html)
+-   SUIT CSS：[官网](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#u-utilityname)
+-   Kickoff CSS：[官网](https://trykickoff.github.io/learn/css.html#namingscheme)
 
 # 参考
 
-* [可扩展 CSS 阅读清单](https://github.com/davidtheclark/scalable-css-reading-list)
+-   [可扩展 CSS 阅读清单](https://github.com/davidtheclark/scalable-css-reading-list)
 
 # 其他资源
 
@@ -191,55 +191,55 @@ sotayamashita 发起维护的 CSS 资源大全，包括：预处理器、框架�
 
 编程时可以听的一些内容。
 
-* [Shop Talk Show](http://shoptalkshow.com/)：Chris Coyier 和 Dave Rupert 的在线播客，涉及前端、UX 的设计及开发。
-* [Style Guide Podcast](http://styleguides.io/podcast/index.html)：由 Anna Debenham 和 Brad Frost 主持的一些访谈。
-* [The Big Web Show](http://5by5.tv/bigwebshow/)：包含了几乎所有 Web 相关的话题，比如网络出版、艺术指导、内容策略、版面设计、Web 技术等等。
-* [The Web Ahead](http://5by5.tv/webahead/)：与全世界的专家讨论 Web 技术的变化和发展。
-* [Non Breaking Space Show](http://goodstuff.fm/nbsp)：挖掘出那些在数字艺术、设计以及开发领域最好的、最知名的并且最聪明的创客们。
-* [The Changelog](https://changelog.com/)：这个播客的口号是：“开源发展很快，快跟上”，致力于让你跟上最新的开源技术。
+-   [Shop Talk Show](http://shoptalkshow.com/)：Chris Coyier 和 Dave Rupert 的在线播客，涉及前端、UX 的设计及开发。
+-   [Style Guide Podcast](http://styleguides.io/podcast/index.html)：由 Anna Debenham 和 Brad Frost 主持的一些访谈。
+-   [The Big Web Show](http://5by5.tv/bigwebshow/)：包含了几乎所有 Web 相关的话题，比如网络出版、艺术指导、内容策略、版面设计、Web 技术等等。
+-   [The Web Ahead](http://5by5.tv/webahead/)：与全世界的专家讨论 Web 技术的变化和发展。
+-   [Non Breaking Space Show](http://goodstuff.fm/nbsp)：挖掘出那些在数字艺术、设计以及开发领域最好的、最知名的并且最聪明的创客们。
+-   [The Changelog](https://changelog.com/)：这个播客的口号是：“开源发展很快，快跟上”，致力于让你跟上最新的开源技术。
 
 ## Twitter
 
 值得关注的活跃用户
 
-* [CSS Animation](https://twitter.com/cssanimation)
-* [Andrey Sitnik](https://twitter.com/andreysitnik)：@Autoprefixer, http://easings.net 和 @PostCSS 的作者
-* [Evangelina Ferreira](https://twitter.com/evaferreira92)：web 设计师，@multimedial_utn 的教授，HTML5 & CSS 狂热爱好者，业余翻译者。
-* [Sara Soueidan](https://twitter.com/SaraSoueidan)：@Codrops CSS Reference 的作者，Smashing Book #5 的合著者。
-* [Hugo Giraudel](https://twitter.com/HugoGiraudel)：@edenspiekermann 的 CSS 怪才以及 Sass 黑客
-* [Guy Routledge](https://twitter.com/guyroutledge)：前端开发者、@GA_London 的教师，http://www.atozcss.com 的视频作者，宅男，吃货。
-* [Heydon Pickering](https://twitter.com/heydonworks)：爱吃大米，同时也是一个 UX 设计师，作者，@smashingmag 编辑以及程序员。
-* [Adam Morse](https://twitter.com/mrmrs_)：开源的粉丝和支持者
-* [Donovan Hutchinson](https://twitter.com/donovanh)：设计师、开发者、作家。偶尔在http://Hop.ie上写博客，目前在建设@cssanimation
-* [CSS Commits](https://twitter.com/CSScommits)：最近忙于 CSSWG 的公共 Mercurial 库
-* [Scott Jehl](https://twitter.com/scottjehl)：responsiblerwd 的作者，现在 abookapart 上 面在打折
-* [Dudley Storey](https://twitter.com/dudleystorey)：Web 开发者、作者、老师以及演说者。
-* [Zoe M. Gillenwater](https://twitter.com/zomigi)：Web 设计师、开发者，专注于 CSS、RWD、UX 以及无障碍开发。
-* [Ben Briggs](https://twitter.com/ben_eb)：主要研究 node.js、javascript、开源模块、客户端优化、web 性能相关。
-* [Paul Lewis](https://twitter.com/aerotwist)：将代码与设计联系起来的谷歌员工。
-* [Thierry Koblentz](https://twitter.com/thierrykoblentz)：Yahoo 的 CSS 开发者
-* [Nicolas Gallagher](https://twitter.com/necolas)：Twitter 的软件工程师
-* [Harry Roberts](https://twitter.com/csswizardry)- @google, @Etsy, @kickstarter, @BBC, @Deloitte, @FT 等的前端设计顾问
-* [Phil Walton](https://twitter.com/philwalton) -谷歌工程师、开源拥护者、开发者、设计师、写手。
-* [Lea Verou](https://twitter.com/LeaVerou)：MIT_CSAIL, @CSSWG IE, @OReillyMedia 作者的研究助理，前 W3C 员工
-* [Manoela Ilic](https://twitter.com/crnacura)：CSS 和 HTML 是我的画笔，我对认知科学、AI、HCI、UI 设计以及天体物理学很感兴趣，数码控。
-* [Una Kravets](https://twitter.com/Una)：BMDesign 以及 Sassvocate 的前端工程师，团队建设者以及手工艺者。座右铭：所有东西都应该开源！
-* [Chris Coyier](https://twitter.com/chriscoyier)：CodePen 的设计师，Real_CSS_Tricks 作者
-* [Nicole Sullivan](https://twitter.com/stubbornella)：极客！
-* [Eric Bidelman](https://twitter.com/ebidel)：谷歌的工程师，参与项目有 Chrome、web 组件、Polymer
-* [Patrick Hamann](https://twitter.com/patrickhamann)：热爱爬山、啤酒以及美食。
-* [Dave McFarland](https://twitter.com/davemcfarland)：Web 开发者，《CSS: The Missing Manual》和《JavaScript & jQuery: The Missing Manual》的作者，
-* [L. David Baron](https://twitter.com/davidbaron)：Mozilla 开发者，CSS 以及 W3C 标准的「外交官」。
-* [Daniel Glazman](https://twitter.com/glazou)：W3C 的 CSS 工作团队联合主席，企业家，软件工程师，极客，两个孩子的爸爸，通晓多国语言，喜欢鸭子。
-* [The Chris Eppstein](https://twitter.com/chriseppstein)：爱恨分明，家庭美满，写代码，主导 LinkedIn 的样式。
-* [Natalie Weizenbaum](https://twitter.com/nex3)：女程序员，SassCSS 的主设计师和开发者，在谷歌做 Dart 语言相关工作。
-* [Brad Frost](https://twitter.com/brad_frost)：Web 设计师、演讲者、写手、顾问、音乐家。
-* [Maxime Thirouin](https://twitter.com/MoOx)：前端工程师，自由职业者，UI/UX 开发者。
-* [Mark Otto](https://twitter.com/mdo)：在 GitHub 和 Bootstrap 工作，曾就职于 Twitter，超级书呆子。
-* [Simon](https://twitter.com/simurai)：UI 设计师，CSS 开发者
-* [Connor Sears](https://twitter.com/connors)：GitHub 设计师
-* [Remy Sharp](https://twitter.com/rem)：他的推都是关于 CSS 尺寸单元的
-* [Jonathan Snook](https://twitter.com/snookca)：设计师、开发者、写手、演讲者。我在网上做些东西，我写的 SMACSS。
+-   [CSS Animation](https://twitter.com/cssanimation)
+-   [Andrey Sitnik](https://twitter.com/andreysitnik)：@Autoprefixer, http://easings.net 和 @PostCSS 的作者
+-   [Evangelina Ferreira](https://twitter.com/evaferreira92)：web 设计师，@multimedial_utn 的教授，HTML5 & CSS 狂热爱好者，业余翻译者。
+-   [Sara Soueidan](https://twitter.com/SaraSoueidan)：@Codrops CSS Reference 的作者，Smashing Book #5 的合著者。
+-   [Hugo Giraudel](https://twitter.com/HugoGiraudel)：@edenspiekermann 的 CSS 怪才以及 Sass 黑客
+-   [Guy Routledge](https://twitter.com/guyroutledge)：前端开发者、@GA_London 的教师，http://www.atozcss.com 的视频作者，宅男，吃货。
+-   [Heydon Pickering](https://twitter.com/heydonworks)：爱吃大米，同时也是一个 UX 设计师，作者，@smashingmag 编辑以及程序员。
+-   [Adam Morse](https://twitter.com/mrmrs_)：开源的粉丝和支持者
+-   [Donovan Hutchinson](https://twitter.com/donovanh)：设计师、开发者、作家。偶尔在http://Hop.ie上写博客，目前在建设@cssanimation
+-   [CSS Commits](https://twitter.com/CSScommits)：最近忙于 CSSWG 的公共 Mercurial 库
+-   [Scott Jehl](https://twitter.com/scottjehl)：responsiblerwd 的作者，现在 abookapart 上 面在打折
+-   [Dudley Storey](https://twitter.com/dudleystorey)：Web 开发者、作者、老师以及演说者。
+-   [Zoe M. Gillenwater](https://twitter.com/zomigi)：Web 设计师、开发者，专注于 CSS、RWD、UX 以及无障碍开发。
+-   [Ben Briggs](https://twitter.com/ben_eb)：主要研究 node.js、javascript、开源模块、客户端优化、web 性能相关。
+-   [Paul Lewis](https://twitter.com/aerotwist)：将代码与设计联系起来的谷歌员工。
+-   [Thierry Koblentz](https://twitter.com/thierrykoblentz)：Yahoo 的 CSS 开发者
+-   [Nicolas Gallagher](https://twitter.com/necolas)：Twitter 的软件工程师
+-   [Harry Roberts](https://twitter.com/csswizardry)- @google, @Etsy, @kickstarter, @BBC, @Deloitte, @FT 等的前端设计顾问
+-   [Phil Walton](https://twitter.com/philwalton) -谷歌工程师、开源拥护者、开发者、设计师、写手。
+-   [Lea Verou](https://twitter.com/LeaVerou)：MIT_CSAIL, @CSSWG IE, @OReillyMedia 作者的研究助理，前 W3C 员工
+-   [Manoela Ilic](https://twitter.com/crnacura)：CSS 和 HTML 是我的画笔，我对认知科学、AI、HCI、UI 设计以及天体物理学很感兴趣，数码控。
+-   [Una Kravets](https://twitter.com/Una)：BMDesign 以及 Sassvocate 的前端工程师，团队建设者以及手工艺者。座右铭：所有东西都应该开源！
+-   [Chris Coyier](https://twitter.com/chriscoyier)：CodePen 的设计师，Real_CSS_Tricks 作者
+-   [Nicole Sullivan](https://twitter.com/stubbornella)：极客！
+-   [Eric Bidelman](https://twitter.com/ebidel)：谷歌的工程师，参与项目有 Chrome、web 组件、Polymer
+-   [Patrick Hamann](https://twitter.com/patrickhamann)：热爱爬山、啤酒以及美食。
+-   [Dave McFarland](https://twitter.com/davemcfarland)：Web 开发者，《CSS: The Missing Manual》和《JavaScript & jQuery: The Missing Manual》的作者，
+-   [L. David Baron](https://twitter.com/davidbaron)：Mozilla 开发者，CSS 以及 W3C 标准的「外交官」。
+-   [Daniel Glazman](https://twitter.com/glazou)：W3C 的 CSS 工作团队联合主席，企业家，软件工程师，极客，两个孩子的爸爸，通晓多国语言，喜欢鸭子。
+-   [The Chris Eppstein](https://twitter.com/chriseppstein)：爱恨分明，家庭美满，写代码，主导 LinkedIn 的样式。
+-   [Natalie Weizenbaum](https://twitter.com/nex3)：女程序员，SassCSS 的主设计师和开发者，在谷歌做 Dart 语言相关工作。
+-   [Brad Frost](https://twitter.com/brad_frost)：Web 设计师、演讲者、写手、顾问、音乐家。
+-   [Maxime Thirouin](https://twitter.com/MoOx)：前端工程师，自由职业者，UI/UX 开发者。
+-   [Mark Otto](https://twitter.com/mdo)：在 GitHub 和 Bootstrap 工作，曾就职于 Twitter，超级书呆子。
+-   [Simon](https://twitter.com/simurai)：UI 设计师，CSS 开发者
+-   [Connor Sears](https://twitter.com/connors)：GitHub 设计师
+-   [Remy Sharp](https://twitter.com/rem)：他的推都是关于 CSS 尺寸单元的
+-   [Jonathan Snook](https://twitter.com/snookca)：设计师、开发者、写手、演讲者。我在网上做些东西，我写的 SMACSS。
 
 ## 视频
 
@@ -303,18 +303,18 @@ sotayamashita 发起维护的 CSS 资源大全，包括：预处理器、框架�
 <h3 id=&influential-books&>有影响力的书</h3>
 *具有广泛影响且值得阅读的前端经典书籍。*
 
-* 待补充
+-   待补充
 
 <h3 id=&websites&>知名网站</h3>
 *值得关注的前端技术站点。*
 
 <h4>中文站点</h4>
 
-* [伯乐在线前端频道](http://web.jobbole.com/)：伯乐前端分享 Web 前端开发，包括 JavaScript、CSS 和 HTML5 开发技术，前端相关的行业动态。
+-   [伯乐在线前端频道](http://web.jobbole.com/)：伯乐前端分享 Web 前端开发，包括 JavaScript、CSS 和 HTML5 开发技术，前端相关的行业动态。
 
 <h4>英文站点</h4>
 
-* 待补充
+-   待补充
 
 <h3 id=&weibo-weixin&>微博、微信公众号</h3>
 * 前端大全 微博：[@前端大全](http://weibo.com/u/5261893910)
@@ -326,8 +326,8 @@ sotayamashita 发起维护的 CSS 资源大全，包括：预处理器、框架�
 <h3 id=&blogs&>博客</h3>
 <h4>中文博客</h4>
 
-* 待补充
+-   待补充
 
 <h4>英文博客</h4>
 
-* 待补充
+-   待补充

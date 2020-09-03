@@ -1,8 +1,8 @@
-<!-- Date: 2017-10-22 04:24:37 -->
+<!-- Date: 2017-10-22 04:24 -->
 
 # php 接收 angular 传递的 post 参数
 
-> 项目中经常遇到 ajax 传递数据给服务器的事情，之前我们用 jquery 传递数据的时候，他用的是 form 表单的格式传递数据，在 angularJs 中默认使用的是 json 字符串的格式，这样一来在 PHP 文件中通过我们常用$\_POST 就获取不到参数了，这个时候怎么处理呢
+> 项目中经常遇到 ajax 传递数据给服务器的事情，之前我们用 jquery 传递数据的时候，他用的是 form 表单的格式传递数据，在 angularJs 中默认使用的是 json 字符串的格式，这样一来在 PHP 文件中通过我们常用\$\_POST 就获取不到参数了，这个时候怎么处理呢
 
 ## ajax 传递内容的三种方式：
 
@@ -12,7 +12,7 @@
 
 ## php 中获取 post 过来的数据有三种方式
 
-1.我们最常用的，也是最直接的$\_POST 方式，比如`$_POST['name']`可以获取到`zhangsan`
+1.我们最常用的，也是最直接的\$\\_POST 方式，比如`$_POST['name']`可以获取到`zhangsan`
 
 2.使用`file_get_contents(“php://input”)`
 
@@ -22,7 +22,7 @@
 
 `php://input`无法读取`Content-Type`为`multipart/form-data`的 POST 数据，需要设置`php.ini`中的`always_populate_raw_post_data`值为 On 才可以。
 
-`php://input`读取不到`$_GET`数据。是因为$\_GET 数据作为`query_path`写在 http 请求头部(header)的 PATH 字段，而不是写在 http 请求的 body 部分。
+`php://input`读取不到`$_GET`数据。是因为\$\_GET 数据作为`query_path`写在 http 请求头部(header)的 PATH 字段，而不是写在 http 请求的 body 部分。
 
 3.使用全局变量`$GLOBALS[‘HTTP_RAW_POST_DATA’]`
 

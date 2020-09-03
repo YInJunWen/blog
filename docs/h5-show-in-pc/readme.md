@@ -1,4 +1,4 @@
-<!-- Date: 2017-12-18 23:44:07 -->
+<!-- Date: 2017-12-18 23:44 -->
 
 # h5 如何在 PC 上展示移动端页面的效果
 
@@ -15,44 +15,30 @@ document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth;
 在 PC 中这样写就会导致 html 的`font-size`属性失常，变得非常大，整个页面布局就都乱了，需要改成下面的样式
 
 ```js
-document.getElementsByTagName('html')[0].style.fontSize =
-  window
-    .getComputedStyle(document.getElementsByTagName('body')[0])
-    .width.slice(0, -2) /
-    10 +
-  'px';
+document.getElementsByTagName('html')[0].style.fontSize = window.getComputedStyle(document.getElementsByTagName('body')[0]).width.slice(0, -2) / 10 + 'px';
 ```
 
 仅仅这样是肯定不够的，因为 body 的宽度默认是和 window 宽度相差很小的，再没有重置样式的情况下，body 的宽度还要用 window 的宽度减去默认的 margin 值，因此我们需要针对 PC 下的 body 元素专门设置一个宽度，先判断浏览器是否是在 PC 下
 
 ```js
 function isMobile() {
-  var sUserAgent = navigator.userAgent.toLowerCase();
-  var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
-  var bIsIphoneOs = sUserAgent.match(/iphone os/i) == 'iphone os';
-  var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
-  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
-  var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb';
-  var bIsAndroid = sUserAgent.match(/android/i) == 'android';
-  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
-  var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
-  if (
-    bIsIpad ||
-    bIsIphoneOs ||
-    bIsMidp ||
-    bIsUc7 ||
-    bIsUc ||
-    bIsAndroid ||
-    bIsCE ||
-    bIsWM
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == 'iphone os';
+    var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+    var bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb';
+    var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+    var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+    var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        return true;
+    } else {
+        return false;
+    }
 }
 if (!isMobile()) {
-  document.querySelector('html').className = 'pc';
+    document.querySelector('html').className = 'pc';
 }
 ```
 
@@ -60,15 +46,15 @@ if (!isMobile()) {
 
 ```css
 .pc {
-  body {
-    max-width: 440px;
-    max-height: 800px;
-    min-width: 440px;
-    min-height: 800px;
-    margin: 0 auto;
-    outline: 1px solid @dlc;
-    box-sizing: border-box;
-  }
+    body {
+        max-width: 440px;
+        max-height: 800px;
+        min-width: 440px;
+        min-height: 800px;
+        margin: 0 auto;
+        outline: 1px solid @dlc;
+        box-sizing: border-box;
+    }
 }
 ```
 

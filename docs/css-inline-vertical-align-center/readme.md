@@ -1,4 +1,4 @@
-<!-- Date: 2017-05-07 09:22:55 -->
+<!-- Date: 2017-05-07 09:22 -->
 
 # css 内联元素上下居中
 
@@ -6,16 +6,16 @@
 
 ```html
 <div>
- <span>1</span>
- <span>2</span>
- <span>3</span>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
 </div>
 ```
 
 ```css
 div {
-  span {
-    vertiacl-alicn: center;
-  }
+    span {
+        vertiacl-alicn: center;
+    }
 }
 ```

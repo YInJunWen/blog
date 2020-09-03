@@ -1,4 +1,4 @@
-<!-- Date: 2018-03-11 15:43:02 -->
+<!-- Date: 2018-03-11 15:43 -->
 
 # vue 中如何在 v-html 指令中使用过滤器
 
@@ -9,17 +9,17 @@
 假设我们已经在 html 中引入了 showdown.js 文件
 
 ```js
-angular.module("app").filter("showdown", filter);
+angular.module('app').filter('showdown', filter);
 function filter(data) {
-  return function(data) {
-    (converter = new showdown.Converter({
-      tables: true,
-      underline: true,
-      strikethrough: true
-    })),
-      (html = converter.makeHtml(data));
-    return $sce.trustAsHtml(html);
-  };
+    return function (data) {
+        (converter = new showdown.Converter({
+            tables: true,
+            underline: true,
+            strikethrough: true,
+        })),
+            (html = converter.makeHtml(data));
+        return $sce.trustAsHtml(html);
+    };
 }
 ```
 
@@ -34,7 +34,7 @@ function filter(data) {
 首先在 vue 文件中引入 showdown
 
 ```js
-import { showdown as ShowDown } from "showdown.js";
+import { showdown as ShowDown } from 'showdown.js';
 ```
 
 仔细看过 showdown 源码的应该会知道，showdown 里面已经针对 AMD、CommonJS、Regular 做了分别的而处理，可以允许我们以 import 的方式引入他的模块，而我们要用的 showdown 只是他 export 出来的对象中的一个方法，因此我们在 import 的时候，使用了对象解构的语法(对象解构请看[阮一峰老师的 ES6 详解](http://es6.ruanyifeng.com/#docs/destructuring))
@@ -45,22 +45,22 @@ v-html 指令实际上指向了一个表达式，所以我们完全可以在他�
 
 ```js
 export default {
-  methods: {
-    showdown(data) {
-      let converter = new ShowDown.Converter({
-        tables: true,
-        underline: true,
-        strikethrough: true
-      });
-      let html = converter.makeHtml(data);
-      return html;
-    }
-  }
+    methods: {
+        showdown(data) {
+            let converter = new ShowDown.Converter({
+                tables: true,
+                underline: true,
+                strikethrough: true,
+            });
+            let html = converter.makeHtml(data);
+            return html;
+        },
+    },
 };
 ```
 
 在 html 中的用法
 
 ```html
-    <div v-html="showdown(content)"></div>
+<div v-html="showdown(content)"></div>
 ```

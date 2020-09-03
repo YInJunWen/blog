@@ -1,4 +1,4 @@
-<!-- Date: 2017-10-04 01:02:27 -->
+<!-- Date: 2017-10-04 01:02 -->
 
 # js 函数的 prototype 属性
 
@@ -6,7 +6,7 @@
 
 ```js
 function Person() {
-  this.a = 1;
+    this.a = 1;
 }
 Person.prototype.age = 2;
 console.log(new Person()); // {a: 1}
@@ -30,7 +30,7 @@ console.log(zhangsan)
 
 ```js
 function Person() {
-  this.name = 1;
+    this.name = 1;
 }
 new Person().__proto === Person.prototype; // true
 ```
@@ -49,7 +49,7 @@ Object.getPrototypeOf(new Person()) === Person.prototype; // true
 
 ```js
 function Person() {
-  this.name = 1;
+    this.name = 1;
 }
 Person === Person.prototype.constructor;
 ```
@@ -66,11 +66,11 @@ new Person().constructor === Person.ptototype.constructor; // true
 
 ```js
 function add() {
-  this.age = 10;
+    this.age = 10;
 }
 add.prototype.name = 'zhangsan';
-add.prototype.getName = function() {
-  console.log(this.name);
+add.prototype.getName = function () {
+    console.log(this.name);
 };
 var a = new add();
 a.age; // 10
@@ -84,7 +84,7 @@ a.getName(); // zhangsan
 
 ```js
 function add() {
-  this.name = 'zhangsan';
+    this.name = 'zhangsan';
 }
 add.prototype.name = 'lisi';
 var a = new add();
@@ -97,14 +97,14 @@ a.name; // lisi
 
 ```js
 function Add() {
-  this.name = 'zhangsan';
+    this.name = 'zhangsan';
 }
-Add.prototype.print = function() {
-  console.log(this.name);
+Add.prototype.print = function () {
+    console.log(this.name);
 };
 function Foo() {
-  Add.call(this);
-  this.age = 12;
+    Add.call(this);
+    this.age = 12;
 }
 new Foo(); // {name: 'zhangsan', age: 12}
 new Foo().print(); // print is not a function

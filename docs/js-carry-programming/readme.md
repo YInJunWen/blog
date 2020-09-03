@@ -1,4 +1,4 @@
-<!-- Date: 2017-04-13 03:17:42 -->
+<!-- Date: 2017-04-13 03:17 -->
 
 # js 柯里化编程
 
@@ -6,9 +6,9 @@
 
 ```js
 function add() {
-  return [].slice.call(arguments).reduce(function(a, b) {
-    return a + b;
-  });
+    return [].slice.call(arguments).reduce(function (a, b) {
+        return a + b;
+    });
 }
 ```
 
@@ -16,11 +16,11 @@ function add() {
 
 ```js
 function add(a) {
-  var init = a;
-  var fn = function(b) {
-    return init + b;
-  };
-  return fn;
+    var init = a;
+    var fn = function (b) {
+        return init + b;
+    };
+    return fn;
 }
 ```
 
@@ -49,16 +49,16 @@ function (b){
 
 ```js
 function add() {
-  var init = [].slice.call(arguments);
-  var fn = function() {
-    return add.apply(null, init.concat([].slice.call(arguments)));
-  };
-  fn.toString = function() {
-    return init.reduce(function(a, b) {
-      return a + b;
-    });
-  };
-  return fn;
+    var init = [].slice.call(arguments);
+    var fn = function () {
+        return add.apply(null, init.concat([].slice.call(arguments)));
+    };
+    fn.toString = function () {
+        return init.reduce(function (a, b) {
+            return a + b;
+        });
+    };
+    return fn;
 }
 ```
 

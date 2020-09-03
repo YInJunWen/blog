@@ -1,4 +1,4 @@
-<!-- Date: 2018-06-04 19:29:49 -->
+<!-- Date: 2018-06-04 19:29 -->
 
 # es6 遍历器-iterator
 
@@ -11,10 +11,10 @@ ES6 推出了一个遍历数据结构的新方法`for...of...`循环，这个方
 ```js
 let egg = 'pear';
 for (let i = 0; i < egg.length; i++) {
-  console.log(egg[i]);
-  if (i === 'a') {
-    break;
-  }
+    console.log(egg[i]);
+    if (i === 'a') {
+        break;
+    }
 }
 // p
 // e
@@ -25,8 +25,8 @@ for (let i = 0; i < egg.length; i++) {
 
 ```js
 let egg = ['pear', 'apple', 'orange'];
-egg.forEach(item => {
-  console.log(item);
+egg.forEach((item) => {
+    console.log(item);
 });
 ```
 
@@ -36,12 +36,12 @@ egg.forEach(item => {
 
 ```js
 let fruit = {
-  name: 'apple',
-  age: 18,
-  '20': '20',
+    name: 'apple',
+    age: 18,
+    20: '20',
 };
 for (let index in fruit) {
-  console.log([index, fruit[index]]);
+    console.log([index, fruit[index]]);
 }
 // [20, '20']
 // [name, 'apple']
@@ -70,7 +70,7 @@ new Map()[Symbol.iterator]; // ƒ entries() { [native code] }
 ```js
 let egg = 'pear';
 for (let item of egg) {
-  console.log(item);
+    console.log(item);
 }
 // p
 // e
@@ -83,7 +83,7 @@ for (let item of egg) {
 ```js
 let egg = [1, 2, 3];
 for (let item of egg) {
-  console.log(item);
+    console.log(item);
 }
 // 1
 // 2
@@ -95,7 +95,7 @@ for (let item of egg) {
 ```js
 let egg = new Set([1, 2, 3]);
 for (let item of egg) {
-  console.log(item);
+    console.log(item);
 }
 // 1
 // 2
@@ -105,9 +105,12 @@ for (let item of egg) {
 如果目标是一个 Map 实例
 
 ```js
-let egg = new Set([['name', 'zhangsan'], ['age', 18]]);
+let egg = new Set([
+    ['name', 'zhangsan'],
+    ['age', 18],
+]);
 for (let item of egg) {
-  console.log(item);
+    console.log(item);
 }
 // ['name', 'zhangsan']
 // ['age', '18']
@@ -132,33 +135,33 @@ it[Symbol.iterator]; // ƒ values() { [native code] }
 
 在给目标部署遍历器属性的时候，必须符合以下标准
 
-- 返回的遍历器对象必须拥有 next 方法
-- next 方法返回的对象中必须包含 value 和 done 属性
-- done 是一个布尔值，当 done 为 true 的时候，`for...of...`会停止循环
-- value 是遍历时每次输出的值
+-   返回的遍历器对象必须拥有 next 方法
+-   next 方法返回的对象中必须包含 value 和 done 属性
+-   done 是一个布尔值，当 done 为 true 的时候，`for...of...`会停止循环
+-   value 是遍历时每次输出的值
 
 这里有一个模拟遍历器方法的案例
 
 ```js
 function makeIterator(arr) {
-  let index = 0,
-    len = arr.length;
-  return {
-    next: function() {
-      if (index < len) {
-        index++;
-        return {
-          done: false,
-          value: arr[index - 1],
-        };
-      } else {
-        return {
-          done: true,
-          value: undefined,
-        };
-      }
-    },
-  };
+    let index = 0,
+        len = arr.length;
+    return {
+        next: function () {
+            if (index < len) {
+                index++;
+                return {
+                    done: false,
+                    value: arr[index - 1],
+                };
+            } else {
+                return {
+                    done: true,
+                    value: undefined,
+                };
+            }
+        },
+    };
 }
 let it = makeIterator([1, 2, 3]);
 it.next(); // {done: false, value: 1}
@@ -174,31 +177,31 @@ it.next(); // {done: true, value: undefined}
 
 ```js
 function makeIterator(arr) {
-  let index = 0,
-    len = arr.length;
-  return {
-    next: function() {
-      if (index < len) {
-        index++;
-        return {
-          done: false,
-          value: arr[index - 1],
-        };
-      } else {
-        return {
-          done: true,
-          value: undefined,
-        };
-      }
-    },
-    return: function() {
-      index = arr.length;
-      return {
-        done: true,
-        value: arr[index - 1],
-      };
-    },
-  };
+    let index = 0,
+        len = arr.length;
+    return {
+        next: function () {
+            if (index < len) {
+                index++;
+                return {
+                    done: false,
+                    value: arr[index - 1],
+                };
+            } else {
+                return {
+                    done: true,
+                    value: undefined,
+                };
+            }
+        },
+        return: function () {
+            index = arr.length;
+            return {
+                done: true,
+                value: arr[index - 1],
+            };
+        },
+    };
 }
 let it = makeIterator([1, 2, 3]);
 it.next(); // {done: false, value: 1}
@@ -214,7 +217,7 @@ it.next(); // {done: true, value: undefined}
 ```js
 let obj = {};
 for (let item of obj) {
-  console.log(item);
+    console.log(item);
 }
 ```
 
@@ -222,25 +225,25 @@ for (let item of obj) {
 
 ```js
 let obj = {
-  data: [1, 2, 3],
-  [Symbol.iterator]() {
-    let index = 0;
-    return {
-      next: () => {
-        if (index < this.data.length) {
-          return {
-            done: false,
-            value: this.data[index++], // 这里我把index+1改了一下写法
-          };
-        } else {
-          return {
-            done: true,
-            value: undefined,
-          };
-        }
-      },
-    };
-  },
+    data: [1, 2, 3],
+    [Symbol.iterator]() {
+        let index = 0;
+        return {
+            next: () => {
+                if (index < this.data.length) {
+                    return {
+                        done: false,
+                        value: this.data[index++], // 这里我把index+1改了一下写法
+                    };
+                } else {
+                    return {
+                        done: true,
+                        value: undefined,
+                    };
+                }
+            },
+        };
+    },
 };
 ```
 
@@ -259,7 +262,7 @@ it.next(); // {done: true, value: undefined}
 
 // 自动遍历
 for (let item of obj) {
-  console.log(item);
+    console.log(item);
 }
 // 1
 // 2
@@ -272,14 +275,14 @@ for (let item of obj) {
 
 ```js
 var obj = {
-  0: 'pear',
-  1: 'apple',
-  2: 'orange',
-  length: 3,
+    0: 'pear',
+    1: 'apple',
+    2: 'orange',
+    length: 3,
 };
 obj[Symbol.iterator] = Array.prototype[Symbol.iterator];
 for (item of obj) {
-  console.log(item);
+    console.log(item);
 }
 // 'pear'
 // 'apple'
@@ -292,13 +295,13 @@ generator 函数是最快捷部署遍历器对象的方法，直接在 generator
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield 1;
-  yield 2;
-  yield 3;
+obj[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield 3;
 };
 for (item of obj) {
-  console.log(item);
+    console.log(item);
 }
 ```
 
@@ -322,12 +325,12 @@ for (item of obj) {
 
 ```js
 var a = new String('yun');
-a[Symbol.iterator] = function*() {
-  yield 'l';
-  yield 'i';
+a[Symbol.iterator] = function* () {
+    yield 'l';
+    yield 'i';
 };
 for (item of a) {
-  console.log(item);
+    console.log(item);
 }
 
 // l
@@ -338,12 +341,12 @@ for (item of a) {
 
 ```js
 var a = 'yun';
-a[Symbol.iterator] = function*() {
-  yield 'l';
-  yield 'i';
+a[Symbol.iterator] = function* () {
+    yield 'l';
+    yield 'i';
 };
 for (item of a) {
-  console.log(item);
+    console.log(item);
 }
 // y
 // u
@@ -358,10 +361,10 @@ Set 实例
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield 1;
-  yield 2;
-  yield 3;
+obj[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield 3;
 };
 
 let set = new Set(obj); // Set(3) {1, 2, 3}
@@ -371,9 +374,9 @@ WeakSet 实例
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield { name: 1 };
-  yield [1, 2];
+obj[Symbol.iterator] = function* () {
+    yield { name: 1 };
+    yield [1, 2];
 };
 let weakSet = new WeakSet(obj); // WeakSet {{…}, Array(2)}
 ```
@@ -382,10 +385,10 @@ Map 实例
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield [1, '1'];
-  yield [2, '2'];
-  yield [3, '3'];
+obj[Symbol.iterator] = function* () {
+    yield [1, '1'];
+    yield [2, '2'];
+    yield [3, '3'];
 };
 let map = new Map(obj); // Map(3) {1 => "1", 2 => "2", 3 => "3"}
 ```
@@ -394,12 +397,12 @@ WeakMap 实例
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield [{}, '1'];
-  yield [[], '2'];
+obj[Symbol.iterator] = function* () {
+    yield [{}, '1'];
+    yield [[], '2'];
 };
 for (let item of obj) {
-  console.log(item);
+    console.log(item);
 }
 let weakMap = new WeakMap(obj); // WeakMap {{…} => "1", Array(0) => "2"}
 ```
@@ -408,10 +411,10 @@ Array.from()方法
 
 ```js
 var obj = {};
-obj[Symbol.iterator] = function*() {
-  yield 1;
-  yield 2;
-  yield 3;
+obj[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield 3;
 };
 let arr = Array.from(obj); // [1, 2, 3]
 ```
@@ -420,18 +423,18 @@ Promise.all()方法
 
 ```js
 let pa = new Promise((res, rej) => {
-  res(1);
+    res(1);
 });
 let pb = new Promise((res, rej) => {
-  res(2);
+    res(2);
 });
 let obj = {};
-obj[Symbol.iterator] = function*() {
-  yield pa;
-  yield pb;
+obj[Symbol.iterator] = function* () {
+    yield pa;
+    yield pb;
 };
-Promise.all(obj).then(res => {
-  console.log(res); // [1, 2]
+Promise.all(obj).then((res) => {
+    console.log(res); // [1, 2]
 });
 ```
 
@@ -439,17 +442,17 @@ Promise.race()方法
 
 ```js
 let pa = new Promise((res, rej) => {
-  res(1);
+    res(1);
 });
 let pb = new Promise((res, rej) => {
-  rej(2);
+    rej(2);
 });
 let obj = {};
-obj[Symbol.iterator] = function*() {
-  yield pa;
-  yield pb;
+obj[Symbol.iterator] = function* () {
+    yield pa;
+    yield pb;
 };
-Promise.race(obj).then(res => {
-  console.log(res); // 1
+Promise.race(obj).then((res) => {
+    console.log(res); // 1
 });
 ```

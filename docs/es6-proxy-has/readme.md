@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-13 12:11:21 -->
+<!-- Date: 2018-07-13 12:11 -->
 
 # es6 代理对象的拦截器属性-has
 
@@ -6,16 +6,16 @@
 
 ## 参数
 
-- `target`表示被代理对象
-- `key`表示要查询的属性名
+-   `target`表示被代理对象
+-   `key`表示要查询的属性名
 
 ```js
 let obj = { name: 'pear' };
 let proxy = new Proxy(obj, {
-  has: function(target, key) {
-    console.log(target === obj); // true
-    console.log(key); // 'name'
-  },
+    has: function (target, key) {
+        console.log(target === obj); // true
+        console.log(key); // 'name'
+    },
 });
 console.log('name' in proxy); // true
 ```
@@ -26,19 +26,19 @@ console.log('name' in proxy); // true
 
 ```js
 let obj = Object.create(
-  {
-    name: 'pear',
-  },
-  {
-    age: {
-      value: 18,
+    {
+        name: 'pear',
     },
-  }
+    {
+        age: {
+            value: 18,
+        },
+    }
 );
 let proxy = new Proxy(obj, {
-  has: function(target, key) {
-    return true;
-  },
+    has: function (target, key) {
+        return true;
+    },
 });
 
 console.log('name' in proxy); // true
@@ -53,20 +53,20 @@ console.log(Reflect.has(proxy, 'age')); // true
 
 ```js
 let obj = Object.create(
-  {
-    name: 'pear',
-  },
-  {
-    age: {
-      value: 18,
+    {
+        name: 'pear',
     },
-  }
+    {
+        age: {
+            value: 18,
+        },
+    }
 );
 Object.freeze(obj);
 let proxy = new Proxy(obj, {
-  has: function(target, key) {
-    // return Reflect.has(target, key);
-    return false;
-  },
+    has: function (target, key) {
+        // return Reflect.has(target, key);
+        return false;
+    },
 });
 ```

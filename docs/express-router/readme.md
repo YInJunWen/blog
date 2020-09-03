@@ -1,4 +1,4 @@
-<!-- Date: 2016-04-22 08:34:37 -->
+<!-- Date: 2016-04-22 08:34 -->
 
 # express 中的 route
 
@@ -7,12 +7,12 @@
 下面是一个基本的路由示例：
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
 // respond with &hello world& when a GET request is made to the homepage
-app.get("/", function(req, res) {
-  res.send("hello world");
+app.get('/', function (req, res) {
+    res.send('hello world');
 });
 ```
 
@@ -24,13 +24,13 @@ app.get("/", function(req, res) {
 
 ```js
 // GET method route
-app.get("/", function(req, res) {
-  res.send("GET request to the homepage");
+app.get('/', function (req, res) {
+    res.send('GET request to the homepage');
 });
 
 // POST method route
-app.post("/", function(req, res) {
-  res.send("POST request to the homepage");
+app.post('/', function (req, res) {
+    res.send('POST request to the homepage');
 });
 ```
 
@@ -42,9 +42,9 @@ app.all() 是一个特殊的路由方法，没有任何 HTTP 方法与其对应�
 在下面的例子中，来自 “/secret” 的请求，不管使用 GET、POST、PUT、DELETE 或其他任何 http 模块支持的 HTTP 请求，句柄都会得到执行。
 
 ```js
-app.all("/secret", function(req, res, next) {
-  console.log("Accessing the secret section ...");
-  next(); // pass control to the next handler
+app.all('/secret', function (req, res, next) {
+    console.log('Accessing the secret section ...');
+    next(); // pass control to the next handler
 });
 ```
 
@@ -56,18 +56,18 @@ Express 使用 path-to-regexp 匹配路由路径，请参考文档查阅所有�
 
 ```js
 // 匹配根路径的请求
-app.get("/", function(req, res) {
-  res.send("root");
+app.get('/', function (req, res) {
+    res.send('root');
 });
 
 // 匹配 /about 路径的请求
-app.get("/about", function(req, res) {
-  res.send("about");
+app.get('/about', function (req, res) {
+    res.send('about');
 });
 
 // 匹配 /random.text 路径的请求
-app.get("/random.text", function(req, res) {
-  res.send("random.text");
+app.get('/random.text', function (req, res) {
+    res.send('random.text');
 });
 ```
 
@@ -75,23 +75,23 @@ app.get("/random.text", function(req, res) {
 
 ```js
 // 匹配 acd 和 abcd
-app.get("/ab?cd", function(req, res) {
-  res.send("ab?cd");
+app.get('/ab?cd', function (req, res) {
+    res.send('ab?cd');
 });
 
 // 匹配 abcd、abbcd、abbbcd等
-app.get("/ab+cd", function(req, res) {
-  res.send("ab+cd");
+app.get('/ab+cd', function (req, res) {
+    res.send('ab+cd');
 });
 
 // 匹配 abcd、abxcd、abRABDOMcd、ab123cd等
-app.get("/ab*cd", function(req, res) {
-  res.send("ab*cd");
+app.get('/ab*cd', function (req, res) {
+    res.send('ab*cd');
 });
 
 // 匹配 /abe 和 /abcde
-app.get("/ab(cd)?e", function(req, res) {
-  res.send("ab(cd)?e");
+app.get('/ab(cd)?e', function (req, res) {
+    res.send('ab(cd)?e');
 });
 ```
 
@@ -99,13 +99,13 @@ app.get("/ab(cd)?e", function(req, res) {
 
 ```js
 // 匹配任何路径中含有 a 的路径：
-app.get(/a/, function(req, res) {
-  res.send("/a/");
+app.get(/a/, function (req, res) {
+    res.send('/a/');
 });
 
 // 匹配 butterfly、dragonfly，不匹配 butterflyman、dragonfly man等
-app.get(/.*fly$/, function(req, res) {
-  res.send("/.*fly$/");
+app.get(/.*fly$/, function (req, res) {
+    res.send('/.*fly$/');
 });
 ```
 
@@ -118,8 +118,8 @@ app.get(/.*fly$/, function(req, res) {
 使用一个回调函数处理路由：
 
 ```js
-app.get("/example/a", function(req, res) {
-  res.send("Hello from A!");
+app.get('/example/a', function (req, res) {
+    res.send('Hello from A!');
 });
 ```
 
@@ -127,60 +127,60 @@ app.get("/example/a", function(req, res) {
 
 ```js
 app.get(
-  "/example/b",
-  function(req, res, next) {
-    console.log("response will be sent by the next function ...");
-    next();
-  },
-  function(req, res) {
-    res.send("Hello from B!");
-  }
+    '/example/b',
+    function (req, res, next) {
+        console.log('response will be sent by the next function ...');
+        next();
+    },
+    function (req, res) {
+        res.send('Hello from B!');
+    }
 );
 ```
 
 使用回调函数数组处理路由：
 
 ```js
-var cb0 = function(req, res, next) {
-  console.log("CB0");
-  next();
+var cb0 = function (req, res, next) {
+    console.log('CB0');
+    next();
 };
 
-var cb1 = function(req, res, next) {
-  console.log("CB1");
-  next();
+var cb1 = function (req, res, next) {
+    console.log('CB1');
+    next();
 };
 
-var cb2 = function(req, res) {
-  res.send("Hello from C!");
+var cb2 = function (req, res) {
+    res.send('Hello from C!');
 };
 
-app.get("/example/c", [cb0, cb1, cb2]);
+app.get('/example/c', [cb0, cb1, cb2]);
 ```
 
 混合使用函数和函数数组处理路由：
 
 ```js
-var cb0 = function(req, res, next) {
-  console.log("CB0");
-  next();
+var cb0 = function (req, res, next) {
+    console.log('CB0');
+    next();
 };
 
-var cb1 = function(req, res, next) {
-  console.log("CB1");
-  next();
+var cb1 = function (req, res, next) {
+    console.log('CB1');
+    next();
 };
 
 app.get(
-  "/example/d",
-  [cb0, cb1],
-  function(req, res, next) {
-    console.log("response will be sent by the next function ...");
-    next();
-  },
-  function(req, res) {
-    res.send("Hello from D!");
-  }
+    '/example/d',
+    [cb0, cb1],
+    function (req, res, next) {
+        console.log('response will be sent by the next function ...');
+        next();
+    },
+    function (req, res) {
+        res.send('Hello from D!');
+    }
 );
 ```
 
@@ -204,17 +204,16 @@ app.route()|
 下面这个示例程序使用 app.route() 定义了链式路由句柄。
 
 ```js
-app
-  .route("/book")
-  .get(function(req, res) {
-    res.send("Get a random book");
-  })
-  .post(function(req, res) {
-    res.send("Add a book");
-  })
-  .put(function(req, res) {
-    res.send("Update the book");
-  });
+app.route('/book')
+    .get(function (req, res) {
+        res.send('Get a random book');
+    })
+    .post(function (req, res) {
+        res.send('Add a book');
+    })
+    .put(function (req, res) {
+        res.send('Update the book');
+    });
 ```
 
 ## express.Router
@@ -226,21 +225,21 @@ app
 在 app 目录下创建名为 birds.js 的文件，内容如下：
 
 ```js
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
 // 该路由使用的中间件
 router.use(function timeLog(req, res, next) {
-  console.log("Time: ", Date.now());
-  next();
+    console.log('Time: ', Date.now());
+    next();
 });
 // 定义网站主页的路由
-router.get("/", function(req, res) {
-  res.send("Birds home page");
+router.get('/', function (req, res) {
+    res.send('Birds home page');
 });
 // 定义 about 页面的路由
-router.get("/about", function(req, res) {
-  res.send("About birds");
+router.get('/about', function (req, res) {
+    res.send('About birds');
 });
 
 module.exports = router;

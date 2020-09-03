@@ -1,4 +1,4 @@
-<!-- Date: 2018-08-07 10:24:54 -->
+<!-- Date: 2018-08-07 10:24 -->
 
 # js 解读-Function.prototype.apply.call()
 
@@ -11,7 +11,7 @@
 ```js
 let egg = { name: 'pear' };
 function add(color) {
-  return this.name + "'s color is " + color;
+    return this.name + "'s color is " + color;
 }
 add.call(egg, 'yellow'); // "paer's color is yellow"˝
 add.apply(egg, ['yellow']); // "paer's color is yellow"
@@ -21,11 +21,11 @@ add.apply(egg, ['yellow']); // "paer's color is yellow"
 
 ```js
 function add(color) {
-  return this.name + "'s color is " + color;
+    return this.name + "'s color is " + color;
 }
 let egg = {
-  name: 'pear',
-  add,
+    name: 'pear',
+    add,
 };
 egg.add('yellow'); // "paer's color is yellow"
 ```
@@ -68,10 +68,10 @@ egg.add('yellow'); // "paer's color is yellow"
 
 ```js
 function add(color) {
-  return this.name + "'s color is " + color;
+    return this.name + "'s color is " + color;
 }
 let egg = {
-  name: 'pear',
+    name: 'pear',
 };
 
 Function.prototype.apply.apply(add, [egg, ['red']]); // "pear's color is red"

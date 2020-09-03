@@ -1,4 +1,4 @@
-<!-- Date: 2016-10-19 08:14:26 -->
+<!-- Date: 2016-10-19 08:14 -->
 
 # react 注意的地方
 
@@ -40,39 +40,39 @@ increment(){
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0
-    };
-  }
-  clickEvent() {
-    this.setState({
-      count: this.state.count + 1
-    });
-    console.log(this.state);
-  }
-  clickEventLater() {
-    setTimeout(() => {
-      this.clickEvent();
-    });
-  }
-  componentDidMount() {
-    document.querySelector("#test").addEventListener("click", () => {
-      this.clickEvent();
-    });
-  }
-  render() {
-    console.log("render");
-    return (
-      <div className="App">
-        {this.state.count}
-        <button onClick={this.clickEvent.bind(this)}>increment</button>
-        <button id="test"> addevent</button>
-        <button onClick={this.clickEventLater.bind(this)}> later</button>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0,
+        };
+    }
+    clickEvent() {
+        this.setState({
+            count: this.state.count + 1,
+        });
+        console.log(this.state);
+    }
+    clickEventLater() {
+        setTimeout(() => {
+            this.clickEvent();
+        });
+    }
+    componentDidMount() {
+        document.querySelector('#test').addEventListener('click', () => {
+            this.clickEvent();
+        });
+    }
+    render() {
+        console.log('render');
+        return (
+            <div className="App">
+                {this.state.count}
+                <button onClick={this.clickEvent.bind(this)}>increment</button>
+                <button id="test"> addevent</button>
+                <button onClick={this.clickEventLater.bind(this)}> later</button>
+            </div>
+        );
+    }
 }
 ```
 
@@ -105,16 +105,16 @@ react 在处理事件的时候，类中定义的方法不会主动绑定 this，
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-  clickHandler() {
-    console.log("click event");
-  }
-  render() {
-    return <button onClick={this.clickHandler} />;
-  }
+    constructor(props) {
+        super(props);
+        this.clickHandler = this.clickHandler.bind(this);
+    }
+    clickHandler() {
+        console.log('click event');
+    }
+    render() {
+        return <button onClick={this.clickHandler} />;
+    }
 }
 ```
 
@@ -122,15 +122,15 @@ class App extends Component {
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  clickHandler() {
-    console.log("click event");
-  }
-  render() {
-    return <button onClick={this.clickHandler.bind(this)} />;
-  }
+    constructor(props) {
+        super(props);
+    }
+    clickHandler() {
+        console.log('click event');
+    }
+    render() {
+        return <button onClick={this.clickHandler.bind(this)} />;
+    }
 }
 ```
 
@@ -138,15 +138,15 @@ class App extends Component {
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  clickHandle = () => {
-    console.log("click event");
-  };
-  render() {
-    return <button onClick={this.clickHandler} />;
-  }
+    constructor(props) {
+        super(props);
+    }
+    clickHandle = () => {
+        console.log('click event');
+    };
+    render() {
+        return <button onClick={this.clickHandler} />;
+    }
 }
 ```
 
@@ -154,15 +154,15 @@ class App extends Component {
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  clickHandle() {
-    console.log("click event");
-  }
-  render() {
-    return <button onClick={() => this.clickHandler()} />;
-  }
+    constructor(props) {
+        super(props);
+    }
+    clickHandle() {
+        console.log('click event');
+    }
+    render() {
+        return <button onClick={() => this.clickHandler()} />;
+    }
 }
 ```
 
@@ -170,22 +170,22 @@ class App extends Component {
 
 react 事件处理中的 event 属性遵循两个原则
 
-* 通过 bind 绑定的方法，event 在所有的参数之后获取
-* 通过箭头函数绑定的方法，event 可以自行设置
+-   通过 bind 绑定的方法，event 在所有的参数之后获取
+-   通过箭头函数绑定的方法，event 可以自行设置
 
 `通过bind绑定this`
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  clickHandler(arg1, arg2, event) {
-    console.log(arg1, arg2, event);
-  }
-  render() {
-    return <button onClick={this.clickHandler.bind(this, 1, 2)} />;
-  }
+    constructor(props) {
+        super(props);
+    }
+    clickHandler(arg1, arg2, event) {
+        console.log(arg1, arg2, event);
+    }
+    render() {
+        return <button onClick={this.clickHandler.bind(this, 1, 2)} />;
+    }
 }
 ```
 
@@ -193,15 +193,15 @@ class App extends Component {
 
 ```js
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  clickHandle(event, arg1, arg2) {
-    console.log(arg1, arg2, event);
-  }
-  render() {
-    return <button onClick={e => this.clickHandler(e, 1, 2)} />;
-  }
+    constructor(props) {
+        super(props);
+    }
+    clickHandle(event, arg1, arg2) {
+        console.log(arg1, arg2, event);
+    }
+    render() {
+        return <button onClick={(e) => this.clickHandler(e, 1, 2)} />;
+    }
 }
 ```
 

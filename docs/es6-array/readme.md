@@ -1,4 +1,4 @@
-<!-- Date: 2018-07-03 12:22:42 -->
+<!-- Date: 2018-07-03 12:22 -->
 
 # es6 数组的扩展
 
@@ -8,7 +8,7 @@
 
 ```js
 function add(x, y, z) {
-  console.log([x, y, z]); // [1,2,3]
+    console.log([x, y, z]); // [1,2,3]
 }
 add.apply(null, [1, 2, 3]);
 ```
@@ -17,7 +17,7 @@ add.apply(null, [1, 2, 3]);
 
 ```js
 function add(x, y, z) {
-  console.log([x, y, z]); // [1,2,3]
+    console.log([x, y, z]); // [1,2,3]
 }
 add(...[1, 2, 3]);
 ```
@@ -26,7 +26,7 @@ add(...[1, 2, 3]);
 
 ```js
 function add(x, y, z) {
-  console.log([x, y, z]); // [1,2,3]
+    console.log([x, y, z]); // [1,2,3]
 }
 add(1, ...[2, 3]);
 ```
@@ -72,10 +72,10 @@ var a = [...person]; // ['z', 'h', 'a', 'n', 'g', 's', 'a', 'n']
 
 ```js
 var persons = {
-  '0': 'zhangsan',
-  1: 'lisi',
-  other: 'wangwu',
-  length: 3,
+    0: 'zhangsan',
+    1: 'lisi',
+    other: 'wangwu',
+    length: 3,
 };
 ```
 
@@ -98,12 +98,12 @@ Array.from()顺便提供了 map 方法，可以在转成真正的数组后，执
 ```js
 var person = { name: 'zhangsan' };
 var a = Array.from(
-  [1, 2, 3],
-  function(item, index) {
-    this[index] = item;
-    return item * item;
-  },
-  person
+    [1, 2, 3],
+    function (item, index) {
+        this[index] = item;
+        return item * item;
+    },
+    person
 );
 
 console.log(a); // [ 1, 4, 9 ]
@@ -114,9 +114,9 @@ console.log(person); // { '0': 1, '1': 2, '2': 3, name: 'zhangsan' }
 
 ```js
 var person = { name: 'zhangsan' };
-var a = Array.from([1, 2, 3]).map(function(item, index) {
-  this[index] = item;
-  return item * item;
+var a = Array.from([1, 2, 3]).map(function (item, index) {
+    this[index] = item;
+    return item * item;
 }, person);
 
 console.log(a); // [ 1, 4, 9 ]
@@ -131,8 +131,8 @@ console.log(person); // { '0': 1, '1': 2, '2': 3, name: 'zhangsan' }
 
 ES6 之前创建数组的构造函数`Array()`会根据传入参数数量的产生不同的结果
 
-- 如果传入一个数字作为参数，会产生一个指定长度的数组，且数组的每一个元素均为空
-- 如果传入两个及以上参数，会产生一个由参数组成的新数组
+-   如果传入一个数字作为参数，会产生一个指定长度的数组，且数组的每一个元素均为空
+-   如果传入两个及以上参数，会产生一个由参数组成的新数组
 
 ```js
 Array(5); // [, , , , ]
@@ -151,9 +151,9 @@ Array.of(1, 2, 3); // [1, 2, 3]
 
 copyWithin 方法主要用于数组内部元素的拷贝操作,
 
-- target 指定开始替换的起始位置，负值的时候表示倒数
-- start 表示开始读取的位置， 可以省略， 默认为 0
-- end 表示结束读取的位置，可有省略默认为数组的长度
+-   target 指定开始替换的起始位置，负值的时候表示倒数
+-   start 表示开始读取的位置， 可以省略， 默认为 0
+-   end 表示结束读取的位置，可有省略默认为数组的长度
 
 ```js
 [1, 2, 3, 4, 5].copyWithin(3); // [1, 2, 3, 1, 2]
@@ -197,12 +197,12 @@ findIndex()方法返回满足条件的元素所在位置的索引值，如果没
 var person = { age: 13 };
 var a = [12, 13, 14];
 
-a.find(function(item) {
-  return item > this.age;
+a.find(function (item) {
+    return item > this.age;
 }, person); // 14
 
-a.findIndex(function(item) {
-  return item > this.age;
+a.findIndex(function (item) {
+    return item > this.age;
 }, person); // 2
 ```
 
@@ -211,11 +211,11 @@ a.findIndex(function(item) {
 ```js
 var a = [Nan, 2];
 a.indexOf(NaN); // -1
-a.find(function(item) {
-  return Object.is(NaN, item);
+a.find(function (item) {
+    return Object.is(NaN, item);
 }); // NaN
-a.findIndex(function(item) {
-  return Object.is(NaN, item);
+a.findIndex(function (item) {
+    return Object.is(NaN, item);
 }); // 0
 ```
 
@@ -284,8 +284,8 @@ ES6 之前通常使用 indexOf 来判断，但是 indexOf 无法判断`NaN`，�
 
 在使用构造函数`Array`时，如果只传递一个参数，会生成一个指定长度的数组，这个时候数组的每一个元素都是一个 `空位`，对于这些空位 ES5 不同的方法处理的方式不同[案例]('./src/demo8.js)
 
-- forEach，filter，reduce，some，every,map 会跳过空位
-- join 和 toString 会将空位当做 undefined，但是 undefined 和 null 在转字符串的时候，会被转成一个空字符串
+-   forEach，filter，reduce，some，every,map 会跳过空位
+-   join 和 toString 会将空位当做 undefined，但是 undefined 和 null 在转字符串的时候，会被转成一个空字符串
 
 空位和 undefined 是不同的，undefined 是基础数据类型中的一种值，而空位是没有值的
 
@@ -313,8 +313,8 @@ fill()方法在填充的时候，也不会跳过空位
 find()和 findIndex()会把空位当做 undefined 处理
 
 ```js
-[, 1, 2].find(item => {
-  return Object.is(undefined, item);
+[, 1, 2].find((item) => {
+    return Object.is(undefined, item);
 });
 ```
 
@@ -329,13 +329,13 @@ for...in...操作不会跳过空位,而 map 会跳过空位
 ```js
 let a = 0;
 for (let x in [, , ,]) {
-  a++;
+    a++;
 }
 console.log(a); // 3
 
 let b = 0;
-[, , ,].map(x => {
-  b++;
+[, , ,].map((x) => {
+    b++;
 });
 console.log(b); // 0
 ```
@@ -346,6 +346,6 @@ entries()会把空位处理成 undefined
 var a = [, ,];
 
 for (let x of a.entries()) {
-  console.log(x); // [0, undefined], [1, undefined]
+    console.log(x); // [0, undefined], [1, undefined]
 }
 ```

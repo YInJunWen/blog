@@ -1,4 +1,4 @@
-<!-- Date: 2017-07-20 13:03:04 -->
+<!-- Date: 2017-07-20 13:03 -->
 
 # css 来做 html 检查
 
@@ -10,7 +10,7 @@
 
 ```css
 *[style] {
-  border: 5px solid red; /* Style to make the elements noticeable */
+    border: 5px solid red; /* Style to make the elements noticeable */
 }
 ```
 
@@ -32,7 +32,7 @@ a[href*=""javascript:void(0)""] { …
 
 ```css
 img:not([alt]) {
-  ...;
+    ...;
 }
 ```
 
@@ -42,7 +42,7 @@ img:not([alt]) {
 
 ```css
 img[alt=''] {
-  ...;
+    ...;
 }
 ```
 
@@ -50,7 +50,7 @@ img[alt=''] {
 
 ```css
 html:not([lang]) html[lang=''] {
-  ...;
+    ...;
 }
 ```
 

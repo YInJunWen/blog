@@ -1,4 +1,4 @@
-<!-- Date: 2018-05-08 17:14:18 -->
+<!-- Date: 2018-05-08 17:14 -->
 
 # es6 变量新的声明方式-let-const
 
@@ -6,10 +6,10 @@ es6 中开始提供了新声明变量的方式：let 与 const，其中 let 声�
 
 这里提起前说一下浏览器环境、node 环境与严格模式的关系，一定要提前记住：
 
-- 浏览器和 node 环境在使用 var 声明的时候，默认是非严格模式
-- 浏览器和 node 环境想进入 `严格模式` 都需要使用`"use strict"`关键字。或者在代码中使用 let 或 const 声明
-- 使用了 let 和 const 声明的默认为 ES6 语法
-- ES6 默认使用严格模式
+-   浏览器和 node 环境在使用 var 声明的时候，默认是非严格模式
+-   浏览器和 node 环境想进入 `严格模式` 都需要使用`"use strict"`关键字。或者在代码中使用 let 或 const 声明
+-   使用了 let 和 const 声明的默认为 ES6 语法
+-   ES6 默认使用严格模式
 
 ## 不再存在变量提升
 
@@ -18,9 +18,9 @@ es6 中开始提供了新声明变量的方式：let 与 const，其中 let 声�
 ```js
 var a = [];
 for (var i = 0; i < 10; i++) {
-  a[i] = function() {
-    console.log(i);
-  };
+    a[i] = function () {
+        console.log(i);
+    };
 }
 a[1](); //  10
 ```
@@ -57,14 +57,14 @@ ES6 规定在 let 和 const 声明变量的地方，都会出现块级作用域�
 
 ```js
 function add() {
-  let a = 1;
-  let a = 2;
+    let a = 1;
+    let a = 2;
 }
 
 // 或者
 function add(a) {
-  // 参数a，实际上相当于 let a;
-  let a = 2;
+    // 参数a，实际上相当于 let a;
+    let a = 2;
 }
 ```
 
@@ -72,14 +72,14 @@ function add(a) {
 
 ```js
 {
-  let a = 1;
-  {
-    let a = 2;
-    let b = 3;
-    console.log(a); // 2
-  }
-  console.log(a); // 1
-  console.log(b); // ReferenceError b is not defined
+    let a = 1;
+    {
+        let a = 2;
+        let b = 3;
+        console.log(a); // 2
+    }
+    console.log(a); // 1
+    console.log(b); // ReferenceError b is not defined
 }
 ```
 
@@ -89,15 +89,15 @@ ES5 中虽然明确规定函数只能在 `顶层作用域** 和 **函数作用�
 
 ```js
 function add() {
-  console.log('outside');
+    console.log('outside');
 }
 function foo() {
-  if (true) {
-    function add() {
-      console.log('inside');
+    if (true) {
+        function add() {
+            console.log('inside');
+        }
     }
-  }
-  add();
+    add();
 }
 foo();
 ```
@@ -112,15 +112,15 @@ foo();
 
 ```js
 function add() {
-  console.log('outside');
+    console.log('outside');
 }
 function foo() {
-  if (true) {
-    var add = function() {
-      console.log('inside');
-    };
-  }
-  add();
+    if (true) {
+        var add = function () {
+            console.log('inside');
+        };
+    }
+    add();
 }
 foo();
 ```
@@ -129,15 +129,15 @@ foo();
 
 ```js
 function add() {
-  console.log('outside');
+    console.log('outside');
 }
 function foo() {
-  if (true) {
-    let add = function() {
-      console.log('inside');
-    };
-  }
-  add();
+    if (true) {
+        let add = function () {
+            console.log('inside');
+        };
+    }
+    add();
 }
 foo();
 ```
@@ -149,20 +149,20 @@ foo();
 ```js
 var tmp = '123';
 function add() {
-  console.log(tmp);
-  if (true) {
-    var tmp = '456';
-  }
+    console.log(tmp);
+    if (true) {
+        var tmp = '456';
+    }
 }
 add(); // undefined
 console.log(tmp); // 123
 
 var tmp = '123';
 function add() {
-  console.log(tmp);
-  if (true) {
-    let tmp = '456';
-  }
+    console.log(tmp);
+    if (true) {
+        let tmp = '456';
+    }
 }
 add(); // 123
 console.log(tmp); // 123

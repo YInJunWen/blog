@@ -1,4 +1,4 @@
-<!-- Date: 2016-10-17 11:23:18 -->
+<!-- Date: 2016-10-17 11:23 -->
 
 # js 经常变脸的 this
 
@@ -45,10 +45,10 @@ console.log(global.name); // "orange"
 
 ```js
 function add() {
-  console.log(this);
+    console.log(this);
 }
-(function() {
-  console.log(this);
+(function () {
+    console.log(this);
 })();
 ```
 
@@ -62,7 +62,7 @@ function add() {
 
 ```js
 function Egg() {
-  console.log(this);
+    console.log(this);
 }
 let egg = new Egg(); // Egg {}
 ```
@@ -73,17 +73,17 @@ let egg = new Egg(); // Egg {}
 
 ```js
 function Fruit() {
-  this.name = 'orange';
-  this.getName = () => {
-    console.log(this.name); // "orange"
-    return () => {
-      return () => {
+    this.name = 'orange';
+    this.getName = () => {
+        console.log(this.name); // "orange"
         return () => {
-          console.log(this.name); // "orange"
+            return () => {
+                return () => {
+                    console.log(this.name); // "orange"
+                };
+            };
         };
-      };
     };
-  };
 }
 const fruit = new Fruit();
 fruit.getName()()()();
@@ -99,8 +99,8 @@ call 和 apply 在修改 this 指向后会立即执行函数,call 通过传入�
 
 ```js
 function add(arg) {
-  console.log(this.name);
-  console.log(arg);
+    console.log(this.name);
+    console.log(arg);
 }
 const obj = { name: 'pear' };
 let add2 = add.bind(obj);

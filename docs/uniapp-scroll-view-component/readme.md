@@ -1,4 +1,4 @@
-<!-- Date: 2020-08-14 14:47:11 -->
+<!-- Date: 2020-08-14 14:47 -->
 
 # uiapp 中 scroll-view 的下拉刷新事件与页面的下拉刷新事件
 
@@ -9,11 +9,7 @@
 因此你需要决定在页面中启用 scroll-view 组件的下拉刷新事件还是启用页面级的下拉刷新事件，这里只总结 scroll-view 组件的下拉刷新事件使用方法
 
 ```html
-<scroll-view
-    refresher-enabled="true"
-    :refresher-triggered="refreshTrigger"
-    :refresherrefresh="onRefreshEvent"
-></scroll-view>
+<scroll-view refresher-enabled="true" :refresher-triggered="refreshTrigger" :refresherrefresh="onRefreshEvent"></scroll-view>
 <script>
     export default {
         data() {

@@ -1,4 +1,4 @@
-<!-- Date: 2017-04-12 23:17:33 -->
+<!-- Date: 2017-04-12 23:17 -->
 
 # node node-stream
 
@@ -14,18 +14,18 @@ var ReadStream = fs.createReadStream();
 ReadStream.setEncoding('utf-8');
 
 //为读取文件流添加data事件，这个事件在文件中有数据可读取的时候被触发
-readerStream.on('data', function(chunk) {
-  console.log('start read');
+readerStream.on('data', function (chunk) {
+    console.log('start read');
 });
 
 //为读取文件流添加end事件，这个事件在文件中没有数据可读取的时候被触发
-readerStream.on('end', function() {
-  console.log('stop read');
+readerStream.on('end', function () {
+    console.log('stop read');
 });
 
 //为读取文件流添加error事件，当读取文件的过程中出现错误的时候被触发
-readerStream.on('error', function(err) {
-  console.error('error');
+readerStream.on('error', function (err) {
+    console.error('error');
 });
 ```
 
@@ -45,12 +45,12 @@ writeStream.write(data, 'utf-8');
 writeStream.end();
 
 //为写入文件流添加finish事件，这个事件在文件写入完成之后被触发
-writeStream.on('finish', function() {
-  console.log('write finish');
+writeStream.on('finish', function () {
+    console.log('write finish');
 });
 //为写入文件流添加error方法，事件在文件写入出现错误的时候被触发
-writeStream.on('error', function() {
-  console.error('error');
+writeStream.on('error', function () {
+    console.error('error');
 });
 console.log('写入完成');
 ```

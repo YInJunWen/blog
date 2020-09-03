@@ -1,4 +1,4 @@
-<!-- Date: 2017-06-06 21:27:45 -->
+<!-- Date: 2017-06-06 21:27 -->
 
 # algorithm 基础算法之希尔排序
 
@@ -13,37 +13,37 @@
 ```js
 //形参增加步数gap(实际上就相当于gap替换了原来的数字1)
 function directInsertionSort(array, gap) {
-  gap = gap == undefined ? 1 : gap; //默认从下标为1的元素开始遍历
-  var length = array.length,
-    index,
-    current;
-  for (var i = gap; i < length; i++) {
-    index = i - gap; //待比较元素的下标
-    current = array[i]; //当前元素
-    while (index >= 0 && array[index] > current) {
-      //前置条件之一:待比较元素比当前元素大
-      array[index + gap] = array[index]; //将待比较元素后移gap位
-      index -= gap; //游标前移gap位
+    gap = gap == undefined ? 1 : gap; //默认从下标为1的元素开始遍历
+    var length = array.length,
+        index,
+        current;
+    for (var i = gap; i < length; i++) {
+        index = i - gap; //待比较元素的下标
+        current = array[i]; //当前元素
+        while (index >= 0 && array[index] > current) {
+            //前置条件之一:待比较元素比当前元素大
+            array[index + gap] = array[index]; //将待比较元素后移gap位
+            index -= gap; //游标前移gap位
+        }
+        if (index + gap != i) {
+            //避免同一个元素赋值给自身
+            array[index + gap] = current; //将当前元素插入预留空位
+        }
     }
-    if (index + gap != i) {
-      //避免同一个元素赋值给自身
-      array[index + gap] = current; //将当前元素插入预留空位
-    }
-  }
-  return array;
+    return array;
 }
 // 那么希尔排序的算法实现如下:
 function shellSort(array) {
-  var length = array.length,
-    gap = length >> 1,
-    current,
-    i,
-    j;
-  while (gap > 0) {
-    directInsertionSort(array, gap); //按指定步长进行直接插入排序
-    gap = gap >> 1;
-  }
-  return array;
+    var length = array.length,
+        gap = length >> 1,
+        current,
+        i,
+        j;
+    while (gap > 0) {
+        directInsertionSort(array, gap); //按指定步长进行直接插入排序
+        gap = gap >> 1;
+    }
+    return array;
 }
 ```
 

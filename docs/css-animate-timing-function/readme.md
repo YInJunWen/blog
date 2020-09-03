@@ -1,4 +1,4 @@
-<!-- Date: 2018-04-14 01:23:05 -->
+<!-- Date: 2018-04-14 01:23 -->
 
 # css animate-timing-function 属性
 

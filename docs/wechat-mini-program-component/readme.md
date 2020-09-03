@@ -1,4 +1,4 @@
-<!-- Date: 2017-08-11 01:30:52 -->
+<!-- Date: 2017-08-11 01:30 -->
 
 # wechat 微信小程序在组件之间触发事件以及传参
 
@@ -8,11 +8,11 @@
 
 其中 eventName 表示上级组件要监听的方法，data 表示要传递过去的额外的参数，options 表示该事件向上传递的选项
 
-* `eventName`:微信小程序允许自定义监听方法，`bindcustomevent=""`或者`bind:customevent`都可以实现监听功能
+-   `eventName`:微信小程序允许自定义监听方法，`bindcustomevent=""`或者`bind:customevent`都可以实现监听功能
 
-* `data`:组件点击事件，会把本次事件对象传递到监听事件中区，data 中定义的额外数据会被放在 event.detail 属性中
+-   `data`:组件点击事件，会把本次事件对象传递到监听事件中区，data 中定义的额外数据会被放在 event.detail 属性中
 
-* `options`: 定义了本次触发上级监听事件的选项，通常包含三个值
+-   `options`: 定义了本次触发上级监听事件的选项，通常包含三个值
 
 | 值           | 类型    | 是否必填 | 默认值 | 解释                                       |
 | ------------ | ------- | -------- | ------ | ------------------------------------------ |
@@ -32,11 +32,11 @@
 
 ```js
 Component({
-  methods: {
-    buttonTapEvent() {
-      this.triggerEvent("customevent", { name: "zhangsan" });
-    }
-  }
+    methods: {
+        buttonTapEvent() {
+            this.triggerEvent('customevent', { name: 'zhangsan' });
+        },
+    },
 });
 ```
 
@@ -62,16 +62,16 @@ Component({
 
 ```js
 Page({
-  customEvent(data) {
-    console.log(data);
-  }
+    customEvent(data) {
+        console.log(data);
+    },
 });
 ```
 
 `/pages/index/index.wxml`
 
 ```html
-  <card bindcustomevent="customEvent" />
+<card bindcustomevent="customEvent" />
 ```
 
 在上面的案例中，点击 button 的时候，就会触发组件内的 buttonTapEvent 事件，，并且通过 triggerEvent 触发在 index.wxml 绑定的 customevent 事件，最终在 customEvent 事件中输出包含了`{name: 'zhangsan'}`的参数
@@ -110,34 +110,35 @@ Page({
 ```html
 // 页面 page.wxml
 <another-component bindcustomevent="pageEventListener1">
-  <my-component bindcustomevent="pageEventListener2"></my-component>
+    <my-component bindcustomevent="pageEventListener2"></my-component>
 </another-component>
 ```
 
 ```html
 // 组件 another-component.wxml
 <view bindcustomevent="anotherEventListener">
-  <slot />
+    <slot />
 </view>
 ```
 
 ```html
 // 组件 my-component.wxml
-<view bindcustomevent="myEventListener">  // 这里一定要注意，绑定的事件名称 <不需要> 大括号包围
-  <slot />
+<view bindcustomevent="myEventListener">
+    // 这里一定要注意，绑定的事件名称 <不需要> 大括号包围
+    <slot />
 </view>
 ```
 
 ```js
 // 组件 my-component.js
 Component({
-  methods: {
-    onTap: function() {
-      this.triggerEvent("customevent", {}); // 只会触发 pageEventListener2
-      this.triggerEvent("customevent", {}, { bubbles: true }); // 会依次触发 pageEventListener2 、 pageEventListener1
-      this.triggerEvent("customevent", {}, { bubbles: true, composed: true }); // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
-    }
-  }
+    methods: {
+        onTap: function () {
+            this.triggerEvent('customevent', {}); // 只会触发 pageEventListener2
+            this.triggerEvent('customevent', {}, { bubbles: true }); // 会依次触发 pageEventListener2 、 pageEventListener1
+            this.triggerEvent('customevent', {}, { bubbles: true, composed: true }); // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
+        },
+    },
 });
 ```
 

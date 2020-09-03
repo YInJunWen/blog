@@ -1,4 +1,4 @@
-<!-- Date: 2018-08-07 10:25:09 -->
+<!-- Date: 2018-08-07 10:25 -->
 
 # es6 新的对象-Reflect
 
@@ -12,8 +12,8 @@ Reflect 和 Proxy 是一一对应的，Proxy 的拦截器参数有多少属性�
 
 ```js
 let obj = {};
-let re1 = (obj.name = "pear");
-let re2 = Reflect.set(obj, "color", "red");
+let re1 = (obj.name = 'pear');
+let re2 = Reflect.set(obj, 'color', 'red');
 
 console.log(re1, re2); // 'zhangsan', true
 ```
@@ -24,10 +24,10 @@ console.log(re1, re2); // 'zhangsan', true
 
 ```js
 let obj = {};
-let re1 = Object.defineProperty(obj, "name", { value: "pear" });
+let re1 = Object.defineProperty(obj, 'name', { value: 'pear' });
 console.log(re1); // {name: "pear"}
 
-let re2 = Reflect.defineProperty(obj, "color", { value: "red" });
+let re2 = Reflect.defineProperty(obj, 'color', { value: 'red' });
 console.log(re2); // true
 ```
 
@@ -38,19 +38,19 @@ console.log(re2); // true
 有了`Reflect`之后，会让很多操作变得更加易读，以常见的`key in target`表达式为例
 
 ```js
-let obj = { name: "pear" };
-console.log("name" in obj); // true
-console.log(Reflect.has(obj, "name")); // true
+let obj = { name: 'pear' };
+console.log('name' in obj); // true
+console.log(Reflect.has(obj, 'name')); // true
 ```
 
 再比如很经典的`Function.prototype.apply.call(, context, [...arg])`方法，这个方法可以执行一个函数，并且为该函数设置上下文，以及传递参数。有了`Reflect`就简单多了
 
 ```js
 function add(name) {
-  return name + "'s color is " + this.color;
+    return name + "'s color is " + this.color;
 }
-Function.prototype.apply.call(add, { color: "red" }, ["pear"]); // "pear's color is red"
-Reflect.apply(add, { color: "red" }, ["pear"]); // "pear's color is red"
+Function.prototype.apply.call(add, { color: 'red' }, ['pear']); // "pear's color is red"
+Reflect.apply(add, { color: 'red' }, ['pear']); // "pear's color is red"
 ```
 
 > `Function.prototype.apply.call`解读可以参考[解读-Function.prototype.apply.call()](../js-function-apply-call)一文
@@ -87,33 +87,33 @@ Reflect.apply(add, { color: "red" }, ["pear"]); // "pear's color is red"
 
 ```js
 let obj = {
-  color: "red",
-  get name() {
-    return this.color;
-  },
+    color: 'red',
+    get name() {
+        return this.color;
+    },
 };
-let egg = { color: "yellow" };
+let egg = { color: 'yellow' };
 
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    return [receiver === egg, target[key], receiver[key]];
-  },
+    get(target, key, receiver) {
+        return [receiver === egg, target[key], receiver[key]];
+    },
 });
 
-Reflect.get(obj, "name"); // 'red'
+Reflect.get(obj, 'name'); // 'red'
 ```
 
 来看看传入`ceceiver`的情况：
 
 ```js
 let obj = {
-  color: "red",
-  get name() {
-    return this.color;
-  },
+    color: 'red',
+    get name() {
+        return this.color;
+    },
 };
-let egg = { color: "yellow" };
-Reflect.get(obj, "name", egg); // 'yellow'
+let egg = { color: 'yellow' };
+Reflect.get(obj, 'name', egg); // 'yellow'
 ```
 
 案例中，当传入了`receiver`参数后，`getter`中的 this 就指向了`egg`，所以获取到的是`egg.color`
@@ -122,20 +122,20 @@ Reflect.get(obj, "name", egg); // 'yellow'
 
 ```js
 let obj = {
-  color: "red",
-  get name() {
-    return this.color;
-  },
+    color: 'red',
+    get name() {
+        return this.color;
+    },
 };
-let egg = { color: "yellow" };
+let egg = { color: 'yellow' };
 
 let proxy = new Proxy(obj, {
-  get(target, key, receiver) {
-    return [receiver == proxy, receiver === egg, target[key]];
-  },
+    get(target, key, receiver) {
+        return [receiver == proxy, receiver === egg, target[key]];
+    },
 });
-Reflect.get(proxy, "name"); // [true, false, 'red']
-Reflect.get(proxy, "name", egg); // [false, true, 'yellow']
+Reflect.get(proxy, 'name'); // [true, false, 'red']
+Reflect.get(proxy, 'name', egg); // [false, true, 'yellow']
 ```
 
 如果`
@@ -154,12 +154,12 @@ Reflect.get(proxy, "name", egg); // [false, true, 'yellow']
 
 ```js
 let obj = {
-  set name(value) {
-    this.color = value;
-  },
+    set name(value) {
+        this.color = value;
+    },
 };
 let egg = {};
-Reflect.set(obj, "name", "red"); // 整个语句返回 true
+Reflect.set(obj, 'name', 'red'); // 整个语句返回 true
 
 console.log(obj); // {color: 'red'}
 ```
@@ -168,16 +168,16 @@ console.log(obj); // {color: 'red'}
 
 ```js
 let obj = {
-  set name(value) {
-    this.color = value;
-  },
+    set name(value) {
+        this.color = value;
+    },
 };
 let egg = {};
-Reflect.set(obj, "name", "red", egg); // // 整个语句返回 true
+Reflect.set(obj, 'name', 'red', egg); // // 整个语句返回 true
 
 console.log(
-  obj, // {}
-  egg, // {color: 'red'}
+    obj, // {}
+    egg // {color: 'red'}
 );
 ```
 
@@ -187,28 +187,28 @@ console.log(
 
 ```js
 let obj = {
-  set name(value) {
-    this.color = value;
-  },
+    set name(value) {
+        this.color = value;
+    },
 };
 let egg = {};
 let proxy = new Proxy(obj, {
-  set(target, key, value, receiver) {
-    return Reflect.set(target, key, value, receiver);
-  },
+    set(target, key, value, receiver) {
+        return Reflect.set(target, key, value, receiver);
+    },
 });
 
-Reflect.set(proxy, "name", "red"); // 语句整体返回true
+Reflect.set(proxy, 'name', 'red'); // 语句整体返回true
 console.log(
-  obj, // {color: 'red'}
-  egg, // {}
+    obj, // {color: 'red'}
+    egg // {}
 );
 
-Reflect.set(proxy, "name", "yellow", egg); // 语句整体返回true
+Reflect.set(proxy, 'name', 'yellow', egg); // 语句整体返回true
 
 console.log(
-  obj, // {color: 'red'}
-  egg, // {color: 'yellow'}
+    obj, // {color: 'red'}
+    egg // {color: 'yellow'}
 );
 ```
 
@@ -217,7 +217,7 @@ console.log(
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.set(null, "name", "yellow");
+Reflect.set(null, 'name', 'yellow');
 // Uncaught TypeError: Reflect.set called on non-object
 ```
 
@@ -236,21 +236,21 @@ Reflect.set(null, "name", "yellow");
 
 ```js
 let obj = Object.create(
-  { color: "red" },
-  {
-    name: {
-      value: "pear",
-    },
-  },
+    { color: 'red' },
+    {
+        name: {
+            value: 'pear',
+        },
+    }
 );
 
 console.log(
-  "name" in obj, // true
-  "color" in obj, // true
+    'name' in obj, // true
+    'color' in obj // true
 );
 console.log(
-  Reflect.has(obj, "name"), // true
-  Reflect.has(obj, "color"), // true
+    Reflect.has(obj, 'name'), // true
+    Reflect.has(obj, 'color') // true
 );
 ```
 
@@ -258,29 +258,29 @@ console.log(
 
 ```js
 let obj = Object.create(
-  { color: "red" },
-  {
-    name: {
-      value: "pear",
-    },
-  },
+    { color: 'red' },
+    {
+        name: {
+            value: 'pear',
+        },
+    }
 );
 
 let proxy = new Proxy(obj, {
-  has(target, key) {
-    return Reflect.has(target, key);
-  },
+    has(target, key) {
+        return Reflect.has(target, key);
+    },
 });
 console.log(
-  Reflect.has(proxy, "name"), // true
-  Reflect.has(proxy, "color"), // true
+    Reflect.has(proxy, 'name'), // true
+    Reflect.has(proxy, 'color') // true
 );
 ```
 
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.has(null, "name");
+Reflect.has(null, 'name');
 // Uncaught TypeError: Reflect.has called on non-object
 ```
 
@@ -298,8 +298,8 @@ Reflect.has(null, "name");
 
 ```js
 let obj = {};
-Reflect.defineProperty(obj, "name", {
-  value: "pear",
+Reflect.defineProperty(obj, 'name', {
+    value: 'pear',
 });
 console.log(obj); // {name: 'pear'}
 ```
@@ -309,12 +309,12 @@ console.log(obj); // {name: 'pear'}
 ```js
 let obj = {};
 let proxy = new Proxy(obj, {
-  defineProperty(target, key, descriptor) {
-    return Reflect.defineProperty(target, key, descriptor);
-  },
+    defineProperty(target, key, descriptor) {
+        return Reflect.defineProperty(target, key, descriptor);
+    },
 });
-Reflect.defineProperty(proxy, "name", {
-  value: "pear",
+Reflect.defineProperty(proxy, 'name', {
+    value: 'pear',
 });
 
 console.log(obj); // {name: 'pear'}
@@ -323,8 +323,8 @@ console.log(obj); // {name: 'pear'}
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.defineProperty(null, "name", {
-  value: "pear",
+Reflect.defineProperty(null, 'name', {
+    value: 'pear',
 });
 // Uncaught TypeError: Reflect.defineProperty called on non-object
 ```
@@ -342,13 +342,13 @@ Reflect.defineProperty(null, "name", {
 
 ```js
 let obj = {
-  name: "pear",
-  color: "red",
+    name: 'pear',
+    color: 'red',
 };
 console.log(
-  delete obj.name, // true
-  Reflect.deleteProperty(obj, "color"), // true
-  obj, // {}
+    delete obj.name, // true
+    Reflect.deleteProperty(obj, 'color'), // true
+    obj // {}
 );
 ```
 
@@ -356,24 +356,24 @@ console.log(
 
 ```js
 let obj = {
-  name: "pear",
-  color: "red",
+    name: 'pear',
+    color: 'red',
 };
 let proxy = new Proxy(obj, {
-  deleteProperty(target, key) {
-    return Reflect.deleteProperty(target, key);
-  },
+    deleteProperty(target, key) {
+        return Reflect.deleteProperty(target, key);
+    },
 });
 
-Reflect.deleteProperty(proxy, "name"); // true
-Reflect.deleteProperty(proxy, "color"); // true
+Reflect.deleteProperty(proxy, 'name'); // true
+Reflect.deleteProperty(proxy, 'color'); // true
 console.log(obj); // {}
 ```
 
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.deleteProperty(null, "name");
+Reflect.deleteProperty(null, 'name');
 // Uncaught TypeError: Reflect.deleteProperty called on non-object
 ```
 
@@ -389,24 +389,24 @@ Reflect.deleteProperty(null, "name");
 该方法与`Reflect.setPrototypeOf(target, prototype)`用法相同，只是该方法返回一个布尔值，告诉开发人员是否设置成功。作用是给目标设置原型链对象
 
 ```js
-let obj = { name: "pear" };
-let egg = { color: "yellow" };
+let obj = { name: 'pear' };
+let egg = { color: 'yellow' };
 let foo = { height: 180 };
 
 let re1 = Object.setPrototypeOf(obj, egg);
 
 console.log(
-  re1, // {name: 'pear', color: 'yellow'};
-  obj.name, // pear
-  obj.color, //,yellow
+    re1, // {name: 'pear', color: 'yellow'};
+    obj.name, // pear
+    obj.color //,yellow
 );
 
 let re2 = Reflect.setPrototypeOf(obj, foo);
 
 console.log(
-  re1, // true
-  obj.name, // pear
-  obj.height, //180
+    re1, // true
+    obj.name, // pear
+    obj.height //180
 );
 ```
 
@@ -415,19 +415,19 @@ console.log(
 再来看一下与`Proxy`的结合
 
 ```js
-let obj = { name: "pear" };
-let egg = { color: "yellow" };
+let obj = { name: 'pear' };
+let egg = { color: 'yellow' };
 
 let proxy = new Proxy(obj, {
-  setPrototypeOf(target, prototype) {
-    return Reflect.setPrototypeOf(target, prototype);
-  },
+    setPrototypeOf(target, prototype) {
+        return Reflect.setPrototypeOf(target, prototype);
+    },
 });
 
 let re1 = Reflect.setPrototypeOf(proxy, egg);
 console.log(
-  re1, // true
-  proxy.color, // 'yellow'
+    re1, // true
+    proxy.color // 'yellow'
 );
 ```
 
@@ -456,30 +456,30 @@ Reflect.setPrototypeOf({}, 1);
 该方法作用与`Reflect.getPrototypeOf(target)`相同，目的是为了获取目标的原型链对象
 
 ```js
-let obj = { name: "pear" };
+let obj = { name: 'pear' };
 let foo = Object.create(obj);
 
 console.log(
-  Object.getPrototypeOf(foo), // {name: "pear"}
-  Reflect.getPrototypeOf(foo), // {name: "pear"}
+    Object.getPrototypeOf(foo), // {name: "pear"}
+    Reflect.getPrototypeOf(foo) // {name: "pear"}
 );
 ```
 
 再来看一下与`Proxy`的结合
 
 ```js
-let obj = { name: "pear" };
+let obj = { name: 'pear' };
 let foo = Object.create(obj);
 
 let proxy = new Proxy(foo, {
-  getPrototypeOf(target) {
-    return Reflect.getPrototypeOf(target);
-  },
+    getPrototypeOf(target) {
+        return Reflect.getPrototypeOf(target);
+    },
 });
 let re1 = Reflect.getPrototypeOf(proxy);
 console.log(
-  re1, // {name: "pear"}
-  re1 === obj, // true
+    re1, // {name: "pear"}
+    re1 === obj // true
 );
 ```
 
@@ -503,21 +503,21 @@ Reflect.getPrototypeOf(null);
 
 ```js
 let obj = {
-  [Symbol("egg")]: "egg",
+    [Symbol('egg')]: 'egg',
 };
 Object.defineProperties(obj, {
-  name: {
-    value: "pear",
-  },
-  color: {
-    value: "yellow",
-    enumerable: true,
-  },
+    name: {
+        value: 'pear',
+    },
+    color: {
+        value: 'yellow',
+        enumerable: true,
+    },
 });
 
 console.log(
-  Object.keys(obj), // ["color"
-  Reflect.ownKeys(obj), // ["name", "color", Symbol(egg)]
+    Object.keys(obj), // ["color"
+    Reflect.ownKeys(obj) // ["name", "color", Symbol(egg)]
 );
 ```
 
@@ -541,19 +541,19 @@ Reflect.ownKeys(null);
 
 ```js
 let obj = {
-  name: "pear",
+    name: 'pear',
 };
 
 console.log(
-  Object.getOwnPropertyDescriptor(obj, "name"), // {value: "pear", writable: true, enumerable: true, configurable: true}
-  Reflect.getOwnPropertyDescriptor(obj, "name"), //{value: "pear", writable: true, enumerable: true, configurable: true}
+    Object.getOwnPropertyDescriptor(obj, 'name'), // {value: "pear", writable: true, enumerable: true, configurable: true}
+    Reflect.getOwnPropertyDescriptor(obj, 'name') //{value: "pear", writable: true, enumerable: true, configurable: true}
 );
 ```
 
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.getOwnPropertyDescriptor(null, "name");
+Reflect.getOwnPropertyDescriptor(null, 'name');
 // Uncaught TypeError: Reflect.getOwnPropertyDescriptor called on non-object
 ```
 
@@ -568,18 +568,18 @@ Reflect.getOwnPropertyDescriptor(null, "name");
 该方法与`Object.preventExtensions(target)`用法相同，目的都是为了使目标对象不可扩展，但是该方法返回的是一个布尔值，表示操作结果是否成功
 
 ```js
-let obj = { name: "pear" };
-let egg = { color: "yellow" };
+let obj = { name: 'pear' };
+let egg = { color: 'yellow' };
 console.log(
-  Object.preventExtensions(obj), // { name: "pear" }
-  Reflect.preventExtensions(obj), // true
+    Object.preventExtensions(obj), // { name: "pear" }
+    Reflect.preventExtensions(obj) // true
 );
 ```
 
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.preventExtensions(null, "name");
+Reflect.preventExtensions(null, 'name');
 // Uncaught TypeError: Reflect.preventExtensions called on non-object
 ```
 
@@ -594,25 +594,25 @@ Reflect.preventExtensions(null, "name");
 该方法与`Object.isExtensible(target)`用法相同，目的都是为了获取目标对象是否可扩展，返回的都是一个布尔值
 
 ```js
-let obj = { name: "pear" };
+let obj = { name: 'pear' };
 
 console.log(
-  Object.isExtensible(obj), // true
-  Reflect.isExtensible(obj), // true
+    Object.isExtensible(obj), // true
+    Reflect.isExtensible(obj) // true
 );
 
 Reflect.preventExtensions(obj);
 
 console.log(
-  Object.isExtensible(obj), // false
-  Reflect.isExtensible(obj), // false
+    Object.isExtensible(obj), // false
+    Reflect.isExtensible(obj) // false
 );
 ```
 
 如果`target`不是一个对象，会抛出错误
 
 ```js
-Reflect.isExtensible(null, "name");
+Reflect.isExtensible(null, 'name');
 // Uncaught TypeError: Reflect.isExtensible called on non-object
 ```
 
@@ -632,16 +632,16 @@ Reflect.isExtensible(null, "name");
 
 ```js
 function add(name) {
-  return name + "'s color is " + this.color;
+    return name + "'s color is " + this.color;
 }
-Function.prototype.apply.call(add, { color: "red" }, ["pear"]); // "pear's color is red"
-Reflect.apply(add, { color: "red" }, ["pear"]); // "pear's color is red"
+Function.prototype.apply.call(add, { color: 'red' }, ['pear']); // "pear's color is red"
+Reflect.apply(add, { color: 'red' }, ['pear']); // "pear's color is red"
 ```
 
 如果`target`不是可以执行的函数，会抛出错误
 
 ```js
-Reflect.apply(null, { color: "red" }, ["pear"]);
+Reflect.apply(null, { color: 'red' }, ['pear']);
 // Uncaught TypeError: Function.prototype.apply was called on null, which is a object and not a function
 ```
 
@@ -659,13 +659,13 @@ Reflect.apply(null, { color: "red" }, ["pear"]);
 
 ```js
 function Egg(name) {
-  this.name = name;
+    this.name = name;
 }
-let re1 = new Egg("pear");
-let re2 = Reflect.construct(Egg, ["orange"]);
+let re1 = new Egg('pear');
+let re2 = Reflect.construct(Egg, ['orange']);
 console.log(
-  re1, // Egg {name: "pear"}
-  re2, // Egg {name: "orange"}
+    re1, // Egg {name: "pear"}
+    re2 // Egg {name: "orange"}
 );
 ```
 
@@ -673,22 +673,22 @@ console.log(
 
 ```js
 class Egg {
-  constructor(name) {
-    this.name = name;
-  }
+    constructor(name) {
+        this.name = name;
+    }
 }
-let re1 = new Egg("pear");
-let re2 = Reflect.construct(Egg, ["orange"]);
+let re1 = new Egg('pear');
+let re2 = Reflect.construct(Egg, ['orange']);
 console.log(
-  re1, // Egg {name: "pear"}
-  re2, // Egg {name: "orange"}
+    re1, // Egg {name: "pear"}
+    re2 // Egg {name: "orange"}
 );
 ```
 
 如果`target`不是一个构造函数，会抛出错误
 
 ```js
-let re1 = Reflect.construct(null, ["orange"]);
+let re1 = Reflect.construct(null, ['orange']);
 // Uncaught TypeError: null is not a constructor
 ```
 

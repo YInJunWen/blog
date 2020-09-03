@@ -1,4 +1,4 @@
-<!-- Date: 2017-12-04 07:24:57 -->
+<!-- Date: 2017-12-04 07:24 -->
 
 # optimize 前端优化方案
 
@@ -9,15 +9,15 @@
 浏览器在输入某个域名后，正常情况话会去 DNS 服务器查询域名对应的真实 IP 地址，一次典型的 DNS 解析需要 20~120ms 左右的时间，除了要尽可能减少 DNS 解析之外，我们可以通过预查询的方式提前进行 DNS 解析，开启方法只需要在`<head>`标签内加入下面代码即可
 
 ```html
-<meta http-equiv="x-dns-prefetch-control" content="on">
-<link ref="dns-prefetch" href="//a.test.cn">
-<link ref="dns-prefetch" href="//b.test.cn">
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link ref="dns-prefetch" href="//a.test.cn" />
+<link ref="dns-prefetch" href="//b.test.cn" />
 ```
 
 实际上现在大多数浏览器，已经做到了隐式、智能的 DNS 预解析。关闭隐式 dns 预解析的方法如下：
 
 ```html
-<meta http-equiv="x-dns-prefetch-control" content="off">
+<meta http-equiv="x-dns-prefetch-control" content="off" />
 ```
 
 虽然使用预解析可以提高前端性能(减少用户的等待时间)但也不能滥用，有技术人员指出，禁用掉 DNS 预解析，每个月可以减少 100 亿次的 DNS 查询。
@@ -92,12 +92,12 @@ var worker = new Worker('./main.js');
 worker.postMessage([1, 2]);
 
 // 监听worker的回传事件
-worker.onmessage = function(message) {
-  // 回传的数据也保存在 message.data中
-  console.log(message.data);
+worker.onmessage = function (message) {
+    // 回传的数据也保存在 message.data中
+    console.log(message.data);
 
-  // 如果需要可以使用 terminate 方法，关闭worker线程
-  worker.terminate();
+    // 如果需要可以使用 terminate 方法，关闭worker线程
+    worker.terminate();
 };
 ```
 
@@ -105,17 +105,17 @@ worker.onmessage = function(message) {
 
 ```js
 // 监听主线程发送过来的数据
-onmessage = function(message) {
-  // 传递过来的数据存放在message.data内
-  let result = message.data.reduce((a, b) => {
-    return a + b;
-  }, 0);
+onmessage = function (message) {
+    // 传递过来的数据存放在message.data内
+    let result = message.data.reduce((a, b) => {
+        return a + b;
+    }, 0);
 
-  // 回传计算后的数据给主线程
-  postMessage(result);
+    // 回传计算后的数据给主线程
+    postMessage(result);
 
-  // 如果需要，可以直接使用 close 方法，关掉worker线程
-  close();
+    // 如果需要，可以直接使用 close 方法，关掉worker线程
+    close();
 };
 ```
 

@@ -1,4 +1,4 @@
-<!-- Date: 2017-09-19 04:58:25 -->
+<!-- Date: 2017-09-19 04:58 -->
 
 # webpack3 优化方法
 
@@ -12,21 +12,21 @@ webpack --optimize-minimize 选项会开启 UglifyJsPlugin 来压缩输出的 js
 
 ```js
 new webpack.optimize.UglifyJsPlugin({
-  // 最紧凑的输出
-  beautify: false,
-  // 删除所有的注释
-  comments: false,
-  compress: {
-    // 在UglifyJs删除没有用到的代码时不输出警告
-    warnings: false,
-    // 删除所有的 `console` 语句
-    // 还可以兼容ie浏览器
-    drop_console: true,
-    // 内嵌定义了但是只用到一次的变量
-    collapse_vars: true,
-    // 提取出出现多次但是没有定义成变量去引用的静态值
-    reduce_vars: true,
-  },
+    // 最紧凑的输出
+    beautify: false,
+    // 删除所有的注释
+    comments: false,
+    compress: {
+        // 在UglifyJs删除没有用到的代码时不输出警告
+        warnings: false,
+        // 删除所有的 `console` 语句
+        // 还可以兼容ie浏览器
+        drop_console: true,
+        // 内嵌定义了但是只用到一次的变量
+        collapse_vars: true,
+        // 提取出出现多次但是没有定义成变量去引用的静态值
+        reduce_vars: true,
+    },
 });
 ```
 
@@ -34,27 +34,27 @@ new webpack.optimize.UglifyJsPlugin({
 
 把样式打包到单独的 bundle 中，与应用程序分离，加强了样式的可缓存性，并且浏览器能够并行加载应用程序代码中的样式文件，避免无样式内容造成的闪烁问题(FOUC - flash of unstyled content)。用法如下(更详细的看[ExtracTextPlugin 插件解读]('./ExtracTextPlugin插件解读')):
 
-* 安装包
+-   安装包
 
 ```js
 npm i --save-dev extract-text-webpack-plugin@beta
 ```
 
-* 引入和使用
+-   引入和使用
 
 ```js
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /.\.css$/,
-        use: ExtractTextPlugin.extract('css-loader'),
-      },
-    ],
-  },
-  plugins: [new ExtractTextPlugin('styles.css')],
+    module: {
+        rules: [
+            {
+                test: /.\.css$/,
+                use: ExtractTextPlugin.extract('css-loader'),
+            },
+        ],
+    },
+    plugins: [new ExtractTextPlugin('styles.css')],
 };
 ```
 
@@ -91,9 +91,9 @@ resolve.modules 配置模块库（通常是指 node_modules）所在的位置，
 
 ```js
 module.exports = {
-  resolve: {
-    modules: [path.resolve(__dirname, 'node_modules')],
-  },
+    resolve: {
+        modules: [path.resolve(__dirname, 'node_modules')],
+    },
 };
 ```
 
@@ -103,13 +103,13 @@ module.exports = {
 
 ```js
 module.exports = {
-  resolve: {
-    alias: {
-      moment: 'moment/min/moment.min.js',
-      react: 'react/dist/react.js',
-      'react-dom': 'react-dom/dist/react-dom.js',
+    resolve: {
+        alias: {
+            moment: 'moment/min/moment.min.js',
+            react: 'react/dist/react.js',
+            'react-dom': 'react-dom/dist/react-dom.js',
+        },
     },
-  },
 };
 ```
 
@@ -117,8 +117,8 @@ module.exports = {
 
 ## 缩小 loader 搜索范围
 
-* loader 的 test 正则表达式也应该尽可能的简单，比如在你的项目里只有 .js 文件时就不要把 test 写成 /\.jsx?$/
-* 使用 include 指定需要 loader 处理的文件范围，比如下面的配置就指定只编译 src 中的匹配文件
+-   loader 的 test 正则表达式也应该尽可能的简单，比如在你的项目里只有 .js 文件时就不要把 test 写成 /\.jsx?\$/
+-   使用 include 指定需要 loader 处理的文件范围，比如下面的配置就指定只编译 src 中的匹配文件
 
 ```js
 loader: {
@@ -134,10 +134,10 @@ babel 编译过程很耗时，好在 babel-loader 提供缓存编译结果选项
 
 ```js
 loaders: [
-  {
-    test: /\.js$/,
-    loader: 'babel-loader?cacheDirectory',
-  },
+    {
+        test: /\.js$/,
+        loader: 'babel-loader?cacheDirectory',
+    },
 ];
 ```
 
@@ -149,8 +149,8 @@ loaders: [
 
 ```js
 module.exports = {
-  module: {
-    noParse: /node_modules\/(jquey|moment|chart\.js)/,
-  },
+    module: {
+        noParse: /node_modules\/(jquey|moment|chart\.js)/,
+    },
 };
 ```
