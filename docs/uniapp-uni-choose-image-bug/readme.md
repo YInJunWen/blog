@@ -40,6 +40,10 @@ uni.chooseImage({
             },
         });
     },
+    fail: (err) => {
+        // 记得这里也要做同样的处理
+        getApp().globalData.noCheckTk = false;
+    },
 });
 ```
 
@@ -49,11 +53,41 @@ uni.chooseImage({
 export default {
     onShow() {
         console.log('App Show');
-        if (!this.$scope.globalData.noCheckToken) {
+        if (this.$scope.globalData.noCheckToken == undefiend || this.$scope.globalData.noCheckToken == false) {
+            // 这的作用是在onShow被触发时，检测storage中是否有token，如果没有会跳转到登录页
             const token = uni.getStorageSync('tk');
             if (token) {
-                uni.switchTab({
-                    url: '/pages/index/index',
+                uni.reLaunch({
+                    url: '/pages/index/login',
+                });
+            }
+        }
+    },
+};
+```
+
+> 9 月 17 日再次测试发现，只有 android 平台上会导致这个 bug，所以在解决问题的时候，需要添加一个条件:判断当前平台是否为 `android`
+
+`App.vue`
+
+```js
+export default {
+    onShow() {
+        console.log('App Show');
+        if ((uni.getSystemInfoSync().platform == 'android' && this.$scope.globalData.noCheckToken == undefiend) || this.$scope.globalData.noCheckToken == false) {
+            // 这的作用是在onShow被触发时，检测storage中是否有token，如果没有会跳转到登录页
+            const token = uni.getStorageSync('tk');
+            if (token) {
+                uni.reLaunch({
+                    url: '/pages/index/login',
+                });
+            }
+        } else {
+            // 如果不是安卓，不会有那个bug，所以不需要那个条件，直接判断token即可
+            const token = uni.getStorageSync('tk');
+            if (token) {
+                uni.reLaunch({
+                    url: '/pages/index/login',
                 });
             }
         }
