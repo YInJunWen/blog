@@ -2,6 +2,7 @@
 
 |标题|日期|详情|
 |---|---|---|
+|uniapp 项目 build 后访问不到图片的问题|2020-09-22 11:15|[详情](./docs/uniapp-use-image-in-component)|
 |element-ui2 中改变 tree 组件的展示逻辑的两个方案|2020-09-21 09:32|[详情](./docs/element2-ui-change-tree-state)|
 |vue_cli 构建的项目中如何去掉 console 日志|2020-09-09 14:13|[详情](./docs/vue-cli-project-drop-console)|
 |html2pdf 插件中遇到的跨域问题(不同源的图片绘制不出来)|2020-08-25 16:45|[详情](./docs/html2pdf)|
@@ -162,7 +163,6 @@
 |es5 构造函数基础|2016-12-28 04:54|[详情](./docs/es5-construct-function-base)|
 |css 清除内联元素之间的间隙|2016-12-19 01:55|[详情](./docs/css-clean-inline-block-element-space)|
 |css 资源大全|2016-12-01 07:39|[详情](./docs/css-resources)|
-|uniapp 项目 build 后访问不到图片的问题|2016-12-01 07:39|[详情](./docs/uniapp-use-image-in-component)|
 |css 如何实现一个元素在父元素中上下左右居中|2016-11-28 23:57|[详情](./docs/css-align-center-all)|
 |js 计算随机字符串|2016-11-28 09:03|[详情](./docs/js-random-string)|
 |css 中的 display-flex|2016-11-03 16:46|[详情](./docs/css-display-flex)|
