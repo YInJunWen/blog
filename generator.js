@@ -32,7 +32,7 @@ let files = allFiles.filter((item) => {
 });
 
 let errorFile = [];
-ws.write(`# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|日期|详情|${os.EOL}|---|---|---|${os.EOL}`, () => {
+ws.write(`# 目录 (一共 ${files.length} 篇文章)${os.EOL}${os.EOL}|标题|日期|${os.EOL}|---|---|${os.EOL}`, () => {
     generator(files);
 });
 
@@ -47,7 +47,8 @@ function generator(fileList, index = 0) {
         let wsData = ``;
         articleList.forEach((item) => {
             console.log(item.createTime);
-            wsData += `|${item.title}|${item.createTime}|[详情](${item.path})|${os.EOL}`;
+            // ``
+            wsData += `|<a style="color: black" href="${item.path}">${item.title}</a>|${item.createTime}|${os.EOL}`;
         });
         console.log(wsData);
 
