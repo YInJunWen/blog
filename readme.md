@@ -1,4 +1,4 @@
-# 目录 (一共 216 篇文章)
+# 目录 (一共 217 篇文章)
 
 |标题|日期|
 |---|---|
@@ -6,6 +6,7 @@
 |<a style="color: black" href="./docs/ci4-insert-id-function-error">CI4 中自动获取插入数值的自增 ID 值报错问题</a>|2020-09-23 14:25|
 |<a style="color: black" href="./docs/element2-ui-dialog-destory-on-close">element-ui2 中 dialog 组件 的 destroy-on-close 无效问题</a>|2020-09-22 11:27|
 |<a style="color: black" href="./docs/uniapp-use-image-in-component">uniapp 项目 build 后访问不到图片的问题</a>|2020-09-22 11:15|
+|<a style="color: black" href="./docs/uniapp-use-mock">如何在 UniApp 中使用 Mock 数据</a>|2020-09-22 11:15|
 |<a style="color: black" href="./docs/element2-ui-change-tree-state">element-ui2 中改变 tree 组件的展示逻辑的两个方案</a>|2020-09-21 09:32|
 |<a style="color: black" href="./docs/vue-cli-project-drop-console">vue_cli 构建的项目中如何去掉 console 日志</a>|2020-09-09 14:13|
 |<a style="color: black" href="./docs/html2pdf">html2pdf 插件中遇到的跨域问题(不同源的图片绘制不出来)</a>|2020-08-25 16:45|
