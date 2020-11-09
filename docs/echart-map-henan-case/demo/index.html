@@ -1,0 +1,176 @@
+<style>
+    #map {
+        width: 60%;
+        height: 60vh;
+        margin: 0 auto;
+    }
+</style>
+<div id="map"></div>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/echarts/dist/echarts.min.js"></script>
+<script>
+    // const map
+    const option = {
+        geo: [
+            {
+                type: 'map',
+                id: 'hn',
+                map: 'hn',
+                background: 'red',
+                zoom: 1.2,
+                itemStyle: { normal: { borderColor: 'rgba(255,255,255,1)', borderWidth: 0.5, areaColor: '#3e7ee9', shadowColor: 'rgba(0,0,0,1)' } },
+                emphasis: { itemStyle: { areaColor: '#f2d039' } },
+                label: { normal: { show: true, textStyle: { color: '#fff' } }, emphasis: { show: true, textStyle: { color: '#fff' } } },
+            },
+        ],
+        series: [
+            {
+                type: 'lines',
+                zlevel: 10,
+                lineStyle: { color: '#3fdd0f', width: 1, curveness: 0.3 },
+                emphasis: { lineStyle: { color: '#3fdd0f', width: 3, curveness: 0.3, shadowColor: '#3fdd0f', shadowBlur: 4 } },
+                effect: { show: true, symbol: 'circle', symbolSize: 4, color: 'rgba(255,255,255,0.6)', loop: true },
+                data: [
+                    {
+                        coords: [
+                            [114.889063, 32.080414],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [110.780975, 34.361947],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [112.288601, 33.044799],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [114.883032, 33.722049],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [115.702101, 34.289271],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [113.930763, 36.157292],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [113.016538, 33.795822],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [114.541327, 34.604665],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [114.095128, 35.2642],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [112.03841, 34.293232],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [112.3987, 35.099112],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [113.905981, 33.654451],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [115.187268, 35.709316],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [113.13816, 35.112386],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [113.715649, 34.07146],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [114.15633, 32.922684],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                    {
+                        coords: [
+                            [114.315138, 35.723414],
+                            [113.4789, 34.624972],
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'effectScatter',
+                effectType: 'ripple',
+                showEffectOn: 'render',
+                coordinateSystem: 'geo',
+                label: { normal: {} },
+                itemStyle: { color: '#3fdd0f' },
+                rippleEffect: { period: 2, scale: 3, brushType: 'stroke' },
+                data: [
+                    [114.889063, 32.080414],
+                    [110.780975, 34.361947],
+                    [112.288601, 33.044799],
+                    [114.883032, 33.722049],
+                    [115.702101, 34.289271],
+                    [113.930763, 36.157292],
+                    [113.016538, 33.795822],
+                    [114.541327, 34.604665],
+                    [114.095128, 35.2642],
+                    [112.03841, 34.293232],
+                    [112.3987, 35.099112],
+                    [113.905981, 33.654451],
+                    [115.187268, 35.709316],
+                    [113.13816, 35.112386],
+                    [113.715649, 34.07146],
+                    [114.15633, 32.922684],
+                    [114.315138, 35.723414],
+                ],
+                symbol: 'circle',
+            },
+        ],
+    };
+    $(function () {
+        const map = echarts.init(document.querySelector('#map'));
+        $.get('./henan.json', function (res) {
+            echarts.registerMap('hn', res);
+            map.setOption(option);
+        });
+    });
+</script>
