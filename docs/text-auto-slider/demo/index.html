@@ -1,0 +1,66 @@
+<div class="text_slider">
+    <div class="container">
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+        <span>文字1</span>
+    </div>
+</div>
+<style>
+    .text_slider {
+        width: 50%;
+        height: 100px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: antiquewhite;
+        position: relative;
+    }
+    .container {
+        white-space: nowrap;
+        position: absolute;
+        left: 0;
+        top: 40px;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    span {
+        background-color: azure;
+        padding-right: 50px;
+        display: inline-block;
+        border-right: 1px solid red;
+    }
+</style>
+<script>
+    window.onload = function () {
+        // 获取每一个span元素的宽度，将作为动画的最终位置
+        const firstElementWidth = document.querySelector('span').offsetWidth;
+        const containerEle = document.querySelector('.container');
+        animate();
+
+        function animate() {
+            containerEle.addEventListener(
+                'transitionend',
+                function () {
+                    console.log('end');
+                    containerEle.style.transition = 'none';
+                    containerEle.style.left = '0px';
+                    console.log(containerEle.offsetWidth); // 这句话很重要,千万不能没有
+                    animate();
+                },
+                {
+                    once: true,
+                }
+            );
+            containerEle.style.transition = 'all 5s linear';
+            containerEle.style.left = -firstElementWidth + 'px';
+        }
+    };
+</script>

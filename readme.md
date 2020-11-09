@@ -1,7 +1,8 @@
-# 目录 (一共 218 篇文章)
+# 目录 (一共 219 篇文章)
 
 |标题|日期|
 |---|---|
+|<a style="color: black" href="./docs/text-auto-slider">文字重复滚动效果</a>|2020-11-09 15:05|
 |<a style="color: black" href="./docs/case-vue-big-screen-1">vue 实例：运维大屏</a>|2020-11-09 10:44|
 |<a style="color: black" href="./docs/ajax-php-does-not-have-http-status">ajax 提交 POST 数据时，返回`it dose not have http status`错误</a>|2020-09-23 15:20|
 |<a style="color: black" href="./docs/ci4-insert-id-function-error">CI4 中自动获取插入数值的自增 ID 值报错问题</a>|2020-09-23 14:25|
